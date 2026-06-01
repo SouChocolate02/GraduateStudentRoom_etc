@@ -6,7 +6,7 @@
 
 
 
-- Lecture<br>
+# Lecture<br>
 講義ノート・課題など<br>
 Key word: 講義ノート，課題<br>
 [lecture](https://github.com/SouChocolate02/GraduateStudentRoom_etc/tree/main/Lecture)
