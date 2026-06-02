@@ -1,0 +1,449 @@
+# VSCodeのLaTeXに入ってるpreambleに入ってるusepackageの紹介
+
+# 基礎的なLaTeXパッケージ
+
+
+## TikZ関連
+\usepackage{tikz} % TikZで図を入れる用パッケージ
+[CTAN: tikz](https://ctan.org/pkg/tikz-page)
+\usetikzlibrary{arrows, arrows.meta} % TikZで出力する矢印の色々
+\usetikzlibrary{calc} % TikZを用いた計算
+\usetikzlibrary{positioning} % TikZのlibrary(1)
+\usetikzlibrary{intersections} % TikZのlibrary(2)
+\usetikzlibrary{math} % TikZのlibrary(3)
+
+# 数学系パッケージ
+\usepackage{amsmath, ascmac, latexsym, mathtools} %とりあえず入れとくパッケージ
+% フォント関係
+\usepackage{bm} % 小文字ベクトルのためのパッケージ
+\usepackage{amssymb} % 集合の太文字パッケージ
+\usepackage{mathrsfs} % 花文字を書くパッケージ
+\usepackage{amsfonts}
+
+## 数学系TikZ拡張パッケージ
+\usepackage[thicklines]{cancel} % 項を斜線で消すパッケージ
+\usepackage{venndiagram} % Venn図
+\usepackage{longdivision}[style= tikz, repeating decimal style= dots, decimal separator= {.}] % 筆算
+\usepackage{tkz-tab} % 増減表
+\usepackage{statistics} % グラデーション表/統計グラフ
+\usepackage{polynom} % 多項式計算
+\usepackage{tikz-3dplot} % 3次元グラフ
+\usepackage{longdivision} %数の割り算の筆算
+
+# 物理系パッケージ
+## 物理系TikZ拡張パッケージ
+\usepackage{siunitx} % si単位系のパッケージ
+\usepackage{circuitikz} % 回路図を描くパッケージ
+\usepackage{tikz-feynhand} % Feynmanダイアグラムを描くパッケージ
+\usepackage{bohr} % bohr模型
+\usepackage{pst-magneticfield} % 磁場を描く
+
+# 化学系パッケージ
+## 化学系TikZ拡張パッケージ
+\usepackage{mhchem}[version=4] % 化学式・構造式用のパッケージ
+\usepackage{chemfig} % chemfig用のパッケージ
+\usepackage{tikzorbital} % 分子軌道法ダイアグラム
+
+# 情報(応用数学)
+## 情報(応用数学)系TikZ拡張パッケージ
+\usepackage{tkz-graph} % グラフ理論
+\usepackage{algorithm} % プログラムコードを書く
+
+# その他パッケージ
+
+# その他略記等の設定
+% 集合(mathbb/mathfrak)系
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathcal{F}}
+\renewcommand{\O}{\mathcal{O}}
+
+% 特殊数学記号(HRT先生の作ったコマンド流用)
+\newcommand{\Zm}{\mathbb{Z}/[m]}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\oq}{\bar{\mathbb{Q}}}
+
+% frak系
+\newcommand{\fI}{\mathfrak{I}}
+\newcommand{\fT}{\mathfrak{T}}
+\newcommand{\fS}{\mathfrak{S}}
+\newcommand{\fQ}{\mathfrak{Q}}
+\newcommand{\fB}{\mathfrak{B}}
+\newcommand{\fO}{\mathfrak{O}}
+\newcommand{\fE}{\mathfrak{E}}
+\newcommand{\fC}{\mathfrak{C}}
+
+
+% 数学演算子系
+% log type
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\Supp}{Supp}
+%\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Det}{Det}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Coker}{Coker}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arccoth}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\GL}{GL} % 2/4追加 群のためのコマンド
+%\DeclareMathOperator{\deg}{deg}
+
+% limit type
+\DeclareMathOperator*{\argmin}{arg~min}
+\DeclareMathOperator*{\argmax}{arg~max}
+
+% 表記が変になるものを修正
+\let\div\relax
+\DeclareMathOperator{\div}{div}
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+
+% 引数付き省略コマンド
+\newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}} %集合の中央線を長くする
+\newcommand{\lcm}[2]{\mathrm{lcm}({#1},\ {#2})} %最小公倍数
+\newcommand{\base}[1]{\left\langle{#1}\right\rangle} %基底
+\newcommand{\norm}[1]{\left\|#1\right\|} %ノルム
+\newcommand{\somegcd}[3]{\mathrm{gcd}\left(#1, #2, #3\right)} %3変数以上の最大公約数
+\newcommand{\somelcm}[3]{\mathrm{lcm}\left(#1, #2, #3\right)} %3変数以上の最小公倍数
+\newcommand{\Der}[1]{\mathrm{Der}{(#1)}}
+%\renewcommand{\tr}[1]{#1^\mathrm{T}} %転置
+\renewcommand{\middle}[2]{#1\mid #2} %割り切る記号
+\renewcommand{\gcd}[2]{\mathrm{gcd}\left(#1, #2\right)} %2変数の最大公約数
+\renewcommand{\lcm}[2]{\mathrm{lcm}\left(#1, #2\right)} %2変数の最小公倍数
+\newcommand{\innerproduct}[2]{\left\langle{#1}, {#2}\right\rangle}
+\newcommand{\tr}[1]{{#1}^\intercal}
+
+% コマンドの省略
+\newcommand{\pp}{\partial} %偏微分記号の略記
+\newcommand{\ve}{\varepsilon} %epsilonをいつもの形に・略記
+\newcommand{\vp}{\varphi} %phiをいつもの形に・略記
+\newcommand{\st}{\ \mathrm{s.t.}\ } %such thatを立体にする
+\newcommand{\ssim}{/{\sim}}
+\newcommand{\til}[1]{\tilde{#1}} %tildeの引数付き略記
+\renewcommand{\bar}[1]{\overline{#1}} %overlineの略記
+%\renewcommand{\any}{{}^{\forall}} %全称記号を略記・字上げする
+%\renewcommand{\exists}{^{\exists}} %存在記号を略記・字上げする
+
+## 異体字を変更
+\renewcommand{\epsilon}{\varepsilon} %epsilonをいつもの形に
+\renewcommand{\phi}{\varphi} %phiをいつもの形に
+\renewcommand{\emptyset}{\varnothing} %emptysetの出力を変更
+
+-------------
+
+%preamble
+\usepackage{amsmath, ascmac, latexsym, mathtools} %とりあえず入れとくパッケージ
+% フォント関係
+\usepackage{bm} % 小文字ベクトルのためのパッケージ
+\usepackage{amssymb} % 集合の太文字パッケージ
+\usepackage{mathrsfs} % 花文字を書くパッケージ
+\usepackage{amsfonts}
+
+\usepackage{fancybox} % 箱のとりあえずのデザイン(あんまり使わない)
+\usepackage{amsthm} % 定理環境をカスタマイズ
+\usepackage{tikz-cd} % 可換図式のパッケージ
+
+
+
+
+
+% 矢印系
+\newcommand{\by}[1]{\xrightarrow{#1}} %上に理由が載る．矢印長は自動伸縮
+\newcommand{\inj}{\hookrightarrow} %単射の矢印
+\newcommand{\surj}{\twoheadleftarrow}%全射の矢印
+
+% 組版の表示に関するもの
+\everymath{\displaystyle} %全ての数式をdisplaystyleに強制変更
+%ハイパーリンク関係
+\usepackage[dvipdfmx]{hyperref} %ハイパーリンク用のパッケージ
+\usepackage{pxjahyper} %ハイパーリンク用のパッケージ
+\hypersetup{ %ハイパーリンクまわりの設定
+hidelinks %ハイパーリンクの枠を消す
+}
+\usepackage{url} %URLを入れるためのパッケージ
+\usepackage{fancyhdr} % ヘッダー・フッターの編集
+\usepackage{docmute} % inputで取り込むときに悪影響を及ぼさないように予防
+\usepackage{multirow} % tabular環境で横にセル結合させるパッケージ
+\usepackage{balance} % 参考文献を2カラムにする
+
+### enumerate環境系
+\usepackage{enumitem} % enumerate環境を自由に変更する
+\renewcommand{\labelenumi}{(\arabic{enumi})} % enumerate環境でカッコつきの数字を振る
+% enumerate環境の変更
+% 数字用の環境(enumerate_num)
+% \newlist{環境名}{基礎となるリストの種類}{深さ}
+\newlist{enumerate_num}{enumerate}{1} 
+\setlist[enumerate_num]{label= (\arabic*)}
+
+% アルファベット用(大文字)の環境(enumerate_alpha)
+\newlist{enumerate_Alpha}{enumerate}{1}
+\setlist[enumerate_Alpha]{label= (\Alph*)}
+
+% アルファベット用(小文字)の環境(enumerate_alpha)
+\newlist{enumerate_alpha}{enumerate}{1}
+\setlist[enumerate_alpha]{label= (\alph*)}
+
+% ローマン数字用の環境(enumerate_roman)
+\newlist{enumerate_roman}{enumerate}{1}
+\setlist[enumerate_roman]{label= (\roman*)}
+
+% 図・表関係
+\usepackage{float} % 図・表環境を総合的に設定する大元パッケージ
+\usepackage{subcaption} % 図を複数並べる
+% 表と図の番号を通しにする
+\usepackage{chngcntr} % カウンター操作用パッケージ
+\counterwithout{figure}{chapter} % 章ごとのリセットを無効化 (オプション)
+\counterwithout{table}{chapter}  % 章ごとのリセットを無効化 (オプション)
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
+\renewcommand{\thetable}{\thechapter.\arabic{figure}}
+\makeatletter
+\let\c@table\c@figure % 表と図を同じカウンターにする
+%\makeatother
+\usepackage{caption} % 表と図を強制的に変更する
+\usepackage{graphicx} % 写真を入れるためのパッケージ
+\usepackage{pdfpages} % pdfを挿入するパッケージ
+
+%グラフ(理論ではない)を描くための補足的なパッケージ
+\usepackage{pgf-pie} % 円グラフ作成パッケージ
+\usepackage{xcolor} % 色を沢山使うためのパッケージ
+%\usepackage{patterns} % ハッチング用パターン
+
+
+
+% zref-clever環境の設定
+\usepackage{cleveref} %参照用
+\newcommand{\kara}{} %無を出力するコマンド
+\usepackage{zref-clever}
+\zcDeclareLanguage[allcaps]{japanese}
+\zcLanguageSetup{japanese}{
+% 接続詞
+		namesep= {\nobreak},
+		pairsep= {と},
+		listsep= {，},
+		lastsep= {，および},
+		tpairsep= {および},
+		tlistsep= {，},
+		tlastsep= {，および},
+		notesep= {：},
+		rangesep= {から},
+	type= book ,
+		Name-sg= 第 ,
+		Name-pl= 第 ,
+		refbounds= {,,編,},
+	type= part ,
+		Name-sg= 第 ,
+		Name-pl= 第 ,
+		refbounds= {,,部,},
+	type= chapter ,
+		Name-sg= Chap,
+		Name-pl= Chap,
+		refbounds= {,,,} ,
+	type= section ,
+		Name-sg= \S ,
+		Name-pl= \S ,
+		refbounds= {,,,} ,
+	type= paragraph ,
+		Name-sg= 第 ,
+		Name-pl= 第 ,
+		refbounds= {,,段落,} ,
+	type= appendix ,
+		Name-sg= Appendix,
+		Name-pl= Appendix,
+	type= page,
+		Name-sg= p. ,
+		Name-pl= pp. ,
+		rangesep= \textendash ,
+		rangetopair= false ,
+	type= line,
+		Name-sg= l. ,
+		Name-pl= l. ,
+		rangesep= \textendash ,
+		rangetopair= false ,
+	type= figure,
+		Name-sg= 図,
+		Name-pl= 図,
+	type= table,
+		Name-sg= 表,
+		Name-pl= 表,
+	type= item,
+		Name-sg= ,
+		Name-pl= ,
+	type= footnote,
+		Name-sg= 脚注,
+		Name-pl= 脚注,
+	type= endnote,
+		Name-sg= 後注,
+		Name-pl= 後注,
+	type= note,
+		Name-sg= Rem,
+		Name-pl= Rem,
+	type= equation,
+		Name-sg= 式,
+		Name-pl= 式,
+		refbounds= {,(,),},
+	type= theorem,
+		Name-sg= thm,
+		Name-pl= thm,
+	type= lemma,
+		Name-sg= lem,
+		Name-pl= lem,
+	type= corollary,
+		Name-sg= cor,
+		Name-pl= cor,
+	type= proposition, 
+		Name-sg= prop, 
+		Name-pl= prop, 
+ 	type= definition,
+		Name-sg= Def,
+		Name-pl= Def,
+	type= proof,
+		Name-sg= pf,
+		Name-pl= pf,
+	type= result,
+		Name-sg= 結果,
+		Name-pl= 結果,
+	type= remark,
+		Name-sg= 備考,
+		Name-pl= 備考,
+	type= example,
+		Name-sg= 例,
+		Name-pl= 例,
+	type= exercise,
+		Name-sg= 演習,
+		Name-pl= 演習,
+	type= solution,
+		Name-sg= 解法,
+		Name-pl= 解法,
+	type= algorithm ,
+		Name-sg= アルゴリズム,
+		Name-pl= アルゴリズム,
+	type= listing,
+		Name-sg= Code,
+		Name-pl= Code,
+}
+\zcsetup{lang= japanese}
+
+%\usepackage[side]{footmisc} % footnote環境を片側端に書く
+
+\usepackage[many, most]{tcolorbox} % tcolorboxのパッケージ
+\tcbuselibrary{breakable, skins, theorems}
+\newtcolorbox{hosoibox}[1]{colframe= black, colback= white, coltitle= black, colbacktitle= white, boxrule= 0.5pt, arc= 0mm, enhanced, attach boxed title to top left= {xshift= 10mm, yshift= -3mm}, boxed title style= {frame hidden}, title= #1}
+
+% 定義環境群： 定義
+% ->太字，通し番号をつける
+% 定理環境群： 定理/補題/系
+% ->太字，通し番号をつける，本文を丸く囲う
+% 例環境群： 例/演習
+% ->太字，文頭を丸く囲う
+% 証明環境群： 証明/解答
+% ->太字，下線(証明：末尾に墓石記号，解答：左にバーをつける)
+% ->証明環境は完成　なぜかpfを立体にしたいのにmathrmではできない
+
+
+
+% 定義環境
+\newtcolorbox[auto counter, number within= section, crefname= {Def.}{Defs.}]{tdef}[1][]
+{enhanced, breakable= true, fonttitle= \bfseries,
+title = Def.~\thetcbcounter~\if #1\kara \else（#1)}
+
+% 系環境
+\newtcolorbox[auto counter, number within= section, crefname= {Cor.}{Cors.}]{tcor}[1][]
+{enhanced, breakable= true, fonttitle= \bfseries,
+title = Def.~\thetcbcounter~\if #1\kara \else（#1)}
+
+%thm系環境
+\newtcolorbox[auto counter, number within= section, crefname= {Thm.}{Thms.}]{tthm}[1][]
+{enhanced, breakable= true, fonttitle= \bfseries,
+title = Thm.~\thetcbcounter~\if #1\kara \else（#1)}
+
+%lemma系環境
+\newtcolorbox[auto counter, number within= section, crefname= {Lem.}{Lems.}]{tlem}[1][]
+{enhanced, breakable= true, fonttitle= \bfseries,
+title = Lem.~\thetcbcounter~\if #1\kara \else（#1)}
+
+% example環境
+\newtcolorbox{souexample}[1][]{%
+	enhanced, frame hidden, interior hidden,
+	left= 0pt, right= 0pt, top= 0pt, bottom= 0pt,
+	boxsep= 0pt,
+	before skip= 1.5ex,
+	after skip= 1.5ex,
+	float,
+	before upper= {\underline{\bfseries{Example}}$\colon$},
+	code= {\captionsetup{hypcap= false}},
+	#1
+}
+
+\newtcolorbox{souremark}[1][]{%
+	enhanced, frame hidden, interior hidden,
+	left= 0pt, right= 0pt, top= 0pt, bottom= 0pt,
+	boxsep= 0pt,
+  % 前後の行間
+	before skip= 1.5ex,
+	after skip= 1.5ex,
+	float,
+	before upper= {\underline{\textbf{Remark}}$\colon$},
+	code= {\captionsetup{hypcap= false}},
+	#1
+}
+
+% excricrse環境
+\newtcolorbox[auto counter, number within= section, crefname= {演習.}{演習.}]{texc}[1][]
+{enhanced, breakable= true, fonttitle= \bfseries,
+title = \underline{演習.~\thetcbcounter~\if #1\kara \else#1}}
+
+% 解答環境
+\newtcolorbox{answer}{blanker, breakable= true, left= 5mm, borderline west= {1.1mm}{0pt}{black}}
+
+% 2/10変更
+% 証明環境の変更
+\renewcommand{\proofname}{\underline{\textbf{pf}}}
+
+%leftbar環境に注釈が入れられないことを解消する環境．名前はtcolorboxの[t]とleftbarの組み合わせ
+\newtcolorbox{tbleftline}{blanker, breakable= true, left= 5mm, borderline west= {1.1mm}{0pt}{black}}
+\newenvironment{tleftbar}{\begin{tbleftline}\setlength{\parindent}{0.5zw}}{\end{tbleftline}}
+
+%定理環境(特に数字付き)
+% カウンター
+\newcounter{num}[section]
+\renewcommand{\thenum}{\thesection.\arabic{num}}
+
+% 適当なtab環境
+\newtcolorbox{tab}[1]{title= tab{#1}}
+
+% 解答環境
+\newtcolorbox{tans*}{title= \underline{\textbf{解答}}}%, colorframe= white, colback= white, coltitle= black, colback= white, boxrule= 0pt, arc= 0mm}
+
+%colframe= black, colback= white, coltitle= black, colbacktitle= white, boxrule= 0.5pt, arc= 0mm, enhanced, attach boxed title to top left= {xshift= 10mm, yshift= -3mm}, boxed title style= {frame hidden}, title= #1}
