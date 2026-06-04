@@ -1,0 +1,62 @@
+\begin{souquiz}
+$A$を正定値行列とする。このとき$x= (x_1, \ldot, x_H)$とおくと。
+\begin{equation*}
+    I= \frac{1}{(2\pi)^\frac{H}{2}}\int_{-\infty}^\infty\cdot \int_{-\infty}^\infty \exp{-\frac{\tr{(x- \mu)}A^{-1}(x- \mu)}{2}}dx_1\cdots dx_H= 1
+\end{equation*}
+    であることを示す。
+\end{souquiz}
+
+    \begin{answer}
+    $A$は正定値行列なので、直行行列$P$を用いて、
+\begin{equation*}
+    P^{-1}AP= 
+\begin{pmatrix}
+    \lambda_1& & \\
+    & \vdots& \\
+    & & \lambda_H
+\end{pmatrix},\ \ (\lambda_i> 0)
+\end{equation*}    
+    とできる。ここで$P$か直行行列であることから$P^{-1}= \tr{P}$で$\det{P}= \det{P^{-1}}= \pm 1$を得るので、
+\begin{equation*} \label{eq:detの定義}
+    \det{A}= \prod_{i= 1}^H \lambda_i
+\end{equation*}
+    また、$y= \tr{P}(x- \mu)$とおけば、$y= (y_1, \ldots, y_H)$
+\begin{equation*}
+    \tr{(x- \mu)}A^{-1}(x- \mu)= \tr{y}\tr{P}A^{-1}Py
+\end{equation*}
+    ここで$(\tr{P}A^{-1}P)\cdot (P^{-1}AP)= \tr{P}\cdot P= I$より
+\begin{align} \label{eq:行列をyで挟む}
+    \tr{(x- \mu)}A^{-1}(x- \mu)
+    &= \tr{y}
+    \begin{pmatrix}
+    1/\lambda_1& & \\
+    & \vdots& \\
+    & & 1/\lambda_H
+    \end{pmatrix}
+    y\\
+    &= \sum_{i= 1}^H \frac{1}{\lambda_i}\cdot y^2_i
+\end{align}
+    を得られる。\zcref{eq:detの定義}、\zcref{eq:行列をyで挟む}を持ちいると、$y= \tr{P}(x- \mu)$のヤコビアンは$(\det{\tr{P}})$なので、
+\begin{align}
+    \frac{1}{(2\pi)^\frac{H}{2}\sqrt{\det{A}}}\int_{-\infty}^\infty\cdots \int_{-\infty}^\infty \exp{-\frac{\tr{(x- \mu)}A^{-1}(x- \mu)}{2}}dx_1\cdots dx_H
+    &= \frac{1}{(2\pi)^\frac{H}{2}\sqrt{\prod_{i= 1}^H \lambda_i}}\int_{-\infty}^\infty\cdots \int_{-\infty}^\infty \exp{\sum_{i= 1}^H\left(frac{y_i}{2\lambda_i}\right)\left|\det{\tr{P}}\right|dy_1\cdots dy_H
+\end{align}
+    を得られる。ここで$|\det{\tr{P}}|= 1$と$z^2_i= \frac{y^2_i}{2\lambda_i}$とおけば、$\sqrt{2\lambda_i}dz_i= dy_i$なので各$\lambda_i> 0$より積分区間は交わらず、
+\beign{align}
+    I
+    &= \frac{1}{(2\pi)^\frac{H}{2}\sqrt{\prod_{i= 1}^H \lambda_i}}\int_{-\infty}^\infty\cdots \int_{-\infty}^\infty \exp{\sum_{i= 1}^H\left(\sum_{i= 1}^H z^2_i\right)\cdot \prod_{i= 1}^H \sqrt{2\lambda_i}dz_1\cdots dz_H\\
+    &= \frac{1}{\pi^\frac{H}{2}}\int_{-\infty}^\infty e^{z^2_H}\int_{-\infty}^\infty e^{z^2_{H- 1}}\cdots \int_{-\infty}^\infty e^{z^2_1}dz_1dz_2\cdots dz_{H- 1}dz_h
+\end{align}
+    と変形できる。Gauss積分$\int_{-\infty}^\infty e^{-x^2}dx= \sqrt{\pi}$であるから、
+\begin{equation}
+    I
+    &= \frac{1}{\pi^\frac{H}{2}}\cdot \sqrt{\pi}\sqrt{\pi}\cdots \sqrt{\pi}\\
+    &= \frac{\pi^\frac{H}{2}}{\pi^\frac{H}{2}}\\
+    &= 1 
+\end{equation}
+    となり、
+\begin{equation}
+    \frac{1}{(2\pi)^\frac{H}{2}}\int_{-\infty}^\infty\cdot \int_{-\infty}^\infty \exp{-\frac{\tr{(x- \mu)}A^{-1}(x- \mu)}{2}}dx_1\cdots dx_H= 1
+\end{equation}
+    が示された。
+\end{answer}
