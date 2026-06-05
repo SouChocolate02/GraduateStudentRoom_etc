@@ -8,6 +8,7 @@
 
 # Lecture
 講義ノート・課題など<br>
+※幾何系(幾何学特論I/II)の講義ノートは中の人が講義を取ってないのでないです．
 Key word: 講義ノート，課題<br>
 [lecture](https://github.com/SouChocolate02/GraduateStudentRoom_etc/tree/main/Lecture)
 
