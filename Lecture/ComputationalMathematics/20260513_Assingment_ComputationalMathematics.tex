@@ -1,0 +1,95 @@
+% 20260513_Assingment_ComputationalMathematics
+\documentclass[dvipdfmx]{jsreport}
+%preamble
+\usepackage{soupreamble}
+
+\title{計算数学A 第1回レポート課題}
+\author{M1 6012 川村聡一郎}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\begin{tcolorbox}[title= レポート課題1]
+	$f(n)= O(g(n))$かつ$g(n)= h(n)$ならば
+\begin{equation*}
+	f(n)= O(h(n))
+\end{equation*}
+\end{tcolorbox}
+
+\begin{souanswer} %答案はここに書く
+	答案はここに書く
+\end{souanswer}
+
+
+\begin{tcolorbox}[title= レポート課題2]
+	以下が同値であることを示せ。
+\begin{enumerate_roman}
+	\item $f(n)= \Theta(g(n))$
+	\item $f(n)= O(g(n))$かつ$f(n)= \Omega(g(n))$
+\end{enumerate_roman}
+\end{tcolorbox}
+
+\begin{souanswer} %答案はここに書く
+	答案はここに書く
+\end{souanswer}
+
+\begin{tcolorbox}[title= レポート課題3]
+	次を示せ。
+\begin{enumerate}
+	\item $n^2\cdot 2^n\ne \tilde{O}_1(2^n)$
+	\item $n^2\cdot 2^n= \tilde{O}_2(2^n)$
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %答案はここに書く
+\begin{enumerate}
+	\item $s> 0$とする。$n^s\cdot 2^n= \tilde{O}_1(2^n)$と仮定すると，$\tilde{O}_1$の定義より正の定数$c, n$と非負定数$k$が存在し、すべての$n\ge n_0$に対して，
+\begin{equation*}
+	n^s\cdot 2^n\le c\cdot 2^n\cdot (\log{n})^k
+\end{equation*}
+	が成立する。両辺を$2^n$で割ると
+\begin{equation*}
+	n^s \le c\cdot (\log{n})^k
+\end{equation*}
+	さらに両辺を$(\log{n})^k$で割ると、
+\begin{equation*}
+	\frac{n^s}{(\log{n})^k}\le c
+\end{equation*}
+	ここで$n\to \infty$の極限を考える。\\
+	多項式は$\log{}$より早く収束するため、$(左辺)\to \infty$。\\
+	これは仮定に矛盾するため、以下が成り立つ。$n^2\cdot 2^n\ne \tilde{O}_1(2^n)$
+
+	\item $c= 1, k= 0$とする。$\tilde{O}_1$の定義より
+\begin{equation*}
+	c\cdot g(n)\cdot (\log{\log{n}})^m= 1\cdot g(n)\cdot (\log{\log{n}})^0= g(n)
+\end{equation*}
+	すべての$n\ge n_0$に対して以下の不等式が成り立つ。
+\begin{equation*}
+	n^2\cdot 2^n\le 1\cdot (n^2\cdot 2^n)\cdot (\log{\log{n}})^0\Rightarrow n^2\cdot 2^n\le 1\cdot n^2\cdot 2^n
+\end{equation*}
+	この等号は成り立ち、不等式を満たす。よって$n^2\cdot 2^n= \tilde{O}_2(2^n)$
+\end{enumerate}
+\end{souanswer}
+
+
+\begin{tcolorbox}[title= レポート課題4]
+	$n!= o(n^n)$を示せ。
+\end{tcolorbox}
+
+\begin{souanswer} %答案はここに書く
+	答案はここに書く
+\end{souanswer}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
