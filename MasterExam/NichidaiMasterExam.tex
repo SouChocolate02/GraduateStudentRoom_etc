@@ -1503,7 +1503,7 @@ $
 \begin{equation*}
 	f^{(2k)}(0)= \cos{k\pi}= (-1)^k
 \end{equation*}
- 
+
 	\item $n= 2k+ 1(奇数)$のとき：
 \begin{equation*}
 	f^{(2k+ 1)}(0)= \cos{\left(k\pi+ \frac{\pi}{2}\right)}= 0
@@ -1585,8 +1585,173 @@ $
 
 \chapter{令和8年度}
 \section{一般第1期}
+\begin{tcolorbox} %R8_1st_1
+	$\fbox{1}$
+\begin{equation*}
+	A= 
+	\begin{pmatrix}
+		4& -1& 2\\
+		-6& 3& -6\\
+		-6& 2& -4
+	\end{pmatrix}
+\end{equation*}
+	とする。また実線型写像$f\colon \R^3\to \R^3$を$f(x)= Ax\ (x\in \R^3)$で定める。次の問いに答えよ。
+\begin{enumerate}
+	\item $A$の行列式を求めよ。
+	\item $f$の核と像の基底をそれぞれ求めよ。また$f$の核と次元をそれぞれ求めよ。
+	\item $A$の固有値を全て求めよ。
+	\item $\R^3$の基底$E$で、$f$の$E$に関する表現行列が$\begin{pmatrix}\lambda_1& 0& 0\\ 0& \lambda_2& 0\\ 0& 0& \lambda_3
+	\end{pmatrix}$となるようなものを1つ求めよ。
+	\item $\R^3$の基底$F$で、$f$の$F$に関する表現行列の成分がすべて偶数となるようなものはないことを示せ。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %R8_1st_1_ans
+
+\end{souanswer}
+
+\begin{tcolorbox} %R8_1st_2
+	$\fbox{2}$ 複素2次正方行列$H$と複素列ベクトル$x= \begin{pmatrix}x_1\\ x_2\end{pmatrix},\ y= \begin{pmatrix}y_1\\ y_2\end{pmatrix}\in \C^2$に対し、$\langle{x, y}\rangle_H= \tr{x}H\bar{y}\in \C$と定める。ここで$\tr{x}= \begin{pmatrix}x_1& x_2\end{pmatrix}$は$x$の転置ベクトル、$\bar{y}= \begin{pmatrix}\bar{y}_1\\ \bar{y}_2\end{pmatrix}$は$y$の複素共役ベクトルである。このとき次の問いに答えよ。
+\begin{enumerate}
+	\item $H= \begin{pmatrix}1& 0\\ 0& 1\end{pmatrix}$のとき、$\langle{\begin{pmatrix}1\\ i\end{pmatrix}, \begin{pmatrix}1\\ -i\end{pmatrix}}\rangle_H$の値を求めよ。
+	\item 任意の$x, y, z\in \C$と任意の$a\in \C$に対し、$\langle{ax+ y, z}\rangle_H= a\langle{x, y}\rangle_H+ \langle{y, z}\rangle_H$が成り立つことを示せ。\\
+	以下$H= \begin{pmatrix}5& -2i\\ 2i& 5\end{pmatrix}$とする。
+
+	\item $H$をユニタリ行列で対角化しなさい。すなわち$D= P^{-1}HP$をみたすユニタリ行列$P$と対角行列$D$を求めなさい。
+	\item 任意の$x\in \C^2$に対し、$\bm{x}\ne \begin{pmatrix}0\\ 0\end{pmatrix}$ならば$\langle{x, x}\rangle_H> 0$であることを示しなさい。
+	\item 関数$\langle{x, y}\rangle_H\colon \C^2\times \C^2\to \C$が$\C^2$の内積であることの定義を示しなさい。また$\langle{x, y}\rangle_H$は$\C^2$の内積になることを示しなさい。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %R8_1st_2_ans
+
+\end{souanswer}
+
+\begin{tcolorbox} %R8_1st_3
+	$\fbox{3}$ 次の問いに答えよ。
+\begin{enumerate}
+	\item 定積分$\int_0^{2\pi} \sin^2{\theta}d\theta$を求めよ。
+	\item 変数変換$r= \sin{u}$を用いて、定積分$\int_1^2 r^2\sqrt{1- r^2}dr$を求めなさい。
+	\item 変数変換$\begin{cases}x= r\cos{\theta},\\ y= 2r\sin{\theta}\end{cases}$に対して、ヤコビアン$\frac{\partial(x, y)}{\partial(r, \theta)}$を求めなさい。
+	\item $D= \{(x, y);\ 4x^2+ y^2\le 4\}$に対して、$\iint_D (x^2+ y^2)dxdy$を求めなさい。
+	\item 変数変換$\begin{cases}x= r\sin{\theta}\cos{\phi},\\ y= r\sin{\theta}\sin{\phi},\\ z= r\cos{\theta}	\end{cases}$に対して、ヤコビアン$\frac{\partial(x, y, z)}{\partial(r, \theta, \phi)}$を求めなさい。
+	\item $E= \{(x, y, z);\ x^2+ y^2+ z^2\le 1\}$に対して、$\iiint_E 2\sqrt{1- x^2- y^2- z^2}dxdydz$を求めなさい。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %R8_1st_3_ans
+
+\end{souanswer}
+
+\begin{tcolorbox} %R8_1st_4
+	$\fbox{4}$
+\begin{enumerate}
+	\item 関数$f\colon \R\to \R$が、$\R$上連続であることの定義を$\epsilon- \delta$論法を用いて述べよ。
+	\item $f\colon \R\to \R$を$f(x)= 2x\ (x\in \R)$で定めるとき、$f$は$\R$上連続であることを示せ。
+	\item 関数$f\colon \R\to \R$が、$\R$上一様連続であることの定義を$\epsilon- \delta$論法を用いて述べよ。
+	\item $f\colon \R\to \R$を$f(x)= \sin{x}\ (x\in \R)$で定めるとき、$f$は$\R$上一様連続であることを示せ。ただし任意の$x\in \R$に対して$|\sin{x}|\le |x|$が成り立つことを証明せずに用いてもよい。
+	\item $f\colon \R\to \R$を$f(x)= \sin{(x^2)}\ (x\in \R)$で定めるとき、$f$は$\R$上一様連続でないことを示しなさい。
+	\item $f\colon \R\to \R, g\colon \R\to \R$を連続関数とする。$g$が$\R$上一様連続かつ、任意の$x\in \R$で$|f(x)|\le |g(x)|$が成り立つとする。このとき$f$も$\R$上一様連続であるといえるか。理由とともに示せ。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %R8_1st_4_ans
+
+\end{souanswer}
 
 \section{一般第2期}
+\begin{tcolorbox} %R8_2nd_1
+	$\fbox{1}$ 次の問いに答えよ。
+\begin{enumerate}
+    \item $V, W$を複素線形空間とし、$V, W$の零ベクトルをそれぞれ$\bm{0}_V, \bm{0}_W$とする。$V$から$W$への線形写像$T\colon V\to W$に対して、$T$の像を$\Im{(T)}$とし、$T$の核を$\Ker{(T)}$とする。$\Im{(T)}$および$\Ker{(T)}$の定義をそれぞれ述べなさい。
+    \item $\C$を複素数体とする。線形写像$S\colon \C^3\to \C^4$および$T\colon \C^2\to \C^4$を以下で定める。
+\begin{equation*}
+    S\left(\begin{pmatrix}x_1\\ x_2\\ x_3\end{pmatrix}\right)= 
+    \begin{pmatrix}
+        3x_1- x_2+ 5x_3\\
+        x_1+ x_2+ 3x_3\\
+        x_1+ 2x_3\\
+        x_1- 3x_2- x_3
+    \end{pmatrix},\ 
+    T\left(\begin{pmatrix}x_1\\ x_2\end{pmatrix}\right)= 
+    \begin{pmatrix}
+        x_1- 3x_2\\
+        3x_1+ x_2\\
+        x_1- 2x_2\\
+        -5x_1- x_2
+    \end{pmatrix}
+\end{equation*}
+\begin{enumerate_alpha}
+    \item $\Ker{(S)}= \begin{Bmatrix}\alpha\begin{pmatrix}-2\\ -1\\ 1\end{pmatrix}; \alpha\in \C\end{Bmatrix}$を示しなさい。
+    \item $\Im{(S)}$と$\Im{(S)}$の和空間を$W= \Im{(S)}+ \Ker{(T)}$とおく。$W$の次元を求めなさい。またその根拠も述べなさい。
+\end{enumerate_alpha}
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %R8_2nd_1_ans
+	$\fbox{1}$
+\begin{enumerate}
+	\item 
+\end{enumerate}
+\end{souanswer}
+
+\begin{tcolorbox} %R8_2nd_2
+	$\fbox{2}$ $n$次元単位行列を$E_n$、行列$X$の転置行列を$\tr{X}$で表すものとする。次の問いに答えよ。
+\begin{enumerate}
+	\item ベクトル$\bm{v}= \frac{1}{\sqrt{5}}\begin{pmatrix}-2\\ 1\end{pmatrix}$に対して行列$A= E_2- 2\bm{v}\tr{\bm{v}}$を定める。
+\begin{enumerate_alpha}
+	\item 行列$A$を求めよ。
+	\item 行列$A$の固有値をすべて求めよ。
+\end{enumerate_alpha}
+	\item 長さが1である実$n$次元ベクトル$\bm{w}\in \R^n$に対して行列$B= E_n- 2\bm{w}\tr{\bm{w}}$で定める。
+\begin{enumerate_alpha}
+	\item $\tr{\bm{w}}\bm{w}= 1$が成り立つことを示せ。
+	\item $\bm{w}$は$B$の固有ベクトルであることを示せ。また対応する固有値を答えよ。
+	\item 直交行列の定義を述べよ。また$B$は直交行列であることを示せ。
+\end{enumerate_alpha}
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %R8_2nd_2_ans
+	$\fbox{2}$
+\begin{enumerate}
+	\item 
+\end{enumerate}
+\end{souanswer}
+
+\begin{tcolorbox} %R8_2nd_3
+	$\fbox{3}$ $e$を自然対数の底とする。また$f(x, y)= (x+ 2y)e^{-x^2- 2y^2}$を$xy$平面$\R^2$上の実数値関数とする。次の問いに答えよ。
+\begin{enumerate}
+	\item $\lim_{x\to \infty}\lim_{y\to\infty} f(x, y)$の値を求めなさい。
+	\item $f(x, y)$の1階、2階偏導関数をすべて求めなさい。
+	\item $f(x, y)$の極大値、極小値をすべて求めなさい。
+	\item $D= \{(x, y)\in \R^2;\ 3x^2+ 6y^2\le 1\}$上における$f(x, y)$の最大値、最小値を求めなさい。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %R8_2nd_3_ans
+	$\fbox{3}$
+\begin{enumerate}
+	\item 
+\end{enumerate}
+\end{souanswer}
+
+\begin{tcolorbox} %R8_2nd_4
+	$\fbox{4}$ 次の問いに答えよ。
+\begin{enumerate}
+	\item $f(x, y)=(1- xy)(xy)^n$の1階偏微分導関数をすべて求めよ。
+	\item $\int_0^1\int_0^x (xy)^ndxdy$の値を求めなさい。
+	\item $0< xy< 1$のとき、$(1- xy)\sum_{n= 0}^\infty (xy)^n$の値を求めなさい。
+	\item $\int_0^1\int_0^x \frac{1}{1- xy}dydx= \frac{1}{2}\sum_{n= 1}^\infty \frac{1}{n^2}$を示せ。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %R8_2nd_4_ans
+	$\fbox{4}$
+\begin{enumerate}
+	\item 
+\end{enumerate}
+\end{souanswer}
 
 \section{一般第3期}
 \begin{tcolorbox} %%R8_3rd_1
@@ -1597,7 +1762,7 @@ $
 	\item $A_3$の固有値を複素数の範囲ですべて求めよ。
 	\item $A_3$の固有値のうち、絶対値が最大のものの固有ベクトルを複素数の範囲ですべて求めなさい。
 \end{enumerate_alpha}
-	\item $n$を2以上の整数とする。$n$自正方行列$B_n$は、$i$行$j$成分$B_n(i, j)$が以下で与えられているとする。
+	\item $n$を2以上の整数とする。$n$次正方行列$B_n$は、$i$行$j$成分$B_n(i, j)$が以下で与えられているとする。
 \begin{equation*}
 	B_n({i, j})= 
 \begin{cases}
