@@ -11,6 +11,7 @@
 \maketitle
 
 \begin{tcolorbox} %\begin{souquiz}
+    $S= -\int q\log{q}dx,\ S_n= -\frac{1}{n}\sum_{i= 1}^n \log{q},\ \ L(w)= -\int q\log{p}dx,\ L_n(w)= -\frac{1}{n}\sum_{i= 1}^n \log{p(x_i| w)}$とする。
 \begin{equation*}
     \mathbb{E}[S_n]= S,\ \mathbb{E}[L_n(w)]= L(w)
 \end{equation*}
@@ -18,6 +19,26 @@
 \end{tcolorbox} %\end{souquiz}
 
 \begin{souanswer}
-    ここに答案を書く。
+\begin{align*}
+\begin{split}
+    \mathbb{E}[S_n]
+    &= \int\cdots \int \left(-\frac{1}{n}\sum_{i= 1}^n\log{(q_i)} \prod_{i= 1}^n q{(x_i)}\right)dx_1\cdots dx_n\\
+    &= -\frac{1}{n}\left(\int\cdots \int \prod_{i= 2}^n q{(x_i)}\int x_1\log{(x_1)}dx_1dx_2\cdots dx_n\right.\\
+    & \left.+ \cdots+ \int\cdots \int \prod_{i= 1}^{n- 1}q{(x_i)}\int x_n\log{(x_n)}dx_ndx_1\cdots dx_{n- 1}\right)\\
+    &= -\frac{1}{n}\left(1\cdot (-S)+ \cdots+ 1\cdot (-S)\right)\ \ \left(\because -S= \int q(x)\log{q}dx\right)\\
+    &= S
+\end{split}
+\end{align*}
+
+\begin{align*}
+\begin{split}
+    \mathbb{E}[L_n(w)]
+    &= \int\cdots \int \left(-\frac{1}{n}\sum_{i= 1}^n \log{p(x_i| w)}\right)dx_1\cdots dx_n\\
+    &= -\frac{1}{n}\left(\int\cdots \int \sum_{i= 2}^n \log{p(x_i| w)}\int \log{p(x_i| w)}dx_1\cdots dx_n\right.\\
+    &\left.+ \cdots+ \int\cdots \int \sum_{i= 1}^{n- 1} \log{p(x_1| w)}\int \log{p(x_i| w)} dx_ndx_1\cdots dx_{n- 1}\right)\\
+    &= -\frac{1}{n}(-1\cdot L+ \cdots+ (-1)\cdot L)\ \ \left(\because -L= \int q\log{p}dx\right)\\
+    &= L
+\end{split}
+\end{align*}
 \end{souanswer}
 \end{document}
