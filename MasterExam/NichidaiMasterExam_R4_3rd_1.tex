@@ -1,0 +1,74 @@
+% NichidaiMasterExam_R4_3rd_1
+\begin{tcolorbox} %%R4_3rd_1
+	$\fbox{1}$ $V, W$を実数上の線形空間とする。
+\begin{enumerate}
+	\item 写像$T\colon V\to W$が線形写像であることの定義を書け。
+	\item $T\colon V\to W$を線形写像とし、$v_1, \ldots, v_n\in V$とする。このとき$T(v_1), \ldots, T(v_n)$が線形独立ならば、$v_1, \ldots, v_n$が線形独立であることを示せ。
+	\item 次で定義される$S, T$が線形写像か否か理由をつけて判定せよ。
+\begin{enumerate_alpha}
+	\item $S\colon \mathcal{C}\to \mathcal{C},\ \ (S(f))(x)= f(\sqrt{3})+ f(x^2)$
+	\item $T\colon \mathcal{C}\to \mathcal{C},\ \ (T(f))(x)= f(x)^2$
+\end{enumerate_alpha}
+\end{enumerate}
+\end{tcolorbox}
+
+
+\begin{souanswer} %%R4_3rd_1_ans
+	$\fbox{1}$
+\begin{enumerate}
+	\item 任意のベクトル$\bm{u}, \bm{v}\in V$とスカラー$c\in \R$に対して
+\begin{enumerate_roman}
+	\item\label{law:加法性} $T(\bm{u}+ \bm{v})= T(\bm{u})+ T(\bm{v})$
+	\item\label{law:斉次性} $T(c\bm{v})= cT(\bm{v})$
+\end{enumerate_roman}
+	を満たす。
+	\item 線型独立の定義より、スカラー$c_1, c_2, \ldots, c_n\in \R$に対して、以下の線型関係を仮定する。
+\begin{equation*}
+	a_1v_1+ a_2v_2+ \cdots+ a_nv_n= \bm{0}_V
+\end{equation*}
+	この両辺に$T$を作用させると、
+\begin{equation*}
+	T(a_1v_1+ a_2v_2+ \cdots+ a_nv_n)= T(\bm{0}_V)
+\end{equation*}
+	ここで$T$は線型写像であったから性質\ref{law:加法性}, \ref{law:斉次性}より
+\begin{equation*}
+	T(a_1v_1)+ T(a_2v_2)+ \cdots+ T(a_nv_n)= T(\bm{0}_V)
+\end{equation*}
+\begin{equation*}
+	a_1T(v_1)+ a_2T(v_2)+ \cdots+ a_nT(v_n)= \bm{0}_W
+\end{equation*}
+	また仮定より$T(v_1), \ldots, T(v_n)$は線型独立であったからこの式が成り立つのは
+\begin{equation*}
+	a_1= a_2= \cdots= a_n= 0
+\end{equation*}
+	のときのみ。
+	\item いずれも性質\ref{law:加法性}, \ref{law:斉次性}を満たすか確認すればよい。
+\begin{enumerate_alpha}
+	\item $S$は線型写像である。任意の関数$f, g\in \mathcal{C}$とスカラー$c\in \R$を用いて示す。
+\begin{enumerate_roman}
+	\item 
+\begin{align*}
+	(S(f+ g))(x)
+	&= (f+ g)(\sqrt{3})+ (f+ g)(x^2)\\
+	&= f(\sqrt{3})+ g(\sqrt{3})+ f(x^2)+ g(x^2)\\
+	&= f(\sqrt{3})+ f(x^2)+ g(\sqrt{3})+ g(x^2)\\
+	&= (S(f))(x)+ (S(g))(x)
+\end{align*}
+	\item 
+\begin{align*}
+	(S(cf))(x)
+	&= (cf)(\sqrt{3})+ (cf)(x^2)\\
+	&= c(f(\sqrt{3})+ f(x^2))\\
+	&= c(S(f))(x)
+\end{align*}
+\end{enumerate_roman}
+	\item $T$は線型写像ではない。\ref{law:斉次性}についての反例を挙げる。
+	$f(x)= x, c= 2$とする。
+\begin{align*}
+	(T(cf))(x)&= (2f(x))^2= (2x)^2= 4x^2\\
+	f(cx)^2&= 2f(x)^2= 2x^2
+\end{align*}
+	\ref{law:斉次性}を満たさないため、$T$は線型写像ではない。
+\end{enumerate_alpha}
+\end{enumerate}
+\end{souanswer}

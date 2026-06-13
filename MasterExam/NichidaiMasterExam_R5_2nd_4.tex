@@ -1,0 +1,69 @@
+% NichidaiMasterExam_R5_2nd_4
+\begin{tcolorbox} %%R5_2nd_4
+	$\fbox{4}$ 正の実数$\alpha, t$と実数$x, y, z$に対して$\rho_\alpha(x, y, z, t)= \frac{1}{(4\pi t)^\alpha}e^{-\frac{x^2+ y^2+ z^2}{4t}}$とおく。
+\begin{enumerate}
+	\item $\frac{\partial \rho_\alpha}{\partial x}$を求めよ。
+	\item $\frac{\partial^2 \rho_\alpha}{\partial^2 x}$を求めよ。
+	\item $\frac{\partial \rho_\alpha}{\partial t}$を求めよ。
+	\item $\frac{\partial \rho_\alpha}{\partial t}= \frac{\partial^2 \rho_\alpha}{\partial x^2}+ \frac{\partial^2 \rho_\alpha}{\partial y^2}+ \frac{\partial^2 \rho_\alpha}{\partial z^2}$となるための$\alpha$の条件を求めよ。
+\end{enumerate}
+\end{tcolorbox}
+\begin{souanswer} %%R5_2nd_4_ans
+	$\fbox{4}$
+\begin{enumerate}
+	\item 
+\begin{align*}
+	\frac{\partial \rho_\alpha}{\partial x}
+	&= \frac{1}{(4\pi t)^\alpha}e^{-\frac{x^2+ y^2+ z^2}{4t}}\cdot \frac{\partial}{\partial x}\left(-\frac{x^2+ y^2+ z^2}{4t}\right)\\
+	&= \rho_\alpha\cdot\left(-\frac{2x}{4t}\right)\\
+	&= -\frac{x}{2t}\rho_\alpha
+\end{align*}
+
+	\item 積の微分より
+\begin{align*}
+	\frac{\partial^2 \rho_\alpha}{\partial x^2}
+	&= \frac{\partial}{\partial x}\left(-\frac{x}{2t}\rho_\alpha\right)\\
+	&= -\frac{1}{2t}\rho_\alpha- \frac{x}{2t}\cdot \frac{\partial}{\partial x}\rho_\alpha\\
+	&= -\frac{1}{2t}\rho_\alpha+ \frac{x^2}{4t^2}\rho_\alpha\\
+	&= \left(\frac{x^2}{4t^2}- \frac{1}{2t}\right)\rho_\alpha
+\end{align*}
+
+	\item $t$については積の微分を用いる
+\begin{equation*}
+	\frac{\partial \rho_\alpha}{\partial t}
+	= \frac{\partial}{\partial t}((4\pi t)^{-\alpha})\cdot e^{-\frac{x^2+ y^2+ z^2}{4t}}+ (4\pi t)^{-\alpha}\cdot \frac{\partial}{\partial t}\left(e^{-\frac{x^2+ y^2+ z^2}{4t}}\right)
+\end{equation*}
+\begin{align*}
+	(第一項)
+	&= -\alpha(4\pi)^{-\alpha}t^{-\alpha- 1}e^{-\frac{x^2+ y^2+ z^2}{4t}}\\
+	&= -\frac{\alpha}{t}\rho_\alpha\\
+	(第二項)
+	&= \rho_\alpha\cdot \frac{\partial}{\partial t}\left({-\frac{x^2+ y^2+ z^2}{4t}}\right)\\
+	&= \rho_\alpha\left({-\frac{x^2+ y^2+ z^2}{4t}}\right)
+\end{align*}
+	よって
+\begin{equation*}
+	\frac{\partial \rho_\alpha}{\partial t}= \left(\frac{x^2+ y^2+ z^2}{4t^2}- \frac{\alpha}{t}\right)\rho_\alpha
+\end{equation*}
+
+	\item 与えられた方程式は以下(\eqref{eq:熱方程式}とする。)
+\begin{equation} \tag{H}\label{eq:熱方程式}
+	\frac{\partial \rho_\alpha}{\partial t}= \Delta\rho_\alpha
+\end{equation}
+	\eqref{eq:熱方程式}の右辺のLaplacianを計算する。
+\begin{equation*}
+	\frac{\partial^2 \rho_\alpha}{\partial y^2}= \left(\frac{y^2}{4t^2}- \frac{1}{2t}\right)\rho_\alpha,\ 
+	\frac{\partial^2 \rho_\alpha}{\partial z^2}= \left(\frac{z^2}{4t^2}- \frac{1}{2t}\right)\rho_\alpha
+\end{equation*}
+	これらを足し合わせて
+\begin{equation*}
+	\Delta\rho_\alpha= \left(\frac{x^2+ y^2+ z^2}{4t}- \frac{3}{2t}\right)\rho_\alpha
+\end{equation*}
+	求めた左辺と比較して
+\begin{equation*}
+	\left(\frac{x^2+ y^2+ z^2}{4t^2}- \frac{\alpha}{t}\right)\rho_\alpha= \left(\frac{x^2+ y^2+ z^2}{4t}- \frac{3}{2t}\right)\rho_\alpha
+\end{equation*}
+	係数比較して$-\frac{\alpha}{t}= -\frac{1}{2t}\iff \alpha= \frac{3}{2}$
+
+\end{enumerate}
+\end{souanswer}

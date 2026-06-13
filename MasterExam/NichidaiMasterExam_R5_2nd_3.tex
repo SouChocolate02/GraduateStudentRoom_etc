@@ -1,0 +1,98 @@
+% NichidaiMasterExam_R5_2nd_3
+\begin{tcolorbox} %%R5_2nd_3
+	$\fbox{3}$ 自然数$n$に対して、閉区間$[-1, 1]$上の関数$f_n$を
+\begin{equation*}
+	f_n(x)=
+\begin{cases}
+\begin{matrix}
+	n& -\frac{1}{2n}\le x\le \frac{1}{2n}\\
+	0& x< -\frac{1}{2n}あるいは x> \frac{1}{2n}
+\end{matrix}
+\end{cases}
+\end{equation*}
+	で定義する。
+\begin{enumerate}
+	\item $y= f_1(x), y= f_2(x), y= f_3(x)$のグラフを図示せよ。
+	\item 自然数$n$に対して$\int_{-1}^1 f_n(x) dx$を求めよ。
+	\item $n$が自然数で$g\colon \R\to \R$が連続的微分可能な関数のとき$\int_{-1}^1 f_n(x)g'(x) dx$を求めよ。
+	\item $g\colon \R\to \R$が連続的微分可能な関数のとき、$\lim_{n\to \infty}\int _{-1}^1 f_n(x)g'(x) dx= g'(0)$を示せ。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %%R5_2nd_3_ans
+	$\fbox{3}$
+\begin{enumerate}
+	\item $y= f_1(x), y= f_2(x), y= f_3(x)$それぞれのグラフを描く。
+%\begin{figure}[h]
+\begin{tikzpicture}%f_1のグラフ
+	\draw[->, >= stealth, semithick] (-2, 0)-- (2, 0)node[above]{$x$}; %x軸
+	\draw[->, >= stealth, semithick] (0, -1)-- (0, 3.5)node[right]{$y$}; %y軸
+	\draw (0, 0) node[below right]{O}; %原点
+	\draw (-1/2, 0)node[below left]{$-\frac{1}{2}$}; %点(-1/2, 0)
+	\draw (1/2, 0)node[below right]{$\frac{1}{2}$}; %点(0, 1/2)
+	\draw[very thick, domain= -1/2: 1/2] plot(\x, 1)node[above right]{$y= f_1(x)$}; %f_1のグラフ
+	\draw[dashed] (-1/2, 0)-- (-1/2, 1);
+	\draw[dashed] (1/2, 0)-- (1/2, 1);
+\end{tikzpicture}
+%	\caption{$y= f_1(x)$のグラフ}
+%\end{figure}
+
+%\begin{figure}[h]
+\begin{tikzpicture}%f_2のグラフ
+	\draw[->, >= stealth, semithick] (-2, 0)-- (2, 0)node[above]{$x$}; %x軸
+	\draw[->, >= stealth, semithick] (0, -1)-- (0, 3.5)node[right]{$y$}; %y軸
+	\draw (0, 0) node[below right]{O}; %原点
+	\draw (-1/4, 0)node[below left]{$-\frac{1}{4}$}; %点(-1/4, 0)
+	\draw (1/4, 0)node[below right]{$\frac{1}{4}$}; %点(0, 1/4)
+	\draw[very thick, domain= -1/4: 1/4] plot(\x, 2)node[above right]{$y= f_2(x)$}; %f_2のグラフ
+	\draw[dashed] (-1/4, 0)-- (-1/4, 2);
+	\draw[dashed] (1/4, 0)-- (1/4, 2);
+\end{tikzpicture}
+%	\caption{$y= f_2(x)$のグラフ}
+%\end{figure}
+
+%\begin{figure}[h]
+\begin{tikzpicture}%f_3のグラフ
+	\draw[->, >= stealth, semithick] (-2, 0)-- (2, 0)node[above]{$x$}; %x軸
+	\draw[->, >= stealth, semithick] (0, -1)-- (0, 3.5)node[right]{$y$}; %y軸
+	\draw (0, 0) node[below right]{O}; %原点
+	\draw (-1/6, 0)node[below left]{$-\frac{1}{6}$}; %点(-1/9, 0)
+	\draw (1/6, 0)node[below right]{$\frac{1}{6}$}; %点(0, 1/9)
+	\draw[very thick, domain= -1/6: 1/6] plot(\x, 3)node[above right]{$y= f_3(x)$}; %f_2のグラフ
+	\draw[dashed] (-1/6, 0)-- (-1/6, 3);
+	\draw[dashed] (1/6, 0)-- (1/6, 3);
+\end{tikzpicture}
+%	\caption{$y= f_3(x)$のグラフ}
+%\end{figure}
+	\item 定義域を関数値の0でない区間に限定して積分する。
+\begin{align*}
+	\int_{-1}^1 f_n(x) dx
+	&= \int_{-\frac{1}{2n}}^{\frac{1}{2}} n dx\\
+	&= n[x]_{-\frac{1}{2n}}^{\frac{1}{2}}\\
+	&= n\left(\frac{1}{2n}- \left(-\frac{1}{2n}\right)\right)\\
+	&= n\cdot \frac{1}{n}\\
+	&= 1
+\end{align*}
+	\item\label{val:g'} 同様に積分範囲を限定して計算する。
+\begin{align*}
+	\int_{-1}^1 f_n(x)g'(x) dx
+	&= \int_{-\frac{1}{2n}}^\frac{1}{2n} n\cdot g'(x) dx\\
+	&= n\int_{-\frac{1}{2n}}^\frac{1}{2n} g'(x) dx\\
+	&= n[g'(x)]_{-\frac{1}{2n}}^\frac{1}{2n}\\
+	&= n\left(g\left(\frac{1}{2n}\right)- g\left(-\frac{1}{2n}\right)\right)
+\end{align*}
+	\item (\ref{val:g'})より
+\begin{equation*}
+	\lim_{n\to \infty}\int_{-1}^1 f_n(x)g'(x) dx= \lim_{n\to \infty} n\left(g\left(\frac{1}{2n}\right)- g\left(-\frac{1}{2n}\right)\right)
+\end{equation*}
+	ここで$h= \frac{1}{2n}$とおくと、$n\to \infty$のとき$h\to 0$。また$n= \frac{1}{2h}$なので
+\begin{equation*}
+	\lim_{h\to 0} \frac{1}{2h}(g(h)- g(-h))= \lim_{h\to 0}\frac{g(h)- g(-h)}{2h}
+\end{equation*}
+	ここで$-g(0)+ g(0)$を挿入し、整理すると
+\begin{equation*}
+	\lim_{h\to 0} \frac{1}{2}\left(\frac{g(h)- g(0)}{h}+ \frac{g(0)- g(-h)}{h}\right)= \frac{1}{2}(g'(0)+ g'(0))= g'(0)
+\end{equation*}
+	$g$は連続的微分可能であるため、$g'(0)$が存在し、この極限は確定する。
+\end{enumerate}
+\end{souanswer}

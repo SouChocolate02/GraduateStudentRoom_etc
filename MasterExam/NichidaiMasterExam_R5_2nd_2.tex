@@ -1,0 +1,59 @@
+% NichidaiMasterExam_R5_2nd_2
+\begin{tcolorbox} %%R5_2nd_2
+	$\fbox{2}$ 次の問いに答えなさい。
+\begin{enumerate}
+	\item $A$を$n$次複素正方行列とし、$P$を$n$次複素正則行列とする。このとき複素数$\lambda$が$A$の固有値ならば、$\lambda$は$P^{-1}AP$の固有値でもあることを示せ。
+	\item $V$を複素数上の有限次元線型空間とし、$W$をその部分空間とする。また$V$には内積$\innerproduct{\bullet}{\bullet}$が備わっているとする。
+\begin{enumerate_roman}
+	\item $W$への射影子$P$がどのように定義されるか、用いる定理を明記して説明せよ。
+	\item $P$を$W$への射影子としたとき、任意の$x, y\in V$に対して、${Px}{y}= {x}{Py}$が成り立つことを示せ。
+\end{enumerate_roman}
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %%R5_2nd_2
+	$\fbox{2}$
+\begin{enumerate}
+	\item 行列$B= P^{-1}AP$の固有多項式を計算すると
+\begin{equation*}
+	\begin{vmatrix}B- \lambda E\end{vmatrix}= \begin{vmatrix}P^{-1}AP- \lambda P^{-1}EP\end{vmatrix}= \begin{vmatrix}P^{-1}(A- \lambda E)P\end{vmatrix}
+\end{equation*}
+	ここで行列式の性質($|XY|= |X||Y|$)より
+\begin{align*}
+	\begin{vmatrix}B- \lambda E\end{vmatrix}
+	&= \begin{vmatrix}P^{-1}AP- \lambda E\end{vmatrix}\\
+	&= \begin{vmatrix}P^{-1}\end{vmatrix}\begin{vmatrix}A\end{vmatrix}\begin{vmatrix}P\end{vmatrix}\\
+	&= \frac{1}{\begin{vmatrix}P\end{vmatrix}}\cdot\begin{vmatrix}A- \lambda E\end{vmatrix}\cdot \begin{vmatrix}P\end{vmatrix}\\
+	&= \begin{bmatrix}A- \lambda E\end{bmatrix}
+\end{align*}
+	$\lambda$は$A$の固有値だから$\begin{vmatrix}A- \lambda E\end{vmatrix}= 0$。したがって$\begin{vmatrix}B- \lambda E\end{vmatrix}= 0$となるので、$\lambda$は$B$の固有値でもある。
+	\item 
+\begin{enumerate_roman}
+	\item $V$を有限次元内積空間、$V$をその部分空間とする。このとき直交補空間の存在定理
+\begin{tcolorbox}[title= 直交補空間の存在定理]
+	$V$の任意の真要素$v$は$w\in W$と$w^\perp\in W^\perp$($W$の直交補空間)を用いて、$v= w+ w^\perp$と一意に分解できる。すなわち$V= W\oplus W^\perp$が成り立つ。
+\end{tcolorbox}
+	この定理に基づき、$v\in V$に対して$w\in W$を対応させる写像$P\colon V\to V$を$W$への直交射影子と定義する。
+
+	\item 直和分解$V= W\oplus W^\perp$により任意の$x, y\in V$を次のように分割する。
+\begin{itemize}
+	\item $x= x_w+ x_{w^\perp}\ \ (w\in W, w^\perp\in W^\perp)$
+	\item $y= y_w+ y_{w^\perp}\ \ (w\in W, w^\perp\in W^\perp)$
+\end{itemize}
+	射影の定義より$Px= x_w, Py= y_w$である。内積の性質(線型性と直交性)より
+\begin{align*}
+	(左辺)
+	&= \innerproduct{x}{Py}\\	
+	&= \innerproduct{x_w}{y_w+ y_{w^\perp}}\\
+	&= \innerproduct{x_w}{y_w}+ \innerproduct{x_w}{y_{w^\perp}}\\
+	&= \innerproduct{x_w}{y_w}\ \ (\because x_w\perp y_{w^\perp})\\
+	(右辺)
+	&= \innerproduct{Px}{y}\\	
+	&= \innerproduct{x_w+ x_{w^\perp}}{y_w}\\
+	&= \innerproduct{x_w}{y_w}+ \innerproduct{x_{w^\perp}}{y_w}\\
+	&= \innerproduct{x_w}{y_w}\ \ (\because x_{w^\perp}\perp y_w)\\
+\end{align*}
+	よって$\innerproduct{Px}{y}= \innerproduct{x}{Py}$が成り立つ。
+\end{enumerate_roman}
+\end{enumerate}
+\end{souanswer}

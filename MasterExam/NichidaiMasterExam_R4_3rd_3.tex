@@ -1,0 +1,49 @@
+% NichidaiMasterExam_R4_3rd_3
+\begin{tcolorbox} %%R_4_3rd_3
+	$\fbox{3}$ $C^2$級関数$f(x, y)$に対して、$g(s, t)= f(e^s \cos{t}, e^s \sin{t})$と定める。以下$f_x= \frac{\partial f}{\partial x}(e^s \cos{t}, e^s \sin{t})$とし、$f_y, f_{xx}, f{xy}, f_{yy}$についても同様とする。
+\begin{enumerate}
+	\item 1階偏導関数$\frac{\partial g}{\partial s},\ \frac{\partial g}{\partial t}$を$f_x, f_y, s, t$を用いて表せ。
+	\item 2階偏導関数$\frac{\partial^2 g}{\partial s^2}$を$f_x, f_y, f_{xx}, f_{xy}, f_{yx}, s, t$を用いて表せ。
+	\item $\frac{\partial^2 g}{\partial s^2}+ \frac{\partial^2 g}{\partial t^2}$を$f_x, f_y, f_{xx}, f_{xy}, f_{yy}, s, t$を用いて簡単に表せ。
+	\item $x, y$の多項式でない$f(x, y)$で$\frac{\partial^2 f}{\partial x^2}+ \frac{\partial^2 f}{\partial y^2}$が零関数になるような例を1つ挙げよ。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %R4_3rd_3_ans
+	$x= e^s\cos{t}, y= e^s\sin{t}$とおく。各変数の偏導関数は以下の通り
+\begin{itemize}
+	\item $\frac{\partial x}{\partial s}= e^s\cos{t}= x$
+	\item $\frac{\partial x}{\partial t}= -e^s\sin{t}= -y$
+	\item $\frac{\partial y}{\partial s}= e^s\sin{t}= y$
+	\item $\frac{\partial y}{\partial t}= e^s\cos{t}= x$
+\end{itemize}
+\begin{enumerate}
+	\item 連鎖律を用いる。
+\begin{equation*}
+	\frac{\partial g}{\partial s}= \frac{\partial f}{\partial x}\frac{\partial x}{\partial s}+ \frac{\partial f}{\partial y}\frac{\partial y}{\partial s}= f_x(e^s\cos{t})+ f_y(e^s\sin{t})
+\end{equation*}
+\begin{equation*}
+	\frac{\partial g}{\partial t}= \frac{\partial f}{\partial x}\frac{\partial x}{\partial t}+ \frac{\partial f}{\partial y}\frac{\partial y}{\partial t}= f_x(-e^s\sin{t})+ f_y(e^s\cos{t})
+\end{equation*}
+	\item さらに$s$で微分する。積の微分法と連鎖律を用いる
+\begin{equation*}
+	\frac{\partial^2 g}{\partial s^2}= \frac{\partial}{\partial s}(e^s(f_x\cos{t}+ f_y\sin{t}))= e^s(f_x\cos{t}+ f_y\sin{t})+ e^s\left(\frac{\partial f_x}{\partial s}\cos{t}+ \frac{\partial f_y}{\partial s}\sin{t}\right)
+\end{equation*}
+	ここで$\frac{\partial f_x}{\partial s}= f_{xx}\frac{\partial x}{\partial s}+ f_{xy}\frac{\partial y}{\partial s}= f_{xx}(e^s\cos{t})+ f_{xy}(e^s\sin{t})$である。
+\begin{equation*}
+	\frac{\partial^2 g}{\partial s^2}= e^s(f_x\cos{t} f_y\sin{t})+ e^{2s}(f_{xx}\cos^2{t}+ 2f_{xy}\sin{t}\cos{t}+ f_{yy}\sin^2{t})
+\end{equation*}
+
+	\item 同様に$\frac{\partial^2 g}{\partial t^2}$を計算し、足し合わせると
+\begin{equation*}
+	\frac{\partial^2 g}{\partial s^2}+ \frac{\partial^2 g}{\partial t^2}= e^{2s}(f_{xx}+ f_{yy})
+\end{equation*}
+
+	\item $\frac{\partial^2 g}{\partial s^2}+ \frac{\partial^2 g}{\partial t^2}= e^{2s}(f_{xx}+ f_{yy})$を満たす関数を調和関数という。
+\begin{itemize}
+	\item 指数関数と三角関数：$f(x, y)= e^x\sin{y},\ f(x, y)= e^x\cos{y}$
+	\item 対数関数：$f(x, y)= \log{(x^2+ y^2)}$　ただし原点を除く
+\end{itemize}
+
+\end{enumerate}
+\end{souanswer}

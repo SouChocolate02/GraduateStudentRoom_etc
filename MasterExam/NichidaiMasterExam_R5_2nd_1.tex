@@ -1,0 +1,64 @@
+% NichidaiMasterExam_R5_2nd_1
+\begin{tcolorbox} %%R5_2nd_1
+	$\fbox{1}$ 次の問いに答えなさい。
+\begin{enumerate}
+	\item ベクトル$\bm{x}= \begin{pmatrix}7\\ 5\\ 3\end{pmatrix}$をベクトル$\bm{a}_1= \begin{pmatrix}1\\ 2\\ -2\end{pmatrix}$と$\bm{a}_2= \begin{pmatrix}4\\ -1\\ 3\end{pmatrix}$の線形結合で表せ。表せない場合はその理由を説明せよ。
+	\item 実数成分行列$A= \begin{pmatrix}x& 1& 1\\ 1& x& 1\\ 1& 1& x\end{pmatrix}$の階数を$x$の値によって場合分けして求めなさい。
+	\item $\R^3$を実数体$\R$の3次元ベクトル空間とし、写像$f\colon \R^3\to \R^3$を$f\left(\begin{pmatrix}x\\ y\\ z\end{pmatrix}\right)= \begin{pmatrix}{x+ 2y- z}\\ {y+ z}\\ {x+ y- 2z}\end{pmatrix}$と定義する。
+\begin{enumerate_roman}
+	\item $f$が線形写像であることを示せ。
+	\item $f$の核の次元を求めよ。
+\end{enumerate_roman}
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %%R5_2nd_1_ans
+	$\fbox{1}$
+\begin{enumerate}
+	\item 線型結合で表せるならば$\bm{x}= c_1\bm{a}_1+ c_2\bm{a}_2$となる実数係数$c_1, c_2$を見つける。
+\begin{equation*}
+	c_1\begin{pmatrix}1\\ 2\\ -2\end{pmatrix}+ c_2\begin{pmatrix}4\\ -1\\ 3\end{pmatrix}= \begin{pmatrix}7\\ 5\\ 3\end{pmatrix}
+	\iff
+	\begin{cases}
+		c_1+ 4c_2= 7\\
+		2c_1- c_2= 5\\
+		-2c_1+ 3c_2= 3
+	\end{cases}
+\end{equation*}
+	を解く。これを満たす$c_1, c_2$は存在しない。よって$\bm{x}$を$\bm{a}_1, \bm{a}_2$の線型結合で表せない(互いに線型独立)。
+	\item 行列$A$の階数を調べるために行列式$|A|$を計算し、正則性を調べる。
+\begin{equation*}
+	|A|= \begin{vmatrix}x& 1& 1\\ 1& x& 1\\ 1& 1& x\end{vmatrix}= (x+2)(x-1)^2= 0\iff x= -2, 1
+\end{equation*}
+	よって以下の\ref{pattern:xn1andxn-2}, \ref{pattern:x=1} , \ref{pattern:x=1} の3パターンに分けられる。
+\begin{enumerate_roman}
+	\item\label{pattern:xn1andxn-2} $x\ne 1$かつ$x\ne -2$のとき：行列式が0ではないため、行列$A$は正則。したがって$\rank{A}= 3$
+	\item\label{pattern:x=1} $x= 1$のとき：$A= \begin{pmatrix}1& 1& 1\\ 1& 1& 1\\ 1& 1& 1\end{pmatrix}$となり、独立な行は1つだけなので$\rank{A}= 1$
+	\item\label{pattern:x=2} $x= -2$のとき：$A= \begin{pmatrix}-2& 1& 1\\ 1& -2& 1\\ 1& 1& -2\end{pmatrix}$となり、第1列と第2列は独立だが、それぞれの行の和は0になるので、3つの行ベクトルは従属。$\rank{A}= 2$
+\end{enumerate_roman}
+\begin{enumerate}
+	\item 写像$f$が線型写像であることを示すためには任意のベクトル$\bm{u}, \bm{v}\in \R^3$とスカラー$k\in \R$に対して以下の条件\ref{law:加法性}, \ref{law:斉次性}
+\begin{enumerate_roman}
+	\item\label{law:加法性} $f(\bm{u}+ \bm{v})= f(\bm{u})+ f(\bm{v})$
+	\item\label{law:斉次性} $f(k\bm{u})= kf(\bm{u})$
+\end{enumerate_roman}
+	この写像は行列$M= \begin{pmatrix}1& 2& -1\\ 0& 1& 1\\ 1& 1& -2\end{pmatrix}$を用いて$f(\bm{v})= M\bm{v}$と表現できる。行列とベクトルの積の性質より
+\begin{enumerate}
+	\item $M(\bm{u}+ \bm{v})= M\bm{u}+ M\bm{v}$
+	\item $M(k\bm{u})= kM\bm{u}$
+\end{enumerate}
+	が成り立つため、$f$は線型写像。
+\end{enumerate}
+	\item 核の次元を求めるために、表現行列$M$の階数を調べる。
+\begin{equation*}
+	M= \begin{pmatrix}1& 2& -1\\ 0& 1& 1\\ 1& 1& -2\end{pmatrix}
+\stackrel{R_3- R_1}{\longrightarrow} \begin{pmatrix}1& 2& -1\\ 0& 1& 1\\ 0& -1& -1\end{pmatrix}\stackrel{R_3+ R_2}{\longrightarrow}
+\begin{pmatrix}1& 2& -1\\ 0& 1& 1\\ 0& 0& 0\end{pmatrix}
+\end{equation*}
+	階段行列の形から$\rank{M}= 2$であることがわかる。次元定理より
+\begin{equation*}
+	\dim{\ker{f}}= 3- 2= 1
+\end{equation*}
+	核の次元は1
+\end{enumerate}
+\end{souanswer}

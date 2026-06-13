@@ -1,0 +1,61 @@
+% NichidaiMasterExam_R4_3rd_4
+\begin{tcolorbox} %%R4_3rd_4
+	$\fbox{4}$ $xy$平面上の関数$f(x, y)$を
+\begin{equation*}
+	f(x, y)= 
+\begin{cases}
+\begin{matrix}
+	\frac{x^2+ xy+ y^2}{\sqrt{x^2+ y^2}}& (x, y)\ne (0 ,0)\\
+	0& (x, y)= (0, 0)
+\end{matrix}
+\end{cases}
+\end{equation*}
+	で定義する。
+\begin{enumerate}
+	\item $f(x, y)$は原点$(0, 0)$で連続であることを示せ。
+	\item $R$を正の実数とし、$D_R= \{(x, y)\in \R^2; x^2+ y^2\le R^2\}$とおくとき、次の重積分を求めよ。
+\begin{equation*}
+	\iint_{D_R} f(x, y) dxdy
+\end{equation*}
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %R4_3rd_4_ans
+	$\fbox{4}$
+\begin{enumerate}
+	\item 関数$f(x, y)$が原点で連続であることは、
+\begin{equation*}
+	\lim_{(x, y)\to (0, 0)} f(x, y)= f(0, 0)= 0
+\end{equation*}
+	が成り立つことである。極座標$x= r\cos{\theta}, y= r\sin{\theta}$を導入すると$(x, y)\to (0, 0)$は$r\to 0$と同値。$f(x, y)$と書き換えると、
+\begin{align*}
+	f(x, y)
+	&= f(r\cos{\theta}, r\sin{\theta})\\
+	&= \frac{r^2\sin^2{\theta}+ r\sin{\theta}\cos{\theta}+ r^2\cos^2{\theta}}{\sqrt{r^2(\cos^2{\theta}+ \sin^2{\theta})}}\\
+	&= \frac{r^2(1+ \sin{\theta}\cos{\theta})}{r}\\
+	&= r(1+ \sin{\theta}\cos{\theta})
+\end{align*}
+	ここで$\sin{\theta}\cos{\theta}= \frac{1}{2}\sin{2\theta}$より
+\begin{equation*}
+	\begin{vmatrix}f(x, y)\end{vmatrix}= \begin{vmatrix}r\left(1+ \frac{1}{2}\sin{2\theta}\right)\end{vmatrix}\le r\left(1+ \frac{1}{2}\right)= \frac{3}{2}r
+\end{equation*}
+	$r= \sqrt{x^2+ y^2}\to 0$のとき$\frac{3}{2}r\to 0$となるので、はさみうちの原理より
+\begin{equation*}
+	\lim_{(x, y)\to (0, 0)} f(x, y)= 0
+\end{equation*}
+	よって原点で連続。
+
+	\item 積分範囲は以下の通り
+\begin{itemize}
+	\item $0\le r\le R$
+	\item $0\le \theta\le 2\pi$
+\end{itemize}
+\begin{align*}
+	\iint_{D_R} f(x, y) dxdy
+	&= \int_{\theta= 0}^{2\pi}\int_{r= 0}^R r\left(1+ \frac{1}{2}\sin{2\theta}\right)\cdot rdrd\theta\\
+	&= \int_{\theta= 0}^{2\pi} \left(1+ \frac{1}{2}\sin{2\theta}\right)d\theta\cdot \int_{r= 0}^R r^2 dr\\
+	&= \left[\theta- \frac{1}{4}\cos{2\theta}\right]_{\theta= 0}^{2\pi}\cdot \left[\frac{1}{3}r^3\right]_{r= 0}^ R\\
+	&= \frac{2}{3}\pi R^3
+\end{align*}
+\end{enumerate}
+\end{souanswer}

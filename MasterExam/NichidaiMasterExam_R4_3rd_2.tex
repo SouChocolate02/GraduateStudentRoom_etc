@@ -1,0 +1,70 @@
+% NichidaiMasterExam_R4_3rd_2
+\begin{tcolorbox} %%R4_3rd_2
+	$\fbox{2}$ $V$を複素数上の線形空間とし、$\innerproduct{\bullet}{\bullet}$で定められる内積を持つとする。複素数$z$の複素共役を$\bar{z}$、虚数単位を$i$とする。
+
+\begin{enumerate}
+	\item $W$を$V$の部分空間としたとき、$W$の直交補空間の定義を書け。
+	\item $v_1, \cdots, v_n\in V$が正規直交系であるとする。また$v\in V$が複素数$c_1, \ldots, c_n$を用いて$v= \sum_{j= 1}^n c_j v_j$とかけるとする。このとき$c_j= \innerproduct{v}{v_j}$であることを示せ。
+	\item $V= \C^3$とし、$\bm{a}= \begin{pmatrix}a_1\\ a_2\\ a_3\end{pmatrix},\ \bm{b}= \begin{pmatrix}b_1\\ b_2\\ b_3\end{pmatrix}$に対して、$\innerproduct{\bm{a}}{\bm{b}}= \sum_{j= 1}^3 a_j\bar{b_j}$で内積を定義する。このとき$\begin{pmatrix}1\\ 2i\\ 3\end{pmatrix},\ \begin{pmatrix}i\\ -1\\ 0\end{pmatrix}$が生成する部分空間の直交基底を1つ求めなさい。(正規直交基底である必要はない。)
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %%R4_3rd_2_ans
+	$\fbox{2}$
+\begin{enumerate}
+	\item $V$を内積空間とし、$W\subset V$をその部分空間とする。このとき$W$のすべてのベクトルと直交するようなベクトル全体の集合
+\begin{equation*}
+	V^\perp= \{x\in V; \innerproduct{x}{a}= 0, \forall a\in V\}
+\end{equation*}
+
+	\item 定義式より
+\begin{equation*}
+	c_j= \innerproduct{\sum_{j= 1}^n c_iv_i}{v_j}
+\end{equation*}
+	ここで内積の性質より和の$\sum$と係数を外に出して、
+\begin{equation*}
+	c_j= \sum_{j= 1}^n c_i\innerproduct{v_i}{v_j}
+\end{equation*}
+	また$\{v_1, \ldots, v_j\}$は正規直交基底であるからKroneckerのdeltaを用いて
+\begin{equation*}
+	\innerproduct{v_i}{v_j}= \delta_{ij}= 
+	\begin{cases}
+		0\ \ (i\ne j)\\
+		1\ \ (i= j)
+	\end{cases}
+\end{equation*}
+	とかける。よって
+\begin{align*}
+	c_j
+	&= \innerproduct{v}{v_j}\\
+	&= c_1\cdot 0+ \cdots+ c_j\cdot 1+ \cdots+ c_n\cdot 0\\
+	&= c_j	
+\end{align*}
+
+	\item $u_1= \begin{pmatrix}1\\ 2i\\ 3\end{pmatrix}, u_2= \begin{pmatrix}i\\ -1\\ 0\end{pmatrix}$とする。\\
+	$u_1= v_1= \begin{pmatrix}1\\ 2i\\ 3\end{pmatrix}$。$u_2$から$v_1$方向の射影を取り除く。
+\begin{equation*}
+	v_2= u_2- \frac{\innerproduct{u_2}{v_1}}{\norm{v_1}^2}v_1
+\end{equation*}
+\begin{itemize}
+	\item 内積$\innerproduct{u_2}{v_1}$を計算する。
+\begin{equation*}
+	\begin{pmatrix}1\\ 2i\\ 3\end{pmatrix}\begin{pmatrix}i\\ -1\\ 0\end{pmatrix}= i+ 2i- 0= 3i
+\end{equation*}
+
+	\item ノルム$\norm{v_1}^2$を計算する。
+\begin{equation*}
+	\norm{v_1}^2= \sqrt{1^2+ (2i)^2+ 3^2}^2= \sqrt{1+ 4+ 9}^2= 14
+\end{equation*}
+\end{itemize}
+	よって
+\begin{align*}
+	v_2
+	&= u_2- \frac{\innerproduct{u_2}{v_1}}{\norm{v_1}^2}v_1\\
+	&= \begin{pmatrix}i\\ -1\\ 0\end{pmatrix}- \frac{3i}{14}\begin{pmatrix}1\\ 2i\\ 3\end{pmatrix}\\
+	&= \begin{pmatrix}i- \frac{3}{14}i\\ -1+ \frac{3}{7}\\ -\frac{1}{14}i\end{pmatrix}\\
+	&= \begin{pmatrix}\frac{11}{14}i\\ -\frac{4}{7}\\ -\frac{1}{14}i\end{pmatrix}\\
+	&= \begin{pmatrix}11i\\ -4\\ -i\end{pmatrix}
+\end{align*}
+\end{enumerate}
+\end{souanswer}
