@@ -1,0 +1,92 @@
+% NichidaiMasterExam_R6_3r_3
+\begin{tcolorbox} %%R6_3rd_3
+	$\fbox{3}$ つぎの問いに答えよ。ただし$e$を自然対数の底とする。
+\begin{enumerate}
+	\item 実数上で定義された実数値関数$f(x)$が$x= a$において微分可能であることの定義を$\epsilon- \delta$論法を用いて書け。
+	\item 実数上の関数$f(x)= (\sin{x}+ 2)^x$を微分せよ。
+	\item 実数$x$、正の実数$y, z$に対して定義される3変数関数$g(x, y, z)= ex(z^y- y^z)- e^x$を考える。
+\begin{enumerate_roman}
+	\item $g(x, y, z)= 0$で定義される曲面の$(x, y, z)= (1, 1, 2)$における接平面の方程式を求めよ。
+	\item $g(x, y, z)= 0$で定義される陰関数$z= z(x, y)$の1階偏導関数$z_x, z_y$を求めよ。また2階偏導関数$z_{yy}$の$(x, y)= (1, 1)$での値$z_{yy}(1, 1)$を求めよ。
+\end{enumerate_roman}
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %%R6_3rd_3_ans
+	$\fbox{3}$
+\begin{enumerate}
+	\item 任意の$\epsilon> 0$に対して、ある$\delta> 0$が存在し、$	0< |x- a|< \delta$ならば、$0< |f(x)- f(a)|< \epsilon$
+\begin{tcolorbox}[title= 論理記号ver.]
+	$\forall \epsilon>0, \exists \delta> 0, 0< |x- a|< \delta \Longrightarrow 0< |f(x)- f(a)|< \epsilon$
+\end{tcolorbox}
+
+	\item 両辺の対数をとる。ここで$\sin{x}+ 2> 0$であるから真数条件をみたす。
+\begin{align*}
+	\log{f(x)}&= x\log{(\sin{x}+ 2)}\\
+	\frac{f'(x)}{f(x)}&= \log{(\sin{x}+ 2)}+ x\cdot \frac{\cos{x}}{\sin{x}+ 2}\\
+	f'(x)&= \left(\log{(\sin{x}+ 2)}+ \frac{x\cos{x}}{\sin{x}+ 2}\right)\cdot(\sin{x}+ 2)^x
+\end{align*}
+
+\begin{enumerate_roman}
+	\item 求める接平面の方程式は
+\begin{equation} \tag{P}\label{eq:求める接平面の方程式}
+	g_x(1, 1, 2)(x- 1)+ g_y(1, 1, 2)(y- 1)+ g_z(1, 1, 2)(z- 2)= 0 
+\end{equation}
+	それぞれの偏微分の値を計算する。
+\begin{align*}
+	g_x(1, 1, 2)
+	&= e(z^y- y^z)- e^x\\
+	&= e(2^1- 1^2)- e^1\\
+	&= 0\\
+	g_y(1, 1, 2)
+	&= ex(z^y\log{z}- zy^{z- 1})\\
+	&= e\cdot s(2^1\log{2}- 2\cdot 1^{2- 1})\\
+	&= 2e(\log{2}- 1)\\
+	g_z(1, 1, 2)
+	&= ex(yz^{y- 1}- y^z\log{y})\\
+	&= e\cdot 1(2\cdot 1^{2- 1}- 1^{2- 1}\log{1})\\
+	&= e
+\end{align*}
+	\eqref{eq:求める接平面の方程式}に代入して
+\begin{equation*} %なんか変になってる気がする
+	2e(\log{2}- 1)(y- 1)+ e(z- 2)= 0
+\end{equation*}
+	$e$で割って
+\begin{equation*}
+	(\log{2}- 1)y+ z- 2\log{2}= 0
+\end{equation*}
+	\item 陰関数の微分法より$z_x= -\frac{g_x}{g_z}, z_y= -\frac{g_y}{g_z}$となる。
+\begin{align*}
+	z_x&= \frac{e^x- e(z^y- y^z)}{ex(yz^{y- 1}- y^z\log{y})}\\
+	z_y&= -\frac{ex(z^y\log{z}- zy^{z- 1})}{ex(yz^{y- 1}- y^z\log{y})}\\
+	&= -\frac{z^y\log{z}- zy^{z- 1}}{yz^{y- 1}- y^z\log{y}}
+\end{align*}
+	次に$z_{yy}(1, 1)$を求める。条件より$(x, y)= (1, 1)$のとき$z= 2$であり、$z_y(1, 1)$は先ほどの偏微分係数を用いて求められる。
+\begin{equation*}
+	z_y(1, 1)= -\frac{g_y(1, 1, 2)}{g_z(1, 1, 2)}= -\frac{2e(\log{2}- 1)}{e}= -2(\log{2}- 1)= 2(1- \log{2})
+\end{equation*}
+	商の微分と連鎖律を用いて$z_{yy}= \frac{\partial}{\partial y}\left(-\frac{g_y}{g_z}\right)$を計算する。
+\begin{equation} \label{eq:zyy}
+	z_{yy}= -\frac{(g_{yy}+ g_{yz}z_y)g_z- g_y(g_{zy}+ g_{zz}z_y)}{{g_z}^2}
+\end{equation}
+	各2階偏微分導関数を計算し、$(1, 1, 2)$の値を定める。
+\begin{itemize}
+	\item $g_{yy}= ex(z^y(z^y(\log{z})^2)- z(z- 1)y^{z- 2})$
+	\item[$\Rightarrow$] $g_{yy}(1, 1, 2)= 2e((\log{2})^2- 1)$ 
+	\item $g_{yz}= g_{zy}= ex(yz^{y- 1}\log{z}+ z^{y- 1}- y^{z- 1}- zy^{y- 1}\log{y})$
+	\item[$\Rightarrow$] $g_{yz}(1, 1, 2)= e\log{2}$
+	\item $g_{zz}= ex(y(y- 1)z^{y- 2}- y^z(\log{y})^2)$
+	\item[$\Rightarrow$] $g_{zz}(1, 1, 2)= 0$
+\end{itemize}
+	これらを\eqref{eq:zyy}に代入して
+\begin{align*}
+	z_{yy}
+	&= -\frac{2e^2(\log{2}- 1)- 2e^2\log{2}(\log{2}- 1)}{e^2}\\
+	&= -2(\log{2}- 1)+ 2\log{2}(\log{2}- 1)\\
+	&= -2(\log{2}- 1)(1- \log{2})\\
+	z_{yy}(1, 1)
+	&= 2(\log{2}- 1)^2
+\end{align*}
+\end{enumerate_roman}
+\end{enumerate}
+\end{souanswer}

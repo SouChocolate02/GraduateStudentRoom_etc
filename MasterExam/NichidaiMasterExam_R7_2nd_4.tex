@@ -1,0 +1,118 @@
+% NichidaiMasterExam_R7_2nd_4
+\begin{tcolorbox} %%R7_2nd_4
+	$\fbox{4}$
+\begin{enumerate}
+	\item $f(x)= \cos{x}$の$n$階導関数を求め、$x= 0$でのTaylor展開$\sum_{n= 0}^\infty \frac{f^{(n)}(0)}{n!}x^n$を求めよ。
+	\item\label{eq:g(x)の定義} $
+	g(x)= 
+\begin{cases}
+\begin{matrix}
+	e^{-\frac{1}{x^2}}& x\ne 0\\
+	0& x= 0
+\end{matrix}
+\end{cases}
+$
+	とする。$g'(x)$を求めよ。
+	\item $n$を自然数としたとき\eqref{eq:g(x)の定義}で定義された$g(x)$の$n$階導関数が$2n- 2$次以下の多項式$p_n(x)$を用いて、
+$
+	g^{(n)}(x)=
+\begin{cases}
+\begin{matrix}
+	\frac{p_n(x)}{x^{3n}}e^{-\frac{1}{x^2}}& x\ne 0\\
+	0& x= 0
+\end{matrix}
+\end{cases}
+$
+	となることを示せ。
+	\item \eqref{eq:g(x)の定義}で定義された$g(x)$は$x= 0$でTaylor展開できないことを証明せよ。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %%R7_2nd_4_ans
+	$\fbox{4}$
+\begin{enumerate}
+	\item $\cos{x}$の$n$次導関数は以下のように書ける。
+\begin{equation*}
+	f^{(n)}(x)= \cos{\left(x+ \frac{n\pi}{2}\right)}
+\end{equation*}
+	次に$x= 0$の値を求める。
+\begin{itemize}
+	\item $n= 2k(偶数)$のとき：
+\begin{equation*}
+	f^{(2k)}(0)= \cos{k\pi}= (-1)^k
+\end{equation*}
+ 
+	\item $n= 2k+ 1(奇数)$のとき：
+\begin{equation*}
+	f^{(2k+ 1)}(0)= \cos{\left(k\pi+ \frac{\pi}{2}\right)}= 0
+\end{equation*}
+\end{itemize}
+	したがってTalyor展開は以下の通り
+\begin{equation*}
+	\sum_{n= 0}^\infty \frac{f^{(n)}}{n!}x^n= \sum_{n= 0}^\infty \frac{(-1)^k}{(2k)!}x^{2k}
+\end{equation*}
+
+	\item $x\ne 0$のときは合成関数の微分を用いる。
+\begin{align*}
+	g'(x)
+	&= e^{-\frac{1}{x^2}}\cdot \frac{d}{dx}(-x^{-2})\\
+	&= e^{-\frac{1}{x^2}}\cdot (2x^{-3})\\
+	&= \frac{2}{x^3}e^{-\frac{1}{x^2}}
+\end{align*}
+	$x= 0$における微分係数は微分の定義より求める。
+\begin{equation*}
+	g'(0)= \lim_{h\to 0}\frac{g(h)- g(0)}{h}= \lim_{h\to 0} \frac{e^{-\frac{1}{h^2}}}{h}
+\end{equation*}
+	ここで$t= \frac{1}{h}$とおくと$h\to 0$のとき$|t|\to \infty$となり、
+\begin{equation*}
+	g'(0)= \lim_{|t|\to \infty} \frac{t}{e^{t^2}}= 0
+\end{equation*}
+	よってすべての$x$で
+\begin{equation*}
+	g'(x)= 
+\begin{cases}
+	\frac{2}{x^3}e^{-\frac{1}{x^2}}\ \ (x\ne 0)\\
+0\ \ (x= 0)
+\end{cases}
+\end{equation*}
+	\item\label{step:R7-2nd数学的帰納法} 数学的帰納法で示す。
+\begin{enumerate_roman}
+	\item \textbf{$n= 1$のとき} 
+	$g^{(1)}= \frac{2}{x^3}e^{-\frac{1}{x^2}}$。$p_1(x)= 2$とすれば$2(1)- 2= 0$次の多項式であり、成立。
+
+	\item \textbf{$n= k$の成立を仮定し、$x\ne 0$で計算} 
+\begin{align*}
+	g^{(k+ 1)}(x)
+	&= \frac{d}{dx}\left[p_k(x)x^{-3k}e^{-x^{-2}}\right]\\
+	&= \left[p'_k(x)x^{-3k}- 3kp_k(x)x^{-3k- 1}+ p_k(x)x^{-3k}(2x^{-3})\right]e^{-x^{-2}}\\
+\end{align*}
+	　分子を$p_{k+ 1}(x)$とおくと、$p_k(x)$が$2k- 2$次なので$p_{k+ 1}(x)$の最高時は$2k- 2+ 2= 2(k+ 1)- 2$次となり、次数条件をみたす。
+
+	\item \textbf{$x= 0$で証明}
+	$g^{(k+ 1)}(0)= 0$を仮定すると
+\begin{align*}
+	g^{(k+ 1)(0)}
+	&= \lim_{x\to 0} \frac{g^{(k)}(x)- 0}{x}\\
+	&= \lim_{x\to 0} \frac{p_k(x)}{x^{3k+ 1}}e^{-\frac{1}{x^2}}
+\end{align*}
+	ここで$t= 1/x$とすると$x\to 0$のとき$|t|\to \infty$
+\begin{equation*}
+	\lim_{|t|\to 0} \frac{t^{3k+ 1}p_k(1/t)}{e^{t^2}}= 0
+\end{equation*}
+	となり、成立する。
+\end{enumerate_roman}
+	\item 関数$f(x)$が$x= 0$でTaylor展開できるとは$x= 0$の近傍で
+\begin{equation*}
+	g(x)= \sum_{n= 0}^\infty \frac{g^{(n)}(0)}{n!}x^n
+\end{equation*}
+	が成立することである。しかし\eqref{step:R7-2nd数学的帰納法}より$g^{(n)}(0)= 0$であることが示されている。もしTaylor展開可能なら
+\begin{equation*}
+	g(x)= \sum_{n= 0}^\infty \frac{0}{n!}x^n= 0
+\end{equation*}
+	となり、常に右辺が収束する。一方定義より$x\ne 0$において$g(x)= e^{-1/x^2}> 0$。したがって$x= 0$のどのような近傍でも
+\begin{equation*}
+	g(x)\ne \sum_{n= 0}^\infty \frac{g^{(n)}(0)}{n!}x^n
+\end{equation*}
+	となり、$g(x)$は$x= 0$でTaylor展開できない。
+\end{enumerate}
+\end{souanswer}

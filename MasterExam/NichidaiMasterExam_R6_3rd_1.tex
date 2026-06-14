@@ -1,0 +1,95 @@
+% NichidaiMasterExam_R6_3rd_1
+\begin{tcolorbox} %%R6_3rd_1
+	$\fbox{1}$ $n$を自然数とし、$A, B, C$を$n\times n$行列とする。また正方行列$M$に対し、$\Tr{(M)}$は$M$の対角成分の総和を表すとする。
+\begin{enumerate}
+	\item $
+	A= 
+\begin{pmatrix}
+	a_{11}& \cdots& a_{1n}\\
+	\vdots& \ddots& \vdots\\
+	a_{n1}& \cdots& a_{nn}
+\end{pmatrix},\ \ 
+	B= 
+\begin{pmatrix}
+	b_{11}& \cdots& b_{1n}\\
+	\vdots& \ddots& \vdots\\
+	b_{n1}& \cdots& b_{nn}
+\end{pmatrix}$
+	とおいたとき、行列$AB$の第$k$対角成分(すなわち$(k, k)$成分)を求めなさい。また行列$BA$の第$k$対角成分を求めなさい。
+	\item $\Tr{(AB)}= \Tr{(BA)}$を示せ。
+	\item $\Tr{(ABC)}= \Tr{(CAB)}= \Tr{(BCA)}$を示せ。
+	\item $P$を$n\times n$正則行列とすると、$\Tr{(P^{-1}AP)}= \Tr{(A)}$が成り立つことを示せ。
+	\item $\Tr{(ABC)}= \Tr{(ACB)}$が成り立たない例を挙げよ。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %%R6_3rd_1_ans
+	$\fbox{1}$ 
+\begin{enumerate}
+	\item 行列$AB$の対角成分を$(AB)_{kk}$，行列$BA$の対角成分を$(BA)_{kk}$と書く。
+\begin{align*}
+	(AB)_{kk}
+&= \begin{pmatrix}a_{1k}\\ a_{2k}\\ \vdots\\ a_{nk}\end{pmatrix}\begin{pmatrix}b_{k1}& b_{k2}& \cdots& b_{kn}\end{pmatrix}\\
+&= a_{1k}b_{k1}+ a_{2k}b_{k2}+ \cdots+ a_{nk}b_{kn}\\
+&= \sum_{i= 1}^n a_{ik}b_{ki}
+\end{align*}
+
+\begin{align*}
+	(BA)_{kk}
+&= \begin{pmatrix}b_{1k}\\ b_{2k}\\ \vdots\\ b_{nk}\end{pmatrix}\begin{pmatrix}a_{k1}& a_{k2}& \cdots& a_{kn}\end{pmatrix}\\
+&= b_{1k}a_{k1}+ b_{2k}a_{k2}+ \cdots+ b_{nk}a_{kn}\\
+&= \sum_{i= 1}^n b_{ik}a_{ki}
+\end{align*}
+
+	\item $\Tr{(AB)}= \Tr{(BA)}$を示す。それぞれのトレースを計算すると
+\begin{align*}
+	\Tr{(AB)}
+&= \sum_{k= 1}^n \left(\sum_{j= 1}^ n a_{kj}b_{jk}\right)\\
+&= \sum_{k= 1}^n \sum_{j= 1}^ n a_{kj}b_{jk}\\
+	\Tr{(BA)}
+&= \sum_{k= 1}^n \left(\sum_{j= 1}^ n b_{kj}a_{jk}\right)\\
+&= \sum_{k= 1}^n \sum_{j= 1}^n b_{kj}a_{jk}
+\end{align*}
+	ここで和の順序を変えることができ、$a_{kj}b_{jk}= b_{kj}a_{jk}$であるから$\Tr{(AB)}= \Tr{(BA)}$
+
+	\item 
+\begin{equation*}
+	\Tr{(AB)}= \sum_{k= 1}^n(AB)_{kk}= \sum_{k= 1}^n \sum_{j= 1}^n a_{kj}b_{jk}
+\end{equation*}
+	和の順序を入れ替えると
+\begin{equation*}
+	\Tr{(AB)}= \sum_{j= 1}^n\sum_{k= 1}^n b_{jk}a_{kj}
+\end{equation*}
+	総和の引数は$BA$の第$j$対角成分$(BA)_{jj}$だから
+\begin{equation*}
+	\Tr{(AB)}= \sum_{j= 1}^n(BA)_{jj}= \Tr{(BA)}
+\end{equation*}
+
+	\item 
+\begin{itemize}
+	\item $\Tr{(ABC)}= \Tr{(CAB)}$\\
+	$\Tr{(A(BC))}= \Tr{((BC)A)}$より$\Tr{(ABC)}= \Tr{(CAB)}$
+	\item $\Tr{(BCA)}= \Tr{(CAB)}$\\
+	$\Tr{(B(CA))}= \Tr{((CA)B)}$より$\Tr{(BCA)}= \Tr{(CAB)}$
+\end{itemize}
+
+	\item $\Tr{(P^{-1}(AP))}= \Tr{((AP)P^{-1})}$
+	行列の結合法則より$(AP)P^{-1}= A(P^{-1}P)= AE= A$。したがって$\Tr{P^{-1}AP}= \Tr{A}$
+
+	\item $A= \begin{pmatrix}1& 0\\ 0& 0\end{pmatrix},\ B= \begin{pmatrix}0& 1\\ 0& 0\end{pmatrix},\ C= \begin{pmatrix}0& 0\\ 1& 0\end{pmatrix}$とする。
+\begin{itemize}
+	\item $ABC$
+\begin{equation*}
+	ABC= \begin{pmatrix}1& 0\\ 0& 0\end{pmatrix}\begin{pmatrix}0& 1\\ 0& 0\end{pmatrix}\begin{pmatrix}0& 0\\ 1& 0\end{pmatrix}= \begin{pmatrix}1& 0\\ 0& 0\end{pmatrix}
+\end{equation*}
+	$\Tr{(ABC)}= 1$
+
+	\item $ACB$
+\begin{equation*}
+	ACB= \begin{pmatrix}1& 0\\ 0& 0\end{pmatrix}\begin{pmatrix}0& 0\\ 1& 0\end{pmatrix}\begin{pmatrix}0& 1\\ 0& 0\end{pmatrix}= \begin{pmatrix}0& 0\\ 0& 0\end{pmatrix}
+\end{equation*}
+	$\Tr{(ACB)}= 0$
+\end{itemize}
+	よって$\Tr{(ABC)}\ne \Tr{(ACB)}$
+\end{enumerate}
+\end{souanswer}

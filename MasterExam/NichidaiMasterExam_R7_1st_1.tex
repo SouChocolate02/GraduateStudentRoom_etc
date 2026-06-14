@@ -1,0 +1,42 @@
+% NichidaiMasterExam_R7_1st_1
+\begin{tcolorbox} %%R7_1st_1
+	$\fbox{1}$ $A= \begin{pmatrix}1& 1& 1\\ 1& 0& 1\\ {-1}& {-1}& {-1}\end{pmatrix}$とし、$X$を$n$次複素正方行列で、ある非負整数$k$に対して$X^k$が零行列となるとする。
+\begin{enumerate}
+	\item $A$の固有多項式・固有値を求めよ。
+	\item $X$の固有値をすべて求めよ。
+	\item $X^m$が零行列となる最小の非負整数を$m$とすると、$m\le n$であることを示せ。
+	\item $X$が対角化可能ならば、$X$は零行列であることを示せ。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %%R7_1st_1_ans
+	$\fbox{1}$
+\begin{enumerate}
+	\item 固有値を$\lambda$とする。
+\begin{align*}
+	\begin{vmatrix}A- \lambda E\end{vmatrix}
+&= 
+\begin{vmatrix}
+	1- \lambda& 1& 1\\
+	1& -\lambda& 1\\
+	-1& -1& -1- \lambda
+\end{vmatrix}\\
+&= \lambda(1- \lambda)(1+ \lambda)- \lambda\\
+&= -\lambda^3
+\end{align*}
+\begin{tabular}{lll}
+	固有方程式& $\colon$& $\begin{vmatrix}A- \lambda E\end{vmatrix}= -\lambda^3$\\
+	固有値& $\colon$& 0
+\end{tabular}
+
+	\item 固有値を$\mu$、対応する固有ベクトルを$\bm{v}\ (\bm{v}\ne \bm{0})$とする。固有方程式より
+\begin{equation*}
+	X\bm{v} = \mu \bm{v}
+\end{equation*}
+	この式の両辺に左から繰り返し$X$をかけ続ける。ここで任意の非負整数$k$に対して$X^k= O$であったから
+\begin{equation*}
+	X^k\bm{v}= \mu^k \bm{v}\iff Ov= \mu^k \bm{v}\iff \bm{0}= \mu^k \bm{v}
+\end{equation*}
+	ここで$\bm{v}= \bm{0}$であるから$\mu^k= 0$となるしかない。$\mu$を複素数の範囲で解くと$\mu= 0$
+\end{enumerate}
+\end{souanswer}

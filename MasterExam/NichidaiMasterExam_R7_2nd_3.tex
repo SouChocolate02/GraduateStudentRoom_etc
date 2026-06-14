@@ -1,0 +1,74 @@
+% NichidaiMasterExam_R7_2nd_3
+\begin{tcolorbox} %%R7_2nd_3
+	$\fbox{3}$
+\begin{enumerate}
+	\item $n$次元実数空間$\R^n$における有界閉集合$D$上で定義された連続関数は最大値および最小値をとることを示せ。なお有界閉集合$D$上の任意の点列は$D$に収束する部分列をもつことを用いてよい。
+	\item $s+ t= 1,\ 0< s, t< 1$および$d> 1$とする。
+\begin{equation*}
+	s\log{(sd)}+ t\log{(td)}- s\log{(d- 1)}\ge 0
+\end{equation*}
+	であることを示せ。
+
+	\item $a> b> c> 0,\ d> 3$とする。また3次元実数空間$\R^3$上の関数$f(x, y, z),\ \phi(x, y, z)$を
+\begin{align*}
+	f(x, y, z)= x^2+ y^2+ z^2,
+	\phi(x, y, z)= e^{ax^2}+ e^{by^2}+ e^{cz^2}- d
+\end{align*}
+	とする。$\phi(x, y, z)= 0$のもとで$f(x, y, z)$の最大値および最小値を求めよ。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %%R4_3nd_3_ans
+	$\fbox{3}$
+\begin{enumerate}
+	\item 
+\begin{enumerate_alpha}
+	\item \textbf{有界性} 
+	$f(D)$が上に有界であることを示す。有界でないならば任意の$k\in \N$に対し、$f(x_k)> k$となる$x_k\in D$が存在する。
+	$D$は有界閉集合なので点列$\{x_k\}$は$D$内の点$x_0$に収束する部分列$\{x_{k_j}\}_{j= 1}^\infty$が存在する。$f$は連続であるから$\lim_{j\to \infty} x_{k_j}= f(x_0)$となるが、これは$f(x_{k_j})> k_j\to \infty$と矛盾。したがって$f(D)$は有界。
+
+	\item \textbf{最大値の存在} 
+	$M= \sup_{x\in D}f(x)$とおく。上限の定義より$f(x_k)\to M$となり、点列$\{x_{k_j}\}\subset D$が選べる。同様に$x_0\in D$に収束する部分列$\{x_{k_j}\}$をとると連続性より$f(x_0)= \lim_{j\to \infty} f(x_{k_j})= M$となり、$f$は点$x_0$で最大値を取る。最小値についても同様に示せる。
+% もう少し丁寧に
+\end{enumerate_alpha}
+
+	\item $g(s):= s\log{(sd)}+ t\log{(td)}- s\log{(d- 1)}$とおく。$t= 1- s$なので
+\begin{equation*}
+	g(s)= s\log{(sd)}+ (1- s)\log{((1- s)d)}- s\log{(d- 1)}
+\end{equation*}
+	$s$で微分すると
+\begin{align*}
+	g'(s)
+	&= \log{(sd)}+ 1- \log{((1- s)d)}- 1- \log{(d- 1)}\\
+	&= \log{\left(\frac{s}{(1- s)(1- d)}\right)}
+\end{align*}
+\begin{equation*}
+	g'(s)= 0\iff \frac{s}{(1- s)(1- d)}= 1\iff s= \frac{d- 1}{d}
+\end{equation*}
+	この前後で$g'(s)$の符号が変化するため$s= \frac{d- 1}{d}$で最小値をとる。
+\begin{equation*}
+	g\left(\frac{d- 1}{d}\right)= \frac{d- 1}{d}\log{(d- 1)}+ \frac{1}{d}\log{1}- \frac{d- 1}{d}\log{(d- 1)}= 0
+\end{equation*}
+	よって$g(s)\ge 0$が示された。
+
+	\item Lagrangeの未定乗数法を用いる。
+\begin{equation*}
+	L(x, y, z; \lambda):= x^2+ y^2+ z^2- \lambda(e^{ax^2}+ e^{by^2}+ e^{cz^2}- d)
+\end{equation*}
+	とおき、偏微分が0となる点を求める。
+\begin{itemize}
+	\item ${\partial L}/{\partial x}= 2x- \lambda(2axe^{ax^2})= 2x(1- \lambda ae^{ax^2})= 0$
+	\item ${\partial L}/{\partial y}= 2y- \lambda(2bye^{by^2})= 2y(1- \lambda be^{by^2})= 0$
+	\item ${\partial L}/{\partial z}= 2z- \lambda(2cze^{cz^2})= 2z(1- \lambda ce^{cz^2})= 0$
+\end{itemize}
+	各変数について座標が0または$e^{k\xi^2}= \frac{1}{\lambda k}$となる必要がある。% どゆこと？
+\begin{itemize}
+	\item \textbf{最大値} $a> b> c> d$なのでもっとも広がりやすいのは係数が小さい$z$方向。もし$x= y= 0$となる$L(0, 0, 2)= 1+ 1+ e^{cz^2}-d= 0$より$e^{cz^2}= d- 2$
+	このとき$f= z^2= \frac{1}{c}\log{(d- 2)}$。$d> 3$より$\log{(d- 2)}> 0$で成立。
+	同様の候補は$\frac{1}{a}\log{(d- 2)}, \frac{1}{b}\log{(d- 2)}$であるが、係数が最小の$c$のとき$f$は最大になる。
+
+	\item \textbf{最小値} すべての変数が0でない場合を考える。$1= \lambda ae^{ax^2}= \lambda be^{by^2}= \lambda ce^{cz^2}$とすると、$e^{ax^2}= 1/\lambda a, e^{by^2}= 1/\lambda b, e^{cz^2}= 1/\lambda c$を制約式に代入して$\frac{1}{\lambda a}+ \frac{1}{\lambda b}+ \frac{1}{\lambda} c= d\Rightarrow \frac{1}{\lambda}= \frac{d}{\frac{1}{a}+ \frac{1}{b}+ \frac{1}{c}}$
+	これを$x^2= \frac{1}{a}\log{\left(\frac{1}{\lambda a}\right)}$等に代入して足し合わせる。境界や対称性を考慮すると、係数が最大の軸上に点が乗るときが最も原点に近くなる。
+\end{itemize}
+\end{enumerate}
+\end{souanswer}

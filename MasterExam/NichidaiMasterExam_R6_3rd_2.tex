@@ -1,0 +1,60 @@
+% NichidaiMasterExam_R6_3rd_2
+\begin{tcolorbox} %%R6_3rd_2
+	$\fbox{2}$ $A= \begin{pmatrix}1& i\\ {-i}& 1\end{pmatrix}$とする。ただし$i$は虚数単位とする。
+\begin{enumerate}
+	\item $A$の固有値を複素数の範囲ですべて求めよ。
+	\item (1)で求めた$A$の各固有値の固有ベクトルを求めよ。
+	\item $U^{-1}AU$が対角行列となるようなユニタリ行列$U$を求めよ。
+	\item $n$を自然数とするとき、$A^n$を求めよ。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %%R6_3rd_2_ans
+	$\fbox{2}$ 
+\begin{enumerate}
+	\item 固有値を$\lambda$とする。固有多項式は
+\begin{align*}
+	\det{(A- \lambda E)}
+&= \begin{vmatrix}
+	1- \lambda& i\\
+	-i& 1- \lambda
+\end{vmatrix}\\
+&= (1- \lambda)^2- i\cdot (-i)\\
+&= \lambda(\lambda- 2)
+\end{align*}
+	よって求める固有値は$\lambda= 0, 2$
+	\item 
+\begin{enumerate}
+	\item $\lambda= 2$のときの固有ベクトルを$\bm{v}_1=\begin{pmatrix}x_1\\ y_1\end{pmatrix}$とする。
+\begin{equation*}
+	\begin{pmatrix}-1& i\\ -i& -1\end{pmatrix}\begin{pmatrix}x_1\\ y_1\end{pmatrix}= \begin{pmatrix}0\\ 0\end{pmatrix}
+\end{equation*}
+	$y_1= c_1\ (c_1\colon 任意定数)$とすると、$x_1= ic_1$.
+	よって$\lambda= 0$のときの固有ベクトルは$\bm{v}_1= c_1\begin{pmatrix}i\\ 1\end{pmatrix}$
+
+	\item $\lambda= 0$のときの固有ベクトルを$\bm{v}_2= \begin{pmatrix}x_2\\ y_2\end{pmatrix}$とする。
+\begin{equation*}
+	\begin{pmatrix}1& i\\ -i& 1\end{pmatrix}\begin{pmatrix}x_2\\ y_2\end{pmatrix}= \begin{pmatrix}0\\ 0\end{pmatrix}
+\end{equation*}
+	$y_2= c_2 (c_2\colon 任意定数)$とすると、$x_2= -ic_2$.
+	よって$\lambda= 2$のときの固有ベクトルは$\bm{v}_2= c_2\begin{pmatrix}-i\\ 1\end{pmatrix}$
+\end{enumerate}
+	\item 固有ベクトル$\bm{v}_1, \bm{v}_2$を正規化する。また正規化したベクトルをそれぞれ$\bm{u}_1, \bm{u}_2$とかく。
+\begin{align*}
+	\bm{u}_1&= \frac{1}{\sqrt{i^2+ 1^2}}\begin{pmatrix}i\\ 1\end{pmatrix}= \frac{1}{\sqrt{2}}\begin{pmatrix}i\\ 1\end{pmatrix}\\
+	\bm{u}_2&= \frac{1}{\sqrt{(-i)^2+ 1^2}}\begin{pmatrix}-i\\ 1\end{pmatrix}= \frac{1}{\sqrt{2}}\begin{pmatrix}-i\\ 1\end{pmatrix}
+\end{align*}
+	対角行列は$\begin{pmatrix}2& 0\\ 0& 0\end{pmatrix}$であるから
+\begin{equation*}
+	U^{-1}AU= U^*AU= \begin{pmatrix}2& 0\\0& 0\end{pmatrix}
+\end{equation*}
+	これをみたすような$U$は$\frac{1}{\sqrt{2}}\begin{pmatrix}i& -i\\1& 1\end{pmatrix}$
+	\item $A^n= UD^nU^{-1}$が成り立つ。ここで$D$は対角行列
+\begin{align*}
+	A^n
+	&= \frac{1}{2}\begin{pmatrix}i& -i\\ 1& 1\end{pmatrix}\begin{pmatrix}2^n& 0\\ 0& 0\end{pmatrix}\begin{pmatrix}-i& 1\\ i& 1\end{pmatrix}\\
+	&= \frac{1}{2}\begin{pmatrix}2^n& i\cdot 2^n\\ -i\cdot 2^n& 2^n\end{pmatrix}\\
+	&= 2^{n- 1}A
+\end{align*}
+\end{enumerate}
+\end{souanswer}

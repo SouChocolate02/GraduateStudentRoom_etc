@@ -1,0 +1,66 @@
+% NichidaiMasterExam_R_7_2nd_1
+\begin{tcolorbox} %%R_7_2nd_1
+	$\fbox{1}$
+\begin{enumerate}
+	\item $V, W$を体$K$上のベクトル空間とする。写像$f\colon V\to W$が$K$上の線形写像であることの定義を述べよ。
+	\item $\C[x]$を複素数体$\C$に係数をもち、$x$を変数とする一変数多項式の集合とする。$\C[x]$は通常の多項式の和と定数倍によりベクトル空間をなす。$n$次多項式$\bm{v}= a_n x^n+ a_{n- 1}x^{n- 1}+ \cdots+ a_1 x+ a_0\ (n> 0ならばa_n\ne 0)$に対し、$f(\bm{v})$を次のように定めた写像$f\colon \C[x]\to \C[x]$が線形写像であるかを理由とともに答えよ。
+\begin{enumerate_alpha}
+	\item $f(\bm{v})= a_n+ a_{n- 1}+ \cdots+ a_0$
+	\item $f(\bm{v})= a_n\times a_{n- 1}\times \cdots a_0$
+	\item $f(\bm{v})= a_{n- 1} x^n+ a_{n- 2} x^{n- 1}+ \cdots+ a_0 x+ a_n$
+\end{enumerate_alpha}
+	\item $n$を正整数とする。$M_n(\C)$を複素体$\C$の要素を成分に持つ$n$次正方行列の集合とする。行列の和と定数倍によりベクトル空間をなす。つぎの写像が線形写像であるかを判定せよ。
+\begin{enumerate_alpha}
+	\item トレース$\Tr\colon M_n(\C)\to \C$
+	\item 行列式$\det\colon M_n(\C)\to \C$
+\end{enumerate_alpha}
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %%R7_2nd_1_ans
+	$\fbox{1}$
+\begin{enumerate}
+	\item ベクトル空間$V, W$との間の写像$f\colon V\to W$が線型写像であるとは、任意のベクトル$\bm{u}, \bm{v}\in V$とスカラー
+$k\in \R$に対して
+\begin{enumerate_roman}
+	\item\label{law:加法性} 加法性：$f(\bm{u}+ \bm{v})= f(\bm{u})+ f(\bm{v})$
+	\item\label{law:斉次性} 斉次性：$f(k\bm{v})= kf(\bm{v})$
+\end{enumerate_roman}
+	\item 多項式$v= \sum_{i= 0}^n a_ix^i$に対して判定する。
+\begin{enumerate_alpha}
+	\item 線型写像。多項式に$x= 1$を代入した$f(v)= v(1)$を返す写像。任意の多項式$u, v$とスカラー$k\in \R$に対して
+\begin{align*}
+	(u+ v)(1)&= u(1)+ v(1)\\
+	(kv)(1)&= kv(1)
+\end{align*}
+	が成り立つため線型写像。
+
+	\item 線型写像ではない。斉次性を満たさない。$\bm{v}= x+ 1(a_1= 1, a_0= 1)$とし、スカラー$k= 2$とすると、
+\begin{itemize}
+	\item $f(2\bm{v})= f(2x+ 2)= 2\times 2= 4$
+	\item $2f(\bm{v})= 2(1\times 1)= 2\times 1= 2$
+\end{itemize}
+	となり、線型写像ではない。
+
+	\item 線型写像ではない。加法性を満たさない。$\bm{u}= x(n= 1, a_1= 1, a_0= 1)\Rightarrow f(\bm{v})= 0\cdot x^1+ 1= 1$と$\bm{v}= 1(n= 0, a_1= 1\Rightarrow f(\bm{v})= 1)$を考える。
+\begin{itemize}
+	\item $f(\bm{u})+ f(\bm{v})= 1+ 1= 2$
+	\item $\bm{u}+ \bm{v}= 1\cdot x^1+ 1= x+ 1$
+\end{itemize}
+	したがって$f(\bm{u}+ \bm{v})\ne f(\bm{u})+ f(\bm{v})$
+\end{enumerate_alpha}
+
+	\item 
+\begin{enumerate_alpha}
+	\item トレース$\Tr{}\colon M_n(\C)\to \C$は線型写像。
+	定義より$\Tr{A}= \sum_{i= 1}n a_{ii}$
+\begin{itemize}
+	\item $\Tr{(A+ B)}= \sum_{i= 1}^n(a_{ii}+ b_{ii})= \sum_{i= 1}^n a_{ii}+ \sum_{i= 1}^n b_{ii}= \Tr{A}+ \Tr{B}$
+	\item $\Tr{(kA)}= \sum_{i= 1}^n (ka_{ii})=k\sum_{i= 1}^n a_{ii}= k\Tr{A}$
+\end{itemize}
+
+
+	\item 行列式$\det{}\colon M_n(\C)\to \C$は線型写像ではない。一般に$|A+ B|\ne |A||B|$。また斉次性についても$|kA|= k^n|A|$となり、$n> 1$では一致しない。
+\end{enumerate_alpha}
+\end{enumerate}
+\end{souanswer}
