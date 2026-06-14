@@ -1,0 +1,54 @@
+% NichidaiMasterExam_R6_1st_4
+\begin{tcolorbox} %%R6_1st_4
+	$\fbox{4}$ $a, b, c$を正の定数とし、3次元実空間の原点を$O$とする。$x_0, y_0, z_0$を0でない実数とし、曲面$\frac{x^2}{a^2}+ \frac{y^2}{b^2}+ \frac{z^2}{c^2}= 1$の点$(x_0, y_0, z_0)$における接平面$H$が$x$軸、$y$軸、$z$軸と交わる点をそれぞれX, Y, Zとする。また四面体OXYZの体積を$V$とする。
+\begin{enumerate}
+	\item 曲面$\frac{x^2}{a^2}+ \frac{y^2}{b^2}+ \frac{z^2}{c^2}= 1$で囲まれる図形の体積を求めよ。
+	\item 接平面$H$の式を$(x_0, y_0, z_0)$を用いて書け。
+	\item X, Y, Zを$(x_0, y_0, z_0)$を用いて表しなさい。
+	\item Vを$(x_0, y_0, z_0)$を用いて表しなさい。
+	\item $\frac{x_0^2}{a^2}+ \frac{y_0^2}{b^2}+ \frac{z_0^2}{c^2}= 1$のもとでVの最小値を求めよ。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %%R6_1st_4_ans
+	$\fbox{4}$
+\begin{enumerate}
+	\item 体積$V_\mathrm{ell}$は球の体積$V_\mathrm{sp}= \frac{4}{3}\pi r^3$を$x, y, z$方向にそれぞれ$a, b, c$だけ引き延ばしたもの
+\begin{equation*}
+	V_\mathrm{ell}= \frac{4}{3}\pi abc
+\end{equation*}
+
+	\item 点$(x_0, y_0, z_0)$における接平面の方程式は円や球の接線と同様。関数$f(x, y, z)= \frac{x^2}{a^2}+ \frac{y^2}{b^2}+ \frac{z^2}{c^2}-1= 0$の勾配ベクトル$\nabla f$を用いると
+\begin{equation*}
+	\frac{x_0}{a^2}x+ \frac{y_0}{b^2}y+ \frac{z_0}{c^2}z= 1
+\end{equation*}
+
+	\item 接平面$H$と各軸の交点を求める。
+\begin{itemize}
+	\item $X$点：$y= 0, z= 0$を代入すると$\frac{x_0}{a^2}x= 1\Rightarrow x= \frac{a^2}{x_0}$
+	\item $Y$点：$x= 0, z= 0$を代入すると$\frac{y_0}{b^2}y= 1\Rightarrow y= \frac{b^2}{y_0}$
+	\item $Z$点：$x= 0, y= 0$を代入すると$\frac{z_0}{c^2}z= 1\Rightarrow x= \frac{c^2}{z_0}$
+\end{itemize}
+
+	\item 四面体$\mathrm{OXYZ}$は各軸が直交しているため、底面を$\triangle\mathrm{OXY}$とすると、高さは$\mathrm{OX}$となる。
+\begin{align*}
+	V
+	&= \frac{1}{3}\times (\triangle\mathrm{OXY})\times \mathrm{OZ}\\
+	&= \frac{1}{3}\left(\frac{1}{2}\left|\frac{a^2}{x_0}\right|\left|\frac{b^2}{y_0}\right|\right)\left|\frac{c^2}{z_0}\right|\\
+	&= \frac{a^2b^2c^2}{6|x_0y_0z_0|}
+\end{align*}
+
+	\item 制約条件$\frac{x_0^2}{a^2}+ \frac{y_0^2}{b^2}+ \frac{z_0^2}{c^2}= 1$の元で最小となるためには分母$|x_0y_0z_0|$を最大にする必要がある。相加平均相乗平均より$A= \frac{x_0^2}{a^2}, B= \frac{y_0^2}{b^2}, C= \frac{z_0^2}{c^2}$とおくと$A, B, C> 0$かつ$A+ B+ C= 1$である。
+\begin{align*}
+	\frac{A+ B+ C}{3}&\ge \sqrt[3]{ABC}\\
+	\frac{1}{3}&\ge \sqrt[3]{\frac{x_0^2y_0^2z_0^2}{a^2b^2c^2}}
+\end{align*}
+	両辺3乗して$\frac{1}{27}\ge \frac{x_0^2y_0^2z_0^2}{a^2b^2c^2}\Rightarrow |x_0^2y_0^2z_0^2|\le \frac{abc}{3\sqrt{3}}$
+	$|x_0y_0z_0|$の最大値が$\frac{abc}{3\sqrt{3}}$なので、これを$V$に代入して
+\begin{equation*}
+	V_\mathrm{min}= \frac{a^2b^2c^2}{6\cdot \frac{abc}{3\sqrt{3}}}= \frac{\sqrt{3}}{2}abc
+\end{equation*}
+	等号成立は$A= B= C= \frac{1}{3}$。すなわち$x_0= \frac{a}{\sqrt{3}}, y_0= \frac{b}{\sqrt{3}}, z_0= \frac{c}{\sqrt{3}}$のとき
+
+\end{enumerate}
+\end{souanswer}

@@ -1,0 +1,58 @@
+% NichidaiMasterExam_R6_1st_2
+\begin{tcolorbox} %%R6_1st_2
+	$\fbox{2}$ $A= \begin{pmatrix}1& i& i\\ i& i& 1\end{pmatrix}$とし、$X$を複素行列とする。
+\begin{enumerate}
+	\item $A$の随伴行列$A^{*}$を求めよ。
+	\item $A^{*}A$を計算せよ。
+	\item エルミート行列の定義を述べよ。また$X^{*}X$がエルミート行列であることを示せ。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %%R6_1st_2_ans
+\begin{enumerate}
+	\item 随伴行列$A^{*}$は
+\begin{equation*}
+	A^{*}= 
+\begin{pmatrix}
+	\bar{1}& \bar{i}\\
+	\bar{i}& \bar{i}\\
+	\bar{i}& \bar{1}
+\end{pmatrix}
+	=
+\begin{pmatrix}
+	1& -i\\
+	-i& -i\\
+	-i& 1
+\end{pmatrix}
+\end{equation*}
+	\item
+\begin{align*}
+	A^{*}A
+	&=
+\begin{pmatrix}
+	1& -i\\
+	-i& -i\\
+	-i& 1
+\end{pmatrix}
+\begin{pmatrix}
+	1& i& i\\
+	i& i& 1
+\end{pmatrix}\\
+	&= 
+\begin{pmatrix}
+	2& 1+ i& 0\\
+	1- i& 2& 1- i\\
+	0& 1+ i& 2
+\end{pmatrix}
+\end{align*}
+	\item エルミート行列の定義は以下
+\begin{tcolorbox}
+	随伴行列と元の行列が等しい正方行列。すなわち正方行列$A$に対して$A^*= \bar{A}^\mathrm{T}= A$となる行列。
+\end{tcolorbox}
+	任意の複素行列$X$に対して$H= X^*X$とおく。その随伴行列を$H^*$を計算する。随伴行列の性質$(AB)^*= B^*A^*$および$(X^*)^*= X$より
+\begin{equation*}
+	(X^*X)^*= X^*(X^*)^*= X^*X
+\end{equation*}
+	$(X^*X)^*= X^*X$が成り立つため$X^*X$はエルミート行列
+\end{enumerate}
+\end{souanswer}

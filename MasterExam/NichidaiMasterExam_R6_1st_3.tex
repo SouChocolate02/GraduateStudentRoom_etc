@@ -1,0 +1,73 @@
+% NichidaiMasterExam6_1st_3
+\begin{tcolorbox} %%R6_1st_3
+	$\fbox{3}$ 
+$f(x, y)= 
+\begin{cases}
+\begin{matrix}
+	\frac{\sin{(xy(2x^2- 3y^2))}}{x^2+ y^2}& (x, y)\ne (0, 0)\\
+	0& (x, y)= (0, 0)
+\end{matrix}
+\end{cases}
+$
+	に対して次の問いに答えよ。
+\begin{enumerate}
+	\item $\frac{\partial f}{\partial x}(x, y),\ \frac{\partial}{\partial y}\frac{\partial f}{\partial x}(0, 0)$を求めよ。
+	\item $\frac{\partial f}{\partial y}(x, y),\ \frac{\partial}{\partial y}\frac{\partial f}{\partial x}(0, 0)$を求めよ。
+	\item $f(x, y)$は$(0, 0)$において全微分可能かどうか理由をつけて判定せよ。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %%R6_1st_3_ans
+	$\fbox{3}$
+\begin{enumerate}
+	\item 商の微分を用いて計算する。$u= xy(2x^2- 3y^2)= 2x^3y- 3xy^3$とおくと、$\partial u/\partial x= 6x^2y- 3y^3$。
+\begin{equation*}
+	\frac{\partial f}{\partial x}= \frac{(6x^2y- 3y^2)(x^2+ y^2)\cos{u}- 2x\sin{u}}{(x^2+ y^2)^2}
+\end{equation*}
+	偏微分の定義より
+\begin{equation*}
+	\frac{\partial f}{\partial x}(0, y)= \lim_{h\to 0} \frac{f(h, 0)- f(0, y)}{h}= \lim_{h\to 0} \frac{\frac{\sin{(hy(2h^2- 3y^2))}}{h^2+ y^2}- 0}{h}
+\end{equation*}
+	ここで$\sin{\theta}\to 0(\theta\to 0)$より
+\begin{equation*}
+	\frac{\partial f}{\partial x}(0, y)= \lim_{h\to 0} \frac{hy(2h^2- 3y^2)}{h(h^2+ y^2)}= \frac{-3y^3}{y^2}= -3y
+\end{equation*}
+	これを用いて$(0, 0)$における$y$に関する偏微分を求める。
+\begin{align*}
+	\frac{\partial^2 f}{\partial y\partial x}(0, 0)
+	&= \lim_{k\to 0} \frac{\frac{\partial f}{\partial x}(0, k)- \frac{\partial f}{\partial x}(0, 0)}{k}\\
+	&=\lim_{k\to 0} \frac{-3k- 0}{k}= -3
+\end{align*}
+
+	\item 同様に$\frac{\partial u}{\partial y}= 2x^3-9xy^2$なので
+\begin{equation*}
+	\frac{\partial f}{\partial y}= \frac{(2x^3- 9xy^2)(x^2+ y^2)\cos{u}- 2y\sin{u}}{(x^2+ y^2)^2}
+\end{equation*}
+	$\frac{\partial f}{\partial y}(x, 0)$を求める。
+\begin{align*}
+	\frac{\partial f}{\partial y}(x, 0)
+	&= \lim_{k\to 0} \frac{f(x, k)- f(x, 0)}{k}\\
+	&= \lim_{k\to 0} \frac{\frac{\sin(xk(2x^2- 3k^2))}{x^2+ k^2}- 0}{k}\\
+	&= \frac{2x^3}{x^2}\\
+	&= 2x
+\end{align*}
+	これを用いて
+\begin{equation*}
+	\frac{\partial^2 f}{\partial x\partial y}(0, 0)= \lim_{h\to 0} \frac{\frac{\partial f}{\partial y}(h, 0)- \frac{\partial f}{\partial y}(0, 0)}{h}= \lim_{h\to 0} \frac{2h- 0}{h}= 2
+\end{equation*}
+
+	\item (0, 0)において全微分可能であるためには以下の極限が0に収束する必要がある。
+\begin{equation*}
+	\lim_{(h, k)\to (0, 0)} \frac{f(h, k)- f(0, 0)- \left(h\frac{\partial f}{\partial x}(0, 0)+ k\frac{\partial f}{\partial y}(0, 0)\right)}{\sqrt{h^2+ k^2}}= 0
+\end{equation*}
+	$\frac{\partial f}{\partial x}(0, 0), \frac{\partial f}{\partial y}(0, 0)$はいずれも0。判定式は
+\begin{equation*}
+	\epsilon= \frac{\frac{\sin(hk(2h^2- 3k^2))}{h^2+ k^2}}{\sqrt{h^2+ k^2}}= \frac{\sin{(hk(2h^2- 3k^2))}}{(h^2+ k^2)^{3/2}}
+\end{equation*}
+	ここで極座標$h= r\cos{\theta}, k= r\sin{\theta}$を用いると分子の引数は$O(r^4)$となる。
+\begin{equation*}
+	\epsilon\sim \frac{r^2\cos{\theta}\sin{\theta}(2r^2\cos^2{\theta}- 3r^2\sin^2{\theta})}{r^3}= r\cos{\theta}\sin{\theta}(2\cos^2{\theta}- 3\sin^2{\theta})
+\end{equation*}
+	$r\to 0$のときこの値は$\theta$によらず0に収束する。
+\end{enumerate}
+\end{souanswer}
