@@ -1,0 +1,100 @@
+% NichidaiMasterExam_R8_3rd_1
+\begin{tcolorbox} %%R8_3rd_1
+	$\fbox{1}$
+\begin{enumerate}
+	\item $A_3= \begin{pmatrix}1& 2& 0\\ 0& 1& 2\\ 2& 0& 1\end{pmatrix}$とする。
+\begin{enumerate_alpha}
+	\item $A_3$の固有値を複素数の範囲ですべて求めよ。
+	\item $A_3$の固有値のうち、絶対値が最大のものの固有ベクトルを複素数の範囲ですべて求めなさい。
+\end{enumerate_alpha}
+	\item $n$を2以上の整数とする。$n$自正方行列$B_n$は、$i$行$j$成分$B_n(i, j)$が以下で与えられているとする。
+\begin{equation*}
+	B_n({i, j})= 
+\begin{cases}
+	i+ j- 1\ \ (i+ j\le n)\\
+	i+ j- n- 1\ \ (i+ j\ge n+ 1) 
+\end{cases}
+\end{equation*}
+	とする。
+\begin{enumerate_alpha}
+	\item $B_4, B_5$を行列で表しなさい。
+	\item $B_n$が固有値に$\frac{n(n- 1)}{2}$をもつことを示せ。
+	\item $B_n$の固有値の中で絶対値が最大なものは$\frac{n(n- 1)}{2}$であることを示せ。
+\end{enumerate_alpha}
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %R8_3rd_1_ans
+\begin{enumerate}
+	\item 
+\begin{enumerate_alpha}
+	\item 求める固有値を$\lambda$とする。固有多項式$\det{(A_3- \lambda I)}= 0$を解くと
+\begin{align*}
+	\det{(A_3- \lambda I)}
+	&=
+	\begin{vmatrix}
+		1- \lambda& 2& 0\\
+		0& 1- \lambda& 2\\
+		2& 0& 1- \lambda
+	\end{vmatrix}\\
+	&= (1- \lambda)^3+ 2\cdot 2\cdot 2\\
+	&= ((1- \lambda)- 2)((1- \lambda)^2- 2(1- \lambda)+ 4)= 0
+\end{align*}
+	よって求める固有値$\lambda$は$\lambda= 3, \sqrt{3}i, -\sqrt{3}i$
+	\item 求めた固有値の絶対値が最大のものは$\lambda= 3$。固有ベクトルを$\bm{v}= \begin{pmatrix}x\\ y\\ z\end{pmatrix}$とおくと、
+\begin{equation*}
+	(A_3- 3I)\bm{v}= 
+	\begin{pmatrix}
+	-2& 2& 0\\
+	0& -2& 2\\
+	2& 0& -2
+	\end{pmatrix}
+	\begin{pmatrix}x\\ y\\ z\end{pmatrix}= 
+	\begin{pmatrix}0\\ 0\\ 0\end{pmatrix}
+\end{equation*}
+	解くと$x= y= z$。任意の0でない複素数$c$を用いて$\begin{pmatrix}x\\ y\\ z\end{pmatrix}= c\begin{pmatrix}1\\ 1\\ 1\end{pmatrix}, cは0でない任意の複素数$
+\end{enumerate_alpha}
+	\item 
+\begin{enumerate_alpha}
+	\item 与えられた規則に従って計算する。\\
+	$n= 4$のとき：$B_4= \begin{pmatrix}1& 2& 3& 0\\2& 3& 0& 1\\3& 0& 1& 2\\0& 1& 2& 3\end{pmatrix}$\\
+	$n= 5$のとき：$B_5= \begin{pmatrix}1& 2& 3& 4& 0\\ 2& 3& 4& 0& 1\\ 3& 4& 0& 1& 2\\ 4& 0& 1& 2& 3\\ 0& 1& 2& 3& 4\end{pmatrix}$
+	\item\label{R8_3rd_1(2)_eigenval} 行列$B_n$の第$i$列の各成分の和を考える。第$i$列の成分$B_n(i, j)$は
+\begin{itemize}
+	\item $j$が1から$n- 1$：$B_n(i, j)= i+ j- 1$
+	\item $j$が$n- j+ 1$から$n$：$B_n(i, j)= i+ j- n- 1$
+\end{itemize}
+	各行の成分の集合は$j$の値によらず、常に$\{0, 1, 2, \ldots, n- 1\}$をちょうど1つずつ含む。したがって各行の成分の和は$i$に関係なく一定であり、その和$S$は
+\begin{equation*}
+	S= \sum_{k= 0}^{n- 1} k= \frac{n(n- 1)}{2}
+\end{equation*}
+	となる。ここですべての成分が1である$n$次元列ベクトル$\bm{v}= \begin{pmatrix}1\\ \vdots\\ 1\end{pmatrix}$を考える。行列とベクトルの積の定義より、$B_n\bm{v}$の第$i$成分は$B_n$の第$i$成分の和にも等しくなる。
+\begin{equation*}
+	B_n\begin{pmatrix}1\\ \vdots\\ 1\end{pmatrix}= S\begin{pmatrix}1\\ \vdots\\ 1\end{pmatrix}= \begin{pmatrix}S\\ \vdots\\ S\end{pmatrix}= \frac{n(n- 1)}{2}\begin{pmatrix}1\\\vdots\\ 1\end{pmatrix}
+\end{equation*}
+	となり、$B_n\bm{v}= \frac{n(n- 1)}{2}\bm{v}$をみたす。$\bm{v}\ne 0$であるから$\frac{n(n- 1)}{2}$は$B_n$の固有値である。
+	\item $\lambda$を$B_n$の任意の固有値とし、$\bm{x}= \begin{pmatrix}x_1\\ x_2\\ \vdots\\ x_n\end{pmatrix}\ne 0$とする。すなわち$B_n\bm{x}= \lambda\bm{x}$が成り立つ。
+\end{enumerate_alpha}
+	ベクトル$\bm{x}$の成分のうち、絶対値が最大のものを$x_k$とする。$|\bm{x}|\ne 0$より、$|x_k|> 0$。$b_n\bm{x}= \lambda\bm{x}$の第$k$列に注目すると
+\begin{equation*}
+	\lambda x_k= \sum_{j= 1}^n b_n(k, j)x_j
+\end{equation*}
+	両辺の絶対値をとって三角不等式を用いると
+\begin{equation*}
+	|\lambda||x_k|= \left|\sum_{j= 1}^n B_n(k, j)x_j\right|\le \sum_{j= 1}^n |b_n(k, j)x_j|= \sum_{j= 1}^n |b_n(k, j)||x_j|
+\end{equation*}
+	$b_n$の定義よりすべての成分は非負であるため$|B_n(k, j)|= B_n(k, j)$とできる。また$|x_j|\le |x_k|$であることを用いると
+\begin{equation*}
+	|\lambda||x_k|= \sum_{j= 1}^n B_n(k, j)|x_k|= |x_k|\sum_{j= 1}^n B_n(k, j)
+\end{equation*}
+	\zcref{R8_3rd_1(2)_eigenval}の結果から、任意の行$k$における成分の和は$\frac{n(n- 1)}{2}$なので
+\begin{equation*}
+	|\lambda||x_k|\le \frac{n(n- 1)}{2}|x_k|
+\end{equation*}
+	両辺を$|x_k|$で割ることで以下の不等式を得ることができる。
+\begin{equation*}
+	|\lambda|\le \frac{n(n- 1)}{2}
+\end{equation*}
+	これはいかなる$\lambda$も$\frac{n(n- 1)}{2}$を超えられないことを示している。\zcref{R8_3rd_1(2)_eigenval}で$\frac{n(n- 1)}{2}$が固有値であることがすでに示されているため、これが絶対値が最大の固有値である。
+\end{enumerate}
+\end{souanswer}

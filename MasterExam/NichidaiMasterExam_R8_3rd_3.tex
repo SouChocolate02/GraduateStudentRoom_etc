@@ -1,0 +1,77 @@
+% NichidaiMasterExam_R8_3rd_3
+\begin{tcolorbox} %%R8_3rd_3
+	$\fbox{3}$
+\begin{enumerate}
+	\item $x\ne 0$のとき$\frac{d}{dx}\left(\frac{\cos{x}}{x}\right)$を求めよ。
+	\item $\int_1^\infty \frac{1}{x^2}dx$を求めよ。
+	\item $\left|\int_1^\infty \frac{\cos{x}}{x^2}dx\right|\le 1$を求めよ。
+	\item $\left|\int_1^\infty \frac{\sin{x}}{x} dx\right|< \infty$を示せ。
+	\item $\int_1^\infty \left|\frac{\sin{x}}{x}\right|dx= \infty$を示せ。	
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %R8_3rd_3_ans
+\begin{enumerate}
+    \item\label{R8_3rd_3(1)} 商の微分公式より
+\begin{equation*}
+    \frac{d}{dx}\left(\frac{\cos{x}}{x}\right)= \frac{-\sin{x}\cdot x- \cos{x}\cdot 1}{x^2}= \frac{-x\sin{x}- \cos{x}}{x^2}
+\end{equation*}
+    \item\label{R8_3rd_3(2)} 広義積分の定義より
+\begin{equation*}
+    \int_1^\infty \frac{1}{x^2}dz
+	= \lim_{R\to \infty}\int_z^R \frac{1}{x^2}dx
+    = \lim_{R\to \infty} \left[-\frac{1}{x}\right]_1^R
+    = \lim_{R\to \infty}\left(-\frac{1}{R}- (-1)\right)= 0+ 1= 1
+\end{equation*}
+    \item\label{R8_3rd_3(3)} 絶対値の積分に関する三角不等式$\left|\int_a^b f(x)dx\right|\le \int_a^b|f(x)|dx$を用いる。
+\begin{equation*}
+	\left|\int_1^\infty \frac{\cos{x}}{x^2}dx \right|
+	\le \int_1^\infty \left|\frac{\cos{x}}{x^2}\right|dx
+	= \int_1^\infty \frac{|\cos{x}|}{x^2}dx
+\end{equation*}
+	すべての実数$x$に対して$|\cos{x}|\le 1$であることと積分範囲$x\ge 1$において$x^2> 0$であるから、
+\begin{equation*}
+	\int_1^\infty \frac{|\cos{x}|}{x^2}dx\le \int_1^\infty \frac{1}{x^2}dx
+\end{equation*}
+	\zcref{R8_3rd_3(2)}の結果より$\int_1^\infty \frac{1}{x^2}dx= 1$であるから、
+\begin{equation*}
+	\left|\int_1^\infty \frac{\cos{x}}{x^2}dx\right|\le 1
+\end{equation*}
+	\item \zcref{R8_3rd_3(1)}の両辺を1から$\infty$まで積分すると、
+\begin{equation*}
+	\int_a^\infty \frac{\sin{x}}{x}dx= -\int_1^\infty \frac{\cos{x}}{x^2}dx- \left[\frac{\cos{x}}{x}\right]_1^\infty
+\end{equation*}
+	ここで第2項の極限は、
+\begin{equation*}
+	\left[\frac{\cos{x}}{x}\right]_1^\infty= \lim_{R\to \infty}\frac{\cos{R}}{R}= \frac{\cos{1}}{1}= -\cos{1}
+\end{equation*}
+	したがって
+\begin{equation*}
+	\int_a^\infty \frac{\sin{x}}{x}dx= -\int_1^\infty \frac{\cos{x}}{x^2}dx+ \cos{1}
+\end{equation*}
+	両辺の絶対値をとり、三角不等式を適用すると、
+\begin{equation*}
+	\left|\int_a^\infty \frac{\sin{x}}{x}dx\right|\le \left|-\int_1^\infty \frac{\cos{x}}{x^2}dx\right|+ |\cos{1}|
+\end{equation*}
+	\zcref{R8_3rd_3(3)}の結果より$\left|\int_1^\infty \frac{\cos{x}}{x}dx\right|\le 1$であり、$\cos{1}$は有限の値であるから
+\begin{equation*}
+	\left|\int_1^\infty \frac{\sin{x}}{x}dx\right|\le 1+ |\cos{x}|< \infty
+\end{equation*}
+	\item 積分区間を$\pi$ごとに分割して、下から評価する。任意の自然数$N$に対して、積分範囲を拡大しながら考える。
+\begin{equation*}
+	\int_1^{N\pi} \left|\frac{\sin{x}}{x}\right|dx\ge \int_\pi^{N\pi}|\left|\frac{\sin{x}}{x}\right|dx= \sum_{k= 1}^{N- 1}\int_{k\pi}^{(k+ 1)\pi} \frac{|\sin{x}|}{x}dx
+\end{equation*}
+	各区間$x\in [k\pi, (k+ 1)\pi]$において$x\le (k+ 1)\pi$であるため$\frac{1}{x}\ge \frac{1}{(k+ 1)\pi}$が成り立つ。これを適用すると、
+\begin{equation*}
+	\sum_{k= 1}^{N- 1}\int_{k\pi}^{(k+ 1)\pi}\frac{|\sin{x}|}{x}dx\ge \sum_{k= 1}^{N- 1} \int_{k\pi}^{(k+ 1)\pi}|\sin{x}|dx
+\end{equation*}
+	ここで半周期の正弦波の面積は常に2であるから
+\begin{equation*}
+	\sum_{k= 1}^{N- 1}\frac{2}{(k+ 1)\pi}= \frac{2}{\pi}\sum_{k= 1}^{N- 1} \frac{1}{k+ 1}= \frac{2}{\pi}\left(\frac{1}{2}+ \frac{1}{3}+ \cdots+ \frac{1}{N}\right)
+\end{equation*}
+	$N\to \infty$とすると調和級数$\sum \frac{1}{k}$は$\infty$に発散するから、下から評価した級数が$\infty$に発散するならばもとの積分も発散する。
+\begin{equation*}
+	\int_1^\infty \left|\frac{\sin{x}}{x}\right|dx= \infty
+\end{equation*}
+\end{enumerate}
+\end{souanswer}

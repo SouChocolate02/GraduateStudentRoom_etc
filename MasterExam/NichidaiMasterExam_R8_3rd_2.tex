@@ -1,0 +1,94 @@
+% NichidaiMasterExam_R8_3rd_2
+\begin{tcolorbox} %%R8_3rd__2
+	$\fbox{2}$ $A$を複素正方行列とし、$A^*$は$A$の随伴行列$\tr{\bar{A}}$とする。$A= A^*$が成り立つとき$A$をエルミート行列、$A= -A^*$を満たすとき、$A$を歪エルミート行列という。
+\begin{enumerate}
+	\item 以下の行列に対してエルミート行列，歪エルミート行列、以外を理由とともに判定をせよ。
+\begin{enumerate_alpha}
+	\item $\begin{pmatrix}1& i& -i&\\ -i& 1& 0\\ i& 0& 1\end{pmatrix}$
+	\item $\begin{pmatrix}i& -1& -1\\ 1& i& 0\\ 1& 0& i\end{pmatrix}$
+	\item $\begin{pmatrix}1+ i& 1& 1\\ 1& i& 0\\ 1& 0& i\end{pmatrix}$
+\end{enumerate_alpha}
+	\item 歪エルミート行列の対角成分は、0または純虚数であることを示せ。
+	\item エルミート行列かつ歪エルミート行列は存在するか。
+	\item $M$を複素正方行列とする。$M- M^*$がエルミート行列であることを示せ。
+	\item $n$を正整数とする。$n$次正方行列$M, N$がエルミート行列であるとき、$i(MN- NM)$がエルミート行列であることを示せ。
+	\item 歪エルミート行列の固有値は0または純虚数であることを示せ。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %R8_3rd_2_ans
+\begin{enumerate}
+	\item 
+\begin{enumerate_alpha}
+	\item 
+\begin{equation*}
+	A^*= \tr{\begin{pmatrix}1& -i& i\\ i& 1& 0\\ -i& 0& 1\end{pmatrix}}= \begin{pmatrix}1& i& -i\\ -i& 1& 0\\ i& 0& 1\end{pmatrix}= A
+\end{equation*}	
+	$A^*= A$となるためエルミート行列。
+	\item 
+\begin{equation*}
+	A^*= \tr{\begin{pmatrix}-i& -1& -1\\ 1& -1& 0\\1& 0& -i\end{pmatrix}}= \begin{pmatrix}-i& 1& 1\\ -1& -1& 0\\ -1& 0& -i\end{pmatrix}= -A
+\end{equation*}
+	$A^*= -A$となるため歪エルミート行列。
+	\item 
+\begin{equation*}
+	\tr{\begin{pmatrix}1+ i& 1& 1\\ 1& i& 0\\1& 0& i\end{pmatrix}}= \begin{pmatrix}1+ i& 1& 1\\ 1& i& 0\\ 1& 0& i\end{pmatrix}
+\end{equation*}
+	$A^*\ne A$かつ$A^*\ne -A$であるためエルミート行列でも歪エルミート行列でもない。
+\end{enumerate_alpha}
+	\item 行列$A$を歪エルミート行列とする。すなわち$A^*= -A$。$A$の$(k, k)$対角成分を$a_{kk}$とかく。対角成分に注目すると$\bar{\tr{A}}$の対角成分は変化しないため
+\begin{equation} \label{R8_3rd_2(2)_diagonal_reration}
+	\bar{a_{kk}}= -a_{kk}
+\end{equation}
+	が成り立つ。ここで$a_{kk}= x+ yi\ (x, y\in \R)$とすると
+\begin{equation*}
+	\bar{a_{kk}}= x- yi
+\end{equation*}
+	\zcref{R8_3rd_2(2)_digonal_reration}に代入すると
+\begin{equation*}
+	x- yi= -(x- yi)\Leftrightarrow 2x= 0\Leftrightarrow x= 0
+\end{equation*}
+	よって$a_{kk}= yi$となる。$y\ne 0$のときは純虚数となるため、対角成分は0または純虚数となる。
+	\item ある行列$A$がエルミート行列かつ歪エルミート行列であると仮定する。すなわち$A^*= A$かつ$A^*= -A$。よって$A= -A$。これをみたすのは$A= O(零行列)$のみ。
+	\item 行列$X:= M- M^*$とし、$X^*$を計算する。
+\begin{equation*}
+	X*= (M- M^*)^*= M^*- M^{**}= M^* -M= -(M- M^*)= -X\ (\because 随伴行列の線形性)
+\end{equation*}
+	$X^*= -X$となったから$M- M^*$は歪エルミート行列
+	\item 仮定より$M= M^*$かつ$N= N^*$。行列$X:= i(MN- NM)$に対して$X^*= X$であることを示す。随伴行列の性質より
+\begin{equation*}
+	X^*= (i(MN- NM))^*= -i(MN- NM)^*= -i(N^*M^*- M^*N^*)= -i(NM- MN)= X
+\end{equation*}
+	$X^*= X$となるため$i(MN- NM)$はエルミート行列。
+	\item 行列$A$を歪エルミート行列とし、$\lambda$をその固有値、$\bm{x}$を対応する固有ベクトルとする。すなわち$A\bm{x}= \lambda\bm{x}$。
+	この式の両辺の左から$\bm{x}^*$をかけて
+\begin{equation} \label{R8_3rd_2(5)_reration}
+	\bm{x}^*A\bm{x}= \bm{x}^*\lambda\bm{x}
+\end{equation}
+	次に$\bm{x}^*A\bm{x}$の全体の随伴をとると
+\begin{equation*}
+	(\bm{x}^*A\bm{x})^*= \bm{x}^*A^*(\bm{x}^*)^*= \bm{x}^*A^*\bm{x}
+\end{equation*}
+	$A$は歪エルミートであるから$A^*= -A$を代入して
+\begin{equation*}
+	\bm{x}^*A^*\bm{x}= -\bm{x}^*A\bm{x}
+\end{equation*}
+	ここで\zcref{R8_3rd_2(5)_reration}を代入すると
+\begin{equation*}
+	(\lambda\bm{x}^*\bm{x})^*= -(\lambda\bm{x}^*\bm{x})
+\end{equation*}
+	スカラーの共役の性質と$\bm{x}^*\bm{x}= \norm{\bm{x}}^2$であることを用いると
+\begin{equation*}
+	\bar{\lambda}\norm{\bm{x}}^2= -\lambda\norm{\bm{x}}^2
+\end{equation*}
+	$\bm{x}$は固有ベクトルであるから$\norm{\bm{x}}\ne 0$。両辺を$\norm{\bm{x}}$で割ると
+\begin{equation*}
+	\bar{\lambda}= -\lambda
+\end{equation*}
+	$\lambda= a+ bi\ (a, b\in \R)$とすると
+\begin{equation*}
+	a- bi= -(a- bi)\Leftrightarrow 2a= 0
+\end{equation*}
+	よって$\lambda$は0または純虚数であることが示された。
+\end{enumerate}
+\end{souanswer}

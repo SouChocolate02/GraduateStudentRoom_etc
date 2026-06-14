@@ -1,0 +1,44 @@
+% NichidaiMasterExam_R8_3rd_4
+\begin{tcolorbox} %%R8_3rd_4
+	$\fbox{4}$
+\begin{enumerate}
+	\item $\frac{d}{dr}\exp{(-r^2)}$を求めなさい。
+	\item $x= r\cos{\theta}, y= r\sin{\theta}$とする。ヤコビアン${\partial(x, y)}/{\partial(r, \theta)}$を求めよ。
+	\item $\int_0^\infty \int_0^\infty \exp{(-x^2- y^2)}dxdy$を求めよ。
+	\item $\int_0^\infty \int_0^\infty\int_0^\infty \exp{(-x^2- y^2- z^2)}dxdydz$を求めよ。
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer} %R8_3rd_4_ans
+\begin{enumerate}
+	\item 合成関数の微分法を用いて
+\begin{equation*}
+	\frac{d}{dx}\exp(-r^2)= \exp(-r^2)\cdot \frac{d}{dr}(-r^2)= -2r\exp{(-r^2)}
+\end{equation*}
+	\item\label{R8_3rd_4(2)} $x= r\cos{\theta}, y= r\sin{\theta}$と変数変換すると、
+\begin{equation*}
+	\det{\begin{pmatrix}dx/dr& dx/d\theta\\ dy/dr& dyd/\theta\end{pmatrix}}= r
+\end{equation*}	
+	\item $x= r\cos{\theta}, y= r\sin{\theta}$と変数変換すると、
+\begin{itemize}
+	\item $\exp{(-x^2- y^2)}= \exp{(-r^2(\cos^2\theta+ \sin^2\theta))}= \exp{-r^2}$
+	\item 積分領域は$x\ge 0, y\ge 0$だから$0\le r\le \infty, 0\le \theta\le 2\pi$
+	\item ヤコビアンは\zcref{R8_3rd_4(2)}より$r$だから$dxdy= rdrd\theta$
+\end{itemize}
+	\item \label{R8_3rd_4(4)}
+\begin{align*}
+	\int_0^\infty \int_0^\infty \exp{(-x^2- y^2)}dxdy
+	&= \int_{\theta= 0}^{2\pi}\int_{r= 0}^\infty \exp{(-r^2)}rdrd\theta\\
+	&= \int_{r= 0}^\infty \exp{(-r^2)}rdr \int_{\theta= 0}^{2\pi}d\theta\\
+	&= \left[-\frac{1}{2}\exp{(-r^2)}\right]_0^\infty \left[\theta\right]_{\theta= 0}^{2\pi}\\
+	&= \frac{1}{2}\cdot \frac{\pi}{2}= \frac{\pi}{4}
+\end{align*}
+	\item 積分は以下のように書き換えることができる。
+\begin{align*}
+	\int_0^\infty \int_0^\infty\int_0^\infty \exp{(-x^2- y^2- z^2)}dxdydz
+	&= \left(\int_0^\infty \exp(-x^2)dx\right)	\left(\int_0^\infty \exp(-y^2)dy\right)\left(\int_0^\infty \exp(-z^2)dz\right)\\
+	&= I^3
+\end{align*}
+	\zcref{R8_3rd_4(4)}より$I> 0$であるから$I= \frac{\sqrt{\pi}}{2}$。よって求める積分の値は$I^3= \left(\frac{\sqrt{\pi}}{2}\right)^3= \frac{\pi\sqrt{\pi}}{8}$
+\end{enumerate}
+\end{souanswer}
