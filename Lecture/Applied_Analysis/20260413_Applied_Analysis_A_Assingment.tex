@@ -1,0 +1,46 @@
+% \title{応用解析学特論A_自己紹介}
+\documentclass[dvipdfmx]{jsreport}
+\usepackage{soupreamble}
+
+\title{応用解析学特論A_自己紹介}
+\date{Last Update：\today}
+
+\begin{document}
+%\maketitle
+
+\subsection*{自己紹介}
+%	\underline{\textbf{自己紹介}}：
+	数学専攻\texttt{M1 6012} 川村聡一郎(水野研)．学部は化学科(物質応用化学科)で，卒業研究では{ダイクストラ法によるフォノンの緩和パス計算}というテーマで研究を行なっていた．研究概要はアミノ酸のN末端(始点)から結合距離を少しずつ変化させてC末端への最短パスを計算するというもので，結果として実際の実験データとPCで行なった計算結果が概ね一致した．
+
+\subsection*{今後の研究(の予定)}
+%	\underline{\textbf{今後の研究の予定}}：
+	今後の研究ではPythonでフェイズフィールズ(Phase-Field Models，PFM)法のモデリングができるように勉強している(する予定で本を読み始めた状態)．
+
+\subsubsection*{PFMで扱う対象}
+%	\underline{\textbf{PFMで扱う対象}}：
+	物理現象は着目する系と周囲の系をあわせて孤立系とみなすと，その孤立系のエントロピーは熱力学第二法則(エントロピー増大則)に従って増大する方向に進む\footnote{(例：インスタントコーヒーを入れるような状況を考えて，最初は粉と熱湯が混じっていない状態だが，時間が経つにつれてそれらが混ざり合う)}．ここで系全体のエネルギー$G$は以下の式\eqref{eq:系の全エネルギー}で表される．式\eqref{eq:系の全エネルギー}の非積分関数である$g(\phi, \nabla\phi)$は式\eqref{eq:各エネルギー密度}で表せ，前から順に化学的自由エネルギー密度，ダブルウェルポテンシャル，勾配エネルギー密度とよばれる項である．
+
+\begin{equation} \label{eq:系の全エネルギー}
+	G(\phi(\bm{r}, t), \nabla\phi(\bm{r}, t))= \int_V g(\phi, \nabla\phi)dV
+\end{equation}
+\begin{equation}	\label{eq:各エネルギー密度}
+	g(\phi, \nabla\phi)= g_\mathrm{chem}(\phi)+ g_\mathrm{doub}(\phi)+ g_\mathrm{grad}(\nabla\phi)
+\end{equation}
+
+	また(エントロピーが増大するとき)系全体の自発的状態変化は減少する方向に進むと言い換えられる．PFMでは自由エネルギーの減少則に基づいて着目する系の材料組織形成を記述するモデルで，式\eqref{eq:系の全エネルギー}で定めた全エネルギー汎関数$G$が時間に関する単調減少関数となるような秩序変数の時間発展方程式を導出して解くことが目的となる．直近で扱う予定の時間発展方程式(Allen- Cahn方程式)を1つ示す．
+
+
+\subsubsection*{Allen- Cahn方程式}
+%	\underline{\textbf{Allen-Cahn方程式}}
+	系全体の自由エネルギーは時間的に単調減少するので
+\begin{equation} \label{eq:時間的に単調減少する自由エネルギー}
+	\frac{dG}{dt}= \int_V \frac{\delta G}{\delta\phi}\frac{\partial \phi}{\partial t}dV\le 0
+\end{equation}
+	を満たす．式\eqref{eq:時間的に単調減少する自由エネルギー}は非積分項が常に負(または0)になればよいから，係数$M_\phi$\footnote{この係数をフェイズフィールドモビリティーとよび，界面の異動しやすさを表す}を用いて
+\begin{equation}
+	\frac{\partial \phi}{\partial t}= -M_\phi\frac{\delta \phi}{\delta \phi}
+\end{equation}
+	と表され，\textbf{Allen-Cahn方程式}とよぶ．
+
+	PFMは混相流解析，亀裂進展解析などの機械工学や細胞分裂などの生体分析にも応用分野が広がっている．
+\end{document}
