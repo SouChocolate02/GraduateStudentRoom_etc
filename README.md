@@ -1,5 +1,5 @@
 院生室の過ごし方Tipsのようなものをまとめています．
-とりあえず最初にこれ([README.md](https://github.com/SouChocolate02/GraduateStudentRoom_etc/edit/main/README.md))を読んでください．
+とりあえず最初に[README.md](https://github.com/SouChocolate02/GraduateStudentRoom_etc/edit/main/README.md)を読んでください．
 
 以下にフォルダの名前とそのフォルダへのアクセスURLがあります．
 
