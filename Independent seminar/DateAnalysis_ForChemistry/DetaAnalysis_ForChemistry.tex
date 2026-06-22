@@ -1,0 +1,53 @@
+% DetaAnalysis_ForChemistry
+\documentclass[uplatex,dvipdfmx,a4paper,12pt]{jsreport}
+%\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
+
+
+\title{R/Pythonを用いたデータ解析}
+\author{} %blank
+\date{LastUpdate：\today}
+
+\begin{document}
+\maketitle
+
+\abstract{
+    化学科の授業で補助しきれないデータ処理についてのゼミ資料である。とくに(B2, B3次に行われる学生実験の範疇では)化学科で扱われている\footnote{本ゼミのメインスピーカーはあまりちゃんとした実験をしなかったので研究室配属後以降のデータに対する扱いは知らないのだが}データ分析関連の授業・サポートは\textbf{\underline{非常にずさん}}\footnote{数回程度のExcelの講義でできるわけが…(以下自主規制とともに略)}(と言わざるを得ない)であり、危惧している面があるので本ゼミを企画した\footnote{単純にメインスピーカーが実データを扱った統計について興味があるという面もある。}。
+    トピックとしては以下のようなものを扱った。
+\begin{enumerate}
+    \item 統計分析
+    \item 検定
+    \item 多変量解析
+    \item (重)回帰分析
+\end{enumerate}
+    原則として実データに対して扱うことを目的とした\footnote{ある種QuickReference的な側面もある(と思っている。)。}ため、厳密な議論についてはスキップまたは\ref{sec:Appendix}に譲った\footnote{そのため\ref{sec:Appendix}が豊富になってしまった。興味のある場合はそちらを参考にして頂きたい。}。
+
+    なお参考文献については\ref{DAFC_bibliography}を参照されたい。
+}
+    以下にスケジュールを示す。
+\begin{table}[h]
+\begin{center}    
+\begin{tabular}{l|l|l}
+    {}& 内容& KeyWord\\ \hline\hline
+    第0回& ガイダンス、Rの導入、基礎的な数学の復習& R、平均$\bar{x}$、分散$\sigma^2$\\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\input{DAFC_BaseMathmatics.tex}
+
+
+%\input{DetaAnalysis}
+%\cite{データサイエンスのための統計学入門}
+\appendix
+\chapter{準備}
+\section{Rの導入}
+%\input{DAFC_App_howtouseRlang}
+https://qiita.com/ktdatascience/items/446dedc4f001c9444313
+
+% Reference
+%\bibliograpystyle{jalpha} %[<authorname><No>]で出力
+%\bibliography{DAFC_bibliography}%.bib}
+%\bibliographystyle{junsrt}
+%\bibliographystyle{jplain}
+\end{document}
