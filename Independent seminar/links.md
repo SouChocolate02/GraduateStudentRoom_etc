@@ -1,1 +1,0 @@
-[IndependentSeminar](https://docs.google.com/spreadsheets/d/16WQJ9Rg43T5Dvry9YingLd48V-pFrki2GYcUFhqZwoY/edit?gid=0#gid=0)
