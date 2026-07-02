@@ -1,0 +1,67 @@
+
+% どこかに書いたデータがあるはず
+\section{統計の基礎}
+\subsection{尺度水準}
+    データは性質によって以下の4種類に分類することができる。
+\begin{enumerate}
+    \item 名義尺度：順序がないデータ群(例：男女、血液型)
+    \item 順序尺度：順序はあるが、間隔が一定でないようなデータ群(例：好き/どちらかといえば好き/どちらかといえば嫌い/嫌い)
+    \item 間隔尺度：順序、間隔があるが、間隔の定数倍に意味を持たないデータ群。(例：温度、偏差値)
+    \item 比例尺度：順序、間隔があり、間隔の差に意味を持つデータ群。(例：身長、体重、年齢)
+\end{enumerate}
+
+% 間隔尺度、比例尺度は説明に加筆の必要あり
+
+
+\begin{itemize}
+    \item 散布図：2種類の変量の組$(x, y)$の関係を平面の図として書き込んだもの
+%\begin{remark}
+    両軸は0から始める必要はない。
+%\end{remark}
+%\begin{remark}
+    軸は対数でとることがある(片対数・両対数)\footnote{指数関係$y= ae^x$にあるデータを$y= AX$とみることができる。}\footnote{B3学生実験の化工の実験を思い出してほしい。}。%\sout{MTD}
+%\end{remark}
+    \item 折れ線グラフ：散布図の点を線で結ぶことによって得られる。
+    \item 片方が時間関係のときによく用いられる。
+%\begin{remark}
+    片方が時間関係のときによく用いられる。
+%\end{remark}
+    \item 棒グラフ：比例尺度の量を棒の長さで表す。
+%\begin{remark}
+    0から始めるのが原則
+%\end{remark}
+\end{itemize}
+
+\section{代表値}
+\subsection{平均(mean, average)}
+    $n$個の数値\footnote{データ、値とかいうこともある。}$X_1, X_2,\ldots, X_n$\footnote{慣例として実データには小文字、確率変数(後述)には大文字を使うことが多い。}に対して、平均$\bar{X}$を以下のように定義する。
+\begin{equation*}
+    \bar{X}:= \frac{1}{n}(X_1+ X_2+ \cdots+ X_n)= \frac{1}{n}\sum_{i= 1}^n X_i= \frac{1}{n}\sum X_i
+\end{equation*}
+
+% Rではどう書くか？
+
+    データ中に欠損値\footnote{数でない値}を含む場合はエラー(NA)が出力される。
+%    無視して平均を求めるには$\fbox{\mathtt{mean(X, na.rm= TRUE)}}$とする。
+\subsubsection{トリム平均(trimmed mean)}
+    両側に極端な値を含むデータ群に対しては\underline{トリム平均(trimmed mean)}を用いる。これはデータを順に並べ、両側から指定した範囲の数を削って平均を求める。
+%example
+%R program
+
+\subsubsection{中央値(median)}
+    両端から順に値を外し、残り1つ(または2つ)になったときのトリム平均を\underline{中央値(median)}とよぶ。
+%example
+%R program
+
+%\begin{remark}
+    代表値の使い分けとしてデータが
+\begin{itemize}
+    \item 対称的(正規分布)$\Rightarrow$ 平均
+    \item 非対称的(Cauchy分布)$\Rightarrow$ 中央値
+\end{itemize}
+    を使い分ける。
+%\end{remark}
+
+\section{確率変数、乱数、母集団、標本}
+    ある変数$X$の値を調べると毎回値が変わってしまうような変数\footnote{例えば電子天秤の値とか}を\underline{確率変数}といい、rv.$X$と表す。\\
+    確率変数$X$から$n$個の値$X_1, X_2, \ldots, X_n$を引き出してくることは統計学の言葉で「非常に大きな集団(母集団)からランダムに$n$個の値(標本)を取り出す」ことと同義
