@@ -1,0 +1,37 @@
+% 20260616_Assingment_Algebra_IIA
+\documentclass[dvipdfmx]{jsreport}
+\usepackage{soupreamble}
+\title{代数学特論IIA 第2回レポート課題}
+\author{M1 6012 川村聡一郎}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{tcolorbox}
+	$\wp(z)$が非線形微分方程式$(\wp'(z))^2= 4(\wp(z))^3- g_2(\wp(z))- g_3$の解になることを示す。\\
+	ただし$g_2= 60\sum_{0\ne \omega\in \Lambda}\frac{1}{\omega^4},\ g_3= 140\sum_{0\ne \omega\in \Lambda}\frac{1}{\omega^6}$
+\end{tcolorbox}
+
+\begin{souanswer} %解答はこっちに書く
+	まず$wp(z):= \frac{1}{z^2}+ \sum\left(\frac{1}{(z- \omega)^2- \frac{1}{\omega^2}$を展開する。\\
+	$\frac{1}{1- X}= 1+ X+ X^2+ \cdots$と変形できるから、
+\begin{equation*}
+	\wp(z)= \frac{1}{z^2}+ \sum z\frac{2}{\omega^3}+ \sum z^2\frac{3}{\omega^4}+ \cdots
+\end{equation*}
+	Maclaurin展開の一意性と$wp(z)= \wp(-z)$より
+\begin{align*}
+	\wp(z)&= \frac{1}{z^2}+ a_0+ a_1z+ a_2z^2+ a_3z^3+ \cdots\\
+	\wp(-z)&= \frac{1}{z^2}+ a_0- a_1z+ a_2z^2- a_3z^3+ \cdots\\
+\end{align*}
+	したがって奇数番目の$a_k=0$。また$\wp(z)$の定義より$\lim_{z\to \infty}\left(\wp(z)- \frac{1}{z^2}\right)= 0$であるから$a_0= 0$\\
+	$b_n= a_{2n}$とおくと$\wp(z)= \frac{1}{z^2}+ b_1z^2+ b_2z^4+ \cdots$とかけ、$b_n= (2n+ 1)\sum\frac{1}{\omega^{2n+ 2}}$。\\
+	各項を項別微分すると、
+\begin{equation*}
+	\wp'(z)= -\frac{2}{x^3}+ 2b_1z+ 4b_2z^3+ \cdots+ 2nb_nz^{2n- 1}+ \cdots
+\end{equation*}
+	この$\wp'(z)$を2乗し、$\wp(z)$の3乗と比較すると、
+\begin{equation*}
+	(\wp'(z))^2- 4\wp^3(z)= -\frac{20}{z^2}b_1- 28b_2+ z^2()
+\end{equation*}
+\end{souanswer}
+\end{document}
