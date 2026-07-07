@@ -8,13 +8,51 @@
 \begin{document}
 \maketitle
 \begin{tcolorbox}
-	$\wp(z)$が非線形微分方程式$(\wp'(z))^2= 4(\wp(z))^3- g_2(\wp(z))- g_3$の解になることを示す。\\
+	$\wp(z)$が非線形微分方程式$(\wp'(z))^2= 4(\wp(z))^3- g_2(\wp(z))- g_3$の解になることを示す．\\
 	ただし$g_2= 60\sum_{0\ne \omega\in \Lambda}\frac{1}{\omega^4},\ g_3= 140\sum_{0\ne \omega\in \Lambda}\frac{1}{\omega^6}$
 \end{tcolorbox}
 
+%\begin{souanswer} %解答はこっちに書く
+    まず$\wp(z):= \frac{1}{z^2}+ \sum_{0\ne \omega\in \Lambda}\left(\frac{1}{(z- \omega)^2}- \frac{1}{\omega^2}\right)$を展開する．\\
+    $\frac{1}{(z-\omega)^2} = \frac{1}{\omega^2}\left(1- \frac{z}{\omega}\right)^{-2}$であり，$(1- X)^{-2}= 1+ 2X+ 3X^2+ \cdots$と展開できるから，
+\begin{equation*}
+    \wp(z)= \frac{1}{z^2}+ \sum_{0\ne \omega\in \Lambda}\left( z\frac{2}{\omega^3}+ z^2\frac{3}{\omega^4}+ \cdots \right)
+\end{equation*}
+    Maclaurin展開の一意性と$\wp(z)= \wp(-z)$より
+\begin{align*}
+    \wp(z)&= \frac{1}{z^2}+ a_0+ a_1z+ a_2z^2+ a_3z^3+ \cdots\\
+    \wp(-z)&= \frac{1}{z^2}+ a_0- a_1z+ a_2z^2- a_3z^3+ \cdots
+\end{align*}
+    したがって奇数番目の$a_k=0$．また$\wp(z)$の定義より$\lim_{z\to 0}\left(\wp(z)- \frac{1}{z^2}\right)= 0$であるから$a_0= 0$．\\
+    $b_n= a_{2n}$とおくと$\wp(z)= \frac{1}{z^2}+ b_1z^2+ b_2z^4+ \cdots$とかけ，$b_n= (2n+ 1)\sum_{0\ne \omega\in \Lambda}\frac{1}{\omega^{2n+ 2}}$．\\
+    各項を項別微分すると，
+\begin{equation*}
+    \wp'(z)= -\frac{2}{z^3}+ 2b_1z+ 4b_2z^3+ \cdots
+\end{equation*}
+    この$\wp'(z)$を2乗し，$\wp(z)$の3乗と比較すると，
+\begin{equation*}
+    (\wp'(z))^2- 4\wp(z)^3= -\frac{20b_1}{z^2}- 28b_2+ O(z^2)
+\end{equation*}
+    ここで問題文の定義より$g_2= 20b_1,\ g_3= 28b_2$となるから，
+\begin{equation*}
+    (\wp'(z))^2- 4\wp(z)^3= -\frac{g_2}{z^2}- g_3+ O(z^2)
+\end{equation*}
+    これを$F(z):= (\wp'(z))^2- 4\wp(z)^3+ g_2\wp(z)+ g_3$とおく．$\wp(z) = \frac{1}{z^2} + O(z^2)$より$g_2\wp(z) = \frac{g_2}{z^2} + O(z^2)$であるため，
+\begin{equation*}
+    F(z) = \left(-\frac{g_2}{z^2}- g_3+ O(z^2)\right) + \left(\frac{g_2}{z^2} + O(z^2)\right) + g_3 = O(z^2)
+\end{equation*}
+    となり，$F(z)$は$z=0$における特異点が解消され，$z=0$で正則かつ$F(0)=0$となる．\\
+    また，$\wp(z), \wp'(z)$は周期格子$\Lambda$に関する楕円関数であるから，その多項式である$F(z)$もまた楕円関数である．$F(z)$の極となり得る点は$z \in \Lambda$のみであるが，二重周期性より$z=0$で正則であればすべての格子点でも正則となる．\\
+    したがって$F(z)$は全複素平面で極を持たない二重周期関数（有界な整関数）となるため，Liouvilleの定理より定数関数である．
+    $F(0) = 0$であることから，すべての$z \in \mathbb{C}$に対して$F(z) \equiv 0$となり，題意が示された．
+%\end{souanswer}
+\end{document}
+
+
+% 間違ってるっぽいけど一応こっちも残しておく
 \begin{souanswer} %解答はこっちに書く
-	まず$wp(z):= \frac{1}{z^2}+ \sum\left(\frac{1}{(z- \omega)^2- \frac{1}{\omega^2}$を展開する。\\
-	$\frac{1}{1- X}= 1+ X+ X^2+ \cdots$と変形できるから、
+	まず$\wp(z):= \frac{1}{z^2}+ \sum\left(\frac{1}{(z- \omega)^2- \frac{1}{\omega^2}$を展開する．\\
+	$\frac{1}{1- X}= 1+ X+ X^2+ \cdots$と変形できるから，
 \begin{equation*}
 	\wp(z)= \frac{1}{z^2}+ \sum z\frac{2}{\omega^3}+ \sum z^2\frac{3}{\omega^4}+ \cdots
 \end{equation*}
@@ -23,15 +61,17 @@
 	\wp(z)&= \frac{1}{z^2}+ a_0+ a_1z+ a_2z^2+ a_3z^3+ \cdots\\
 	\wp(-z)&= \frac{1}{z^2}+ a_0- a_1z+ a_2z^2- a_3z^3+ \cdots\\
 \end{align*}
-	したがって奇数番目の$a_k=0$。また$\wp(z)$の定義より$\lim_{z\to \infty}\left(\wp(z)- \frac{1}{z^2}\right)= 0$であるから$a_0= 0$\\
-	$b_n= a_{2n}$とおくと$\wp(z)= \frac{1}{z^2}+ b_1z^2+ b_2z^4+ \cdots$とかけ、$b_n= (2n+ 1)\sum\frac{1}{\omega^{2n+ 2}}$。\\
-	各項を項別微分すると、
+	したがって奇数番目の$a_k=0$．また$\wp(z)$の定義より$\lim_{z\to 0}\left(\wp(z)- \frac{1}{z^2}\right)= 0$であるから$a_0= 0$\\
+	$b_n= a_{2n}$とおくと$\wp(z)= \frac{1}{z^2}+ b_1z^2+ b_2z^4+ \cdots$とかけ，$b_n= (2n+ 1)\sum\frac{1}{\omega^{2n+ 2}}$．\\
+	各項を項別微分すると，
 \begin{equation*}
 	\wp'(z)= -\frac{2}{x^3}+ 2b_1z+ 4b_2z^3+ \cdots+ 2nb_nz^{2n- 1}+ \cdots
 \end{equation*}
-	この$\wp'(z)$を2乗し、$\wp(z)$の3乗と比較すると、
+	この$\wp'(z)$を2乗し，$\wp(z)$の3乗と比較すると，
 \begin{equation*}
-	(\wp'(z))^2- 4\wp^3(z)= -\frac{20}{z^2}b_1- 28b_2+ z^2()
+	(\wp'(z))^2- 4\wp^3(z)= -\frac{20}{z^2}b_1- 28b_2+ z^2(O(z^2))
 \end{equation*}
+	ここで$g_2= 20b\1, g_3= 28b\2$とおくと$(\wp'(z))^2- 4\wp^3(z)= -\frac{g_2}{z^2}- g_3+ z^2(O(z^2))$．またこれを$F(z):= (\wp'(z))^2- 4\wp^3(z)+ g_2\wp(z)+ g_3)$とする．$F(z)= 0$を示すためには$z= 0$であるすべての$z\in \C$に対して$O(z^2)\equiv 0$をいえばよい．\\
+	$O(z^2)$は$O(z^2)= 12(b_1^2- b_3)+ c_2x^2+ c_4z^4+ \cdots$とかけ，係数がすべて0となればよいから$b_1^2- b_3= 0$となればよい．
 \end{souanswer}
 \end{document}
