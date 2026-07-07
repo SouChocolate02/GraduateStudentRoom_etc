@@ -15,7 +15,17 @@
 \begin{souanswer} %%R7_1st_3_ans
 	$\fbox{3}$
 \begin{enumerate}
-	\item 
+	\item まず$g_1, g_2$の偏導関数を求める。
+\begin{align*}
+	\frac{\partial g_1}{\partial x}&= -(e^y+ e^{-y})\sin{x}\\
+	\frac{\partial g_1}{\partial y}&= (e^y- e^{-y})\cos{x}\\
+	\frac{\partial g_2}{\partail x}&= -(e^y+ e^{-y})\cos{x}\\
+	\frac{\partail g_2}{\partail y}&= -(e^y- e^{-y})\sin{x}
+\end{align*}
+	合成関数の微分法より$f(x, y)= \exp{g_1}\exp{g_2}$の偏導関数は以下のように計算される。
+\begin{align*}
+	\frac{\partial f}{\partial x}= -e^{(e^y+ e^{-y})\cos{x}}((e^y+ e^{-y})\sin{x}\cos{g_2(x, y)+ (e^y- e^{-y})\cos{x}\sin{g_2(x, y)})\\
+\end{align*}
 	\item 
 	\item 
 \end{enumerate}
