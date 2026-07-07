@@ -15,7 +15,7 @@
 \begin{souanswer} %%R7_1st_3_ans
 	$\fbox{3}$
 \begin{enumerate}
-	\item まず$g_1, g_2$の偏導関数を求める。
+	\item \label{step:R7_1st_3(1)}まず$g_1, g_2$の偏導関数を求める。
 \begin{align*}
 	\frac{\partial g_1}{\partial x}&= -(e^y+ e^{-y})\sin{x}\\
 	\frac{\partial g_1}{\partial y}&= (e^y- e^{-y})\cos{x}\\
@@ -24,9 +24,19 @@
 \end{align*}
 	合成関数の微分法より$f(x, y)= \exp{g_1}\exp{g_2}$の偏導関数は以下のように計算される。
 \begin{align*}
-	\frac{\partial f}{\partial x}= -e^{(e^y+ e^{-y})\cos{x}}((e^y+ e^{-y})\sin{x}\cos{g_2(x, y)+ (e^y- e^{-y})\cos{x}\sin{g_2(x, y)})\\
+	\frac{\partial f}{\partial x}&= -e^{(e^y+ e^{-y})\cos{x}}((e^y+ e^{-y})\sin{x}\cos{g_2(x, y)+ (e^y- e^{-y})\cos{x}\sin{g_2(x, y)})\\
+	\frac{\partial f}{\partail y}&= e^{(e^y+ e^{-y}\cos{x}}((e^y- e^{-y}\cos{x}\cos{g_2(x, y)}+ (e^y+ e^{-y})\sin{x}\sin{g_2(x, y)})
 \end{align*}
-	\item 
+	\item \ref{step:R7_1st_3(1)}の結果から以下の関係式が成り立つ。
+\begin{align*}
+	\frac{\partial g_1}{\partial x}&= -(e^y+ e^{-y})\sin{x}= \frac{\partial g_2}{\partial y}\\
+	\frac{\partial g_1}{\partial y}&= (e^y+ e^{-y})\cos{x}= -\frac{\partial g_2}{\partial x}
+\end{align*}
+	これはCauchy-Riemannの関係式をみたす。したがって$g_1, g_2$は調和関数。\\
+	関数$f(x, y)= e^{g_1}\cos{g_2}$を$x, y$でそれぞれ偏微分して足し合わせると、合成関数の微分法より以下が得られる。
+\begin{equation*}
+	\frac{\partial^2 f}{\partial x^2}+ \frac{\partial^2 f}{\partial y^2}= e^{g_1}\cos{g_2}
+\end{equation*}
 	\item 
 \end{enumerate}
 \end{souanswer}
