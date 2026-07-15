@@ -1,0 +1,102 @@
+% Category_圏論自主ゼミ
+\documentclass[dvipdfmx]{jsreport}
+\usepackage{amsmath, ascmac, latexsym, mathtools} %とりあえず入れとくパッケージ
+% フォント関係
+\usepackage{bm} % 小文字ベクトルのためのパッケージ
+\usepackage{amssymb} % 集合の太文字パッケージ
+\usepackage{mathrsfs} % 花文字を書くパッケージ
+\usepackage{amsfonts}
+\usepackage{fancybox} % 箱のとりあえずのデザイン(あんまり使わない)
+\usepackage{amsthm} % 定理環境をカスタマイズ
+\usepackage{tikz-cd} % 可換図式のパッケージ
+
+
+\newcommand{\category}[1]{\mathcal{#1}}
+\newcommand{\object}[1]{\mathrm{Ob}{(\category{#1})}}
+\newcommand{\id}[1]{\mathrm{id}_{#1}}
+\newcommand{\domain}[1]{\mathrm{dom}(#1)}
+\newcommand{\codomain}[1]{\mathrm{cod}(#1)}
+
+\begin{document}
+
+
+\section{Introduction}
+\subsection{圏論とは？}
+    大学の講義で習ったような議論と同一の議論で集合，空間を扱う。
+
+\subsection{前提}
+    圏の定義として数学の公理系を仮定しないで行う(すなわちZFC公理系を仮定しない)。
+
+    圏における対象とは集合全体や位相空間全体などを刺す。この対象の間には写像・連続写像・準同型写像などの射がある。それらは基本的に以下を満たす。
+
+%\begin{enumerate_roman}
+\begin{enumerate}
+    \item 射(矢印)は合成可能
+    \item 恒等写像が存在する
+\end{enumerate}
+%\end{enumerate_roman}
+    これらの要素を抽出して圏を定義する。
+
+%\begin{soudef}[圏]
+    $\category{C}$が圏であるとは以下を満たすことである。
+\begin{enumerate}
+    \item $\category{C}$の対象とよばれるもの全体$\object{C}$が与えられている。
+    \item $X, Y$を任意の2つの対象とする。この$X, Y$に対して$f$という$X$から$Y$への射または射の集合$\category{C}(X, Y)$が与えれている。
+\end{enumerate}
+%\end{soudef}
+    このとき射$f$を$f\colon X\to Y$や$X\xrightarrow{f} Y$とかく。
+    この射に対して以下3つを満たす。
+\begin{enumerate}
+    \item 合成可能性：
+    $X, Y, Z$を対象とする。$f\colon X\to Y,\ g\colon Y\to Z$を射とする。このとき$X\xrightarrow{g\circ f} Z$をみたす。すなわち$g\circ f\in \category{C}(X, Z)$をみたす。
+
+    \item 結合則：
+    $X, Y, Z, W$を対象，$f\colon X\to Y,\ g\colon Y\to Z,\ h\colon Z\to W$とする。このとき$h\circ (g\circ f)= (h\circ g)\circ f$を満たす。
+
+    \item 恒等写像の存在：
+    $X, Y, Z$を対象とする。このときある射$\id{X}\in \category{C}$が存在して，$f\colon X\to Y,\ g\colon Y\to Z$に対して$f\circ \id{X}= f,\ \id{X}\circ g= g$を満たす。
+\end{enumerate}
+
+%\begin{souremark}
+    射の集合は数学の集合の定義をみたすかわからない。
+%\end{souremark}
+%\begin{souremark}
+    $X$が圏$\category{C}$の対象のとき，$X\in \object{C}$で表す。紛れがないときは$X\in \category{C}$とかき，$\id{X}$を1または$1_X$とかく。
+%\end{souremark}
+
+%\begin{souexample}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{c|lll}
+    記号& 圏の名前& 対象& 射\\ \hline
+    Set& 集合& 集合& 写像\\
+    set& 有限集合& 集合& 写像\\
+    Ab& Abel群& Abel群& 準同型\\
+    Top& 位相空間& 位相空間& 連続写像\\
+\end{tabular}
+\end{center}
+\caption{考える対象と圏の名前}
+\end{table}
+%\end{souexample}
+
+%\begin{soudef}[始域・終域]
+    $\category{C}$を圏，$X, Y\in\object{C}$，$f\in \category{C}(X, Y)$とする。
+    このとき$X$を$f$の始点または始域といい，$\domain{f}$とかく。同様に$Y$を$f$の終点または終域といい，$\codomain{f}$とかく。
+%\end{soudef}
+
+%\begin{souexample}
+\begin{enumerate}
+    \item 1つの対象とその対象の恒等写像からなる圏$\category{C}$
+\begin{figure}
+
+\end{figure}    
+
+    \item 集合に対して対象全体を$S$とする。射の各元の恒等写像のみにすると
+\begin{figure}
+
+\end{figure}    
+    のような圏が得られる。
+\end{enumerate}
+%\end{souexample}
+
+\end{document}
