@@ -1,0 +1,17 @@
+\section{正規分布}
+まず一様乱数(ある範囲の数がまんべんなく出る最も単純な乱数)を考える。ヒストグラムを描く。
+\begin{vertium}
+    X= runif(50000) #0- 1の乱数を50000個出力する
+    hist(X, freq= FALSE) #ヒストグラムを描く
+\end{vertium}
+    オプションに\underline{\texttt{freq= FALSE}}を設定する。
+
+\section{分散と標準偏差}
+    確率変数$X$の期待値を$\mu= \mathbb{E}(X)$とするとき，$X$と母平均の差の2乗$\mathbb{E}((X- \mu)^2)$を$X$の\underline{分散}または\underline{母分散}といい，$V(X)$または$\sigma^2$で表す。
+\begin{equation*}
+    \sigma^2= V(X)= \mathbb{E}((X- \mu)^2)
+\end{equation*}
+    この値の正の平方根$\sigma$を\underline{標準偏差}といい，$\sigma$で表す。
+\begin{equation*}
+    \sigma= \sqrt{\sigma^2}= \sqrt{\mathbb{E}((X- \mu)^2)}
+\end{equation*}
