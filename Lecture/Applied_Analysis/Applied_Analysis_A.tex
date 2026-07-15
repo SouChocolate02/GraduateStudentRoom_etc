@@ -1,0 +1,361 @@
+% Applied_Analysis
+\documentclass{jsreport}
+\usepackage{soupreamble}
+\title{応用解析学特論A}
+\date{Last Update：\today}
+
+\begin{document}
+\maketitle
+
+\abstract{物理現象の多くは偏微分方程式(PDE)で表される。最終的には偏微分方程式の数値計算(差分法- Finite Difference Method)をPCでしたい！(7 月頃に解けるようになりたい)}
+
+\section{常微分方程式の差分解法}
+	まず常微分方程式(ODE)の差分解法を述べる。
+%\begin{remark}
+	常微分方程式や偏微分方程式では\textbf{初期値問題}と\textbf{境界値問題}とで大きく取り扱いが異なる。
+%\end{remark}
+\subsection{一階微分の差分方程式の構成法}
+	関数$u(x)$の一階微分を考える\footnote{与えられた関数は十分滑らかで微分可能}。関数$u(x)$の一階微分は
+\begin{equation*}
+	\frac{du}{dx}= \lim_{h\to 0} \frac{u(x+ h)- u(x)}{h}
+\end{equation*}
+	と定義される。$h$が十分小さいとして以下のように\textbf{前進差分}，\textbf{後退差分}，\textbf{中心差分}を考えることができる\footnote{どれを使うかは問題による。}。
+\begin{equation*}
+	\frac{du}{dx}\approx 
+\begin{cases}
+	\frac{u(x+ h)- u(x)}{h}：前進差分\\
+	\frac{u(x)- u(u- h)}{h}：後退差分\\
+	\frac{u(x+ h)- u(x- h)}{2h}：中心差分
+\end{cases}
+\end{equation*}
+
+\subsection{二階微分の差分式の構成法}
+	二階微分も一階微分と同様に
+\begin{align*}
+	\frac{d^2u}{dx^2}
+	&= \lim_{h\to 0} \frac{u'(x+ \frac{h}{2})- u'(x- \frac{h}{2})}{h}\\
+	&\approx \frac{u'(x+ \frac{h}{2})- u'(x- \frac{h}{2})}{h}\\
+	&\approx \frac{\frac{u(x+ h)- u(x)}{h}- \frac{u(x)- u(x- h)}{h}}{h}\\
+	&= \frac{u(x+ h)- 2u(x)+ u(x- h)}{h^2}
+\end{align*}
+
+\subsection{Taylor展開を使った差分式の構成法}
+\begin{equation} \label{eq:Taylor展開を使った差分式}
+	\frac{d^2u}{dx^2}\Big|_{x= x_i}\approx au(x_i- h_1)+ bu(x_i)+ cu(x_i+ h_2)
+\end{equation}
+	$u(x_i- h_1), cu(x_i+ h_2)$のTaylor展開は以下のように書ける。
+\begin{align*}
+	u(x_i- h_1)
+	&= u(x_i)- h_1u'(x_i)+ \frac{h_1^2}{2}u''(x_i)- \frac{h_1^3}{6}u'''(x_i)+ \cdots\\
+	cu(x_i+ h_2)
+	&= u(x_i)- h_1u'(x_i)+ \frac{h_1^2}{2}u''(x_i)- \frac{h_1^3}{6}u''(x_i)+ \cdots
+\end{align*}
+	ここで$u''(x)$の項が消えないようにうまく定数$a, b, c$の値を決める。満たすべき条件は以下のとおり
+\begin{equation*}
+\begin{cases}
+	\frac{1}{2}(h_1^2a+ h_2^2c)= 1\\
+	a+ b+ c= 0\\
+	-h_1a+ h_2c= 0
+\end{cases}
+	\Longleftrightarrow
+\begin{cases}
+	a= \frac{2}{h_1(h_1+ h_2)}\\
+	b= \frac{-2}{h_1h_2}\\
+	c= \frac{2}{h_2(h_1h_2)}
+\end{cases}
+\end{equation*}
+
+\begin{itemize}
+	\item $n$階微分を差分近似する場合，最低$n+ 1$個の点での$u$の値が必要。
+	\item $n+ 2$個以上の点を用いる場合は，Taylor展開においてより高次の$n+ 1$階以上の微分高の係数が0となるようにする。
+\end{itemize}
+	このようにより多くの点での$u$を用いて高次の項を0とする差分式はより精度が高い。
+
+%\begin{souexample}
+	一階微分$\frac{du}{dx}$を3点$x_{i- 1}, x_i, x_{i+ 1}$で近似することを考える。
+\begin{equation*}
+	\frac{du}{dx}\Big|_{x= x_i}\approx au_{i- 1}+ bu_i+ cu_{i+ 1}
+\end{equation*}
+	このとき満たすべき条件は
+\begin{equation*}
+\begin{cases}
+	\frac{1}{2}(h_1^2a+ h_2^2c)= 0\\
+	a+ b+ c= 0\\
+	-h_1a+ h_2c= 1
+\end{cases}
+	\Longleftrightarrow
+\begin{cases}
+	a= \frac{-h_2}{h_1(h_1+ h_2)}\\
+	b= \frac{h_2- h_1}{h_1h_2}\\
+	c= \frac{h_1}{h_2(h_1+ h_2)}
+\end{cases}
+\end{equation*}
+%\end{souexample}
+
+	逆に1階微分に対する前進差分，後退差分，中心差分をTaylor展開してみる。
+\begin{itemize}
+	\item 前進差分
+\begin{align*}
+	\frac{du}{dx}
+	&\approx \frac{u(x+ h)- {\color{red}u(x)}}{h}\\
+	&= \frac{1}{h}\left(\cancel{u(x)}+ hu'(x)+ \frac{h^2}{2}u''(x)+ \cdots- \cancel{{\color{red}u(x)}}\right)\\
+	&= u'(x)+ O(h)
+\end{align*}
+
+	\item 中心差分
+\begin{align*}
+	\frac{du}{dx}
+	&\approx \frac{u(x+ h)- u(x- h)}{2h}\\
+	&= \frac{1}{2h}\left(2h\cdot u'(x)+ \frac{2h^3}{6}u'''(x)+ \cdots\right)\\
+	&= u'(x)+ O(h^2)
+\end{align*}
+\end{itemize}
+	精度$p$：元の微分との誤差が$h^p$に比例する。
+
+\section{境界値問題}
+	常微分方程式を差分法で解く
+\begin{align*}
+\begin{cases}
+	\frac{du^2}{d^2x}+ u+ x= 0\ (0< x <1)\\
+	u(0)= 0, u(1)= 0：境界条件
+\end{cases}
+	\Longleftrightarrow
+	厳密解：u= \frac{\sin{x}}{\sin{1}}- x
+\end{align*}
+	このような微分方程式を差分法で解くための方法
+\begin{tcolorbox}[title= 差分法の計算手順]
+\begin{enumerate}
+	\item 領域を計算格子で分割する。
+\begin{itemize}
+	\item 格子分割数(等分割)：$J$，格子点数$J+ 1$
+	\item 格子幅：$h= 1/J$
+	\item 格子点番号：$j= 0, 1, 2, \ldots, J$
+	\item 各格子点の座標：$x_j= j\cdot h$
+	\item 各格子点の$u$の近似値：$u_j\approx u(x_j)$
+\end{itemize}
+	\item 微分方程式を差分方程式に近似する。
+\begin{equation*}
+	\frac{d^2 u}{dx^2}\approx \frac{u(x+ h)- 2u(x)+ u(x- h)}{h^2}
+\end{equation*}
+	より差分方程式は
+\begin{equation} \label{eq:差分方程式}
+\begin{cases}
+	\frac{u_{j+ 1}- 2u_j+ u_{j- i}}{h^2}+ u_j+ j\cdot h= 0\ \ (j= 1, 2, \ldots, J- 1)\\
+	境界条件：u_0= 0, u_J= 0
+\end{cases}
+\end{equation}
+	\zcref{eq:差分方程式}は式変形すると$u_{j- 1}+ (h^ 2- 2)u_j+ u_{j+ 1}= -j\cdot h^3$. \\
+	この式は$j= 1, 2, \ldots, J- 1$の$(J- 1)$個の点で成り立っている。\\
+	$\leadsto$ \zcref{eq:差分方程式}は$u_j$に関する$J- 1$元連立一次方程式
+\end{enumerate}
+\end{tcolorbox}
+
+\section{初期値問題}
+	以下のような微分方程式を考える。
+\begin{equation}
+\begin{cases}
+	\frac{du}{dt}= f(t, u)\ (t> 0で時間を表す。)\\
+	u(0)= a：初期条件
+\end{cases}
+\end{equation}
+
+\begin{tcolorbox}[title= 初期値問題の差分方程式の立て方]
+\begin{enumerate}
+	\item 領域(定義域)を計算格子で分割
+\begin{itemize}
+	\item 格子幅：$\Delta t$
+	\item 格子点番号：$j= 0, 1, 2, \ldots, $
+	\item 格子点$n$における時間；$n\Delta t$
+	\item 格子点$n$における$u$の近似値：$u^ n\approx u(n\Delta t)$
+\end{itemize}
+	\item 微分方程式を差分方程式に近似する。
+\begin{equation}
+	\frac{du}{dt}\approx \frac{u^{n+ 1}- u^n}{\Delta t}\ (前進差分)
+\end{equation}
+	であるから，差分方程式：
+\begin{equation} \label{eq:初期値問題における差分方程式}
+\begin{cases}
+	u^{n+ 1}= u^n+ \Delta t\cdot f(n\Delta t, u^n),\\
+	u^{(0)}= a
+\end{cases}
+\end{equation}
+	が得られる。
+\end{enumerate}
+\end{tcolorbox}
+
+\section{Euler法}
+	時間に関する一階微分を\underline{\textbf{前進差分近似}}して，漸化式の形にして解く方法
+
+	\zcref{eq:初期値問題における差分方程式}を使って初期条件から出発して$\Delta t$刻みで順次近似解が求まる。
+
+\begin{tcolorbox}
+	初期値問題\footnote{Euler法を使った解法では}では「連立一次方程式」は解かない\footnote{境界値問題のように}。$\leadsto$ 漸化式を使って順次近似解を計算する。
+\end{tcolorbox}
+
+\subsection{具体的な初期値問題}
+\begin{equation}
+\begin{cases}
+	\frac{du}{dt}= -u(t)\\
+	u(0)= 1
+\end{cases}
+	\Longleftrightarrow
+	厳密解：u(t)= e^{-t}
+\end{equation}
+
+\begin{tcolorbox}
+	差分方程式は$\begin{cases}u^{n+ 1}= (1- \Delta t)u^n\ (n= 0, 1, \ldots),\\ u^0= 1\end{cases}$\\
+	Euler法で計算すると
+\begin{align*}
+	u_0&= L\\
+	u_1&= (1- \Delta t)u^0= 1- \Delta t\\
+	u_2&= (1- \Delta t)u^1= (1- \Delta t)^2\\
+	&\vdots\\
+	u_n&= (1- \Delta t)^n\xrightarrow{\Delta t\to 0} e^{-t}
+\end{align*}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title= 微分方程式の解と差分方程式の解]
+	(ここで挙げた初期値問題の例では)「差分方程式の解」は差分区間(格子幅)$\Delta t\to 0$の極限で元の「微分方程式の解」に一致する。
+	ただし一般的には差分方程式は差分区間$\to 0$の極限で元の微分方程式に一致するが，「差分方程式の\underline{解}」は差分区間$\to 0$の極限で元の「微分方程式の\underline{解}」に一致するとは限らない！！
+\end{tcolorbox}
+
+\section{初期値問題のより高精度な計算方法}
+\begin{souexample}
+\begin{equation}
+\begin{cases}
+	\frac{du}{dt}= f(t, u)\ (t> 0)\footnote{$z= f(x(t), y(t))$のとき$\frac{\partial z}{\partial t}= \frac{\partial z}{\partial x}\frac{\partial x}{\partial t}+ \frac{\partial z}{\partial y}\frac{\partial y}{\partial t}$}\\
+	u(0)= a\ 初期条件
+\end{cases}
+\end{equation}
+\end{souexample}
+	$u(t+ \Delta t)$についてTaylor展開
+\begin{align*}
+	u(t+ \Delta t)
+	&= u(t)+ \Delta t\frac{du(t)}{dt}+ \frac{{\Delta t}^2}{2}\frac{d^2u(t)}{dt^2}+ \frac{{\Delta t}^3}{6}\frac{d^3u(t)}{dt^3}\\
+	&= u(t)+ \Delta t f(t, u)+ \frac{{\Delta t}^2}{2}\frac{du(t)}{dt}\cancel{+ \frac{{\Delta t}^3}{6}\frac{d^3u(t)}{dt^3}}\\
+	&\simeq u(t)+ \Delta tf+ \frac{{\Delta t}^2}{2}\frac{d^2u(t)}{dt^2}\\
+\end{align*}
+	$\frac{df}{dt}= \frac{\partial f}{\partial t}\frac{dt}{dt}+ \frac{\partial f}{\partial u}\frac{du}{dt}= f_t+ f_u\cdot f$を使って
+\begin{align} \label{eq:**}
+	u(t+ \Delta t)
+	&\simeq u(t)+ \Delta t\cdot f+ \frac{{\Delta t}^2}{2}(f_t+ f_u\cdot f)\\
+	&= u(t)+ \Delta t\left(f+ \frac{\Delta t}{2}(f_t+ f_u\cdot f)\right)
+\end{align}
+
+\begin{align*}
+	pf(t, u)+ qf(t+ r\Delta t, u+ s\Delta tf(t, u))
+	&= pf +q(f+ r\Delta tf_t+ s\Delta tf\cdot f_u+ O(\Delta t)^2)\\
+	&\simeq (p+ q)f+ q\cdot \Delta t(rf_t+ sff_u)
+\end{align*}
+	\zcref{eq:**}と比較して$p+ q= 1, q= \frac{1}{2}, r= s= 1$ととれば\zcref{eq:**}は
+\begin{equation}
+	u(t+ \Delta t)\simeq u(t)+ \frac{\Delta t}{2}\left(f(t, u)+ f(t+ \Delta t, u+ \Delta tf(y, u))\right)
+\end{equation}
+	と近似することができる。この近似式を使って計算する方法を\textbf{2次精度のRunge– Kutta法}という\footnote{通常Runge– Kutta法を使うときは4次精度}。
+
+\begin{tcolorbox}
+\begin{lstlisting}
+#include <stdio.h>
+#include <math.h>
+#define J 20
+
+int main(void)
+{
+    double a[J], b[J], c[J], d[J], g[J], s[J];
+    double u[J+1], v[J+1], h;
+    int j;
+    FILE *fp;
+    
+    h= 1.0/J;
+    u[0]= 0.0; u[J]= 0.0; /* Boundary condition*/
+
+    for (j= 1; j< J; j++){
+        a[j]= c[j]= 1.0;
+        b[j]= h*h- 2.0;
+        d[j]= -j* h*h*h;
+    }
+
+    c[0]= 0.0; c[J- 1]= 0.0;
+    g[0]= 1.0; s[0]= 0.0;
+    
+    for (j= 1; j< J; j++){
+        g[j]= b[j]- (a[j]*c[j- 1])/g[j-1];
+        s[j]= d[j]- (a[j]*s[j- 1])/g[j-1];
+    }
+
+    for (j= J-1; j> 0; j--)
+        u[j]= (s[j]- c[j]*u[j+1])/g[j];
+
+    for (j= 0; j<= J; j++)
+    v[j]= sin(j*h)/sin(1.0)- j*h;
+
+    fp= fopen("20260518_bvp.csv", "w");
+    fprintf(fp, "x, u, v\n");
+    for (j= 0; j<= J; j++)
+        fprintf(fp, "%f, %f, %f\n", j*h, u[j], v[j]);
+    fclose(fp);
+
+    return 0;
+}
+\end{lstlisting}
+\end{tcolorbox}
+
+\subsection{2階線形偏微分方程式の分類}
+	$u= u(x, y)$\ 二次元の場合
+	$A\frac{d^2u}{dx^2}+ B\frac{d^2u}{dxdy}+ C\frac{du}{dx}+ D\frac{du}{dy}+ Fu+ G= 0$\ ただし$A, B, C, D, E$は定数または$u(x, y)$の関数。
+	このとき2階線形偏微分方程式は
+\begin{itemize}
+	\item $B^2- 4AC< 0$のとき楕円型
+	\item $B^2- 4AC= 0$のとき放物型
+	\item $B^2- 4AC> 0$のとき双曲型
+\end{itemize}
+	という。これらの型によって，偏微分方程式の数学的な性質が異なる$\leadsto$ 型によって数値解法も異なる。
+\subsubsection{方程式の例}
+\begin{itemize}
+	\item 楕円型($A= C= 1, B= 0$)
+	Laplace方程式：$\frac{\partial^2 u}{\partial x^2}+ \frac{\partial^2 u}{\partial y^2}= 0$\\
+	Poisson方程式：$\frac{\partial^2 u}{\partial x^2}+ \frac{\partial^2 u}{\partial y^2}= -f(x, y)$
+
+	\item 放物型($A= a, B= C= 0$)
+	拡散方程式：$\frac{\partial u}{\partial t}= a\frac{\partial^2 u}{\partial x^2}$
+
+	\item 双曲型($A= -C^2, B= 0, C= 1$)
+	波動方程式：$\frac{\partial^2 u}{\partial x^2}- C^2\frac{\partial^2 u}{\partial x^2}= 0$\\
+	$t\to y$と考え，$v= \frac{\partial u}{\partial t}- c\frac{\partial u}{\partial x}$とおくと移流方程式：$\frac{\partial u}{\partial x}- C^2\frac{\partial u}{\partial x}= 0$
+\end{itemize}
+
+\begin{itemize}
+	\item 楕円型方程式$\to$ 境界値問題
+\begin{enumerate_roman}
+	\item 領域を分割する($J\times K$)
+	$\Delta x= 1/J, \Delta y= 1/K, x_j= j\Delta x, y_k= k\Delta y, u_{j, k}\cong u(x_j, y_k)$
+	\item 微分を差分近似する(中心差分法)
+	$\frac{u_{{j+ 1}, k}- 2u_{j, k}+ u_{j- 1, k}}{(\Delta x)^2}+ \frac{u_{j, k+1}- 2u_{j, k}+ u_{j, k- 1}}{(\Delta y)^2}= 0$\\
+	これを$u_{j, k}$について解くと，
+	$u_{j, k}= \frac{1}{2((\Delta x)^2+ (\Delta y)^2)}((\Delta y)^2(u_{j+ 1, k}+ u_{j- 1, k}+ (\Delta x)^2(u_{j, k+ 1}+ u_{j, k- 1}))$
+\end{enumerate_roman}
+	\item 放物型方程式
+	例：一次元熱伝導方程式(拡散方程式)
+	長さ1の針金の温度の\underline{時間変化}
+\begin{equation}
+	\frac{\partial u}{\partial t}= a\frac{\partial^2 u}{\partial x^2}\ (0< x< 1, t> 0, a> 0)
+\end{equation}
+	初期条件(ini val)：$u(x, 0)= f(x)$\\
+	境界条件(bdd val)：$u(0, t)= u(1, t)= 0$
+\begin{enumerate_roman}
+	\item 領域を分割する。\\
+	$\Delta x= 1/J, \Delta t\ (t方向の格子を取る), x_j= j\Delta x, t_n= n\Delta t, u^n_j\cong u(x_j, t_n)$
+	\item 微分を差分近似する。
+\begin{itemize}
+	\item 時間微分：$\frac{\partial u}{\partial t}\cong \frac{u^{n+ 1}- u^n_j}{\Delta t}= a\frac{u^n_{j+ 1}- 2u^n_j+ u^n_{j- 1}}{(\Delta x)^2}$\ (前進差分)
+	\item 空間微分：$\frac{\partial^2 u}{\partial x^2}\cong \frac{u^n_{j+ 1}- 2u^n_j+ u^n_{j- 1}}{(\Delta x)^2}$\ (中央差分)
+\end{itemize}
+	$u^{n+ 1}_j$について整理すると，
+	$u^{n+ 1}_j= ru^n_{j+ 1}+ (1- 2r)u^n_j+ ru^n_{j- 1}\ (j= 1, 2, \ldots, J- 1, n= 0, 1, \ldots, r= \frac{a\Delta t}{(\Delta x)^2})$
+\end{enumerate_roman}
+\end{itemize}
+
+%\input{20260615_Applied_Analysis}
+%\input{20260615_Applied_Analysis.tex}
+
+\end{document}
