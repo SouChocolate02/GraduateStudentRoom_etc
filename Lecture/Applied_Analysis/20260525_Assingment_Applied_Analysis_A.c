@@ -1,4 +1,4 @@
-/*20260525_Applied_Analysis_Assignment.c/
+/*20260525_Assingment_Applied_Analysis_A.c/
 /*Euler法で解く*/
 
 #include <stdio.h>
