@@ -1,0 +1,36 @@
+% 20260615_Applied_Analysis
+
+    $u^{n+ 1}= Su^n$は波数$\xi$の正弦波で表される特殊解をもつ。
+    $u^n_j= g^n\exp{(i\xi(j\Delta x))}= g^n\exp{(i\xi x_j)}\ (初期条件：u^0_j= \exp{(i\xi x_j)})$
+
+    $u^{n+ 1}= Su^n$の解をFourier変換したときの波数$\xi$の成分を取り出したもの。各端数成分の線型結合が一般解
+    $\because \tau u^n_j= \tau(g^n\exp{(i\xi x_j)})= g^n\exp{(i\xi(x_j+ \Delta x))}= g^n\exp{(i\xi \Delta x)}\exp{(i\xi x_j)}$
+    $\because \tau^mu^n_j= g^n\exp{(i\xi(m\Delta x))}\exp{(i\xi x_j)}$
+    $u^{n+ i}= Su^n$に代入すると，
+    $g^{n+ 1}e\exp{(i\xi x_j)}= \sum_m c_m\exp{(i\xi m\Delta x)}\exp{(i\xi x_j)}\to g= \sum_m c_m\exp{(i\xi m\Delta x)}$
+
+    このように$g$を決めれば$u^n_j= g^n\exp{(i\xi x_j)}$は$u^{n+ 1}= Su^n$の解となることが確認できた。
+    $S$によって時間を$Delta t$進めたときに解$u^n_j$がどれだけ拡大(縮小)されているかを表す。
+
+    一般に任意の関数は端数の異なる正弦波の重ね合わせとして表すことができる。$\Delta x= h(\Delta t)$と表したときLaxの安定条件は
+\begin{tcolorbox}
+    $0\le n\Delta t\le T$を満たす任意の$n\Delta t$に対して，$|g|^n\le C$となるような正定数$u^{n+ 1}= Su^n$の解は$\Delta t\to 0$のとき$\frac{\partial u}{\partial t}= Lu$の解に収束する。 
+\end{tcolorbox}
+    $\Leftrightarrow$
+\begin{tcolorbox}[title= Von\ Neumannの条件]
+    $0\le n\Delta t\le T$を満たす任意の$n\Delta t$に対して，$|g|\le 1+ K\Delta t$となるような正定数$K$が存在するとき$u^{n+ 1}= Su^n$の解は$\Delta t\to 0$のとき$\frac{\partial u}{\partial t}= Lu$の解に収束する。
+\end{tcolorbox}
+    なお$K= 0$ならば$|g|\le 1$となり，誤差は時間とともに減衰するか一定値で置き換えられる。
+    なぜなら$t= T$のとき$n\Delta t= T$とすると$\lim_{\Delta t\to 0} (1+ K\Delta t)^n= \lim_{n\to infty} \left(1+ \frac{KT}{n}\right)^n= e^{KT}= C$とおけば$|g|^n\le C$
+    $\because g= \sum_m c_m\exp{(i\xi m\Delta x)}$
+
+    Von Neumannの条件をみたすように$\Delta x= h(\Delta x)$を決めておかないと一般には$\Delta t\to 0$のとき差分方程式の解は$\Delta t\to 0$のとき微分方程式は解に収束しない。
+
+%後でノートとる(写真は残してある)
+
+    一次元拡散方程式の例
+    一次元拡散方程式
+    \begin{equation*}
+    \frac{\partial u}{\partial t}= \kappa\frac{\partial^2 u}{\partial x^2}
+\end{equation*}
+    をEuler陰解法で特殊解の安定化条件を求めよ
