@@ -26,60 +26,60 @@
 
 
 \begin{souanswer} %答案はここに書く
-	実数$a\in \R$に対して、区間$I_a= (-\infty, a]$を考える。このような区間全体からなる集合族を$\P$とおく。
+	実数$a\in \R$に対して，区間$I_a= (-\infty, a]$を考える．このような区間全体からなる集合族を$\P$とおく．
 \begin{equation}
 	\P= \{(-\infty, a]\; a\in \R\}
 \end{equation}
-	$a, b\in\R$に対して$(-\infty, a]\cap (-\infty, b]= (-\infty, \min{(a, b)}]\in \P$であるためには$\P$は共通部分について閉じている。
-	すなわち$\P$は$\pi$系であり、Borel集合族の定義より
+	$a, b\in\R$に対して$(-\infty, a]\cap (-\infty, b]= (-\infty, \min{(a, b)}]\in \P$であるためには$\P$は共通部分について閉じている．
+	すなわち$\P$は$\pi$系であり，Borel集合族の定義より
 \begin{equation}
 	\sigma(\P)= \mathcal{B}(\R)
 \end{equation}
-	確率が一致するようなBorel集合の集合を$mathcal{L}$とする。
+	確率が一致するようなBorel集合の集合を$mathcal{L}$とする．
 \begin{equation}
 	\mathcal{L}= \{A\in \mathcal{B(\R)}; \P(X\in A)= \P(Y\in A)\}
 \end{equation}
-	この$\mathcal{L}$が$\lambda$系の条件を満たすことを示す。
+	この$\mathcal{L}$が$\lambda$系の条件を満たすことを示す．
 \begin{enumerate_alpha}
 	\item $\R\in \mathcal{L}$：
-	$\P(X\in A)= 1$かつ$\P(Y\in A)= 1$であるから、
+	$\P(X\in A)= 1$かつ$\P(Y\in A)= 1$であるから，
 \begin{equation}
 	\P(X\in A)= \P(Y\in A)
 \end{equation}
-	となり、$\R\in \mathcal{L}$が成り立つ。
+	となり，$\R\in \mathcal{L}$が成り立つ．
 
 	\item $A, B\in \mathcal{L}, A\subset B\Rightarrow B\setminus A\in \mathcal{L}$：
-	$A, B\in \mathcal{L}, A\subset B$とする。確率の加法性より
+	$A, B\in \mathcal{L}, A\subset B$とする．確率の加法性より
 \begin{align}
 	\P(X\in B\setminus A)&= \P(X\in B)- \P(X\in A)\\
 	\P(Y\in B\setminus A)&= \P(Y\in B)- \P(Y\in A)
 \end{align}
-	$A, B\in \mathcal{L}$の定義より、$\P(X\in A)= \P(Y\in A)$かつ$\P(Y\in B)= \P(Y\in B)$であるから
+	$A, B\in \mathcal{L}$の定義より，$\P(X\in A)= \P(Y\in A)$かつ$\P(Y\in B)= \P(Y\in B)$であるから
 \begin{equation}
 	\P(X\in B\setminus A)= \P(Y\in B\setminus A)
 \end{equation}
-	であり、$B\setminus A\in \mathcal{L}$
+	であり，$B\setminus A\in \mathcal{L}$
 	\item $\{A_n\}\in \mathcal{L}$が単調増加ならば$\bigcup_{n= 1}^\infty A_n\in \mathcal{L}$：
-	互いに素な可算個のBorel集合列$\{A_n\}\subset \mathcal{L}$をとる。確率の可算加法性より
+	互いに素な可算個のBorel集合列$\{A_n\}\subset \mathcal{L}$をとる．確率の可算加法性より
 \begin{align}
 	\P\left(X\in \bigcup_{n= 1}^\infty A_n\right)&= \sum_{n= 1}^\infty \P(X\in A_n)\\
 	\P\left(Y\in \bigcup_{n= 1}^\infty A_n\right)&= \sum_{n= 1}^\infty \P(Y\in A_n)
 \end{align}
-	各$n$について$A_n\in \mathcal{L}$であり、$\P(X\in A_n)= \P(Y\in A_n)$であるから各項がすべて等しく、無限級数の和も等しくなる。
+	各$n$について$A_n\in \mathcal{L}$であり，$\P(X\in A_n)= \P(Y\in A_n)$であるから各項がすべて等しく，無限級数の和も等しくなる．
 \begin{equation}
 	\P\left(X\in \bigcup_{n= 1}^\infty A_n\right)= \P\left(Y\in \bigcup_{n= 1}^\infty A_n\right)
 \end{equation}
-	となり、$\bigcup_{n= 1}^\infty A_n\in \mathcal{L}$
+	となり，$\bigcup_{n= 1}^\infty A_n\in \mathcal{L}$
 	よって$\mathcal{L}$は$\lambda$系
 \end{enumerate_alpha}
-	任意の$a\in \R$に対して$\P(X\le a)= \P(Y\le a)$が成り立つ。これは$\P\subset \mathcal{L}$を意味する。ここで$\P$は$\pi$系、$\mathcal{L}$は$\lambda$系である。$\pi\mathrm{-}\lambda$定理より
+	任意の$a\in \R$に対して$\P(X\le a)= \P(Y\le a)$が成り立つ．これは$\P\subset \mathcal{L}$を意味する．ここで$\P$は$\pi$系，$\mathcal{L}$は$\lambda$系である．$\pi\mathrm{-}\lambda$定理より
 \begin{equation}
 	\sigma(\P)\subset \mathcal{L}
 \end{equation}
-	が成り立ち、$\sigma(\P)= \mathcal{B}(\R)$であるから
+	が成り立ち，$\sigma(\P)= \mathcal{B}(\R)$であるから
 \begin{equation}
 	\mathcal{B}(\R)\subset \mathcal{L}
 \end{equation}
-	が得られ、$\mathcal{L}$の定義より任意の$A\in \mathcal{B}(\R)$に対して$\P(X\le a)= \P(Y\le a)$が成立。
+	が得られ，$\mathcal{L}$の定義より任意の$A\in \mathcal{B}(\R)$に対して$\P(X\le a)= \P(Y\le a)$が成立．
 \end{souanswer}
 \end{document}
