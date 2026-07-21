@@ -6,36 +6,54 @@
 \author{M1 6012 川村聡一郎}
 \date{}
 
-
 \begin{document}
 \maketitle
 
 \begin{tcolorbox}
-	$f(n)= O(g(n))$かつ$g(n)= h(n)$ならば
+	$\fbox{1}$ $f(n)= O(g(n))$かつ$g(n)= O(h(n))$ならば
 \begin{equation*}
 	f(n)= O(h(n))
 \end{equation*}
 \end{tcolorbox}
 
 \begin{souanswer} %答案はここに書く
-	答案はここに書く
+	$\fbox{1}$ $f(n)\le Ch(n)$を示す．\\
+	$\exists c_1, c_2\in \R_{\ge 0},\ \exists n_0, n_1\in \Z_{\ge 0},\ n\ge \max\{n_0, n_1\}$に対して
+\begin{equation}
+	f(n)\stackrel{f(n)= O(g(n))}{\le} c_1g(n)\stackrel{g(n)= O(h(n))}{\le} c_1c_2h(n)
+\end{equation}
+	$C= c_1c_2$とおくと，$f(n)\le Ch(n)$
 \end{souanswer}
 
 
 \begin{tcolorbox}
-	以下が同値であることを示せ。
-\begin{enumerate_roman}
+	$\fbox{2}$ 以下が同値であることを示せ．
+\begin{enumerate_alpha}
 	\item $f(n)= \Theta(g(n))$
 	\item $f(n)= O(g(n))$かつ$f(n)= \Omega(g(n))$
-\end{enumerate_roman}
+\end{enumerate_alpha}
 \end{tcolorbox}
 
 \begin{souanswer} %答案はここに書く
-	答案はここに書く
+\begin{enumerate}
+	\item[$\Rightarrow$] 
+	
+	\item[$\Leftarrow$] 
+	それぞれの定義より
+\begin{align}
+	O(g(n))&= \{h(n); \exists c\in \R_{\ge 0}, \exists n_0\in \Z_{\ge 0}, n\ge n_0\Longrightarrow h(n)\le cg(n)\}\\
+	\Omega(g(n))&= \{h(n); \exists c'\in \R_{\ge 0}, \exists n'_0\in \Z_{\ge 0}, n'\ge n'_0\Longrightarrow c'g(n')\le h(n')\}
+\end{align}
+	これらを組み合わせると
+\begin{align}
+	O(g(n))\cap \Omega(g(n))&= \{h(n); \exists c, c'\in \R_{\ge 0}, \exists n_0, n'_0\in \Z_{\ge 0}, n\ge n_0, n'\ge n'_0\Longrightarrow c'g(n')\le h(n)\le cg(n)\}\\
+	&= \Theta(g(n))
+\end{align}
+\end{enumerate}
 \end{souanswer}
 
 \begin{tcolorbox}
-	次を示せ。
+	$\fbox{3}$ 次を示せ．
 \begin{enumerate}
 	\item $n^2\cdot 2^n\ne \tilde{O}_1(2^n)$
 	\item $n^2\cdot 2^n= \tilde{O}_2(2^n)$
@@ -44,51 +62,46 @@
 
 \begin{souanswer} %答案はここに書く
 \begin{enumerate}
-	\item $s> 0$とする。$n^s\cdot 2^n= \tilde{O}_1(2^n)$と仮定すると，$\tilde{O}_1$の定義より正の定数$c, n$と非負定数$k$が存在し、すべての$n\ge n_0$に対して，
+	\item $s> 0$とする．$n^s\cdot 2^n= \tilde{O}_1(2^n)$と仮定すると，$\tilde{O}_1$の定義より正の定数$c, n$と非負定数$k$が存在し，すべての$n\ge n_0$に対して，
 \begin{equation*}
 	n^s\cdot 2^n\le c\cdot 2^n\cdot (\log{n})^k
 \end{equation*}
-	が成立する。両辺を$2^n$で割ると
+	が成立する．両辺を$2^n$で割ると
 \begin{equation*}
 	n^s \le c\cdot (\log{n})^k
 \end{equation*}
-	さらに両辺を$(\log{n})^k$で割ると、
+	さらに両辺を$(\log{n})^k$で割ると，
 \begin{equation*}
 	\frac{n^s}{(\log{n})^k}\le c
 \end{equation*}
-	ここで$n\to \infty$の極限を考える。\\
-	多項式は$\log{}$より早く収束するため、$(左辺)\to \infty$。\\
-	これは仮定に矛盾するため、以下が成り立つ。$n^2\cdot 2^n\ne \tilde{O}_1(2^n)$
+	ここで$n\to \infty$の極限を考える．\\
+	多項式は$\log{}$より早く収束するため，$(左辺)\to \infty$．\\
+	これは仮定に矛盾するため，以下が成り立つ．$n^2\cdot 2^n\ne \tilde{O}_1(2^n)$
 
-	\item $c= 1, k= 0$とする。$\tilde{O}_1$の定義より
+	\item $c= 1, k= 0$とする．$\tilde{O}_1$の定義より
 \begin{equation*}
 	c\cdot g(n)\cdot (\log{\log{n}})^m= 1\cdot g(n)\cdot (\log{\log{n}})^0= g(n)
 \end{equation*}
-	すべての$n\ge n_0$に対して以下の不等式が成り立つ。
+	すべての$n\ge n_0$に対して以下の不等式が成り立つ．
 \begin{equation*}
 	n^2\cdot 2^n\le 1\cdot (n^2\cdot 2^n)\cdot (\log{\log{n}})^0\Rightarrow n^2\cdot 2^n\le 1\cdot n^2\cdot 2^n
 \end{equation*}
-	この等号は成り立ち、不等式を満たす。よって$n^2\cdot 2^n= \tilde{O}_2(2^n)$
+	この等号は成り立ち，不等式を満たす．よって$n^2\cdot 2^n= \tilde{O}_2(2^n)$
 \end{enumerate}
 \end{souanswer}
 
 
 \begin{tcolorbox}
-	$n!= o(n^n)$を示せ。
+	$\fbox{4}$ $n!= o(n^n)$を示せ．
 \end{tcolorbox}
 
 \begin{souanswer} %答案はここに書く
-	答案はここに書く
+\begin{align*}
+	\lim_{n\to \infty} \frac{n!}{n^n}
+	&= \lim_{n\to \infty} \frac{n\cdot (n- 1)\cdot (n- 2)\cdots 1}{n^n}\\
+	&\le \lim_{n\to \infty} \frac{n\cdot n\cdot n\cdots 1}{n^n}\\
+	&\le \lim_{n\to \infty} \frac{1}{n}\\
+	&= 0
+\end{align*}
 \end{souanswer}
-
-
-
-
-
-
-
-
-
-
-
 \end{document}
