@@ -22,7 +22,7 @@
 \begin{equation}
 	f(n)\stackrel{f(n)= O(g(n))}{\le} c_1g(n)\stackrel{g(n)= O(h(n))}{\le} c_1c_2h(n)
 \end{equation}
-	$C= c_1c_2$とおくと，$f(n)\le Ch(n)$
+	$C= c_1c_2$とおくと，$f(n)\le Ch(n)$．よってbig- $O$の定義より$f(n)= O(h(n))$が成り立つ．
 \end{souanswer}
 
 
@@ -37,18 +37,25 @@
 \begin{souanswer} %答案はここに書く
 \begin{enumerate}
 	\item[$\Rightarrow$] 
-	
+	仮定よりある正の定数$c_1, c_2> 0$と整数$n_0\ge 0$が存在して，すべての$n\ge n_0$に対して
+\begin{equation}
+	c_1g(n)\le f(n)\le c_2g(n)
+\end{equation}
+	が成り立つ．この不等式を上からの評価「$f(n)\le c_2g(n)$」と下からの評価「$c_1g(n)\le f(n)$」に分ける．
+	すると上からの評価は$f(n)= O(g(n))$，下からの評価は$f(n)= \Omega(g(n))$の定義に一致する．
+
 	\item[$\Leftarrow$] 
-	それぞれの定義より
+	$O(g(n)), \Omega(g(n))$それぞれの定義より
 \begin{align}
 	O(g(n))&= \{h(n); \exists c\in \R_{\ge 0}, \exists n_0\in \Z_{\ge 0}, n\ge n_0\Longrightarrow h(n)\le cg(n)\}\\
-	\Omega(g(n))&= \{h(n); \exists c'\in \R_{\ge 0}, \exists n'_0\in \Z_{\ge 0}, n'\ge n'_0\Longrightarrow c'g(n')\le h(n')\}
+	\Omega(g(n))&= \{h(n); \exists c'\in \R_{\ge 0}, \exists n_0\in \Z_{\ge 0}, n\ge n_0\Longrightarrow c'g(n)\le h(n)\}
 \end{align}
 	これらを組み合わせると
 \begin{align}
-	O(g(n))\cap \Omega(g(n))&= \{h(n); \exists c, c'\in \R_{\ge 0}, \exists n_0, n'_0\in \Z_{\ge 0}, n\ge n_0, n'\ge n'_0\Longrightarrow c'g(n')\le h(n)\le cg(n)\}\\
+	O(g(n))\cap \Omega(g(n))&= \{h(n); \exists c, c'\in \R_{\ge 0}, \exists n_0\in \Z_{\ge 0}, n\ge n_0\Longrightarrow c'g(n)\le h(n)\le cg(n)\}\\
 	&= \Theta(g(n))
 \end{align}
+	以上より「$f(n)= O(g(n))$かつ$f(n)= \Omega(g(n))$」と「$f(n)= \Theta(g(n))$」は同値．
 \end{enumerate}
 \end{souanswer}
 
@@ -74,21 +81,42 @@
 \begin{equation*}
 	\frac{n^s}{(\log{n})^k}\le c
 \end{equation*}
-	ここで$n\to \infty$の極限を考える．\\
-	多項式は$\log{}$より早く収束するため，$(左辺)\to \infty$．\\
-	これは仮定に矛盾するため，以下が成り立つ．$n^2\cdot 2^n\ne \tilde{O}_1(2^n)$
+	ここで$n\to \infty$の極限を考えると，いずれも$n\to \infty$で発散する．
+	これは仮定に矛盾するため，$n^2\cdot 2^n\ne \tilde{O}_1(2^n)$が成り立つ．
 
-	\item $c= 1, k= 0$とする．$\tilde{O}_1$の定義より
-\begin{equation*}
-	c\cdot g(n)\cdot (\log{\log{n}})^m= 1\cdot g(n)\cdot (\log{\log{n}})^0= g(n)
-\end{equation*}
-	すべての$n\ge n_0$に対して以下の不等式が成り立つ．
-\begin{equation*}
-	n^2\cdot 2^n\le 1\cdot (n^2\cdot 2^n)\cdot (\log{\log{n}})^0\Rightarrow n^2\cdot 2^n\le 1\cdot n^2\cdot 2^n
-\end{equation*}
-	この等号は成り立ち，不等式を満たす．よって$n^2\cdot 2^n= \tilde{O}_2(2^n)$
+	\item ある整数$k$に対して
+\begin{equation}
+	n^2\cdot 2^n= O(2^n(\log{2^n})^k)
+\end{equation}
+	が成り立つことを示せばよい．すなわち正の定数$c> 0$，非負整数$n_0$が存在し，すべての$n\ge n_0$に対して，
+\begin{equation}
+	n^2\cdot 2^n\le c\cdot 2^n(\log{2^n})^k
+\end{equation}
+	が成り立つことを示せばよい．不等式の右辺は$\log{2^n}= n\log{2}$と書き換えることができ，
+\begin{equation}
+	n^2\cdot 2^n\le c\cdot n^k(\log{2})^k\cdot 2^n
+\end{equation}
+	すべての$n$に対して$2^n> 0$だから両辺を$2^n$で割ると，
+\begin{equation}
+	1\le c\cdot n^k(\log{2})^k
+\end{equation}
+	ここで$k= 2$とすると，
+\begin{equation}
+	1\le c\cdot n^2(\log{2})^2
+\end{equation}
+	また$n\ge 1$とすると$n^2> 0$となるから，
+\begin{equation}
+	1\le c(\log{2})^2
+\end{equation}
+	$c= \frac{1}{(\log{2})^2}$ととればこの不等式を満たす．\\
+	以上より$k= 2, c= \frac{1}{(\log{2})^2}, n_0= 1$とすると，すべての$n\ge n_0$に対して，
+\begin{equation}
+	n^2\cdot 2^n\le c\cdot 2^n(\log{2^n})^k
+\end{equation}
+	であるから，$n^2\cdot 2^n= \tilde{O_2}(2^n)$が成り立つ．
 \end{enumerate}
 \end{souanswer}
+
 
 
 \begin{tcolorbox}
@@ -97,11 +125,11 @@
 
 \begin{souanswer} %答案はここに書く
 \begin{align*}
-	\lim_{n\to \infty} \frac{n!}{n^n}
-	&= \lim_{n\to \infty} \frac{n\cdot (n- 1)\cdot (n- 2)\cdots 1}{n^n}\\
-	&\le \lim_{n\to \infty} \frac{n\cdot n\cdot n\cdots 1}{n^n}\\
-	&\le \lim_{n\to \infty} \frac{1}{n}\\
-	&= 0
+	\frac{n!}{n^n}
+	&= \frac{n\cdot (n- 1)\cdot (n- 2)\cdots 1}{n^n}\\
+	&\le \frac{n\cdot n\cdot n\cdots 1}{n^n}\\
+	&\le \frac{1}{n}\\
+	&= 0\ (n\to \infty)
 \end{align*}
 \end{souanswer}
 \end{document}
