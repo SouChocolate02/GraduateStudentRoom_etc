@@ -11,28 +11,50 @@
 \maketitle
 
 \begin{tcolorbox}
-\begin{tcolorbox}
-	ソートを使ったアルゴリズム
+\begin{tcolorbox}[title= 区間スケジューリングに関するソートアルゴリズム]
+\begin{tabular}{ll}
+	Input&：$n$個の閉区間$I_i= [a_i, b_i]$の$S(i= 1, \ldots, n, a_i, b_i\in \Z)$\\
+	Output&：$T\subset S$で\underline{T中の閉区間は共通部分をもたない}	を満たす$|T|$が最大のもの1つ
+\end{tabular}	
+
 \begin{enumerate}
-	\item $b_i$が小さい順番に区間を並べ替える。並べ替えたものを先頭から$J_1, J_2, \ldots, J_k= [c_k, d_k], \ldots, J_n$とする。
-	\item 
+	\item \label{step:区間を並べ替える}$b_i$が小さい順に区間を並べ替える．並べ替えた後に先頭から$J_1, \ldots, J_n\ \ (J_k= [c_k, d_k])$とする．
+	\item \label{step:Tの定義}$T= \{T_1\},\ k= 2,\ D= d_1$とする．
+	\item \label{step:Tを加える}もし$J_k= [c_k, d_k]$が$D< c_k$ならば，$J_k$を$T$に加えて，$D:= d_k$
+	\item \label{step:アルゴリズムの終了}$k= n$ならばこのアルゴリズムは終了．$k\ne n$ならば，$k= k+ 1$と更新し，\eqref{step:Tを加える}へ戻る．
 \end{enumerate}
 \end{tcolorbox}
+	このアルゴリズムのうち，\eqref{step:区間を並べ替える}を「\underline{$(*)\ a_i$が小さい順に区間を並べ替える}」に変更すると，うまくいかないことを示せ．
 \end{tcolorbox}
 
 \begin{souanswer} %答案はここに書く
-	答案はここに書く
+	アルゴリズムの\eqref{step:区間を並べ替える}を$(*)$に変更したときに条件を満たす$T$のうち$|T|$が最大でないものが出力される例を示す．\\
+	$S= \{[1, 2], [3, 7], [4, 5], [6, 8]\}$をアルゴリズムに入力する．この$S$に対して$T\subset S$の条件を満たす$|T|$が最大のものは
+\begin{equation}
+	T= \{[1, 2], [4, 5], [6, 8]\}
+\end{equation}
+	である．このアルゴリズムが正しいことを示すために手で計算してみる．$n= |S|= 4$である．
+\begin{enumerate}
+	\item $(*)$より，
+\begin{align}
+	S= \{
+		J_1&= [c_1, d_1]= [1, 2]\\
+		J_2&= [c_2, d_2]= [3, 7]\\
+		J_3&= [c_3, d_3]= [4, 5]\\
+		J_4&= [c_4, d_4]= [6, 8]
+		\}
+\end{align}
+	とおく．
+	\item $T= \{[1, 2]\}, k= 2, D= 2$とする．
+	\item[(3-1)] $2= D< c_2= 3$であるから，$J_2$を$T$に加え，$D= 7$と更新する．
+	\item[(4-1)] $2= k\ne n= 4$だから$k= k+ 1= 2+ 1= 3$として更新し，\eqref{step:Tを加える}へ
+
+	\item[(3-2)] $7= D\ge c_3= 4$であるから$J_3$を$T$に加えない．
+	\item[(4-2)] $3= k\ne n= 4$だから$k= k+ 1= 3+ 1= 4$として更新し，\eqref{step:Tを加える}へ
+
+	\item[(3-3)] $7= D\ge c_4= 6$であるから$J_4$も$T$に加えない．
+	\item[(4-3)] $4= k= n$だからアルゴリズムが終了する．
+\end{enumerate}
+	出力は$T= \{J_1, J_2\}= \{[1, 2], [3, 7]\}$となる．これは出力を満たす$T$のうち$|T|$の最大値となっていない．以上よりこのアルゴリズムは区間スケジューリング問題を正しく解けないような入力$S$が存在する.
 \end{souanswer}
-
-
-
-
-
-
-
-
-
-
-
-
 \end{document}
