@@ -1,7 +1,5 @@
-%2026_Assingment_Analysis_IA\begin{equation*}
-\frac{\phi^{n+ 1}_{i+ 1, j}- 2\phi^{n+ 1}_{i, j}+ \phi^{n+ 1}_{i- 1, j}}{(\Delta x)^2}+ \frac{\phi^{n+ 1}_{i, j+ 1}- 2\phi^{n+ 1}_{i, j}+ \phi^{n+ 1}_{i, j- 1}}{(\Delta y)^2}= -\omega^{n+ 1}_{i, j}
-\end{equation*}
-\documentclass[dvipdfmx]{jsreport}
+%2026_Assingment_Analysis_IA
+\documentclass[dvipdfmx, leqno]{jsreport}
 \usepackage{soupreamble}
 
 \title{解析学特論IA レポート課題}
@@ -10,18 +8,18 @@
 
 \begin{document}
 \maketitle
-
-\begin{tcolorbox}$\fbox{1}$
-    以下を示せ。
-\begin{enumerate}
-    \item $I, J\in \mathcal{I}_N$ならば$I\cap J\in\mathcal{I}_N, I\cup J\in\mathcal{F}_N$
-    \item $I\in \mathcal{I}_N$ならば$I^c\in \mathcal{F}_N$
-    \item $E_1, E_2\in \mathcal{F}_N$ならば$E_1\cap E_2, E_1\cup E_2, E_1^c\in \mathcal{F}_N$
-\end{enumerate}
-\end{tcolorbox}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{tcolorbox}$\fbox{1}$
+%    以下を示せ．
+%\begin{enumerate}
+%    \item $I, J\in \mathcal{I}_N$ならば$I\cap J\in\mathcal{I}_N, I\cup J\in\mathcal{F}_N$
+%    \item $I\in \mathcal{I}_N$ならば$I^c\in \mathcal{F}_N$
+%    \item $E_1, E_2\in \mathcal{F}_N$ならば$E_1\cap E_2, E_1\cup E_2, E_1^c\in \mathcal{F}_N$
+%\end{enumerate}
+%\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{2}$
-    $X$が有限加法族，$f$が$X$上の有限加法的測度ならば，$E_1, E_2, \ldots, E_n\in X$に対して以下が成り立つ。
+    $X$が有限加法族，$f$が$X$上の有限加法的測度ならば，$E_1, E_2, \ldots, E_n\in X$に対して以下が成り立つ．
 \begin{enumerate}
     \item $E_1\cap E_2= (E_1^c\cup E_2^c)^c\in X$
     \item $\bigcup_{k= 1}^n E_k\in X$
@@ -33,74 +31,170 @@
 
 \begin{souanswer}
 \begin{enumerate}
-    \item de・Morgenの法則より${(E_1\cap E_2)}^c= {E_1}^c\cup {E_2}^c$。
+    \item de・Morgenの法則より${(E_1\cap E_2)}^c= {E_1}^c\cup {E_2}^c$．
     $E_1\cap E_2\stackrel{条件(2), (3)}{=} ({E_1}^c\cup {E_2}^c)^c\in X$
 
-    \item 帰納法で示す。$n= 2$のとき条件(3)より成立。$n$のとき$E_1\cup \cdots\cup E_n\in X$と仮定する。$n+ 1$のとき条件(3)より$E_1\cup \cdots\cup E_n\cup E_{n+1}\in X$
+    \item 帰納法で示す．$n= 2$のとき条件(3)より成立．$n$のとき$E_1\cup \cdots\cup E_n\in X$と仮定する．$n+ 1$のとき条件(3)より$E_1\cup \cdots\cup E_n\cup E_{n+1}\in X$
     
-    \item 帰納法で示す。$n= 2$のとき
+    \item 帰納法で示す．$n= 2$のとき
 \begin{equation*}
     (左辺)= f(E_1+ E_2)\stackrel{性質(5)}{=} f(E_1)+ f(E_2)= (右辺)
 \end{equation*}
-    次に$n$のとき成り立つと仮定し、$n+ 1$のとき成り立つことを示す。
+    次に$n$のとき成り立つと仮定し，$n+ 1$のとき成り立つことを示す．ここで$E_n$と$E_{n+ 1}$は互いに素であり，
 \begin{equation*}
     (左辺)= f\left(\sum_{k= 1}^{n+ 1}E_k\right)= f\left(\sum_{k= 1}^n E_k+ E_{n+ 1}\right)= f\left(\sum_{k= 1}^n E_k\right)+ f(E_{n+ 1})= \sum_{k= 1}^{n+ 1} f(E_k)= (右辺)
 \end{equation*}
-    \item 帰納法で示す。$n= 2$のとき
-\begin{equation*}
-    (左辺)= f(E_1\cup E_2)= f(E_1)+ f(E_2)= (右辺)
-\end{equation*}
-%　まだ書き途中
 
-    \item $E_1\subset E_2$であるから$E_2= E_1+ (E_2\setminus E_1)$とかける。すなわち$f(E_1)\le f(E_1+ (E_2\setminus E_1))= f(E_1)+ f(E_2\setminus E_1)$。ここで$E_2\setminus E_1$は空でないから$f(E_2\setminus E_1)\ge 0$。よって$E_1\subset E_2$ならば$f(E_1)\le f(E_2)$
+    \item 与えられた集合族$E_1, E_2, \ldots, E_n\in X$に対して互いに素な集合族$F_1, F_2, \ldots, F_n\in X$を以下のように定める．
+\begin{equation}
+    F_1= E_1,\ F_2= E_2\setminus E_1,\ F_3= E_3\setminus (E_1\cap E_2)
+\end{equation}
+    $X$は有限加法族であるから，すべての$k$に対して$F_k\in X$．$F_k$の和集合と$E_k$の
+    和集合は一致することと$f$の有限加法性より
+\begin{equation}
+    f\left(\bigcup_{k= 1}^n E_k\right)= f\left(\bigcup_{k= 1}^n F_k\right)= \sum_{k= 1}^n f(F_k)
+\end{equation}
+    また測度の単調性と$F_k\subset E_k$の関係から
+\begin{equation}
+    f(F_k)\subset f(E_k)
+\end{equation}
+    が成り立つ．上の式に適用すると
+\begin{equation}
+    \sum_{k= 1}^n f(F_k)\le \sum_{k= 1}^n f(E_k)
+\end{equation}
+    よって
+\begin{equation}
+    f\left(\bigcup_{k= 1}^n E_k\right)\le \sum_{k= 1}^n f(E_k)
+\end{equation}
+
+\item $E_1\subset E_2$であるから$E_2= E_1+ (E_2\setminus E_1)$とかける．すなわち$f(E_1)= f(E_1+ (E_2\setminus E_1))= f(E_1)+ f(E_2\setminus E_1)$．ここで測度の非負性より$f(E_2\setminus E_1)\ge 0$．よって$E_1\subset E_2$ならば$f(E_1)\le f(E_2)$
 \end{enumerate}
 \end{souanswer}
-
-\begin{tcolorbox}$\fbox{3}$
-    $x= (x_1, \ldots, x_N)\in \R^N, r> 0$に対し，$B_r(x)= \left\{(y_1, \ldots, y_N)\in \R; \sum_{k= 1}^N (y_k- x_k)^2< r^2\right\}$とおく。$O\subset\R^N$が開集合であるとは，各$x\in O$に対し$R> 0$が存在して$B_r(x)\subset O$が成り立つことである。$O$を開集合，$C_r(x)$を超立方体として以下を示せ。
-\begin{enumerate}
-    \item $B_r(x)\subset C_r(x)\subset B_{\sqrt{N_r}}(x)$
-    \item 各$x\in O$に対し，$C_r(x)\subset O$を満たす$r> 0$が存在する。
-    \item $x\in O$に対し，$r_x= \sup\{r\ge 0;\ C_r(x)\subset O\}$とおく。このとき$r_x> 0, C_{r_x}\subset O$が成り立つ。
-\end{enumerate}
-\end{tcolorbox}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{tcolorbox}$\fbox{3}$
+%    $x= (x_1, \ldots, x_N)\in \R^N, r> 0$に対し，$B_r(x)= \left\{(y_1, \ldots, y_N)\in \R; \sum_{k= 1}^N (y_k- x_k)^2< r^2\right\}$とおく．$O\subset\R^N$が開集合であるとは，各$x\in O$に対し$R> 0$が存在して$B_r(x)\subset O$が成り立つことである．$O$を開集合，$C_r(x)$を超立方体として以下を示せ．
+%\begin{enumerate}
+%    \item $B_r(x)\subset C_r(x)\subset B_{\sqrt{N_r}}(x)$
+%    \item 各$x\in O$に対し，$C_r(x)\subset O$を満たす$r> 0$が存在する．
+%    \item $x\in O$に対し，$r_x= \sup\{r\ge 0;\ C_r(x)\subset O\}$とおく．このとき$r_x> 0, C_{r_x}\subset O$が成り立つ．
+%\end{enumerate}
+%\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{4}$
-    $\epsilon> 0, c_k\ge 0\ (1\le k\le N- 1)$に対し，$\delta= \frac{\epsilon}{\epsilon+ a+ c_1+ c_2+ \cdots+ c_{N- 1}}$とおく。このとき
+    $\epsilon> 0, c_k\ge 0\ (1\le k\le N- 1)$に対し，$\delta= \frac{\epsilon}{\epsilon+ a+ c_1+ c_2+ \cdots+ c_{N- 1}}$とおく．このとき
 \begin{equation*}
-    0< \delta< 1, \delta^N+ c_1\delta^{N- 1}+ c_2\delta^{N- 2}+ \cdots+ c_{N- 1}\delta< (1+ c_1+ c_2+ \cdots+ c_{N- 1})\delta< \epsilon
+    0< \delta< 1,\ \delta^N+ c_1\delta^{N- 1}+ c_2\delta^{N- 2}+ \cdots+ c_{N- 1}\delta< (1+ c_1+ c_2+ \cdots+ c_{N- 1})\delta< \epsilon
 \end{equation*}
-    が成り立つことを示しなさい。
+    が成り立つことを示しなさい．
 \end{tcolorbox}
 
 \begin{souanswer}
-    $(第一項)< (第二項)$を示す。
+    $(第一項)< (第二項)$を示す．
 \begin{equation*}
     (第一項)= \delta(\delta^{N- 1}+ c_1\delta^{N- 2}+ c_2\delta^{N- 3}+ \cdots+ c_{N- 1})
 \end{equation*}
-    ここで$\delta$は$0< \delta< 1$であるから、$\delta^2, \delta^3, \ldots, \delta^{N- 1}< \delta$であり、
+    ここで$\delta$は$0< \delta< 1$であるから，$\delta^2, \delta^3, \ldots, \delta^{N- 1}< \delta$であり，
 \begin{equation*}
     \delta(\delta^{N- 1}+ c_1\delta^{N- 2}+ c_2\delta^{N- 3}+ \cdots+ c_{N- 1})< (1+ c_1+ \cdots+ c_{N- 1})
 \end{equation*}
-    $(第二項)< (第三項)$を示す。与えられた$\delta$の定義より$(\epsilon+ 1+ c_1+ c_2+ \cdots+ c_{N- 1})\delta< \epsilon$。ここで$\epsilon> 0$であるから
+    $(第二項)< (第三項)$を示す．与えられた$\delta$の定義より$(\epsilon+ 1+ c_1+ c_2+ \cdots+ c_{N- 1})\delta< \epsilon$．ここで$\epsilon> 0$であるから
 \begin{equation*}
     (1+ c_1+ \cdots+ c_{N- 1})< (1+ c_1+ c_2+ \cdots+ c_{N- 1})
 \end{equation*}
 \end{souanswer}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{5}$
-    以下の等式を示せ。
+    以下の等式を示せ．
 \begin{enumerate}
-    \item $[([A+ (-x)]\cap E)+ x]= A\cap [E+ x], [-([-A]\cap E)]= A\cap [-E]$
-    \item $\Gamma(A)= \Gamma(A\cap [E+ x])+ \Gamma(A\cap [E+ x]^c),\ \ \Gamma(A)= \Gamma(A\cap [-E])+ \Gamma(A\cap [-E]^c)$
+    \item 
+\begin{enumerate_alpha}
+    \item $[([A+ (-x)]\cap E)+ x]= A\cap [E+ x]$
+    \item $[-([-A]\cap E)]= A\cap [-E]$
+    \item $[([A+ (-x)]\cap E^c)+ x]= A\cap [E+ x]^c$
+    \item $[-([-A]\cap E^c)]= A\cap [-E]^c$
+\end{enumerate_alpha}
+    \item 
+\begin{enumerate_alpha}
+    \item $\Gamma(A)= \Gamma(A\cap [E+ x])+ \Gamma(A\cap [E+ x]^c)$
+    \item $\Gamma(A)= \Gamma(A\cap [-E])+ \Gamma(A\cap [-E]^c)$
+\end{enumerate_alpha}
+    \item $E\in \mathcal{M}_N$に対し，$\mu([E+ x])= \mu([-E])= \mu(E)$
 \end{enumerate}
 \end{tcolorbox}
 
+\begin{souanswer}
+\begin{enumerate}
+    \item 
+\begin{enumerate_alpha}
+    \item \label{step:Q5_1_a}
+\begin{align}
+    y\in [([A+ (-x)]\cap E)+ x]
+    &\iff y- x\in [A+ (-x)]\cap E\\
+    &\iff (y- x\in (A+ (-x)))\land (y- x\in E)\\
+    &\iff ((y- x- (-x))\in A)\land (y- x\in E)\\
+    &\iff (y\in A)\land (y\in E+ x)\\
+    &\iff y\in A\cap [E+ x]
+\end{align}
+    \item \label{step:Q5_1_b}
+\begin{align*}
+    y\in [-([-A]\cap E)]
+    &\iff -y \in [-A]\cap E \\
+    &\iff (-y \in -A) \land (-y \in E) \\
+    &\iff (-(-y) \in A) \land (y \in -E) \\
+    &\iff (y \in A) \land (y \in -E) \\
+    &\iff y \in A\cap [-E]
+\end{align*}
+    \item \label{step:Q5_1_c}
+\begin{align}
+    y\in [([A+ (-x)]\cap E^c)+ x]
+    &\iff y- x\in [A+ (-x)]\cap E^c\\
+    &\iff (y- x\in (A+ (-x)))\land (y- x\in E^c)\\
+    &\iff ((y- x- (-x))\in A)\land (y- x\in E^c)\\
+    &\iff (y\in A)\land \neg(y\in E+ x)\\
+    &\iff y\in A\cap [E+ x]^c
+\end{align}
+    \item \label{step:Q5_1_d}
+\begin{align}
+    y\in [-([-A]\cap E^c)]
+    &\iff -y \in [-A]\cap E^c \\
+    &\iff (-y \in -A) \land \neg(-y \in E) \\
+    &\iff (-(-y) \in A) \land \neg(y \in -E) \\
+    &\iff (y \in A) \land (y \in [-E]^c) \\
+    &\iff y \in A\cap [-E]^c
+\end{align}
+\end{enumerate_alpha}
+    \item 
+\begin{enumerate_alpha}
+    \item 
+\begin{align}
+    \Gamma(A)
+    &= \Gamma([A+ (-x)]\cap E)+ \Gamma([A+ (-x)]\cap E^c)\\
+    &= \Gamma([([A+ (-x)]\cap E)+ x])+ \Gamma([([A+ (-x)]\cap E^c)+ x])\\
+    &\stackrel{\ref{step:Q5_1_a}, \ref{step:Q5_1_c}}{=} \Gamma(A\cap [E+ x])+ \Gamma(A\cap [E+ x]^c)
+\end{align}
+    \item 
+\begin{align}
+    \Gamma(A)
+    &= \Gamma([-A])\\
+    &= \Gamma([-A]\cap E)+ \Gamma([-A]\cap E^c)\\
+    &\stackrel{\ref{step:Q5_1_b}, \ref{step:Q5_1_d}}= \Gamma(A\cap [-E])+ \Gamma(A\cap [-E]^c)
+\end{align}
+\end{enumerate_alpha}
+    \item $\mu$は$\Gamma$の制限なので，
+\begin{align}
+    \mu([E+ x])&= \Gamma([E+ x])\\
+    \mu([-E])&= \Gamma([-E])\\
+    \mu(E)&= \Gamma(E)
+\end{align}
+    であることと$\Gamma([E+ x])= \Gamma([-E])= \Gamma(E)$から$\mu([E+ x])= \mu([-E])= \mu(E)$
+\end{enumerate}
+\end{souanswer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{6}$
 \begin{enumerate}
-    \item $\{A_n\}$が単調増加ならば，$\bigcap_{k= n}^\infty A_k= A_n, \bigcup_{k= n}^\infty A_k= \bigcup_{k= 1}^\infty A_k\ \ (\forall n\ge 1)$が成り立つことを示せ。
-    \item $\{A_n\}$が単調減少ならば$\lim_{n\to \infty} A_n= \bigcap_{n= 1}^\infty A_n$が成り立つことを示せ。
-    \item $A_{2n- 1}= [0, 1], A_{2n}= [1, 2]\subset \R$に対し，$\liminf_{n\to \infty} A_n, \limsup_{n\to \infty} A_n$を求め，これらが一致しないことを示せ。
+    \item $\{A_n\}$が単調増加ならば$\bigcap_{k= n}^\infty A_k= A_n, \bigcup_{k= n}^\infty A_k= \bigcup_{k= 1}^\infty A_k\ \ (\forall n\ge 1)$が成り立つことを示せ．
+    \item $\{A_n\}$が単調減少ならば$\lim_{n\to \infty} A_n= \bigcap_{n= 1}^\infty A_n$が成り立つことを示せ．
+    \item $A_{2n- 1}= [0, 1],\ A_{2n}= [1, 2]\subset \R$に対し，$\liminf_{n\to \infty} A_n,\ \limsup_{n\to \infty} A_n$を求め，これらが一致しないことを示せ．
 \end{enumerate}
 \end{tcolorbox}
 
@@ -108,233 +202,226 @@
 \begin{enumerate}
     \item 
 \begin{enumerate}
-    \item $\bigcap_{k= n}^\infty A_k= A_n$を示す。
-\begin{equation*}
-    \bigcap_{k= n}^\infty A_k= A_n\cap A_{n+ 1}\cap \cdots= A_n\ \ (\because 単調性)
-\end{equation*}
-    \item $\bigcup_{k= n}^\infty A_k= \bigcup_{k= 1}^\infty A_k$を示す。
-\begin{equation*}
-    \bigcup_{k= 1}^\infty A_k- \bigcup_{k= n}^\infty= \bigcup_{k= 1}^{n- 1} A_k
-\end{equation*}
-    ここで$\{A_k\}$は単調増加であるから、$\bigcup_{k= 1}^{n- 1} A_k\subset A_n$
+    \item $\bigcap_{k= n}^\infty A_k= A_n$を示す．$\bigcap_{k= n}^\infty A_k\subset A_n$は明らか．単調増加性より任意の$k\ge n$で$A_n\subset A_k$となり，$A_n\subset \bigcap_{k= n}^\infty= A_k$
+    
+    \item 集合の和を$n- 1$までと$n$以降に分割する．すなわち
+\begin{equation}
+    \bigcup_{k= 1}^\infty A_k= \left(\bigcup_{k= 1}^{n- 1} A_k\right)\cup \left(\bigcup_{k= n}^\infty A_k\right)
+\end{equation}
+    $\{A_n\}$は単調増加列であるから，任意の$1\le k\le n- 1$に対して$A_k\subset A_n$が成り立つ．だから
+\begin{equation}
+    \bigcup_{k= 1}^{n- 1} A_k\subset A_n\subset \bigcup_{k= n}^\infty A_k
+\end{equation}
+    が成り立つ．よって
+\begin{equation}
+    \bigcup_{k= 1}^\infty A_k= \bigcup_{k= n}^\infty A_k
+\end{equation}
 \end{enumerate}
     \item 
 \begin{align*}
     (左辺)
     &= \liminf_{n\to \infty}A_n= \limsup_{n\to \infty}A_n\\
-    &= \bigcup_{n= \infty}^\infty \bigcap_{k= n}^\infty A_n= \bigcap_{n= 1}^\infty \bigcup_{k= n}^\infty A_n\\
+    &= \bigcup_{n= 1}^\infty \bigcap_{k= n}^\infty A_n= \bigcap_{n= 1}^\infty \bigcup_{k= n}^\infty A_n\\
     &= \bigcap_{n= 1}^\infty A_n\\
     &= (右辺)
 \end{align*}
+    \item $\liminf_{n\to \infty} A_n$から考える．任意の番号$n$について$\bigcap_{k= n}^\infty A_n$を考える．$k\ge n$では偶数，奇数のどちらもが含まれ，共通部分は
+\begin{equation}
+    \bigcap_{k= n}^\infty A_n= [0, 1]\cap [1, 2]= \{1\}
+\end{equation}
+    となる．この和集合も$\{1\}$となる．
+\begin{equation}
+    \liminf_{n\to \infty} A_n= \bigcup_{n= 1}^\infty \{1\}= \{1\}
+\end{equation}
+    次に$\limsup_{n\to \infty} A_n$について考える．任意の番号$n$について$\bigcup_{k= n}^\infty A_k$を考える．$k\ge n$にも同様に偶数，奇数のどちらも含まれるため，和集合は
+\begin{equation}
+    \bigcup_{k= n}^\infty A_k= [0, 1]\cup [1, 2]= [0, 2]
+\end{equation}
+    したがってすべての$n$についての和集合は$[0, 2]$で一定であり，その共通部分も$[0, 2]$で共通，
+\begin{equation}
+    \limsup_{n\to \infty} A_n= \bigcap_{n= 1}^\infty [0, 2]= [0, 2]
+\end{equation}
+    以上より
+\begin{equation}
+    \{1\}= \liminf_{n\to \infty} A_n\ne \limsup_{n\to \infty} A_n= [0, 2]
+\end{equation}
+    となり，一致しない．
+\end{enumerate}
+\end{souanswer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{7}$
+\begin{enumerate}
+    \item $\exists n_0\in \N \st\mu\left(\bigcup_{n= n_0}^\infty E_n\right)< \infty$ならば
+\begin{equation}
+    \mu\left(\limsup_{n\to \infty} E_n\right)\ge \limsup_{n\to \infty} \mu(E_n)
+\end{equation}
+    \item $\exists n_0\in \N \st\mu\left(\bigcup_{n= n_0}^\infty E_n\right)< \infty$かつ$\exists \lim_{n\to \infty} E_n$ならば
+\begin{equation}
+    \mu\left(\lim_{n\to \infty} E_n\right)= \lim_{n\to \infty} \mu(E_n)
+\end{equation}
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{souanswer}
+\begin{enumerate}
+    \item $\limsup$の定義より
+\begin{align}
+    \mu\left(\limsup_{n\to \infty} E_n\right)
+    &= \mu\left(\bigcap_{n= 1}^\infty \bigcup_{k\ge n}^\infty E_k\right) 
+\end{align}
+    $\bigcup_{k\ge n} E_k= F_n$とおくと$\{F_n\}$は単調減少であり，かつ$\mu(F_{n_0})< \infty$
+\begin{align}
+    \mu\left(\lim_{n\to \infty} F_n\right)
+    &= \lim_{n\to \infty} \mu(F_n)\\
+    &= \limsup_{n\to \infty} \mu(F_n)\\
+    &\ge \limsup_{n\to \infty} \mu(E_n)
+\end{align}
+    \item 
+\begin{align}
+    \mu\left(\lim_{n\to \infty} E_n\right)
+    &= \mu\left(\liminf_{n\to \infty} E_n\right)\\
+    &\le \liminf_{n\to \infty} \mu(E_n)\\
+    &= \lim_{n\to \infty} \mu(E_n)\\
+    \mu\left(\lim_{n\to \infty} E_n\right)
+    &= \mu\left(\limsup_{n\to \infty} E_n\right)\\
+    &\ge \limsup_{n\to \infty} \mu(E_n)\\
+    &= \lim_{n\to \infty} \mu(E_n)
+\end{align}
+    以上より$\mu\left(\lim_{n\to \infty} E_n\right)= \lim_{n\to \infty} \mu(E_n)$
 \end{enumerate}
 \end{souanswer}
 
-\begin{tcolorbox}$\fbox{7}$
-\begin{enumerate}
-    \item $\exists n_0\in \N \st\mu\left(\bigcup_{n= n_0}^\infty E_n\right)< \infty$ならば$\mu\left(\limsup_{n\to \infty} E_n\right)\ge \limsup_{n\to \infty} \mu(E_n)$
-\end{enumerate}
-\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{tcolorbox}$\fbox{8}$
+%    $E\subset \R^N, f\colon E\to [-\infty, \infty], a\in \R$に対し，以下を示せ．
+%\begin{enumerate}
+%    \item $\{r_n\}$を$a$に収束する狭義単調現象列とするとき，$E(f> a)= \bigcup_{n= 1}^\infty E(f> r_n)$が成り立つ
+%    \item $\{r_n\}$を$a$に収束する狭義単調増加列とするとき，$E(f\ge a)= \bigcap_{n= 1}^\infty E(f> r_n)$が成り立つ．
+%    \item $E(f\ge a)= \bigcap_{n= 1}^\infty E\left(f> a- \frac{1}{n}\right)$
+%    \item $E(f< +\infty)= \bigcup_{n= 1}^\infty E(f< n), E(f> -\infty)= \bigcup_{n= 1}^\infty E(f> -n)$
+%\end{enumerate}
+%\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{tcolorbox}$\fbox{9}$
+%    $f\colon E\to [-\infty, \infty]$の値域を$\{a_1, \ldots, a_n\}$とし，$E_k= E(f= a_k)$とおく．このとき，以下を示しなさい．
+%\begin{enumerate}
+%    \item $E_k\ (1\le k\le n)$は互いに交わらない．また$E= \sum_{k= 1}^n E_k$が成り立つ．
+%    \item $f= \sum_{k= 1}a_k\chi_{E_k}$が成り立つ．
+%\end{enumerate}
+%\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{tcolorbox}$\fbox{10}$
+%    以下を示せ．
+%\begin{enumerate}
+%    \item 集合$A, B$に対し，$\chi_A(x)\chi_B(x)= \chi_{A\cap B}(x)$が成り立つ．
+%    \item 互いに交わらない集合$A, B$に対し，$\chi_A(x)+ \chi_B(x)=\chi_{A+ B}(x)$が成り立つ．
+%    \item $E$上の2つの単関数$f= \sum_{k= 0}^m \alpha_k \chi_{E_k},\ g= \sum_{l= 0}^n \beta_l\chi_{F_l}, E= \sum_{k= 0}^m E_k= \sum_{l= 0}^n F_l$に対し，$f+ g= \sum_{k= 0}^m\sum_{l= 0}^n (\alpha_k+ \beta_l)\chi_{E_k+ F_l}$である．
+%\end{enumerate}
+%\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{tcolorbox}$\fbox{8}$
-    $E\subset \R^N, f\colon E\to [-\infty, \infty], a\in \R$に対し，以下を示せ。
-\begin{enumerate}
-    \item $\{r_n\}$を$a$に収束する狭義単調現象列とするとき，$E(f> a)= \bigcup_{n= 1}^\infty E(f> r_n)$が成り立つ
-    \item $\{r_n\}$を$a$に収束する狭義単調増加列とするとき，$E(f\ge a)= \bigcap_{n= 1}^\infty E(f> r_n)$が成り立つ。
-    \item $E(f\ge a)= \bigcap_{n= 1}^\infty E\left(f> a- \frac{1}{n}\right)$
-    \item $E(f< +\infty)= \bigcup_{n= 1}^\infty E(f< n), E(f> -\infty)= \bigcup_{n= 1}^\infty E(f> -n)$
-\end{enumerate}
+% 10以下非表示
+\end{document}
 
-\end{tcolorbox}
 
-\begin{tcolorbox}$\fbox{9}$
-    $f\colon E\to [-\infty, \infty]$の値域を$\{a_1, \ldots, a_n\}$とし，$E_k= E(f= a_k)$とおく。このとき，以下を示しなさい。
-\begin{enumerate}
-    \item $E_k\ (1\le k\le n)$は互いに交わらない。また$E= \sum_{k= 1}^n E_k$が成り立つ。
-    \item $f= \sum_{k= 1}a_k\chi_{E_k}$が成り立つ。
-\end{enumerate}
-\end{tcolorbox}
-
-\begin{tcolorbox}$\fbox{10}$
-    以下を示せ。
-\begin{enumerate}
-    \item 集合$A, B$に対し，$\chi_A(x)\chi_B(x)= \chi_{A\cap B}(x)$が成り立つ。
-    \item 互いに交わらない集合$A, B$に対し，$\chi_A(x)+ \chi_B(x)=\chi_{A+ B}(x)$が成り立つ。
-    \item $E$上の2つの単関数$f= \sum_{k= 0}^m \alpha_k \chi_{E_k},\ g= \sum_{l= 0}^n \beta_l\chi_{F_l}, E= \sum_{k= 0}^m E_k= \sum_{l= 0}^n F_l$に対し，$f+ g= \sum_{k= 0}^m\sum_{l= 0}^n (\alpha_k+ \beta_l)\chi_{E_k+ F_l}$である。
-\end{enumerate}
-\end{tcolorbox}
 
 \begin{tcolorbox}$\fbox{11}$
-    複素数値可測関数$f, g$に対して，以下が成り立つ。
+    複素数値可測関数$f, g$に対して，以下が成り立つ．
 \begin{enumerate}
     \item $E(f= g)\in \mathcal{M}_N$
-    \item $\alpha f+ \beta g(\alpha, \beta\in \C), fg, \bar{f}, |f|$は可測である。
-    \item $f_N\colon E\to \C\ (n= 1, 2, 3, \ldots)$は可測で，各$x\in E$に対し有限な極限$\lim_{n\to \infty} f_n(x)$が存在するとき，$\lim_{n\to \infty} f_n\colon E\to \C$である。
+    \item $\alpha f+ \beta g(\alpha, \beta\in \C), fg, \bar{f}, |f|$は可測である．
+    \item $f_N\colon E\to \C\ (n= 1, 2, 3, \ldots)$は可測で，各$x\in E$に対し有限な極限$\lim_{n\to \infty} f_n(x)$が存在するとき，$\lim_{n\to \infty} f_n\colon E\to \C$である．
 \end{enumerate}
 \end{tcolorbox}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{12}$
 
 
 \end{tcolorbox}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{13}$
 \begin{enumerate}
-    \item $\R^N$の空でない集合$A$に対して，関数$d_A\colon \R^N\to \R$を$d_A(x)= \mathrm{dist}(x, A)= \inf_{y\in A}|x- y|\ (x\in \R^N)$で定める。このとき以下を示せ。
+    \item $\R^N$の空でない集合$A$に対して，関数$d_A\colon \R^N\to \R$を$d_A(x)= \mathrm{dist}(x, A)= \inf_{y\in A}|x- y|\ (x\in \R^N)$で定める．このとき以下を示せ．
 \begin{enumerate_alpha}
     \item $d_A(x)= 0\Leftrightarrow x\in \bar{A}$
     \item $|d_A(x_1)- d_A(x_2)|\le |x_1- x_2|\ (x_1, x_2\in \R^N)$
 \end{enumerate_alpha}
-    \item $F, G$はそれぞれ$\R^N$の閉集合，開集合で，$F\subset G$を満たすとする。このとき以下の問に答えよ。
+    \item $F, G$はそれぞれ$\R^N$の閉集合，開集合で，$F\subset G$を満たすとする．このとき以下の問に答えよ．
 \begin{enumerate_alpha}
-    \item 任意の$x\in \R^N$に対し，$d_F(x)+ d_{G^c}(x)> 0$が成り立つ。
-    \item $g(x)= \frac{d_{G^c}(x)}{d_F(x)+ d_{G^c}(x)}$は$\R^N$上の連続関数で，$0\le g(x)\le 1, g(x)= \begin{cases}1\ \ (x\in F)\\0\ \ (x\in G^c)\end{cases}$を満たす。
+    \item 任意の$x\in \R^N$に対し，$d_F(x)+ d_{G^c}(x)> 0$が成り立つ．
+    \item $g(x)= \frac{d_{G^c}(x)}{d_F(x)+ d_{G^c}(x)}$は$\R^N$上の連続関数で，$0\le g(x)\le 1, g(x)= \begin{cases}1\ \ (x\in F)\\0\ \ (x\in G^c)\end{cases}$を満たす．
 \end{enumerate_alpha}
 \end{enumerate}
 \end{tcolorbox}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{14}$
-    非負値可積分関数$f$に対して定理3.9の$f_\epsilon$が存在することを用いて，一般の可積分関数$f\colon E\to [-\infty, \infty]$ならびに$f\colon E\to \C$に対して定理3.9の$f_\epsilon$が存在することを示せ。
+    非負値可積分関数$f$に対して定理3.9の$f_\epsilon$が存在することを用いて，一般の可積分関数$f\colon E\to [-\infty, \infty]$ならびに$f\colon E\to \C$に対して定理3.9の$f_\epsilon$が存在することを示せ．
 \end{tcolorbox}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{15}$
 \begin{enumerate}
-    \item $A\subset \R^N, y\in \R^N$に対し，$(\tau_y\chi_A)(x)= \chi_{[A+ y]}(x)$が成り立つことを示せ。
-    \item $\R^N$上の関数$f$と$a> 0$に対し，$E_a= \{x\in \R^n; f(x)> a\}$とおく。このとき
+    \item $A\subset \R^N, y\in \R^N$に対し，$(\tau_y\chi_A)(x)= \chi_{[A+ y]}(x)$が成り立つことを示せ．
+    \item $\R^N$上の関数$f$と$a> 0$に対し，$E_a= \{x\in \R^n; f(x)> a\}$とおく．このとき
 \begin{equation*}
     \{x\in \R^N; \tau_yf(x)> a\}= [E_a+ y]\ \ (y\in \R^N),\ \ \{x\in \R^N; \bar{f}(x)> a\}= [-E_a]
 \end{equation*}
-    が成り立つことを示せ。
-    \item 定理3.10を証明の方針に従って証明せよ。
+    が成り立つことを示せ．
+    \item 定理3.10を証明の方針に従って証明せよ．
 \end{enumerate}    
 \end{tcolorbox}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{16}$
 \begin{enumerate}
-    \item 定理4.5'の証明の方針の$f^R_n, f^I_n$に対し、$|f^R_n(x)|\le \phi(x), |f^I_n(x)|\le \phi(x)\ \ (x\in E)$が成り立つことを示せ。
-    \item 定理4.5'を証明の方針に従って示せ。
+    \item 定理4.5'の証明の方針の$f^R_n, f^I_n$に対し，$|f^R_n(x)|\le \phi(x), |f^I_n(x)|\le \phi(x)\ \ (x\in E)$が成り立つことを示せ．
+    \item 定理4.5'を証明の方針に従って示せ．
 \end{enumerate}
 \end{tcolorbox}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{17}$
-    定理4.5''を示せ。
+    定理4.5''を示せ．
 \end{tcolorbox}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{18}$
-    Fubiniの定理IIの(1-c)並びに(2),(3)の主張を、Fubiniの定理Iと補題5.12、5.13を用いて証明せよ。
+    Fubiniの定理IIの(1-c)並びに(2),(3)の主張を，Fubiniの定理Iと補題5.12，5.13を用いて証明せよ．
 \end{tcolorbox}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{19}$
-    以下を示せ。
+    以下を示せ．
 \begin{enumerate}
-    \item $\{\phi_n\}$は非負値可測単関数の増加列。$\{\psi_n\}$は非負値可測単関数の減少列である。
-    \item 各$x\in [a, b]$に対し、$\phi(x)= \lim_{n\to \infty} \phi_n(x), \psi(x)= \lim_{n\to \infty} \psi_n(x)$が存在する。
-    \item $\phi, \psi$は可測関数である。
+    \item $\{\phi_n\}$は非負値可測単関数の増加列．$\{\psi_n\}$は非負値可測単関数の減少列である．
+    \item 各$x\in [a, b]$に対し，$\phi(x)= \lim_{n\to \infty} \phi_n(x), \psi(x)= \lim_{n\to \infty} \psi_n(x)$が存在する．
+    \item $\phi, \psi$は可測関数である．
     \item $0\le \phi_n(x)\le \phi(x)\le f(x)\le \psi(x)\le \psi_n(x)\le M\ \ (x\in [a, b])$
     \item $\lim_{n\to \infty}s_n= \lim_{n\to \infty}S_n= \int_a^b f(x)dx$
     \item $\lim_{n\to \infty}\int_{[a, b]} \phi_n d\mu= \int_{[a, b]} \phi d\mu,\ \ \lim_{n\to \infty} \int_{[a, b]}\psi_nd\mu= \int_{[a, b]}\psi d\mu$
 \end{enumerate}
 \end{tcolorbox}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{20}$
     
 
 \end{tcolorbox}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{21}$
     
 
 \end{tcolorbox}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{22}$
-    $f_n(x)= \sum_{k= 0}^n (-1)^{k}x^{2k}\ \ (n= 0, 1, 2, \ldots), f(x)= \frac{1}{1+ x^2}$とおくとき、以下を示しなさい。
+    $f_n(x)= \sum_{k= 0}^n (-1)^{k}x^{2k}\ \ (n= 0, 1, 2, \ldots), f(x)= \frac{1}{1+ x^2}$とおくとき，以下を示しなさい．
 \begin{enumerate}
-    \item 任意の$x\in [0, 1)$に対し、$|f_n(x)|\le \frac{2}{1+ x^2}$が成り立つ。
-    \item 任意の$x\in [0, 1)$に対し、$\lim_{n\to \infty} f_n(x)= f(x)$が成り立つ。
-    \item $\int_{[0, 1)} fd\mu= \lim_{n\to \infty}\int_{[0, 1)} f_nd\mu$が成り立つ。
-    \item $\sum_{n= 0}^\infty \frac{(-1)^n}{2n+ 1}= \frac{\pi}{4}$が成り立つ。
+    \item 任意の$x\in [0, 1)$に対し，$|f_n(x)|\le \frac{2}{1+ x^2}$が成り立つ．
+    \item 任意の$x\in [0, 1)$に対し，$\lim_{n\to \infty} f_n(x)= f(x)$が成り立つ．
+    \item $\int_{[0, 1)} fd\mu= \lim_{n\to \infty}\int_{[0, 1)} f_nd\mu$が成り立つ．
+    \item $\sum_{n= 0}^\infty \frac{(-1)^n}{2n+ 1}= \frac{\pi}{4}$が成り立つ．
 \end{enumerate}
-
 \end{tcolorbox}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{23}$
-    $f, g$を$\R$上の可積分関数とし、$h(x)= \int_{-\infty}^{\infty} f(x- y)g(y)dy$とおく。
+    $f, g$を$\R$上の可積分関数とし，$h(x)= \int_{-\infty}^{\infty} f(x- y)g(y)dy$とおく．
 \begin{enumerate}
-    \item $h$が$\R$上可積分であること、並びに$\int_{-\infty}^{\infty} f(x)dx\int_{-\infty}^{\infty} g(x)dx$が成り立つことを示しなさい。
-    \item $\R$上の可積分関数$\phi$に対し、$\R$上の関数$\hat{\phi}$を$\hat{\phi}(\xi)= \int_{-\infty}^{\infty} \phi(x)e^{-ix\xi} dx$で定義する。このとき、$\hat{h}(\xi)= \hat{f}(\xi)\hat{g}(\xi)$が成り立つことを示せ。
+    \item $h$が$\R$上可積分であること，並びに$\int_{-\infty}^{\infty} f(x)dx\int_{-\infty}^{\infty} g(x)dx$が成り立つことを示しなさい．
+    \item $\R$上の可積分関数$\phi$に対し，$\R$上の関数$\hat{\phi}$を$\hat{\phi}(\xi)= \int_{-\infty}^{\infty} \phi(x)e^{-ix\xi} dx$で定義する．このとき，$\hat{h}(\xi)= \hat{f}(\xi)\hat{g}(\xi)$が成り立つことを示せ．
 \end{enumerate}
 \end{tcolorbox}
-
-\end{document}
-
-\begin{equation*}
-%\begin{split*}
-    \omega^{n+ 1}_{i, j}= \omega^n_{i, j}+ \Delta t
-    \left\{
-    - \left( u^n_{i, j}\frac{\omega^n_{i+ 1, j}- \omega^n_{i- 1, j}}{2\Delta x}
-    - |u_{i, j}|\frac{\omega^n_{i+ 1, j}- 2\omega^n_{i, j}+ \omega^n_{i- 1, j}}{2\Delta x}\right)
-    -\left(v_{i, j}\frac{\omega^n_{i, j+ 1}- \omega^n_{i, j- 1}}{2\Delta y}
-    - |v_{i, j}|\frac{\omega^n_{i, j+ 1}- 2\omega^n_{i, j}+ \omega^n_{i, j- 1}}{2\Delta y}\right)
-    + \frac{1}{\mathrm{Re}}\left(\frac{\omega^n_{i+1, j}- 2\omega^n_{i, j}+ \omega^n_{i- 1, j}}{(2\Delta x)^2}+ \frac{\omega^n_{i, j+ 1}- 2\omega^n_{i, j}+ \omega^n_{i, j- 1}}{(2\Delta y)^2}\right)
-    \right\}
-%\end{split*}
-\end{equation*}
-
-\begin{equation*}
-    \frac{\phi^{n+ 1}_{i+ 1, j}- 2\phi^{n+ 1}_{i, j}+ \phi^{n+ 1}_{i- 1, j}}{(\Delta x)^2}+ \frac{\phi^{n+ 1}_{i, j+ 1}- 2\phi^{n+ 1}_{i, j}+ \phi^{n+ 1}_{i, j- 1}}{(\Delta y)^2}= -\omega^{n+ 1}_{i, j}
-\end{equation*}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \end{document}
