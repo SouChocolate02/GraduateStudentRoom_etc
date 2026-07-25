@@ -16,18 +16,26 @@
 \end{tcolorbox}
 
 \begin{souanswer} %答案はここに書く
-	答案はここに書く
+	与えられた論理式$P$に対し、アルゴリズム$A$を次で定義する。
+\begin{enumerate}
+	\item \label{step:真理値を即座に確定}
+\begin{itemize}
+	\item Aの出力がTrueでない場合：\\
+	Trueでないと出力
+	\item Aの出力がTrueの場合：\\
+	少なくとも1つは解があるので次へ進む。
+\end{itemize}
+	\item \label{step:値を順に確定}$k= 1, 2, \ldots, n$の順に$x_k$の値を確定する。
+	すでに決定した値の割り当てを$x_1= a_1, \ldots, x_{k- 1}= a_{k- 1}$とする。このとき未決定の変数$x_k$にTrueを代入し、残りの変数$x_{k+ 1}, \ldots, x_n$をそのまま残した論理式$P(a_1, \ldots, a_{k- 1}, 1, x_{k+ 1}, \ldots, n)$を作成する。
+\begin{itemize}
+	\item 結果がTrueの場合：\\
+	$x_k$を真としても解が存在するので、$a_k$の値をTrueとする。
+	\item 結果がTrueでない場合：\\
+	$x_k$をFalseとすると解が存在するので、$a_k$の値をFalseとする。
+\end{itemize}
+	$x_1, \ldots, x_n$までの$(a_1, \ldots, a_n)$が決定したため、解として出力。
+\end{enumerate}
+	\ref{step:真理値を即座に確定}で1回、\ref{step:値を順に確定}で$n$回の判定をするので計$n+ 1$回の判定をする。
+	$\therefore n+ 1= O(n)$
 \end{souanswer}
-
-
-
-
-
-
-
-
-
-
-
-
 \end{document}
