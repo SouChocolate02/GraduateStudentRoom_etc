@@ -1,0 +1,26 @@
+% 20260703_Assingment_Probability_Statistics_A
+\documentclass[dvipdfmx]{jsreport}
+%preamble
+\usepackage{soupreamble}
+
+\title{確率及び統計学特論A 第5回レポート課題}
+\author{M1 6012 川村聡一郎}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\begin{tcolorbox}
+	$\mu$の分布関数を$F$とし，$F$の不連続点を$A_\mu$とする．このとき$A_\mu$は高々加算であることを示せ．
+%Hint: 分布関数をFとして，$A_{\mu, n}= \{x\in \R; F(x)- F(x-)> 1/n\}$とおくと
+% #(A_{\mu, n}の元)\le n(背理法)
+\end{tcolorbox}
+
+\begin{souanswer} %答案はここに書く
+	分布関数$F$は単調非減少であり，$0\le F(x)\le 1$である．よって任意の点$x$で左極限が存在し，$F(x)- F(x- 0)\ge 0$である．\\
+	各$n\in \N$に対して，$A_{\mu, n}= \{x\in \R; F(x)- F(x^-)> 1/n\}$とおく．\\
+	$F(\infty)- F(-\infty)\ge 1$であることから幅$1/n$を超える点は高々$n$個しか存在せず，$\#(A_{\mu, n})\le n$をみたす．\\
+	元の不連続点全体の集合$A_\mu$は$A_\mu= \bigcup_{n= 1}^\infty A_{\mu, n}$と表せ，有限集合の可算無限個の和集合は高々可算集合であるから，$A_\mu$も高々可算．
+\end{souanswer}
+\end{document}

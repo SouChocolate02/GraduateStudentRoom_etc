@@ -1,0 +1,58 @@
+% 20260710_Assingment_Probability_Statistics_A
+\documentclass[dvipdfmx]{jsreport}
+\usepackage{soupreamble}
+
+\title{確率及び統計学特論A 第6回レポート課題}
+\author{M1 6012 川村聡一郎}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\begin{tcolorbox}
+	以下が同値であることを示せ．
+\begin{enumerate_Alpha}
+	\item $I\colon S\to [0, \infty]$が下半連続である．
+	\item\label{item:後半の条件} $\forall x_n\in S,\ \forall x\in S,\ x_n\to x$に対して
+\begin{equation*}
+	\liminf_{n\to \infty} I(x_n)\ge I(x)
+\end{equation*}
+\end{enumerate_Alpha}
+\end{tcolorbox}
+
+\begin{souanswer} %答案はここに書く
+\begin{itemize}
+	\item[$\Rightarrow$]
+	$x\in S$と$x$に収束する点列 $\{x_n\}$ をとる．$I(x)=0$ のとき，$\liminf_{n\to\infty} I(x_n) \ge 0 = I
+(x)$ が自明に成り立つ．
+	$I(x)> 0$のとき，$0< \alpha< I(x)$を満たす任意の実数$\alpha$をとる．
+	下半連続の定義より，集合$U_\alpha= \{y\in S; I(y)> \alpha\}$は開集合である．$I(x)> \alpha$より$x\in U_\alpha$であり，$U_\alpha$は$x$の開近傍である．$x_n \to x$であるから，ある自然数$N$が存在して，任意の$n\ge N$に対して$x_n\in U_\alpha$すなわち $I(x_n) > \alpha$）が成り立つ．\\
+	この下極限をとると，$\liminf_{n\to \infty} I(x_n)\ge \alpha$となる．この不等式は$0< \alpha< I(x)$を満たす任意の$\alpha$で成り立つため，$\alpha\to I(x)$とすることで，$\liminf_{n\to \infty} I(x_n)\ge I(x)$ が得られる．
+	\\
+	\item[$\Leftarrow$]
+	任意の実数 $\alpha$ に対して，$U_\alpha = \{y \in S ; I(y) > \alpha\}$ が開集合であることを示すために，その補集合である $F_\alpha = \{y \in S ; I(y) \le \alpha\}$ が閉集合であることを示す．\\
+	$F_\alpha$内の点列 $\{x_n\}$が$x\in S$に収束すると仮定する．各 $x_n$は$F_\alpha$の元なので，常に$I(x_n)\le \alpha$ である．\\
+	下極限も$\alpha$以下となるため，$\liminf_{n\to \infty} I(x_n)\le \alpha$である．ここで条件\ref{item:後半の条件}の仮定を用いると，$\liminf_{n\to \infty} I(x_n)\ge I(x)$であるから，これらを合わせて
+\begin{equation}
+	\alpha\ge \liminf_{n\to \infty} I(x_n) \ge I(x)
+\end{equation}
+	を得る．したがって$I(x)\le \alpha$となり，$x\in F_\alpha$が示せた．よって$F_\alpha$は閉集合であり，その補集合$U_\alpha$は開集合となる．すなわち$I$は下半連続である．
+\end{itemize}
+\end{souanswer}
+\end{document}
+
+
+	\item[$\Rightarrow$] 
+	$\exists x\in S$と$x$に収束する点列$\{x_n\}$ととる．また$\alpha$を$0< \alpha< I(x)$をみたすようにとる．下半連続の定義より集合$U_\alpha= \{y\in S; I(y)> \alpha\}$は開集合である．$I(x)> \alpha$であったから$x\in U_\alpha$．\\
+	$U_\alpha$は$x$の開近傍であり，$x_n\to x$であるから$n\ge N$で$I(x_n)\to x$が成り立つ．下極限をとると，$\liminf_{x\to \infty} I(x_n)= \alpha$
+
+
+	\item[$\Leftarrow$]
+	$U_\alpha= \{y\in S; I(y)> \alpha\}$が開集合であることを示すために，その補集合$F_\alpha= \{y\in S; I(y)\ge \alpha\}$が閉集合であることを示す．\\
+	$F_\alpha$の点列$x_n$が$x$に収束するならば，極限$x$も$F_\alpha$に収束することを用いる．\\
+	各$x_n$は$F_\alpha$の元なので常に$I(x_n)\le \alpha$．\\
+	ここで$\liminf_{n\to \infty} I(x_n)\ge I(x)$であり，$I(x_n)\le \alpha$であるから，$\alpha\ge \liminf_{n\to \infty} I(x_n)\ge I(x)$．したがって$I(x)\le \alpha$となり，$x\in F_\alpha$となることが示せた．したがって$F_\alpha$は閉集合となる．
+\end{itemize}
+\end{souanswer}
+\end{document}
