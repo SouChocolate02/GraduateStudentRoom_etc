@@ -9,14 +9,14 @@
 \begin{document}
 \maketitle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{tcolorbox}$\fbox{1}$
-%    以下を示せ．
-%\begin{enumerate}
-%    \item $I, J\in \mathcal{I}_N$ならば$I\cap J\in\mathcal{I}_N, I\cup J\in\mathcal{F}_N$
-%    \item $I\in \mathcal{I}_N$ならば$I^c\in \mathcal{F}_N$
-%    \item $E_1, E_2\in \mathcal{F}_N$ならば$E_1\cap E_2, E_1\cup E_2, E_1^c\in \mathcal{F}_N$
-%\end{enumerate}
-%\end{tcolorbox}
+\begin{tcolorbox}$\fbox{1}$
+    以下を示せ．
+\begin{enumerate}
+    \item $I, J\in \mathcal{I}_N$ならば$I\cap J\in\mathcal{I}_N, I\cup J\in\mathcal{F}_N$
+    \item $I\in \mathcal{I}_N$ならば$I^c\in \mathcal{F}_N$
+    \item $E_1, E_2\in \mathcal{F}_N$ならば$E_1\cap E_2, E_1\cup E_2, E_1^c\in \mathcal{F}_N$
+\end{enumerate}
+\end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{2}$
     $X$が有限加法族，$f$が$X$上の有限加法的測度ならば，$E_1, E_2, \ldots, E_n\in X$に対して以下が成り立つ．
@@ -71,14 +71,14 @@
 \end{enumerate}
 \end{souanswer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{tcolorbox}$\fbox{3}$
-%    $x= (x_1, \ldots, x_N)\in \R^N, r> 0$に対し，$B_r(x)= \left\{(y_1, \ldots, y_N)\in \R; \sum_{k= 1}^N (y_k- x_k)^2< r^2\right\}$とおく．$O\subset\R^N$が開集合であるとは，各$x\in O$に対し$R> 0$が存在して$B_r(x)\subset O$が成り立つことである．$O$を開集合，$C_r(x)$を超立方体として以下を示せ．
-%\begin{enumerate}
-%    \item $B_r(x)\subset C_r(x)\subset B_{\sqrt{N_r}}(x)$
-%    \item 各$x\in O$に対し，$C_r(x)\subset O$を満たす$r> 0$が存在する．
-%    \item $x\in O$に対し，$r_x= \sup\{r\ge 0;\ C_r(x)\subset O\}$とおく．このとき$r_x> 0, C_{r_x}\subset O$が成り立つ．
-%\end{enumerate}
-%\end{tcolorbox}
+\begin{tcolorbox}$\fbox{3}$
+    $x= (x_1, \ldots, x_N)\in \R^N, r> 0$に対し，$B_r(x)= \left\{(y_1, \ldots, y_N)\in \R; \sum_{k= 1}^N (y_k- x_k)^2< r^2\right\}$とおく．$O\subset\R^N$が開集合であるとは，各$x\in O$に対し$R> 0$が存在して$B_r(x)\subset O$が成り立つことである．$O$を開集合，$C_r(x)$を超立方体として以下を示せ．
+\begin{enumerate}
+    \item $B_r(x)\subset C_r(x)\subset B_{\sqrt{N_r}}(x)$
+    \item 各$x\in O$に対し，$C_r(x)\subset O$を満たす$r> 0$が存在する．
+    \item $x\in O$に対し，$r_x= \sup\{r\ge 0;\ C_r(x)\subset O\}$とおく．このとき$r_x> 0, C_{r_x}\subset O$が成り立つ．
+\end{enumerate}
+\end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{4}$
     $\epsilon> 0, c_k\ge 0\ (1\le k\le N- 1)$に対し，$\delta= \frac{\epsilon}{\epsilon+ a+ c_1+ c_2+ \cdots+ c_{N- 1}}$とおく．このとき
@@ -292,39 +292,33 @@
 \end{souanswer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{tcolorbox}$\fbox{8}$
-%    $E\subset \R^N, f\colon E\to [-\infty, \infty], a\in \R$に対し，以下を示せ．
-%\begin{enumerate}
-%    \item $\{r_n\}$を$a$に収束する狭義単調現象列とするとき，$E(f> a)= \bigcup_{n= 1}^\infty E(f> r_n)$が成り立つ
-%    \item $\{r_n\}$を$a$に収束する狭義単調増加列とするとき，$E(f\ge a)= \bigcap_{n= 1}^\infty E(f> r_n)$が成り立つ．
-%    \item $E(f\ge a)= \bigcap_{n= 1}^\infty E\left(f> a- \frac{1}{n}\right)$
-%    \item $E(f< +\infty)= \bigcup_{n= 1}^\infty E(f< n), E(f> -\infty)= \bigcup_{n= 1}^\infty E(f> -n)$
-%\end{enumerate}
-%\end{tcolorbox}
+\begin{tcolorbox}$\fbox{8}$
+    $E\subset \R^N, f\colon E\to [-\infty, \infty], a\in \R$に対し，以下を示せ．
+\begin{enumerate}
+    \item $\{r_n\}$を$a$に収束する狭義単調現象列とするとき，$E(f> a)= \bigcup_{n= 1}^\infty E(f> r_n)$が成り立つ
+    \item $\{r_n\}$を$a$に収束する狭義単調増加列とするとき，$E(f\ge a)= \bigcap_{n= 1}^\infty E(f> r_n)$が成り立つ．
+    \item $E(f\ge a)= \bigcap_{n= 1}^\infty E\left(f> a- \frac{1}{n}\right)$
+    \item $E(f< +\infty)= \bigcup_{n= 1}^\infty E(f< n), E(f> -\infty)= \bigcup_{n= 1}^\infty E(f> -n)$
+\end{enumerate}
+\end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{tcolorbox}$\fbox{9}$
-%    $f\colon E\to [-\infty, \infty]$の値域を$\{a_1, \ldots, a_n\}$とし，$E_k= E(f= a_k)$とおく．このとき，以下を示しなさい．
-%\begin{enumerate}
-%    \item $E_k\ (1\le k\le n)$は互いに交わらない．また$E= \sum_{k= 1}^n E_k$が成り立つ．
-%    \item $f= \sum_{k= 1}a_k\chi_{E_k}$が成り立つ．
-%\end{enumerate}
-%\end{tcolorbox}
+\begin{tcolorbox}$\fbox{9}$
+    $f\colon E\to [-\infty, \infty]$の値域を$\{a_1, \ldots, a_n\}$とし，$E_k= E(f= a_k)$とおく．このとき，以下を示しなさい．
+\begin{enumerate}
+    \item $E_k\ (1\le k\le n)$は互いに交わらない．また$E= \sum_{k= 1}^n E_k$が成り立つ．
+    \item $f= \sum_{k= 1}a_k\chi_{E_k}$が成り立つ．
+\end{enumerate}
+\end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{tcolorbox}$\fbox{10}$
-%    以下を示せ．
-%\begin{enumerate}
-%    \item 集合$A, B$に対し，$\chi_A(x)\chi_B(x)= \chi_{A\cap B}(x)$が成り立つ．
-%    \item 互いに交わらない集合$A, B$に対し，$\chi_A(x)+ \chi_B(x)=\chi_{A+ B}(x)$が成り立つ．
-%    \item $E$上の2つの単関数$f= \sum_{k= 0}^m \alpha_k \chi_{E_k},\ g= \sum_{l= 0}^n \beta_l\chi_{F_l}, E= \sum_{k= 0}^m E_k= \sum_{l= 0}^n F_l$に対し，$f+ g= \sum_{k= 0}^m\sum_{l= 0}^n (\alpha_k+ \beta_l)\chi_{E_k+ F_l}$である．
-%\end{enumerate}
-%\end{tcolorbox}
+\begin{tcolorbox}$\fbox{10}$
+    以下を示せ．
+\begin{enumerate}
+    \item 集合$A, B$に対し，$\chi_A(x)\chi_B(x)= \chi_{A\cap B}(x)$が成り立つ．
+    \item 互いに交わらない集合$A, B$に対し，$\chi_A(x)+ \chi_B(x)=\chi_{A+ B}(x)$が成り立つ．
+    \item $E$上の2つの単関数$f= \sum_{k= 0}^m \alpha_k \chi_{E_k},\ g= \sum_{l= 0}^n \beta_l\chi_{F_l}, E= \sum_{k= 0}^m E_k= \sum_{l= 0}^n F_l$に対し，$f+ g= \sum_{k= 0}^m\sum_{l= 0}^n (\alpha_k+ \beta_l)\chi_{E_k+ F_l}$である．
+\end{enumerate}
+\end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% 10以下非表示
-\end{document}
-
-
-
 \begin{tcolorbox}$\fbox{11}$
     複素数値可測関数$f, g$に対して，以下が成り立つ．
 \begin{enumerate}
@@ -335,7 +329,15 @@
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{12}$
-
+    定理3.8に関して以下を示せ．
+\begin{enumerate}
+    \item 
+\begin{equation}
+    \int_{E_3} (f+ g)d\mu= \int_{E_3} fd\mu+ \int_{E_3} gd\mu
+\end{equation}
+    \item $A\subset E, \mu(A)= 0$ならば，$f$は$A$上可積分で$\int_A fd\mu= 0$である．
+    \item $f$が$E$上可積分ならば$\mu(E(f= -\infty))= 0$
+\end{enumerate}
 
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -343,7 +345,7 @@
 \begin{enumerate}
     \item $\R^N$の空でない集合$A$に対して，関数$d_A\colon \R^N\to \R$を$d_A(x)= \mathrm{dist}(x, A)= \inf_{y\in A}|x- y|\ (x\in \R^N)$で定める．このとき以下を示せ．
 \begin{enumerate_alpha}
-    \item $d_A(x)= 0\Leftrightarrow x\in \bar{A}$
+    \item $d_A(x)= 0\iff x\in \bar{A}$
     \item $|d_A(x_1)- d_A(x_2)|\le |x_1- x_2|\ (x_1, x_2\in \R^N)$
 \end{enumerate_alpha}
     \item $F, G$はそれぞれ$\R^N$の閉集合，開集合で，$F\subset G$を満たすとする．このとき以下の問に答えよ．
@@ -378,7 +380,11 @@
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{17}$
-    定理4.5''を示せ．
+    $I= (a, b)$とする．関数$f= f(x, t),\ \ (t\in I)$は$x$の関数として$E$上可測，$\phi$は$E$上可積分で，すべての$t\in I$に対し，$|f(x, t)|\le \phi(x)\ (\mathrm{a.e.} x\in E)$をみたすとする．このときa.e.$x\in E$に対し，極限$\lim_{t\to a+ 0} f(x, t)$が存在するならば
+\begin{equation}
+    \lim_{t\to a+ 0} \int_E f(x, t)d\mu(x)= \int_E\left(\lim_{t\to a+ 0} f(x, t)\right)d\mu(x)
+\end{equation}
+    が成り立つことを示せ．
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{18}$
@@ -398,12 +404,23 @@
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{20}$
-    
-
+    $I= [0, 1], I\cap \Q= \{r_n\}_{n= 1}^\infty$とし，$I$上の関数$\phi_n$を$\phi_n(x)= \begin{cases}|x- r_n|^{-\frac{1}{2}}\ \ (x\in I\setminus\{r_n\})\\ + \infty\ \ (x= r_n)\end{cases}$で定める．また$f(x)= \sum_{n= 1}^\infty \frac{1}{n^2}\phi_n(x)$とおく．この問題では一次元Lebesgue測度に関する$I$におけるLebesgue積分を$\int_0^1\cdots dx$で表す．
+\begin{enumerate}
+    \item $\phi_n, f$が可測関数であることを示しなさい．
+    \item $\int_0^1 \phi_n(x)dx$を計算し，$r_n$を含む形式で表しなさい．また$\int_0^1 \phi_n(x)dx\le 2\sqrt{2}$であることを示しなさい．
+    \item $\int_0^1 f(x)dx= \sum_{n= 1}^\infty \frac{1}{n^2}\int_0^1 \phi_n(x)dx$が成り立つ理由を述べなさい．
+    \item $x\in I\cap \Q$に対し，$f(x)= +\infty$であることを示しなさい．
+    \item $f(x)< +\infty \ \mathrm{a.e.} x\in [0, 1]$が成り立つことを示しなさい．
+\end{enumerate}
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{21}$
-    
+    $E$を$\R^N$の可測集合，$f\colon E\to \R$を$e^{|f|}$が$E$上可積分である可測関数とする．このとき以下を示しなさい．
+\begin{enumerate}
+    \item 0以上の任意の整数$n$に対して，$f^n$は$E$上可積分である．
+    \item $e^f$は$E$上可積分である．
+    \item $\int_E e^f d\mu= \sum_{n= 0}^\infty \frac{1}{n!}\int_E f^n d\mu$が成り立つ．
+\end{enumerate}
 
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -423,5 +440,13 @@
     \item $h$が$\R$上可積分であること，並びに$\int_{-\infty}^{\infty} f(x)dx\int_{-\infty}^{\infty} g(x)dx$が成り立つことを示しなさい．
     \item $\R$上の可積分関数$\phi$に対し，$\R$上の関数$\hat{\phi}$を$\hat{\phi}(\xi)= \int_{-\infty}^{\infty} \phi(x)e^{-ix\xi} dx$で定義する．このとき，$\hat{h}(\xi)= \hat{f}(\xi)\hat{g}(\xi)$が成り立つことを示せ．
 \end{enumerate}
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{24}$
+    $\norm{・}_\infty$がノルムであることを示せ．
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{25}$
+    非負値の$f\in L^p$に対して定理6.8の$f_\epsilon$が存在することを用いて，一般の$p$乗可積分関数$f\colon \R^N\to [-\infty, +\infty]$ならびに$f\colon \R^N\to \C$に対して定理6.8の$f_\epsilon$が存在することを示しなさい．
 \end{tcolorbox}
 \end{document}
