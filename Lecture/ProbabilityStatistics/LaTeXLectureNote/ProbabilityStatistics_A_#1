@@ -1,0 +1,25 @@
+\section{確率空間}
+\subsection{可測空間}
+%\begin{soudef}[$\sigma$加法族]
+    $S$を空でない集合とする。$\mathcal{S}\subset 2^S$が$\sigma$加法族であるとは、
+\begin{enumerate}
+    \item $S\in \mathcal{S}$
+    \item $A\in \mathcal{S}\Rightarrow A^c\in \mathcal{S}$
+    \item $A_n\in \mathcal{S}\ \ (n\ge 1) \Rightarrow \bigcup_{n= 1}^\infty A_n\in \mathcal{S}$
+\end{enumerate}
+%\end{soudef}
+
+%\begin{souexample}
+    $2^S$は明らかに$\sigma$加法族
+%\end{souexample}
+
+%\begin{souprop}
+    $S$を空でない集合、$\mathcal{S}$をその上の$\sigma$加法族とする。このとき
+\begin{equation}
+    A_n\in \mathcal{S}\ \ (n\ge 1)\Rightarrow \bigcap_{n= 1}^\infty A_n\in \mathcal{S}
+\end{equation}
+    が成立。
+%\end{souprop}
+%\begin{souremark}
+    
+%\end{souremark}
