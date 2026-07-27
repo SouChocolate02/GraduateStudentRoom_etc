@@ -11,14 +11,52 @@
 \maketitle
 
 \begin{tcolorbox}
-	$F(z)$が開領域$\mathcal{D}$で(定数でない)有理関数で$\partial\mathcal{D}$で零点も極も持たないものとする。$\mathcal{D}$内の$F(z)$の零点の個数を$N$個，極の個数を$M$個とおくと
+	$F(z)$が開領域$D$で(定数でない)有理関数で$\partial D$で零点も極も持たないものとする．$D$内の$F(z)$の零点の個数を$N$個，極の個数を$M$個とおくと
 \begin{equation*}
-	\frac{1}{2i\pi}\int_{\partial\mathcal{D}}\frac{F'(z)}{F(z)}dz= N- M
+	\frac{1}{2\pi i}\int_{\partial\mathcal{D}}\frac{F'(z)}{F(z)}dz= N- M
 \end{equation*}
-	であることを示せ。
+	であることを示せ．
 \end{tcolorbox}
 
 \begin{souanswer} %答案はここに書く
-
+	$a_j$を$F(z)$の零点とすると，
+\begin{equation}
+	F(z)= \prod_{j= 1}^N (z- a_j)\cdot h(z),\ \ h(z)\ne 0
+\end{equation}
+	と書ける．これを$z$で微分して$F(z)$で割ると，
+\begin{equation}
+	\frac{F'(z)}{F(z)}= \sum_{j= 1}^N \frac{1}{z- a_j}+ \frac{h'(z)}{h(z)}
+\end{equation}
+	とかける．ここで$F'(z)/ F(z)$を$\partial D$まわりで周回積分すると，
+\begin{equation}
+	\int_{\partial D}\frac{F'(z)}{F(z)}dz
+	= \int_{\partial D}\left(\sum_{j= 1}^N \frac{1}{z- a_j}+ \frac{h'(z)}{h(z)}\right)dz
+	= 2\pi i\sum_{j= 1}^N \Res{\left(\frac{1}{z- a_j}, a_j\right)}+ 0
+	= 2\pi iN
+\end{equation}
+	次に極について考える．$F(z)$の極を$b_k\ \ (k= 1, 2, \ldots, M)$とおくと，
+\begin{equation}
+	F(z)= \frac{1}{(z- b_1)(z- b_2)\cdots (z- b_M)}\cdot g(z)= \left(\prod_{k= 1}^M (z- b_k)^{-1}\right)\cdot g(z),\ \ g(z)\ne 0
+\end{equation}
+	同様に$z$で微分して$F(z)$で割ると，
+\begin{equation}
+	\frac{F'(z)}{F(z)}= -\sum_{k= 1}^M (z- b_k)^{-1}+ \frac{g'(z)}{g(z)}
+\end{equation}
+ここで$F'(z)/ F(z)$を$\partial D$まわりで周回積分すると，
+\begin{equation}
+	\int_{\partial D}\frac{F'(z)}{F(z)}dz
+	= \int_{\partial D}\left(-\sum_{k= 1}^M (z- b_k)^{-1}+ \frac{g'(z)}{g(z)}\right)dz
+	= 2\pi i\sum_{j= 1}^M \Res{\left(\frac{1}{z- b_k}, b_k\right)}+ 0
+	= -2\pi iM
+\end{equation}
+	$F(z)$は零点も極も持つ関数だから
+\begin{equation}
+	F(z)= \frac{\displaystyle \prod_{j= 1}^N (z- a_j)}{\displaystyle \prod_{k= 1}^M (z- b_k)}\cdot p(z),\ \ p(z)\ne 0
+\end{equation}
+	とかけ，$F'(z)/F(z)$の積分の留数は
+\begin{equation}
+	\frac{1}{2\pi i}\int_{\partial D} \frac{F'(z)}{F(z)}dz
+	= N- M
+\end{equation}
 \end{souanswer}
 \end{document}
