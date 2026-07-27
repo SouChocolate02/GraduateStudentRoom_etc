@@ -1,0 +1,190 @@
+% ProbabilityStatistics_A_#13
+%%%%%%%%%%%%%%%
+%7/17内容 最初のノートなし
+\begin{enumerate}
+    \item exponential tightness：
+    $\forall \ell> 0, \exists K_\ell\subset S, \mathrm{cpt. sp.}, \st\forall F\subset S, \mathrm{cls.} F\cap K_\ell= \emptyset$
+\begin{equation}
+    \limsup_{n\to \infty}\frac{1}{\alpha(n)}\log\mu_n(F)\le -\ell
+\end{equation}
+    \item local upper bound
+\begin{equation}
+    \limsup_{r\to +0}\left(\limsup_{n\to \infty} \frac{1}{\alpha(n)}\log\mu_n(B(x, r))\right)\le -I(x),\ \ x\in S
+\end{equation}
+    \item local lower bound
+\begin{equation}
+    \liminf_{r\to +0}\left(\liminf_{n\to \infty} \frac{1}{\alpha(n)}\log\mu_n(B(x, r))\right)\ge -I(x), x\in S
+\end{equation}
+\end{enumerate}
+
+%\begin{southm}
+[Varadhamの定理]
+    列$\{\mu_n\}\subset \P(S)$がレート関数$I$に体するスピード$\alpha$の大偏差原理が成立すると仮定する．このとき$\forall F\colon S\to \R$，有界連続に対し，
+\begin{equation}
+    \lim_{n\to \infty}\frac{1}{\alpha(n)}\log\int \exp{(\alpha(n)F(n))}\mu_n(dx)= \sup_{x\in S}(F(x)- I(x))
+\end{equation}
+%\end{southm}
+
+\section{独立同分布確率変数列に対する大偏差原理}
+\subsection{Cram\`erの定理}
+    以下$(\Omega, \F, \mathcal{P})$上の確率変数列$\{X_n\}$は独立同分布．
+\begin{equation}
+    M(\theta)= \mathbb{E}[\exp{(\theta X_1)}]< \infty,\ \ \forall \theta\in \R
+\end{equation}
+    を\underline{モーメント母関数}という．さらに簡単のため，
+\begin{equation}
+    \mu(B(x, r))> 0,\ \ x\in \R, r> 0
+\end{equation}
+    を仮定する\footnote{$\mu$は$X_1$の分布}．また確率変数の列$\{Y_n\}$を
+\begin{equation}
+    Y_n:= \frac{1}{n}\sum_{k= 1}^n X_k
+\end{equation}
+    で定める．
+
+%\begin{southm}
+    $Y_n$(の分布)は
+\begin{equation}
+    I(x)= \sup_{\theta\in \R}(\theta x- \psi(\theta))
+\end{equation}
+    ($\psi(\theta)= \log{M(\theta)}$ 相対変換)をレート関数とするスピード$n$の大偏差原理を満たす．
+%\end{southm}
+
+%\begin{souexample}
+    $X\sim \mathcal{N}(0, 1)$のとき
+\begin{align}
+    M(\theta)
+    &= \int_\R e^{\theta x} \frac{1}{\sqrt{2\pi}}\exp{\left(-\frac{1}{2}x^2\right)}dx\\
+    &= \int_\R\frac{1}{\sqrt{2\pi}}\exp{\left(-\frac{1}{2}(x- \theta)^2+ \frac{1}{2}\theta^2\right)}dx\\
+    &= \exp{\left(\frac{1}{2}\theta^2\right)}\\
+    \therefore I(\theta)&= \frac{1}{2}\theta^2
+\end{align}
+%\end{souexample}
+%\begin{souexample}
+$X\sim \mathrm{Bin}(1, p)$のとき
+\begin{align}
+    M(\theta)
+    &= e^\theta\cdot p(X_1= 1)+ 1\cdot p(X_1= 0)\\
+    &= pe^\theta+ (1- p)\\
+    \psi(\theta)&= \log{(pe^\theta+ (1- p))}
+\end{align}
+    ここで$x$を固定して
+\begin{equation}
+    f(\theta)= x\theta- \psi(\theta)
+\end{equation}
+    とおくと，$0< x< 1$のとき
+\begin{equation}
+    \theta_0= \log{\left(\frac{(1- p)x}{p(1- x)}\right)}
+\end{equation}
+    で最大値
+\begin{equation}
+    f(\theta_0)= x\log{\left(\frac{x}{p}\right)}+ (1- x)\log{\left(\frac{1- x}{1- p}\right)}
+\end{equation}
+    をとる\footnote{$f(\theta_0)= H(\mu|\mu),\ \mu= \mathrm{Bin}(1, x),\ \nu= \mathrm{bin}(1, p)$の相対エントロピー}．
+%\end{souexample}
+
+    つまり
+\begin{equation}
+    I(x)= x\log{\left(\frac{x}{p}\right)}+ (1- p)\log{\left(\frac{1- x}{1- p}\right)}
+\end{equation}
+    もし$x> 1$のとき，$f(\theta)$は非有界．\\
+    $\therefore I(x)= \infty$
+
+\subsection{Legendre変換の性質}
+    $f\colon \R\to \R$に対して
+\begin{equation}
+    f^*(x)= \sup_{\theta\in \R} (\theta x- f(\theta))\in \R\cup \{+\infty\}
+\end{equation}
+    を$f$の\underline{Legendre変換}という．
+\begin{enumerate}
+    \item $f\colon \R\to \R$が凸
+\begin{equation} \label{eq:Legendre変換の性質}
+    \lim_{|\theta|\to \infty} \frac{|f(\theta)|}{|\theta|}= \infty
+\end{equation}
+    ならば$f^*$は$\R\to \R$の関数．
+    \item $f\colon \R\to \R$が凸ならば，$f^*$も凸．
+%\begin{souremark}
+    対数モーメント関数
+\begin{equation}
+    \psi(\theta)= \log{M(\theta)}
+\end{equation}
+    は凸．今の仮定の元では\eqref{eq:Legendre変換の性質}も成立．
+\begin{equation}
+    \psi'(\theta)= \frac{M'(\theta)}{M(\theta)},\ \ \psi''(\theta)= \frac{M''(\theta)M(\theta)- M'(\theta)^2}{M(\theta)^2}
+\end{equation}
+    で$X_1$の分布$\mu_1$に対し  
+\begin{equation}
+    \mu(dx)= \frac{1}{M(\theta)}e^{\theta x}\mu(dX)
+\end{equation}
+    とおくと，
+\begin{equation}
+    \psi''(\theta)= V[Z],\ \ Z\sim \nu
+\end{equation}
+%\end{souremark}
+    \item $f$が凸ならば$(f^*)^*= f$
+\end{enumerate}
+    対数モーメント母関数の性質
+\begin{itemize}
+    \item $\psi(\theta)$は凸関数．
+    \item $m= \mathbb{E}[X_1]$とおくと$\psi^*$は$x= m$で最小値0をとる($\psi^*$は微分可能)．
+    \item $\psi'$は狭義単調増加で滑らかな逆関数$\phi$をもつ．
+\begin{align}
+    \psi'(\theta)&= -\infty\ \ (\theta\to -\infty)\\
+    \psi'(\theta)&= \infty\ \ (\theta\to \infty)
+\end{align}
+\end{itemize}
+
+\begin{proof}
+    $S_n= \sum_{k= 1}^n X_k$とおく．このとき
+\begin{equation}
+    \mathbb{E}[\exp(\theta S_n)]= \prod_{k= 1}^n \mathbb{E}[\exp(\theta X_k)]= M(\theta)^n
+\end{equation}
+    与えられた$x$に対して$\theta= \phi(x),\ x= \psi'(\theta)$とする．
+\begin{align}
+    \mathcal{P}(Y_n)\ge x
+    &= \mathcal{P}(S_n\ge nx)\\
+    &= \left(\inf_{u\ge nx} e^{u\theta}\right)^{-1}\cdot M(\theta)
+\end{align}
+    $\therefore \frac{1}{n}\log{\mathcal{P}(Y_n\ge x)}\le -\frac{1}{n}\log{\left(\inf_{u\ge nx} e^{\theta u}\right)}+ \psi(\theta)$
+    ここで$\phi(m)= 0$で$x> m$とすれば
+\begin{equation}
+    0< \phi(m)< \phi(x)= \theta
+\end{equation}
+    となり，
+\begin{equation}
+    \frac{1}{n}\log{\mathcal{P}(Y_n\ge x)}\le -\theta x+ \psi(\theta)= -\psi^*(x)
+\end{equation}
+    $\therefore \limsup_{n\to \infty} \log{\mathcal{P}(Y_n\ge x)}\le -\psi^*(x)$
+    $x< m$のときも同様(時間の都合で略)
+%参考文献：Dembo- Zeitouni, 田村- 千代延(サマースクールlec note)
+\end{proof}
+%\begin{souremark}
+    $X_k= 1, \ldots, N$に値をとるとする．
+\begin{equation}
+    Z_n(dx)= \frac{1}{n}\sum_{k= 1}^n \delta_{X_k}(dx)
+\end{equation}
+    とおくと，相対エントロピーをレート関数とする大偏差原理が成立する(Cram\`erの定理)\\
+    実は「$1, \ldots, N$に値をとる」という仮定は不要(Sonovの定理)
+%\end{souremark}
+
+    $\R^N$に値をとる確率変数$X_n'$を
+\begin{equation}
+    X_n'= e_k\in \R^N\ \ (X_n= k)
+\end{equation}
+    で定める．$X_n'$は$e_1, \ldots, e_N$に値をとる確率変数列．
+\begin{equation}
+    z_n'= \frac{1}{n}\sum_{k= 1}^n X_k'
+\end{equation}
+    とおくと
+\begin{equation}
+    z_n'= \frac{1}{n}\sum_{k= 1}^n X_k'
+\end{equation}
+    となり，これらは等価．
+\begin{align}
+    M(\theta)&= \mathbb{E}[\exp((\theta, X_n')_\R^N)],\ \ \theta\in \R^N\\
+    \psi(\theta)&= \log{M(\theta)}\\
+    \psi^*(\theta)&= \sup_{\theta\in \R^N} \left(\theta x- \psi(\theta)\right),\ \ x\in \R^N
+\end{align}
+    $\mathcal{P}(X_1= k)= \mathcal{P}_k(1\le k\le N)$とすると,
+\begin{equation}
+    \psi^*(x)= \sum_{k= 1}^N x_k\log{\left(\frac{x_k}{p_k}\right)},\ \ x= (x_1, \ldots, x_k)
+\end{equation}
