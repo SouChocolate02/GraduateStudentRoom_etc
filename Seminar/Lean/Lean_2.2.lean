@@ -7,3 +7,18 @@ inductive MyNat where
 
   #check MyNat.zero
   #check MyNat.succ
+
+  #check MyNat.succ .zero
+
+
+/--自前で定義した1-/
+def MyNat.one:= MyNat.succ .zero
+
+/--自前で定義した2-/
+def MyNat.two:= MyNat.succ .one
+
+/--MyNat同士の足し算-/
+def MyNat.add(m n : MyNat) : MyNat :=
+  match n with
+  | .zero => m
+  | .succ n=> succ(add m n)
