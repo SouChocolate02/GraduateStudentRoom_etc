@@ -1,0 +1,30 @@
+% ProbabilityStatistics_A_#12
+%%%%%%%%%%%%%%%
+%\begin{souprop}
+%[Holderの不等式]
+    確率変数$X, Y$および$\frac{1}{p}+ \frac{1}{q}= 1$をみたす$p, q$に対して、
+\begin{equation}
+    \mathbb{E}[|XY|]\le \mathbb{E}[|X|^p]^{1/p}\cdot \mathbb{E}[|Y|^q]^{1/q}
+\end{equation}
+%\end{souprop}
+
+\begin{proof}
+    Youngの不等式を用いる。$x, y> 0$に対して
+\begin{equation}
+    xy\le \frac{x^p}{p}+ \frac{x^q}{q}
+\end{equation}
+
+%\begin{souremark}
+    $p= q= 2$のとき
+\begin{equation}
+    xy\le \frac{x^2+ y^2}{2}
+\end{equation}
+%\end{souremark}
+
+\begin{enumerate_roman}
+    \item $\mathbb{E}[|X|]= 0$または$\mathbb{E}[|Y|]= 0$のとき:\\
+    両辺$= 0$となり成立。
+    \item $\mathbb{E}[|X|]\ne 0\land \mathbb{E}[|Y|]\ne 0$のとき：\\
+
+\end{enumerate_roman}
+\end{proof}
