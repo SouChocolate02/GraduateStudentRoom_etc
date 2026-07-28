@@ -1,0 +1,175 @@
+% ProbabilityStatistics_A_#11
+%%%%%%%%%%%%%%%
+
+\section{法則収束と特性関数(Fourier変換)}
+\subsection{確率測度の空間}
+分布と特性関数
+法則収束と分布関数
+
+%\begin{soudef}
+[法則収束]
+    確率変数の列$\{X_n\}$と確率変数$X$に対して
+\begin{equation}
+    \lim_{n\to \infty} \mathbb{E}[F(X_n)]= \mathbb{E}[F(X)],\ \ \forall F\in C_b(\R),\ \ \mathrm{有界連続}
+\end{equation}
+    をみたすとき，$X_n$は$X$に法則収束(in lawで収束する)といい，
+\begin{equation}
+    \lim_{n\to \infty} X_n= X\ \ \mathrm{in law}
+\end{equation}
+    で表す．
+%\end{soudef}
+%\begin{souremark}
+    もし$X_n$が$X$に概収束するならば，法則収束する．\\
+    確率収束しているときも，法則収束がいえる．
+%\end{souremark}
+    これは次のことから従う．
+%\begin{souprop}
+    $\{a_n\}_{n= 1}^\infty \subset \R$は次を満たすとする．\\
+    ある$\alpha\in \R$に対して任意の部分列$\{\alpha_{n(k)}\}_{k= 1}^\infty$に対してさらに部分列$\{a_{n'(k)}\}_{k= 1}^\infty$をとれば収束し，収束先は$\alpha$である．\\
+    このとき$\lim_{n\to \infty} a_n= \alpha$
+%\end{souprop}
+
+%\begin{souprop}
+    $(\Omega, \F, \mathcal{P})$上の確率変数の列$\{X_n\}$と確率変数$X$について以下は同値
+\begin{enumerate}
+    \item 
+    $X_n$は$X$に法則収束
+    \item\label{step:x= aで分布関数が収束} 
+    $\forall a\in \R$に対し，もし
+\begin{equation}
+    \P(X= a)= 0
+\end{equation}
+    ならば
+\begin{equation}
+    \lim_{n\to \infty} \mathcal{P}(X_n\le a)= \mathcal{P}(X\le a)
+\end{equation}
+\end{enumerate}
+%\end{souprop}
+
+%\begin{soucor}
+    $X$の分布が連続型ならば，\eqref{step:x= aで分布関数が収束}の代わりに\eqref{step:「x= aで分布関数が収束」の代用}でよい．
+\begin{enumerate}
+    \item [$(2)'$]\label{step:「x= aで分布関数が収束」の代用}
+    $\forall a\in \R$に対し，
+\begin{equation}
+    \lim_{n\to \infty} \mathcal{P}(X_n\le a)= \mathcal{P}(X\le a)
+\end{equation}
+\end{enumerate}
+%\end{soucor}
+
+\subsection{特性関数}
+%\begin{soudef}
+[特性関数]
+    $\mu$を$(\R^n, \mathcal{B(\R^n)})$上の確率測度とする．このとき
+\begin{equation}
+    \phi_\mu(t)= \int_{\R^n} \exp(i(t, x))\mu(dx)
+\end{equation}
+    を$\mu$の特性関数という．
+%\begin{souremark}
+    実数値確率変数$X$に対して，その分布を$\mu$とすると
+\begin{equation}
+    \phi_\mu(t)= \mathbb{E}[\exp(i(t, x))]
+\end{equation}
+    となる．これを$X$の特性関数という．
+%\end{souremark}
+%\begin{souremark}
+    複素数値の積分は実部・虚部を分けて考える．\\
+    $|\exp(i(t, x))|= 1,\ \ x, y\in \R$
+%\end{souremark}
+%\end{soudef}
+
+%\begin{souprop}
+    実数値確率変数$X$は
+\begin{equation}
+    \mathbb{E}[|X|^n]< \infty
+\end{equation}
+    を満たすとする．このとき$\phi_\mu$は$n$回連続微分で 
+\begin{equation}
+    \phi^{(n)}_\mu(t)= \mathbb{E}[(iX)^n\exp(itX)],\ \ t\in \R
+\end{equation}
+    特に
+\begin{equation}
+    \phi^{(n)}_\mu(0)= i^n\mathbb{E}[X^n]
+\end{equation}
+    特性関数は分布$\mu$の情報を多分に含む．
+%\end{souprop}
+%\begin{souprop}
+    $X$がパラメータ$\lambda$のPoisson分布に従う．つまり
+\begin{equation}
+    \mathcal{P}(X= k)= e^{-\lambda}\frac{\lambda^k}{k!},\ \ k\ge 0
+\end{equation}
+    とする．このとき$X$の特性関数$\phi_X$は
+\begin{equation}
+    \phi_X(t)= \exp(\lambda(e^{it}- 1))
+\end{equation}
+%\end{souprop}
+\begin{proof}
+\begin{align}
+    \phi_X(t)
+    &= \mathbb{E}[\exp(itX)]\\
+    &= \sum_{k= 0}^\infty e^{itk}e^{-\lambda}\frac{\lambda^k}{k!}\\
+    &= e^{-\lambda}\sum_{k= 0}^\infty \frac{1}{k!}(\lambda e^{it})^k\\
+    &= e^{-\lambda}\cdot e^{\lambda e^{it}}\\
+    &= (右辺)
+\end{align}
+\end{proof}
+
+%\begin{souprop}
+    確率変数$X, Y$は独立でそれぞれの特性関数を$\phi_X, \phi_Y$とする．このとき$X+ Y$の特性関数$\phi_{X+ Y}$は
+\begin{equation}
+    \phi_{X+ Y}= \phi_X(t)\cdot \phi_Y(t)
+\end{equation}
+%\end{souprop}
+%\begin{souprop} \label{thm:aX+bの特性関数}
+    確率変数$X$の特性関数を$\phi_X$とする．$a, b\in \R$に対して，$aX+ b$の特性関数$\phi_{aX+ b}$は
+\begin{equation}
+    \phi_{aX+ b}(t)= e^{itb} \phi_X(at)
+\end{equation}
+%\end{souprop}
+
+%\begin{souprop}
+    $m\in \R, v> 0$とする．$X\sim \mathcal{N}(m, v)$のとき
+\begin{equation}
+    \phi_X(t)= \exp{\left(imt- \frac{1}{2}vt^2\right)}
+\end{equation}
+%\end{souprop}
+\begin{proof}
+    まず$m= 0, v= 1$のときを示す．このとき
+\begin{equation}
+    \phi_X(t)= \mathbb{E}[e^{itX}]= \mathbb{E}[\cos{tX}]+ i\mathbb{E}[\sin{tX}]
+\end{equation}
+    ここで
+\begin{equation}
+    \mathbb{E}[\sin{tX}]= \int_{-\infty}^\infty \sin{tX}\cdot \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}dx= 0
+\end{equation}
+    また，
+\begin{equation}
+    \phi'_X(t)= \mathbb{E}[(iX)e^{itX}]= -\mathbb{E}[X\sin{tX}]
+\end{equation}
+    であって
+\begin{align}
+    \mathbb{E}[X\sin{tX}]
+    &= \int_{-\infty}^\infty x\sin{tx}\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}dx\\
+    &= -\int_{-\infty}^\infty \sin{tx}\left(\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}\right)'dx\\
+    &= \int_{-\infty}^\infty t\cos{tx}\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}dx\\
+    &= t\phi_X(t)\\
+    \therefore \phi'_X(t)&= -t\phi_X(t)
+\end{align}
+    $\phi_X(0)\ne 0$のとき
+\begin{equation}
+    \frac{\phi'(t)}{\phi_X(t)}= -t
+    \iff \log|\phi_X(t)|= -\frac{1}{2}t^2+ C
+    \iff \phi_X(t)= \exp{\left(-\frac{1}{2}t^2+ C\right)}
+\end{equation}
+    ここで$\phi_X(0)= 1$より$C= 0$\\
+    $\therefore \phi_X(t)= \exp{\left(-\frac{1}{2}t^2\right)}$
+    あとは$X\sim \mathcal{N}(m, v)$のとき
+\begin{equation}
+    z=: \frac{X- m}{\sqrt{v}}
+\end{equation}
+    とおくと$z\sim \mathcal{N}(0, 1)$で
+\begin{equation}
+    X\sim \sqrt{v}z+ m
+\end{equation}
+    となる．定理\ref{thm:aX+bの特性関数}から結論を得る．
+\end{proof}

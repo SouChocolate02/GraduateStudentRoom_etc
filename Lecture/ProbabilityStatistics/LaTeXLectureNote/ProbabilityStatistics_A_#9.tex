@@ -1,0 +1,120 @@
+% ProbabilityStatistics_A_#9
+%%%%%%%%%%%%%%%
+
+%\begin{souprop}
+    確率変数$X$の稠密関数は$f$とする。$F\colon \R\to \R$が連続、コンパクトな台を持つとき、
+\begin{equation} \label{eq:F:R-> R・連続・コンパクトな台を持つ}
+    \mathbb{E}[F(X)]= \int_{-\infty}^\infty F(X) f(x)dx
+\end{equation}
+%\end{souprop}
+
+%\begin{souprop}
+    確率変数$X$の稠密な関数を$f$とする。$F\colon \R\to \R$が連続かつ有界ならば、\eqref{eq:F:R-> R・連続・コンパクトな台を持つ}が成立。
+%\end{souprop}
+\begin{proof}
+    $M=:\sup_{x\in \R} |F(x)|$とかく。$\phi_R\colon \R\to \R$を連続で以下を満たす関数とする。
+\begin{equation}
+    \phi_R(x) 
+    = 
+\begin{cases}
+    0,\ \ |x|\ge R+ 1\\
+    R+ 1- |x|,\ \ R< |x|< R+ 1\\
+    1,\ \ |x|\le R
+\end{cases}
+\end{equation}
+\begin{tikzpicture}
+    % TikZで図を入れる
+\end{tikzpicture}
+    このとき$F_R(x)= F(x)\phi_R(x)$はコンパクトな台を持つから、
+\begin{equation}
+    \mathbb{E}[F_R(X)]= \int_{-\infty}^\infty F(x)\phi_R(x)f(x)dx
+\end{equation}
+    $F_R(x)\to F(x),\ x\in \R(R\to \infty),\ |F(X)|\ge M$だからLebesgureの優収束定理より
+\begin{equation}
+    \lim_{n\to \infty}\mathbb{E}[F_n(X)]= \mathbb{E}[F(X)]
+\end{equation}
+    一方で
+\begin{align}
+    \left|\int_{-\infty}^\infty F(x)f(x)dx- \int_{-\infty}^\infty F(x)\phi_r(x)f(x)dx\right|
+    &= \int_{-\infty}^{-R}|F(x)|(1- \phi_R(x))f(x)dx+ \int_R^\infty |F(x)|(1- \phi_R(x))f(x)dx\\
+    &\le M\int_{-\infty}^{-R} f(x)dx+ M\int_R^\infty f(x)dx\\
+    &\to 0\ \ (R\to \infty)\ \ \left(\because \int_{-\infty}^\infty f(x)dx= 1\right)
+\end{align}
+\begin{equation}
+    \therefore \lim_{R\to \infty}\int_{-\infty}^\infty F(x)\phi_R(x)f(x)dx= \int_{-\infty}^\infty F(x)f(X)dx
+\end{equation}
+\end{proof}
+
+%\begin{souprop}
+    \ref{prop:Prop1.49}と同じ仮定で$F$は非負連続とする。このとき\eqref{eq:F:R-> R・連続・コンパクトな台を持つ}が成立(有界性は仮定しない)。
+%\end{souprop}
+\begin{proof}
+    $F\colon \R\to \R$は$F(x)\ge 0, x\in \R$を満たす連続関数とする。$n\ge 1$に対し、
+\begin{equation}
+    F_n(x)
+    = 
+\begin{cases}
+    F(x),\ \ (F(x)\le n)\\
+    n,\ \ (F(x)> n)
+\end{cases}
+\end{equation}
+\begin{tikzpicture}
+    % TikZで図を入れる
+\end{tikzpicture}
+    により定める。
+    \ref{prop:Prop1.49}から
+\begin{equation}
+    \mathbb{E}[F_n(X)]= \int_{-\infty}^\infty F_n(x)f(X)dx
+\end{equation}
+    $F_n(X)$は$n$について単調増加、非負なので
+\begin{equation}
+    \lim_{n\to \infty} \mathbb{E}[F_n(X)]= \mathbb{E}[F(X)]
+\end{equation}
+    ここで
+\begin{equation}
+    \int_{-\infty}^\infty F(x)f(xd)dx< \infty
+\end{equation}
+    であるとする。$\forall \epsilon> 0$に対して、
+\begin{equation}
+    \int_{-\infty}^{-R} F(x)f(x)dx+ \int_R^\infty F(x)f(x)dx< \epsilon
+\end{equation}
+    となる$R> 0$が取れる。また$M_r= \sup_{|x|\le R} |F(x)|$とおき、$n\ge M_R$ならば$F_n(x)= F(x), |x|\le R$
+\begin{equation}
+    \therefore \int_{-R}^R F(x)d(x)dx= \int_{-R}^R F_n(x)f(x)dx
+\end{equation}
+    さらに$F_n(x)\le F(x)$なので、
+\begin{align}
+    \int_{-\infty}^\infty F_n(x)f(x)dx
+    &= \int_{-\infty}^{-R} F_n(x)f(x)dx+ \int_{-R}^R F(x)f(x)dx+ \int_R^\infty F_n(x)f(x)dx\\
+    &= \int_{-\infty}^\infty F(x)f(x)dx+ \int_{-\infty}^R F_n(x)f(x)fx+ \int_R^\infty F_n(x)f(x)dx- \int_{-\infty}^R F(x)f(x)dx- \int_R^\infty F(x)f(x)dx
+\end{align}
+\begin{equation}
+    \therefore \left|\int_{-\infty}^\infty F_n(x)f(x)fx- \int_{-\infty}^\infty F(x)f(x)dx\right|\le 2\epsilon
+\end{equation}
+\begin{equation}
+    \lim_{n\to \infty} \int_{-\infty}^\infty F_n(x)f(x)dx= \int_{-\infty}^\infty F(n)f(x)dx
+\end{equation}
+%\begin{souremark}
+    Lebesuge積分だと単調収束定理で一発だが，広義積分だと面倒
+%\end{souremark}
+    また
+\begin{equation}
+    \int_{-infty}^\infty F(x)f(x)dx= \infty
+\end{equation}
+    も同様に
+\begin{equation}
+    \lim_{n\to \infty}\int_{-\infty}^\infty F_n(x)f(x)dx= \infty
+\end{equation}
+    が示せる。
+\end{proof}
+%\begin{soucor}
+    $F\colon \R\to \R$が連続で$\mathbb{E}[|F(X)|]< \infty$のとき
+\begin{equation}
+    \mathbb{E}[F(X)]= \int_{-\infty}^\infty F(x)f(x)dx
+\end{equation}
+    とくに$X$が可積分ならば
+\begin{equation}
+    \mathbb{E}[X]= \int_{-\infty}^\infty xf(x)dx
+\end{equation}
+%\end{soucor}
+%途中
