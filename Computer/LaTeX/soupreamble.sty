@@ -1,6 +1,5 @@
 % soupreamble
-
-%preamble
+% preamble
 \usepackage{amsmath, ascmac, latexsym, mathtools} %とりあえず入れとくパッケージ
 % フォント関係
 \usepackage{bm} % 小文字ベクトルのためのパッケージ
@@ -11,6 +10,8 @@
 \usepackage{amsthm} % 定理環境をカスタマイズ
 \usepackage{tikz-cd} % 可換図式のパッケージ
 
+\mathtoolsset{showonlyrefs= true} % 参照式にのみ番号を振る
+
 % 数学略記コマンド系
 % 集合(mathbb/mathfrak)系
 \newcommand{\N}{\mathbb{N}}
@@ -18,8 +19,11 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
-\newcommand{\F}{\mathcal{F}}
-\renewcommand{\O}{\mathcal{O}}
+\newcommand{\F}{\mathcal{F}} %解析・Fourier変換
+\renewcommand{\O}{\mathcal{O}} % 集合・位相
+%\newcommand{\calP}{\mathcal{P}} % 確率論
+%\newcommand{\calB}{\mathcal{B}} % 確率論
+%\newcommand{\calL}{\mathcal{L}} % 確率論(lambda系)
 
 % 特殊数学記号(先生の作ったコマンド流用)
 \newcommand{\Zm}{\mathbb{Z}/[m]}
@@ -115,25 +119,28 @@
 \renewcommand{\phi}{\varphi} %phiをいつもの形に
 \renewcommand{\emptyset}{\varnothing} %emptysetの出力を変更
 \renewcommand{\bar}[1]{\overline{#1}} %overlineの略記
-%\renewcommand{\any}{{}^{\forall}} %全称記号を略記・字上げする
-%\renewcommand{\exists}{^{\exists}} %存在記号を略記・字上げする
+
 
 
 
 % 矢印系
-\newcommand{\by}[1]{\xrightarrow{#1}} %上に理由が載る．矢印長は自動伸縮
-\newcommand{\inj}{\hookrightarrow} %単射の矢印
-\newcommand{\surj}{\twoheadleftarrow}%全射の矢印
+\newcommand{\by}[1]{\xrightarrow{#1}} % 上に理由が載る。矢印長は自動伸縮
+\newcommand{\inj}{\hookrightarrow} % 単射の矢印
+\newcommand{\surj}{\twoheadleftarrow}% 全射の矢印
 
 % 組版の表示に関するもの
-\everymath{\displaystyle} %全ての数式をdisplaystyleに強制変更
-%ハイパーリンク関係
-\usepackage[dvipdfmx]{hyperref} %ハイパーリンク用のパッケージ
-\usepackage{pxjahyper} %ハイパーリンク用のパッケージ
-\hypersetup{ %ハイパーリンクまわりの設定
-hidelinks %ハイパーリンクの枠を消す
+%% 式に関するもの
+\everymath{\displaystyle} % 全ての数式をdisplaystyleに強制変更
+\mathtoolsset{showonlyrefs= true} % 参照する式のみ番号付け
+\numberwithin{equation}{section} % 番号を(No.sec).(No.eq)に
+
+% ハイパーリンク関係
+\usepackage[dvipdfmx]{hyperref} % ハイパーリンク用のパッケージ
+\usepackage{pxjahyper} % ハイパーリンク用のパッケージ
+\hypersetup{ % ハイパーリンクまわりの設定
+hidelinks % ハイパーリンクの枠を消す
 }
-\usepackage{url} %URLを入れるためのパッケージ
+\usepackage{url} % URLを入れるためのパッケージ
 \usepackage{fancyhdr} % ヘッダー・フッターの編集
 \usepackage{docmute} % inputで取り込むときに悪影響を及ぼさないように予防
 \usepackage{multirow} % tabular環境で横にセル結合させるパッケージ
@@ -175,7 +182,7 @@ hidelinks %ハイパーリンクの枠を消す
 \usepackage{graphicx} % 写真を入れるためのパッケージ
 \usepackage{pdfpages} % pdfを挿入するパッケージ
 
-%グラフ(理論ではない)を描くための補足的なパッケージ
+% グラフ(理論ではない)を描くための補足的なパッケージ
 \usepackage{pgf-pie} % 円グラフ作成パッケージ
 \usepackage{xcolor} % 色を沢山使うためのパッケージ
 %\usepackage{patterns} % ハッチング用パターン
@@ -197,7 +204,7 @@ hidelinks %ハイパーリンクの枠を消す
 \usepackage{statistics} % グラデーション表/統計グラフ
 \usepackage{polynom} % 多項式計算
 \usepackage{tikz-3dplot} % 3次元グラフ
-\usepackage{longdivision} %数の割り算の筆算
+\usepackage{longdivision} % 数の割り算の筆算
 
 % 情報(応用数学)系
 \usepackage{tkz-graph} % グラフ理論
@@ -215,122 +222,6 @@ hidelinks %ハイパーリンクの枠を消す
 \usepackage{chemfig} % chemfig用のパッケージ
 \usepackage{tikzorbital} % 分子軌道法ダイアグラム
 
-
-% 2/10追加
-% zref-clever環境の設定
-\usepackage{cleveref} %参照用
-\newcommand{\kara}{} %無を出力するコマンド
-\usepackage{zref-clever}
-\zcDeclareLanguage[allcaps]{japanese}
-\zcLanguageSetup{japanese}{
-% 接続詞
-		namesep= {\nobreak},
-		pairsep= {と},
-		listsep= {，},
-		lastsep= {，および},
-		tpairsep= {および},
-		tlistsep= {，},
-		tlastsep= {，および},
-		notesep= {：},
-		rangesep= {から},
-	type= book ,
-		Name-sg= 第 ,
-		Name-pl= 第 ,
-		refbounds= {,,編,},
-	type= part ,
-		Name-sg= 第 ,
-		Name-pl= 第 ,
-		refbounds= {,,部,},
-	type= chapter ,
-		Name-sg= Chap,
-		Name-pl= Chap,
-		refbounds= {,,,} ,
-	type= section ,
-		Name-sg= \S ,
-		Name-pl= \S ,
-		refbounds= {,,,} ,
-	type= paragraph ,
-		Name-sg= 第 ,
-		Name-pl= 第 ,
-		refbounds= {,,段落,} ,
-	type= appendix ,
-		Name-sg= Appendix,
-		Name-pl= Appendix,
-	type= page,
-		Name-sg= p. ,
-		Name-pl= pp. ,
-		rangesep= \textendash ,
-		rangetopair= false ,
-	type= line,
-		Name-sg= l. ,
-		Name-pl= l. ,
-		rangesep= \textendash ,
-		rangetopair= false ,
-	type= figure,
-		Name-sg= 図,
-		Name-pl= 図,
-	type= table,
-		Name-sg= 表,
-		Name-pl= 表,
-	type= item,
-		Name-sg= ,
-		Name-pl= ,
-	type= footnote,
-		Name-sg= 脚注,
-		Name-pl= 脚注,
-	type= endnote,
-		Name-sg= 後注,
-		Name-pl= 後注,
-	type= note,
-		Name-sg= Rem,
-		Name-pl= Rem,
-	type= equation,
-		Name-sg= 式,
-		Name-pl= 式,
-		refbounds= {,(,),},
-	type= theorem,
-		Name-sg= thm,
-		Name-pl= thm,
-	type= lemma,
-		Name-sg= lem,
-		Name-pl= lem,
-	type= corollary,
-		Name-sg= cor,
-		Name-pl= cor,
-	type= proposition, 
-		Name-sg= prop, 
-		Name-pl= prop, 
-	type= definition,
-		Name-sg= Def,
-		Name-pl= Def,
-	type= proof,
-		Name-sg= pf,
-		Name-pl= pf,
-	type= result,
-		Name-sg= 結果,
-		Name-pl= 結果,
-	type= remark,
-		Name-sg= 備考,
-		Name-pl= 備考,
-	type= example,
-		Name-sg= 例,
-		Name-pl= 例,
-	type= exercise,
-		Name-sg= 演習,
-		Name-pl= 演習,
-	type= solution,
-		Name-sg= 解法,
-		Name-pl= 解法,
-	type= algorithm ,
-		Name-sg= アルゴリズム,
-		Name-pl= アルゴリズム,
-	type= listing,
-		Name-sg= Code,
-		Name-pl= Code,
-}
-\zcsetup{lang= japanese}
-
-%\usepackage[side]{footmisc} % footnote環境を片側端に書く
 
 \usepackage[many, most]{tcolorbox} % tcolorboxのパッケージ
 \tcbuselibrary{breakable, skins, theorems}
@@ -351,60 +242,43 @@ hidelinks %ハイパーリンクの枠を消す
 
 
 % 定義環境
-\newtcolorbox[auto counter, number within= section, crefname= {Def.}{Defs.}]{soudef}[1][]
-{enhanced, breakable= true, fonttitle= \bfseries,
-title = Def.~\thetcbcounter~\if #1\kara \else(#1)}
+%\newtcolorbox[auto counter, number within= section]{soudef}[1][]
+%{enhanced, breakable= true, fonttitle= \bfseries, title = Def.~\thetcbcounter~\if #1\kara \else(#1)}
 
 % 系環境
-\newtcolorbox[auto counter, number within= section, crefname= {Cor.}{Cors.}]{soucor}[1][]
-{enhanced, breakable= true, fonttitle= \bfseries,
-title = Cor.~\thetcbcounter~\if #1\kara \else(#1)}
+%\newtcolorbox[auto counter, number within= section]{soucor}[1][]
+%{enhanced, breakable= true, fonttitle= \bfseries, title = Cor.~\thetcbcounter~\if #1\kara \else(#1)}
 
 %thm系環境
-\newtcolorbox[auto counter, number within= section, crefname= {Thm.}{Thms.}]{southm}[1][]
-{enhanced, breakable= true, fonttitle= \bfseries,
-title = Thm.~\thetcbcounter~\if #1\kara \else(#1)}
+%\newtcolorbox[auto counter, number within= section]{southm}[1][]
+%{enhanced, breakable= true, fonttitle= \bfseries, title = Thm.~\thetcbcounter~\if #1\kara \else(#1)}
 
 %lemma系環境
-\newtcolorbox[auto counter, number within= section, crefname= {Lem.}{Lems.}]{soulem}[1][]
-{enhanced, breakable= true, fonttitle= \bfseries,
-title = Lem.~\thetcbcounter~\if #1\kara \else(#1)}
+%\newtcolorbox[auto counter, number within= section]{soulem}[1][]
+%{enhanced, breakable= true, fonttitle= \bfseries, title = Lem.~\thetcbcounter~\if #1\kara \else(#1)}
 
 % example環境
-\newtcolorbox[auto counter, number within= section, crefname= {Example.}{Examples.}]{souexample}[1][]
-{enhanced, breakable= true, fonttitle= \bfseries,
-title = \underline{Example.~\thetcbcounter~\if #1\kara \else#1}}
+%\newtcolorbox[auto counter, number within= section]{souexample}[1][]
+%{enhanced, breakable= true, fonttitle= \bfseries, title = \underline{Example.~\thetcbcounter~\if #1\kara \else#1}}
 
 % excricrse環境
-\newtcolorbox[auto counter, number within= section, crefname= {Excercise.}{Excercises.}]{souexciercise}[1][]
-{enhanced, breakable= true, fonttitle= \bfseries,
-title = \underline{Exercise.~\thetcbcounter~\if #1\kara \else#1}}
+%\newtcolorbox[auto counter, number within= section]{ouexciercise}[1][]
+%{enhanced, breakable= true, fonttitle= \bfseries, title = \underline{Exercise.~\thetcbcounter~\if #1\kara \else#1}}
 
 % Quiz環境
-\newtcolorbox[auto counter, number within= section, crefname= {Quiz.}{Quizs.}]{souquiz}[1][]
-{enhanced, breakable= true, fonttitle= \bfseries,
-title = \underline{Quiz.~\thetcbcounter~\if #1\kara \else#1}}
+%\newtcolorbox[auto counter, number within= section]{souquiz}[1][]
+%{enhanced, breakable= true, fonttitle= \bfseries, title = \underline{Quiz.~\thetcbcounter~\if #1\kara \else#1}}
 
 % Answer環境
 \newtcolorbox{souanswer}{blanker, breakable= true, left= 5mm, borderline west= {1.1mm}{0pt}{black}}
 
-% 2/10変更
-% 証明環境の変更
-\renewcommand{\proofname}{\underline{pf}}
-
-%leftbar環境に注釈が入れられないことを解消する環境．名前はtcolorboxの[t]とleftbarの組み合わせ
-\newtcolorbox{tbleftline}{blanker, breakable= true, left= 5mm, borderline west= {1.1mm}{0pt}{black}}
-\newenvironment{tleftbar}{\begin{tbleftline}\setlength{\parindent}{0.5zw}}{\end{tbleftline}}
+%leftbar環境に注釈が入れられないことを解消する環境。名前はtcolorboxの[t]とleftbarの組み合わせ
+%\newtcolorbox{tbleftline}{blanker, breakable= true, left= 5mm, borderline west= {1.1mm}{0pt}{black}}
+%\newenvironment{tleftbar}{\begin{tbleftline}\setlength{\parindent}{0.5zw}}{\end{tbleftline}}
 
 %定理環境(特に数字付き)
 % カウンター
 \newcounter{num}[section]
 \renewcommand{\thenum}{\thesection.\arabic{num}}
 
-% 適当なtab環境
-\newtcolorbox{tab}[1]{title= tab{#1}}
-
-% 解答環境
-\newtcolorbox{tans*}{title= \underline{\textbf{Answer}}}%, colorframe= white, colback= white, coltitle= black, colback= white, boxrule= 0pt, arc= 0mm}
-
-%colframe= black, colback= white, coltitle= black, colbacktitle= white, boxrule= 0.5pt, arc= 0mm, enhanced, attach boxed title to top left= {xshift= 10mm, yshift= -3mm}, boxed title style= {frame hidden}, title= #1}
+%%%%%----------%%%%%
