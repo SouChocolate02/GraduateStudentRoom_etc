@@ -40,7 +40,6 @@
 \newcommand{\fE}{\mathfrak{E}}
 \newcommand{\fC}{\mathfrak{C}}
 
-
 % 数学演算子系
 % log type
 \DeclareMathOperator{\sgn}{sgn}
@@ -93,7 +92,6 @@
 \let\Im\relax
 \DeclareMathOperator{\Im}{Im}
 
-
 % 引数付き省略コマンド
 \newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}} %集合の中央線を長くする
 \newcommand{\lcm}[2]{\mathrm{lcm}({#1},\ {#2})} %最小公倍数
@@ -119,8 +117,6 @@
 \renewcommand{\phi}{\varphi} %phiをいつもの形に
 \renewcommand{\emptyset}{\varnothing} %emptysetの出力を変更
 \renewcommand{\bar}[1]{\overline{#1}} %overlineの略記
-
-
 
 
 % 矢印系
@@ -222,7 +218,6 @@ hidelinks % ハイパーリンクの枠を消す
 \usepackage{chemfig} % chemfig用のパッケージ
 \usepackage{tikzorbital} % 分子軌道法ダイアグラム
 
-
 \usepackage[many, most]{tcolorbox} % tcolorboxのパッケージ
 \tcbuselibrary{breakable, skins, theorems}
 \newtcolorbox{hosoibox}[1]{colframe= black, colback= white, coltitle= black, colbacktitle= white, boxrule= 0.5pt, arc= 0mm, enhanced, attach boxed title to top left= {xshift= 10mm, yshift= -3mm}, boxed title style= {frame hidden}, title= #1}
@@ -238,7 +233,6 @@ hidelinks % ハイパーリンクの枠を消す
 % ->証明環境は完成　なぜかpfを立体にしたいのにmathrmではできない
 % Quiz環境
 % ->普通のtcolorboxとほぼ同じ
-
 
 
 % 定義環境
@@ -280,5 +274,3 @@ hidelinks % ハイパーリンクの枠を消す
 % カウンター
 \newcounter{num}[section]
 \renewcommand{\thenum}{\thesection.\arabic{num}}
-
-%%%%%----------%%%%%
