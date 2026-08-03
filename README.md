@@ -32,7 +32,12 @@ key word: 院試，線形代数，微分積分<br>
 key word: 編集方法，Markdown<br>
 [for Next editer](https://github.com/SouChocolate02/GraduateStudentRoom_etc/blob/main/for%20Next%20editer)
 
-# Useful_wedsite
+# Useful wedsite
 勉強に有用なWebサイトのURLをまとめる<br>
 key word: 数学の景色<br>
 [useful wedsite](https://github.com/SouChocolate02/GraduateStudentRoom_etc/blob/main/useful_websites)
+
+# Event
+院生室周り(だけとは限らないが)のイベントについて<br>
+key word：OC，八海山山籠もり合宿<br>
+[Event](https://github.com/SouChocolate02/GraduateStudentRoom_etc/tree/main/Event)
