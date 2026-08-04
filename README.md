@@ -35,7 +35,7 @@ key word: 編集方法，Markdown<br>
 # Useful wedsite
 勉強に有用なWebサイトのURLをまとめる<br>
 key word: 数学の景色<br>
-[useful wedsite](https://github.com/SouChocolate02/GraduateStudentRoom_etc/blob/main/useful_websites)
+[useful wedsite](https://github.com/SouChocolate02/GraduateStudentRoom_etc/blob/main/useful_websites.md)
 
 # Event
 院生室周り(だけとは限らないが)のイベントについて<br>
