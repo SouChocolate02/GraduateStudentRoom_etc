@@ -40,6 +40,7 @@
 \newcommand{\fE}{\mathfrak{E}}
 \newcommand{\fC}{\mathfrak{C}}
 
+
 % 数学演算子系
 % log type
 \DeclareMathOperator{\sgn}{sgn}
@@ -92,6 +93,7 @@
 \let\Im\relax
 \DeclareMathOperator{\Im}{Im}
 
+
 % 引数付き省略コマンド
 \newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}} %集合の中央線を長くする
 \newcommand{\lcm}[2]{\mathrm{lcm}({#1},\ {#2})} %最小公倍数
@@ -117,6 +119,8 @@
 \renewcommand{\phi}{\varphi} %phiをいつもの形に
 \renewcommand{\emptyset}{\varnothing} %emptysetの出力を変更
 \renewcommand{\bar}[1]{\overline{#1}} %overlineの略記
+
+
 
 
 % 矢印系
@@ -218,9 +222,43 @@ hidelinks % ハイパーリンクの枠を消す
 \usepackage{chemfig} % chemfig用のパッケージ
 \usepackage{tikzorbital} % 分子軌道法ダイアグラム
 
+
 \usepackage[many, most]{tcolorbox} % tcolorboxのパッケージ
 \tcbuselibrary{breakable, skins, theorems}
 \newtcolorbox{hosoibox}[1]{colframe= black, colback= white, coltitle= black, colbacktitle= white, boxrule= 0.5pt, arc= 0mm, enhanced, attach boxed title to top left= {xshift= 10mm, yshift= -3mm}, boxed title style= {frame hidden}, title= #1}
+
+
+\usepackage{tikzsymbols} %環境アイコン用
+
+\tikzsymbolsdefinesymbol{notationicon}{S}{% notaionアイコン
+\begin{tikzpicture}[scale= 0.2, /tikzsymbolsstyle]
+    % ページ中央
+        \draw(0, 0)-- (0, 2); %
+    % 右ページ
+        \draw(0, 0)to [out= 45, in= 135] (1.5, 0); %
+        \draw(1.5, 0)-- (1.5, 2); %ページ右端
+        \draw(0, 2)to [out= 45, in= 135] (1.5, 2); %
+    % 左ページ
+        \draw(-1.5, 0)to [out= 45, in= 135] (0, 0);
+        \draw(-1.5, 0)-- (-1.5, 2); %ページ左端
+        \draw(-1.5, 2)to [out= 45, in= 135] (0, 2);
+\end{tikzpicture}
+}
+
+\tikzsymbolsdefinesymbol{outlineicon}{S}{% outlineアイコン
+\begin{tikzpicture}[scale= 0.1, /tikzsymbolsstyle]
+    %	scaleは0.1がちょうどいい	
+        \draw(0, 0)-- (5, 0)-- (5, 2)-- (0, 2)-- cycle; %中間の相
+        \fill[black](1, 0)-- (1.5, -0.7)-- (3.5, -0.7)-- (4, 0);%下のへそ
+        \draw (2.5, 3.12) circle [radius= 2.7]; %上半分の半球
+        \draw[fill= gray](0, 0)-- (5, 0)-- (5, 2)-- (0, 2)-- cycle; %中間層を灰色に塗りつぶした
+        \draw(0, 2/3)-- (5, 2/3); %ねじ線(下)
+        \draw(0, 4/3)-- (5, 4/3); %ねじ線(上)
+    %	\draw(1, 3)to [cute inductor] (4, 3); %フィラメント
+    %	\draw[line width= 1pt](1.05, 2)-- (1.05, 3); %フィラメント左足
+    %	\draw[line width= 1pt](3.95, 2)-- (3.95, 3); %フィラメント右足
+\end{tikzpicture}
+}
 
 % 定義環境群： 定義
 % ->太字，通し番号をつける
@@ -233,6 +271,7 @@ hidelinks % ハイパーリンクの枠を消す
 % ->証明環境は完成　なぜかpfを立体にしたいのにmathrmではできない
 % Quiz環境
 % ->普通のtcolorboxとほぼ同じ
+
 
 
 % 定義環境
@@ -274,3 +313,5 @@ hidelinks % ハイパーリンクの枠を消す
 % カウンター
 \newcounter{num}[section]
 \renewcommand{\thenum}{\thesection.\arabic{num}}
+
+%%%%%----------%%%%%
