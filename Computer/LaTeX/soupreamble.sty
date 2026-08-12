@@ -245,7 +245,7 @@ hidelinks % ハイパーリンクの枠を消す
 \end{tikzpicture}
 }
 
-\tikzsymbolsdefinesymbol{outlineicon}{S}{% outlineアイコン
+\tikzsymbolsdefinesymbol{ideaicon}{S}{% idealineアイコン
 \begin{tikzpicture}[scale= 0.1, /tikzsymbolsstyle]
     %	scaleは0.1がちょうどいい	
         \draw(0, 0)-- (5, 0)-- (5, 2)-- (0, 2)-- cycle; %中間の相
@@ -257,6 +257,22 @@ hidelinks % ハイパーリンクの枠を消す
     %	\draw(1, 3)to [cute inductor] (4, 3); %フィラメント
     %	\draw[line width= 1pt](1.05, 2)-- (1.05, 3); %フィラメント左足
     %	\draw[line width= 1pt](3.95, 2)-- (3.95, 3); %フィラメント右足
+\end{tikzpicture}
+}
+
+\tikzsymbolsdefinesymbol{guideicon}{S}{% guidelineアイコン
+\begin{tikzpicture}[scale= 0.2, /tikzsymbolsstyle]
+	\draw[thin](0, 0) circle [radius= 1.7];%コンパス外周
+	\fill[gray](0, 0) circle [radius= 1.7];
+	\draw[thin](0, 0) circle [radius= 1.5];%コンパス内周
+	\fill[white](0, 0) circle [radius= 1.5];
+
+	\fill[gray](1, 1)-- (-0.3, 0.3)-- (0.3, -0.3); %北部塗りつぶし
+	\draw[thin](1, 1)-- (0.3, -0.3); %北端- 東端
+	\draw[thin](1, 1)-- (-0.3, 0.3); %北端- 西端
+	\draw[thin](-1, -1)-- (0.3, -0.3); %南端- 東端
+	\draw[thin](-1, -1)-- (-0.3, 0.3); %南端- 西端
+	\fill(0, 0) circle[radius= 0.07]; %針の中心
 \end{tikzpicture}
 }
 
