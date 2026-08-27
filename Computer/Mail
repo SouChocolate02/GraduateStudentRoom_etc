@@ -19,6 +19,11 @@ M1 xxxx 川村聡一郎
 mail:csAAxxxxx@g.nihon-u.ac.jp
 ~~~
 
+```
+puts "hello"
+```
+
+
 ## 署名に書かないほうがよい(と思われる)情報
 - 自宅or 下宿の住所
 -> 
