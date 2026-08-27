@@ -19,9 +19,11 @@ M1 xxxx 川村聡一郎
 mail:csAAxxxxx@g.nihon-u.ac.jp
 ~~~
 
+hoge
 ```
-puts "hello"
+foobar
 ```
+fuga
 
 
 ## 署名に書かないほうがよい(と思われる)情報
