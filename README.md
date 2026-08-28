@@ -27,6 +27,11 @@ key word: 院試，線形代数，微分積分<br>
 key word：OC，八海山山籠もり合宿<br>
 [Event](https://github.com/SouChocolate02/GraduateStudentRoom_etc/tree/main/Event)
 
+# Seminar
+自主ゼミの資料置き場<br>
+key word：ゼミ，自主ゼミ<br>
+[Seminar](https://github.com/SouChocolate02/GraduateStudentRoom_etc/tree/main/Seminar)
+
 # Other
 ## Mathematics Library.md
 数学科図書館について使い方の注意事項<br>
