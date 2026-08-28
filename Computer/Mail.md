@@ -13,8 +13,8 @@
 ~~~
 (例)
 日本大学大学理工学研究科　数学専攻　XX研究室
-院生室x(Sxxxx)
-M1 xxxx 川村聡一郎
+院生室N(Snnnn)
+M1/1 <St.No> <Name>
 
 mail:csAAxxxxx@g.nihon-u.ac.jp
 ~~~
