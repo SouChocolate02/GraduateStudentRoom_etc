@@ -22,6 +22,11 @@ key word: コンピュータ，LaTeX，C，Python，Markdown，VSCode<br>
 key word: 院試，線形代数，微分積分<br>
 [MasterExam](https://github.com/SouChocolate02/GraduateStudentRoom_etc/tree/main/MasterExam)
 
+# Event
+院生室周り(だけとは限らないが)のイベントについて<br>
+key word：OC，八海山山籠もり合宿<br>
+[Event](https://github.com/SouChocolate02/GraduateStudentRoom_etc/tree/main/Event)
+
 # Other
 ## Mathematics Library.md
 数学科図書館について使い方の注意事項<br>
@@ -37,8 +42,3 @@ key word: 編集方法，Markdown<br>
 勉強に有用なWebサイトのURLをまとめる<br>
 key word: 数学の景色<br>
 [useful wedsite](https://github.com/SouChocolate02/GraduateStudentRoom_etc/blob/main/useful_websites.md)
-
-# Event
-院生室周り(だけとは限らないが)のイベントについて<br>
-key word：OC，八海山山籠もり合宿<br>
-[Event](https://github.com/SouChocolate02/GraduateStudentRoom_etc/tree/main/Event)
