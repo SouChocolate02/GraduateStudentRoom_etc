@@ -5,8 +5,11 @@
 1. 下画面になるまで左ボタンを押し続ける(連打の方がよい)．
 [Air_Conditioner1.png](Air_Conditioner1.png)
 2. 1.の画面で`<``>`の両ボタンを同時押しし、数秒待つ()
-
+[Air_Conditioner2.png](Air_Conditioner2.png)
 3. 画面が2回変わるまで押す
+[Air_Conditioner3.png](Air_Conditioner3.png)
+[Air_Conditioner4.png](Air_Conditioner4.png)
+
 
 # 除湿器について
 
