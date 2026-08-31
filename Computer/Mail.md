@@ -29,9 +29,11 @@ mail:csAAnnnnn@g.nihon-u.ac.jp
 1. Gmail右上の歯車マークをクリック
 1. 「すべての設定を表示」をクリック
 1. 下から4番目の「署名」の「+新規作成」をクリック
-![MailSign1.png](MailSign1.png)
+![MailSign1.png](MailSign1.png)<br>
+
 1. 署名に名前を付ける(なんでもOK　内部用/大学院/就活用など)
-![MailSign2.png](MailSign2.png)
+![MailSign2.png](MailSign2.png)<br>
+
 1. 右のフィールドに署名内容を書き込む
 ![MailSign3.png](MailSign3.png)
 1. 下の「新規メール用」「返信/転送用」のプルダウンで設定した署名の名前を選択(今回なら内部用)
