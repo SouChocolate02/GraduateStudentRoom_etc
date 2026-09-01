@@ -2,8 +2,8 @@
 \begin{tcolorbox} %%R8_2nd_3
 	$\fbox{3}$ $e$を自然数の底とする。また$f(x, y):= (x+ 2y)e^{-x^2- 2y^2}$を$xy$平面上の実数値関数とする。次の問いに答えよ。
 \begin{enumerate}
-	\item $\lim_{x\to \infty}\lim_{y\to \infty} f(x, y)$の値を求めなさい。
-	\item $f(x, y)$の1，2階偏導関数をすべて求めなさい。
+	\item $\lim_{x\to +\infty}\lim_{y\to +\infty} f(x, y)$の値を求めなさい。
+	\item $f(x, y)$の一，ニ階偏導関数をすべて求めなさい。
 	\item $f(x, y)$の極大値，極小値をすべて求めなさい。
 	\item $D= \{(x, y)\in \R^2; 3x^2+ 6y^2\le 1\}$上における$f(x, y)$の最大値，最小値を求めなさい。
 \end{enumerate}
@@ -11,6 +11,29 @@
 
 \begin{souanswer} %R8_2nd_3_ans
 \begin{enumerate}
-	\item 
+    \item まず$x$を固定して、$y\to +\infty$の極限を考える。$x$を任意の実数とするとき、
+\begin{equation*}
+    \lim_{y\to +\infty} f(x, y)= e^{-x^2}\lim_{y\to +\infty} \frac{x+ 2y}{e^{2y^2}}= 0
+\end{equation*}
+    したがって
+\begin{equation*}
+    \lim_{x\to +\infty}\lim_{y\to +\infty} f(x, y)= \lim_{x\to +\infty} f(x, y)= 0
+\end{equation*}
+    \item 簡単のため$E= e^{-x^2- 2y^2}$とおく。
+\begin{enumerate}
+    \item 一階偏導関数
+\begin{align*}
+    f_x(x, y)&= (1- 2x^2- 4xy)e^{-x^2- 2y^2}\\
+    f_y(x, y)&= (2- 4xy- 8y^2)e^{-x^2- 2y^2}
+\end{align*}
+    \item 二階偏導関数
+\begin{align*}
+    f_{xx}(x, y)&= (4s^3+ 8x^2y- 6x- 4y)e^{-x^2- 2y^2}\\
+    f_{xy}&= f_{yx}(x, y)= (8x^2y+ 16xy^2- 4x- 4y)e^{-x^2- 2y^2}\\
+    f_{yy}&= (16xy^2+ 32y^3- 4x- 24y)e^{-x^2- 2y^2}
+\end{align*}
+\end{enumerate}
+    \item 極値の候補となる停留点を求める。
+    % めんどうなので以下略(20260901)
 \end{enumerate}
 \end{souanswer}
