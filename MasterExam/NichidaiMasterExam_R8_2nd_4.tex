@@ -11,6 +11,49 @@
 
 \begin{souanswer} %R8_2nd_4_ans
 \begin{enumerate}
-	\item 
+    \item $f(x, y)= (1- xy)(xy)^n= x^ny^n- x^{n+ 1}y^{n+ 1}$と展開して偏微分する。
+\begin{align*}
+    f_x(x, y)&= x^{n- 1}y^n(n- (n+ 1)xy)\\
+    f_y(x, y)&= x^ny^{n- 1}(n- (n+ 1)xy)\\
+\end{align*}
+    \item \label{result:R8_2nd_4(2)}
+\begin{align*}
+    \int_{x= 0}^1\int_{y= 0}^x (Xy)^ndydx
+    &= _int_{x= 0}^1 x^n\left[\frac{y^{n+ 1}}{n+ 1}\right]_{y= 0}^xdx\\
+    &= \int_{x= 0}^1 x^n\cdot \frac{x^{n+ 1}}{n+ 1}dx\\
+    &= \frac{1}{n+ 1}\int_{x= 0}^1 x^{2n+ 1}dx\\
+    &= \frac{1}{n+ 1}\left[\frac{x^{2n+ 2}}{2n+ 1}\right]_{x= 0}^1\\
+    &= \frac{1}{n+ 1}\cdot \frac{1}{2(n+ 1)}\\
+    &= \frac{1}{2(n+ 1)^2}
+\end{align*}
+    \item $0< xy< 1$より公比$xy$の無限等比級数の和の公式を適用し、
+\begin{equation*}
+    \sum_{n= 0}^\infty (xy)^n= \frac{1}{1- xy}
+\end{equation*}
+    両辺に$(1- xy)$をかけて
+\begin{equation*}
+    (1- xy)\sum_{n= 0}^\infty (xy)^n= 1
+\end{equation*}
+    \item 領域$D= \{(x, y)\in \R^2; 0\le x\le 1, 0\le y\le x\}$において、$x= 1, y= 1$の点を除き、$0\le xy< 1$が成り立つ。
+    開区間上で$(1- xy)\sum_{n= 0}^\infty (xy)^n= 1$であり、各項$f_n(x, y)= (xy)^n$は$D$上で非負かつ可測。
+    従ってTonelliの定理より積分と無限和の交換ができる。
+\begin{align*}
+    \int_{x= 0}^1\int_{y= 0}^x \frac{1}{1- xy}dydx\\
+    &= \int_{x= 0}^1\int_{y= 0}^1\left(\sum_{n= 0}^\infty (xy)^n\right)dydx\\
+    &= \sum_{n= 0}^\infty\left(\int_{x= 0}^1\int_{y= 0}^1 (xy)^ndydx\right)\\
+\end{align*}
+    ここで\ref{result:R8_2nd_4(2)}より
+\begin{equation*}
+    \int_{x= 0}^1 \int_{y= 0}^x \frac{1}{1- xy}dydx= \sum_{n= 0}^\infty \frac{1}{2(n+ 1)^2}
+\end{equation*}
+    添え字を$k= n+ 1$に変えると
+\begin{equation*}
+    \sum_{n= 0}^\infty \frac{1}{2(n+ 1)^2}= \frac{1}{2}\sum_{k= 0}^\infty \frac{1}{k^2}
+\end{equation*}
+    となり、文字を$n$に戻すと
+\begin{equation*}
+    \int_{x= 0}^1 \int_{y= 0}^x \frac{1}{1- xy}dydx= \frac{1}{2}\sum_{n= 0}^\infty \frac{1}{n^2}
+\end{equation*}
+    が示された。
 \end{enumerate}
 \end{souanswer}
