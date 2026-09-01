@@ -18,6 +18,78 @@
 
 \begin{souanswer} %R8_2nd_2_ans
 \begin{enumerate}
-	\item 
+    \item 
+\begin{enumerate_alpha}
+    \item $\bm{v}\tr{\bm{v}}$を計算すると
+\begin{equation*}
+    \bm{v}\tr{\bm{v}}= \frac{1}{5}\begin{pmatrix}-1\\ 1\end{pmatrix}\begin{pmatrix}-1& 1\end{pmatrix}= \frac{1}{5}\begin{pmatrix}1& -1\\ -1& 1\end{pmatrix}
+\end{equation*}
+    したがって
+\begin{equation*}
+    A= E_2- 2\bm{v}\tr{\bm{v}}= \begin{pmatrix}1& 0\\ 0& 1\end{pmatrix}- \frac{2}{5}\begin{pmatrix}1& -1\\ -2& 1\end{pmatrix}= \frac{1}{5}\begin{pmatrix}3& 2\\ 2& 3\end{pmatrix}
+\end{equation*}
+    \item $A$の固有多項式$P_A(\lambda)$を解く。
+\begin{align*}
+    P_A(\lambda)
+    &= \begin{vmatrix}\lambda- \frac{3}{5}& \frac{2}{5}\\ \frac{2}{5}& \lambda- \frac{3}{5}\end{vmatrix}\\
+    &= (\lambda- 1)\left(\lambda- \frac{1}{5}\right)\\
+\end{align*}
+    よって求める固有値は$\lambda= 1, \frac{1}{5}$
+\end{enumerate_alpha}
+    \item 
+\begin{enumerate_alpha}
+    \item\label{result:R8_2nd_2a} $w= \begin{pmatrix}w_1\\ w_2\\ \vdots\\ w_n\end{pmatrix}\in \R^n$とおくと、転置との積はベクトルのEuclidノルムの2乗に一致する。
+\begin{equation*}
+    w\tr{w}= \sum_{k= 1}^n w_k^2= \begin{Vmatrix}w\end{Vmatrix}^2
+\end{equation*}
+    条件より$w$の長さは1であるため、
+\begin{equation*}
+    w\tr{w}= 1
+\end{equation*}
+    が成り立つ。
+    \item $Bw$を計算する。
+\begin{align*}
+    Bw
+    &= (E_n- 2w\tr{w})w\\
+    &= E_nw- 2w(w\tr{w})
+\end{align*}
+    \ref{result:R8_2nd_2a}より$w\tr{w}= 1$であるため
+\begin{equation*}
+    Bw= w- 2w= -w
+\end{equation*}
+    $w\ne 0$であるため、$w$は$B$の固有ベクトルであり、対応する固有値は-1。
+    \item 
+\begin{tcolorbox}
+    直交行列：\\
+    $n$次実正方行列$P$が$\tr{P}P= P\tr{P}= E_n$を満たすとき、$P$を直交行列という。
+\end{tcolorbox}
+    $B$の転置行列を求める。
+\begin{align*}
+    \tr{B}
+    &= \tr{(E_n- 2w\tr{w})}\\
+    &= \tr{E_n}- 2\tr{(w\tr{w})}\\
+    &= \tr{E_n}- 2w\tr{w}\\
+    &= B
+\end{align*}
+    となり、$B$は対称行列。
+    次に$\tr{B}B= B^2$を計算する。
+\begin{align*}
+    \tr{B}B
+    &= B^2\\
+    &= (E_n- 2w\tr{w})^2\\
+    &= E_n- 4w\tr{w}+ 4(w\tr{w})(w\tr{w})
+\end{align*}
+    ここで結合法則と$w\tr{w}= 1$を用いると、
+\begin{align*}
+    (w\tr{w})(w\tr{w})
+    &= w(\tr{w}w)\tr{w}\\
+    &= w\tr{w}
+\end{align*}
+    となるため、
+\begin{equation*}
+    \tr{B}B= E_n- 4w\tr{w}+ 4w\tr{w}= E_n
+\end{equation*}
+    同様に$B\tr{B}= E_n$も成り立つ。したがって$\tr{B}B= B\tr{B}= E_n$が示されたため、$B$は直交行列。
+\end{enumerate_alpha}
 \end{enumerate}
 \end{souanswer}
