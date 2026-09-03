@@ -12,7 +12,9 @@ VSCodeで何かのファイルを作るときには拡張子が必要です(イ�
 |Cファイル|.c|
 |Pythonファイル|.py|
 |LEAN4ファイル|.lean|
-!(拡張子って必要なの？)[https://youtu.be/UoHTjYlNKdA?si=VKD4eBGlXZrtvV6a]
+
+
+[拡張子って必要なの？](https://youtu.be/UoHTjYlNKdA?si=VKD4eBGlXZrtvV6a)
 
 デスクトップ画面から新しいファイルを作ったとき(or VSCodeで作り始めて保存)にはファイル名(N)と表示されるはずなのでそこで<ファイル名.[拡張子]>と入力してください。
 VSCodeで作り始めたときには最初に`Ctrl K` `M`と打ち込んで言語を設定してください(適切な拡張子を付けてくれます)。
