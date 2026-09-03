@@ -51,3 +51,12 @@ VSCodeで作り始めたときには最初に`Ctrl K` `M`と打ち込んで言�
 |`ctrl Shift R`|(Web)再読み込み|
 |`ctrl tab `|ブラウザ上のタブを(右に)移動する|
 |`ctrl tab S`|ブラウザ上のタブを(左に)移動する|
+
+## Zoom
+|コマンド|効果|
+|---|---|
+|`alt+V`|カメラON/OFF|
+|`alt+ A`|オーディオON/OFF|
+|`space`|一時的なオーディオON/OFF|
+|`alt+ H`|チャットON/OFF|
+|`alt+ Q`|退出|
