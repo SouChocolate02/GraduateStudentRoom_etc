@@ -41,7 +41,7 @@ key word: 数学科図書館，洋書，和書<br>
 ## For Next editer
 次の編集者に向けての編集方法などの覚え書き<br>
 key word: 編集方法，Markdown<br>
-[for Next editer](https://github.com/SouChocolate02/GraduateStudentRoom_etc/blob/main/for%20Next%20editer)
+[for Next editer](https://github.com/SouChocolate02/GraduateStudentRoom_etc/blob/main/Other/for%20Next%20editer.md)
 
 ## Useful wedsite
 勉強に有用なWebサイトのURLをまとめる<br>
