@@ -5,7 +5,7 @@
 # VS Codeおススメ拡張機能
 
 ## Python関連
-- Pyhton：
+- Python：
     そもそもPythonを使うために必要
 - Python Indent：
     Pythonのインデントに有効(サプー推奨)
