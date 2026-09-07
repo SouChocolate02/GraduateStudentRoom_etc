@@ -29,6 +29,90 @@
 
 \begin{souanswer} %R8_2nd_1
 \begin{enumerate}
-	\item 
+    \item 
+\begin{tcolorbox}[title= 像・核の定義]
+\begin{itemize}
+    \item 像($\img$)
+\begin{equation*}
+    \img{(T)}= \{T(v)\in W; v\in W\}
+\end{equation*}
+    \item 核($\ker$)
+\begin{equation*}
+    \ker{(T)}= \{v\in V; T(v)= \bm{0}_W\}
+\end{equation*}
+\end{itemize}
+\end{tcolorbox}
+    \item 
+\begin{enumerate_alpha}
+    \item $\bm{x}= \begin{pmatrix}x_1\\ x_2\\ x_3\end{pmatrix}\in \ker{(S)}\iff S(\bm{x})= \bm{0}$であるから、次の連立方程式を解く。
+\begin{equation*}
+\begin{pmatrix}
+    3& -1& 5\\
+    1& 1& 3\\
+    1& 0& 2\\
+    1& -3& -1
+\end{pmatrix}\begin{pmatrix}x_1\\ x_2\\ x_3\end{pmatrix}
+    = \begin{pmatrix}0\\ 0\\ 0\\ 0\end{pmatrix}
+\end{equation*}
+    係数行列を基本変形する。
+\begin{equation*}
+    \begin{pmatrix}
+    3& -1& 5\\
+    1& 1& 3\\
+    1& 0& 2\\
+    1& -3& -1
+\end{pmatrix}\Rightarrow
+\begin{pmatrix}
+    1& 0& 2\\
+    0& 1& 1\\
+    0& 0 &0\\
+    0& 0 &0\\
+\end{pmatrix}
+\end{equation*}
+    簡約化された行列より、連立方程式は以下と同値。
+\begin{equation*}
+\begin{cases}
+    x_1+ 2x_3= 0\\
+    x_2+ x_3= 0
+\end{cases}
+    \iff
+\begin{cases}
+    x_1= -2x_3\\
+    x_2= -x_3
+\end{cases}
+\end{equation*}
+    $x_3= \alpha\in \C$とおくと、$x_3= \alpha\beign{pmatrix}-2\\ -1\\ 1\end{pmatrix}$。\\
+    したがって$\ker{(S)}= \{\alpha\beign{pmatrix}-2\\ -1\\ 1\end{pmatrix}; \alpha\in \C\}$が示された。
+    
+    \item $\dim(\img(S))= 1$であり、次元定理より$\dim(\img(S))= 3- 1= 2$。\\
+    $S$の表現行列の第一・二列は線形独立であるため、$\img(S)$の基底として次が取れる。
+\begin{equation*}
+    v_1= \begin{pmatrix}3\\ 1\\ 1\\ 1\end{pmatrix},\ 
+    v_2= \begin{pmatrix}-1\\ 1\\ 0\\ 3\end{pmatrix}
+\end{equation*}
+    $T$の表現行列の列ベクトルを$w_1= \begin{pmatrix}1\\ 3\\ 1\\ -5\end{pmatrix},\ w_2= \begin{pmatrix}-3\\ 1\\ -2\\ -1\end{pmatrix}$とおくと、$w_1, w_2$は明らかに1次元であるため、$\img(T)= \span\{w_1, w_2\}$。\\
+    $W= \span\{v_1, v_2, w_1, w_2\}$であるため、これらのベクトルを並べた行列の階数を求める。
+\begin{equation*}
+    A= 
+\begin{pmatrix}
+    3& -1& 1& -3\\
+    1& 1& 3& 1\\
+    1& 0& 1& -2\\
+    1& 3& -5& -1
+\end{pmatrix}
+\end{equation*}
+    行基本変形を行うと、
+\begin{equation*}
+    A= 
+\begin{pmatrix}
+    1& 0& 1& -2\\
+    0& 1& 2& 3\\
+    0& 0& 0& 6\\
+    0& 0& 0& 0
+\end{pmatrix}
+\end{equation*}
+    非零行は3行であるため、$\rank{A}= 3$である。\\
+    したがって$W$の次元は3である。
+\end{enumerate_alpha} 
 \end{enumerate}
 \end{souanswer}
