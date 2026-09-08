@@ -38,6 +38,11 @@ key word：ゼミ，自主ゼミ<br>
 key word: 数学科図書館，洋書，和書<br>
 [Mathematics Library](https://github.com/SouChocolate02/GraduateStudentRoom_etc/blob/main/Mathematics%20Library.md)
 
+## JobHunting
+就活についてのメモ・会社説明会などについて<br>
+key word：就活・IT用語・Webテスト<br>
+[JobHunting](https://github.com/SouChocolate02/GraduateStudentRoom_etc/blob/main/Other/JobHunting)
+
 ## For Next editer
 次の編集者に向けての編集方法などの覚え書き<br>
 key word: 編集方法，Markdown<br>
