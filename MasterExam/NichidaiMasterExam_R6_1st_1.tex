@@ -19,20 +19,56 @@
 
 \begin{souanswer} %%R6_1st_1_ans
 	$\fbox{1}$
-\begin{enumerate}
-	\item $V$の任意の元$x\in W$に対して
+ \begin{enumerate}
+   \item 線形空間$V$の空でない部分集合$Wに対し、$W$が$V$の部分空間であるとは、次の条件を満たすことである。
+  \begin{enumerate_alpha}
+   \item 加法について閉じている：任意の$x, y\in W$に対して、$x+ y\in W$
+   \item スカラー倍について閉じている：任意の$x\in W$および任意のスカラー$c\in \R$に対して、$cx\in W$
+\end{enumerate_alpha}
+   \item
+\begin{enumerate_roman}
+   \item $W_1= \{\v\in \R^n; v_1+ v_2+ \cdots+ v_n= 0}$
+   部分集合である。\\
+\begin{enumerate_alpha}
+   \item 非零性：零ベクトル$\bm{0}= (0, 0, \ldots, 0)$について$0+ 0+ \cdots+ 0= 0$なので$\bm{0}\in W_1$であり、$W_1\ne \emptyset$
+   \item 線型結合：任意の$\bm{u}= (u_1, u_2, \ldots, u_n),\ \bm{v}=(v_1, v_2, \ldots, v_n)\in W_1$および任意の$a, b\in \R$をとる。\\
+   $a\bm{u}+ b\bm{v}$の各成分は$au_i+ bv_i$であるから、各成分の総和を計算すると、
 \begin{equation*}
-	W= \{x\in V; \innerproduct{x}{a},\ \forall a\in W\}
+   \sum_{i= 1}^n (au_i+ bv_i)= a\sum_{i= 1}^n u_i+ b\sum_{i= 1}^n v_i
 \end{equation*}
-	\item 
-\begin{enumerate_roman}
-	\item 
-	\item 
+   ここで$\bm{u}, \bm{v}\in W_1$より$\sum_{i= 1}^n u_i= 0$かつ$\sum_{i= 1}^n v_i= 0$であるため、したがって$a\bm{u}+ b\bm{v}\in W_1$となり、$W_1$は加法およびスカラー倍について閉じている。
+\end{enumerate_alpha}
+   \item $W_2= \{v\in \R^n; v_1\times v_2\times \cdots\times v_n= 0\}$
+   $n= 1$のとき線形空間であるが、$n\ge 2$のとき線形空間でない。\\
+   加法について閉じていない反例が存在する。$\R^n$の基底ベクトルを$\bm{e}_1= (1, 0, \ldots, 0),\ \bm{e}_2= (0, 1, 0, \ldots, 0)$とする。
+\begin{itemize}
+   \item $\bm{e}_1$の成分の積は$1\times 0\times \cdots \times 0= 0$であるから、$\bm{e}_1\in W_2$
+   \item $\bm{e}_2$の成分の積は$0\times 1\times 0\times \cdots \times 0= 0$であるから、$\bm{e}_2\in W_2$
+   \item $\bm{e}_1$と$\bm{e}_2$の成分の和は$(1, 1, 0, \ldots, 0)$であり、$n= 2$の場合の積は$1\times 1= 1\ne 0$となり、$W_2$に属さない。同様に$n> 2$の場合も$W_2$は加法に関して閉じないために部分空間ではない。
+\end{itemize}
 \end{enumerate_roman}
-	\item 
+   \item
 \begin{enumerate_roman}
-	\item 
-	\item 
+   \item $U_1= \{f\in V; fは有界\}$
+   部分空間である。
+\begin{enumerate_alpha}
+   \item 非空性：恒等的に0である零関数O(x)= 0$はすべての$x\in \R$に対して、$|O(x)|\le 0$を満たすため有界である。よって$0\in U_1$
+   \item 線型結合についての閉性：任意の$f, g\in U_1$および任意の$a, b\in \R$をとる。
+\begin{equation*}
+   |f(x)|\le M_f,\ \ |g(x)|\le M_g
+\end{equation*}
+   が成り立つ。三角不等式より任意の$x\in \R$に対して、
+\begin{align*}
+   |(af+ bg)(x)|
+   &= |af(x)+ bg(x)|\\
+   &\le |a||f(x)|+ |b||g(x)|\\
+   &\le |a|M_f+ |b|M_g
+\end{align*}
+   ここで$M= |a|M_f+ |b|M_g$とおくと、$M$は$x$に依存しない定数であるため、$af+bg$も有界である。すなわち$af+ bg\in U_1$となり、$U_1$は加法およびスカラー倍について閉じている。
+\end{enumerate_alpha}
+   \item $U_2= \{f\in V; fは連続でない\}$
+      部分空間でない。\\
+      部分空間であるための必要条件「零元を含むこと」を満たさない。
 \end{enumerate_roman}
 \end{enumerate}
 \end{souanswer}
