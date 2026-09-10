@@ -21,6 +21,91 @@
 
 \begin{souanswer} %R8_1st_1_ans
 \begin{enumerate}
-	\item 
+  \item 第一列について基本変形を行う．
+\begin{equation*}
+  \det{A}= 
+\begin{vmatrix}
+  4& -1& 2//
+  -6& 3& -6\\
+  -6& 2& -4
+\end{vmatrix}= 
+\begin{vmatrix}
+  4& -1& 2\\
+  0& 1& -2\\
+  -2& 1& -2
+\end{vmatrix}= 0
+\end{equation*}
+  \item $A$を行基本変形して階段行列をつくる．
+\begin{equation*}
+  A= 
+\begin{vmatrix}
+  4& -1& 2//
+  -6& 3& -6\\
+  -6& 2& -4
+\end{vmatrix}= 
+\begin{vmatrix}
+  1& 0& 0//
+  0& 1& -2\\
+  0& 0& 0
+\end{vmatrix}
+\end{equation*}
+  よって階数は$\rank{A}= 2$．$A\bm{x}= \bm{0}$を解くと，
+\begin{equation*}
+\begin{pmatrix}
+  1& 0& 0\\
+  0& 1& -2\\
+  0& 0& 0
+\end{pmatrix}\begin{pmatrix}x_1\\ x_2\\ x_3\end{pmatrix}= \begin{pmatrix}0\\ 0\\ 0\end{pmatrix}
+  \iff \begin{cases}x_1= 0\\ x_2= 2x_3\end{cases}
+\end{equation*}
+  $x_3= t$とおくと，$\begin{pmatrix}x_1\\ x_2\\ x_3\end{pmatrix}= t\begin{pmatrix}0\\ 2\\ 1\end{pmatrix}$．\\
+\begin{itemize}
+  \item $\ker{f}$の基底：$\begin{pmatrix}0\\ 2\\ 1\end{pmatrix}$
+  \item $\ker{f}$の次元：$\dim{\ker{f}}= 1$
+\end{itemize}
+  階段行列の主成分は第一列と第二列にあるため，$A$の第一列と第二列のベクトルが$\img{f}$の基底を作る．
+\begin{itemize}
+  \item $\img{f}$の基底：$\begin{Bmatrix}\begin{pmatrix}4\\ -6\\ -6\end{pmatrix}, \begin{pmatrix}-1\\ 3\\ 2\end{pmatrix}\end{Bmatrix}$
+  \item $\img{f}$の次元：$\dim{\img{f}}= \rank{A}= 2$
+\end{itemize}
+  \item $A$の固有多項式$\det{\lambda I- A}= 0$を計算する．
+\begin{equation*}
+  \det{\lambda I- A}= 
+\begin{vmatrix}
+  \lambda- 4& 1& -2\\
+  6& \lambda- 3& 6\\
+  6& -2& \lambda+ 4
+\end{vmatrix}= \lambda(\lambda- 1)(\lambda- 2)
+\end{equation*}
+  $\det{\lambda I- A}= 0$を解くと，$\lambda= 0, 1, 2$
+  \item 各固有値に対して固有ベクトルを求める．
+\begin{enumerate_roman}
+  \item $\lambda= 0$のとき：$\bm{v}_{\lambda= 0}= \begin{pmatrix}0\\ 2\\ 1\end{pmatrix}$
+  \item $\lambda= 1$のとき：$(I- A)\bm{v}_{\lambda= 1}= \bm{0}$を解く．
+\begin{equation*}
+  (I- A)\bm{v}_{\lambda= 1}= \begin{pmatrix}-3& 1& -2\\ 6& -2& 6\\ 6& -2& 5\end{pmatrix}\bm{v}_{\lambda= 1}= \bm{0}\iff \bm{v}_{\lambda= 1}= \begin{pmatrix}1\\ 3\\ 0\end{pmatrix}
+\end{equation*}
+  \item $\lambda= 2$のとき：$(2I- A)\bm{v}_{\lambda= 2}= \bm{0}$を解く．
+\begin{equation*}
+  (2I- A)\bm{v}_{\lambda= 2}= \begin{pmatrix}-2& 1& -2\\ 6& -1& 6\\ 6& -2& 6\end{pmatrix}\bm{v}_{\lambda= 2}= \bm{0}\iff \bm{v}_{\lambda= 2}= \begin{pmatrix}-1\\ 0\\ 1\end{pmatrix}
+\end{equation*}
+  求める基底$E$の1つは$\begin{Bmatrix}\begin{pmatrix}0\\ 2\\ 1\end{pmatrix}, \beign{pmatrix}1\\ 3\\ 0\end{pmatrix}, \begin{pmatrix}-1\\ 0\\ 1\end{pmatrix}\end{Bmatrix}$．このとき表現行列は$\begin{pmatrix}0& 0& 0\\ 0& 1& 0\\ 0& 0& 2\end{pmatrix}$となる．
+\end{enumerate_roman}
+  \item 背理法で示す．ある基底$F$に関する$f$の表現行列を$B= (b_{ij})\in M_3(\R)$とし，$B$のすべての成分$b_{ij}\ (1\le i, j\le 3)$が偶数整数であると仮定する．標準基底から基底$F$の基底変換行列を正則行列$P$とおくと，表現行列の変換規則より
+\begin{equation*}
+  B= P^{-1}AP
+\end{equation*}
+  が成り立つ．すなわち$A$と$B$は相似．相似な正方行列のトレースは不変であるため，
+\begin{equation*}
+  \tr{A}= \tr{B}
+\end{equation*}
+  が成り立つ．
+  ここで仮定より$B$のすべての対角成分$b_{11}, b_{22}, b_{33}$は偶数である．したがってその和も偶数となる．\\
+  一方行列$A$のトレースは
+\begin{equation*}
+  \tr{A}= 4+ 3+ (-4)= 3
+\end{equation*}
+  となるため，矛盾．\\
+  したがってすべての成分が偶数となるような表現行列をもつ基底$F$は存在しない．
 \end{enumerate}
 \end{souanswer}
