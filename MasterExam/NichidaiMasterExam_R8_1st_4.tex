@@ -13,6 +13,72 @@
 
 \begin{souanswer} %R8_1st_4_ans
 \begin{enumerate}
-	\item 
+    \item 任意の$a\in \R$および任意の$\epsilon> 0$に対して、ある$\delta > 0$が存在して
+\begin{equation*}
+    |x- a|< \delta\Rightarrow |f(x)- f(a)|< \epsilon
+\end{equation*}
+    が成り立つこと。
+    \item 人のの$a\in \R$および任意の$\epsilon> 0$をとる。$\delta= \epsilon/2> 0$と定めると、$|x- a|< \delta$を満たすすべての$x\in \R$に対して
+\begin{equation*}
+    |f(x)- f(a)|= |2x- 2a|= 2|x- a|< 2\delta= \epsilon
+\end{equation*}
+    が成り立つ。したがって$f$は各点$a\in \R$で連続であり、$\R$上連続である。
+    \item 任意の$\epsilon> 0$に対し、ある$\delta> 0$が存在して
+\begin{equation*}
+    |x- y|< \delta\Rightarrow |f(x)- f(y)|< \epsilon
+\end{equation*}
+    がすべての$x, y\in \R$に対して成り立つ。
+    \item 和積の公式を用いる、任意の$x, y\in \R$に対して
+\begin{equation*}
+    f(x)- f(y)= \sin{x}- \sin{y}= 2\sin{\left(\frac{x- y}{2}\right)}\cos{\left(\frac{x+ y}{2}\right)}
+\end{equation*}
+    となる。$|\cos{theta}|\le 1$および与えられた不等式$|\sin{\theta}|\le |\theta|$を用いると、
+\begin{align*}
+    |f(x)- f(y)|
+    &= 2\left|\sin{\left(\frac{x- y}{2}\right)}\right|\left|\cos{\left(\frac{x+ y}{2}\right)}\right|\\
+    &\le 2\left|\frac{x- y}{2}\right|\cdot 1\\
+    &= |x- y|
+\end{align*}
+    が得られる。任意の$\epsilon> 0$に対して、$\delta= \epsilon> 0$とおけば、$|x- y|> \delta$を満たすすべての$x, y\in \R$に対して
+\begin{equation*}
+    |f(x)- f(y)|\le |x- y|< \delta= \epsilon
+\end{equation*}
+    が成り立つ。したがって$f$は$\R$上一様連続。
+    \item 一様連続でないことの否定命題を示す。
+\begin{tcolorbox}
+    ある$\epsilon_0> 0$が存在して、任意の$\delta > 0$に対して、ある点対$x, y\in \R$が存在して、$|x- y|< \delta$かつ$|f(x)- f(y)|\ge \epsilon_0$を満たす。
+\end{tcolorbox}
+    $\epsilon_0= 1$とする。各自然数$n\in \N$に対し、
+\begin{equation*}
+    x_n= \sqrt{2n\pi+ \frac{\pi}{2}},\ \ y_n= \sqrt{2n\pi}
+\end{equation*}
+    とおく。このとき
+\begin{equation*}
+    f(x_n)= \sin{\left(2n\pi+ \frac{\pi}{2}\right)}= 1,\ \ f(y_n)= \sin{2n\pi}= 0
+\end{equation*}
+    より
+\begin{equation*}
+    |f(x_n)- f(y_n)|= |1- 0|= 1\ge \epsilon_0
+\end{equation*}
+    となる。一方で2点間の距離は
+\begin{align*}
+    |x_n- y_n|
+    &= \sqrt{2n\pi+ \frac{\pi}{2}}- \sqrt{2n\pi}\\
+    &= \frac{\pi/2}{\sqrt{2n\pi+ \frac{\pi}{2}}+ \sqrt{2n\pi}}
+\end{align*}
+    と評価でき、$n\to +\infty$のとき、$|x_n- y_n|\to 0$。したがって任意の$\delta> 0$に対して十分大きな$n$を選べば、$|x_n- y_n|< \delta$かつ$|f(x_n)- f(y_n)|\ge 1$をみたす点対が取れるため、$f$は$\R$上一様連続ではない。
+    \item いえない。
+\begin{tcolorbox}[title= 反例]
+    $g(x)= 1,\ \ f(x)= \sin{x^2}$とする。
+\begin{itemize}
+    \item $g$は定数関数であるため、$\R$上一様連続
+    \item 任意の$x\in \R$に対して
+\begin{equation*}
+    |f(x)|= |\sin{x^2}|\le 1= |g(x)|
+\end{equation*}
+    が成り立つ。
+    \item しかし$f(x)= \sin{x^2}$は$\R$上一様連続でない。
+\end{itemize}
+\end{tcolorbox}
 \end{enumerate}
 \end{souanswer}
