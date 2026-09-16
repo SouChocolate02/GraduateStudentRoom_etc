@@ -1,25 +1,76 @@
 % NichidaiMasterExam_R7_1st_2
 \begin{tcolorbox} %%R7_1st_2
-	$\fbox{2}$ $n$次正方行列$H$が次の条件を満たすとする。
+	$\fbox{2}$ $n$次正方行列$H$が次の条件を満たすとする．
 \begin{enumerate_alpha}
-	\item 各要素が1または-1
-	\item 各行が直交する。すなわち$h_i$を$H$の第$i$行の行ベクトルとすると、$j\ne k$ならば$h_j{}^t h_k= 0$ただし、行列$M$に対しては${}^t M$はその転置行列とする。
+	\item\label{条件：要素が1または-1} 各要素が1または-1
+	\item\label{条件：各行が直交する} 各行が直交する．すなわち$h_i$を$H$の第$i$行の行ベクトルとすると，$j\ne k$ならば$\tr{h_j}h_k= 0$ただし，行列$M$に対しては$\tr{M}$はその転置行列とする．
 \end{enumerate_alpha}
-	次の問に答えよ。
+	次の問に答えよ．
 \begin{enumerate}
-	\item $H^t H= nI_n$を示せ。ただし$I_n$は$n\times n$の単位行列とする。
-	\item  $H$の逆行列を求めよ。
-	\item $H$の各列も直交することを示せ。
-	\item $n$を3以上の奇数とすると、条件(a), (b)をともに満たす$n\times n$行列は存在しないことを示せ。
+	\item $\tr{H} H= nI_n$を示せ．ただし$I_n$は$n\times n$の単位行列とする．
+	\item $H$の逆行列を求めよ．
+	\item $H$の各列も直交することを示せ．
+	\item $n$を3以上の奇数とすると，条件\ref{条件：要素が1または-1}, \ref{条件：各列が直交する}をともに満たす$n\times n$行列は存在しないことを示せ．
 \end{enumerate}
 \end{tcolorbox}
 
 \begin{souanswer} %%R7_1st_2_ans
 	$\fbox{2}$
 \begin{enumerate}
-	\item 
-	\item 
-	\item 
-	\item 
+	\item\label{R7_1st_2(2)} 行列$H$の第$i$列ベクトル$h_i$とする．転置行列$\tr{H}$の第$k$列ベクトル$\tr{h_k}$となる．行列の積$\tr{H}H$の$(j, k)$成分を$c_{jk}$とおくと行列積の定義より
+\begin{equation*}
+	c_{jk}= h_j\tr{H_k}
+\end{equation*}
+	条件\ref{条件：要素が1または-1}より各成分$h_{jl}$は1または-1なので，その2乗は常に1．したがって
+\begin{equation*}
+	c_{jj}= 1+ 1+ \cdots+ 1= n
+\end{equation*}
+	以上より成分$c_{jk}$は$j= k$のとき$n$，それ以外は0となるため，
+\begin{equation*}
+	\tr{H}H= 
+\begin{pmatrix}
+	n& & 0\\
+	& \vdots& \\
+	0& & 0
+\end{pmatrix}= 
+	nI_n
+\end{equation*}
+	が成り立つ．
+	\item $\tr{H}H= nI_n$の両辺を$n$で割ると
+\begin{equation*}
+	H\left(\frac{1}{n}\tr{H}\right)= I_n
+\end{equation*}
+	逆行列の定義より
+\begin{equation*}
+	H^{-1}= \frac{1}{n}\tr{H}
+\end{equation*}
+	\item \ref{R7_1st_2(2)}より$\frac{1}{n}\tr{H}$は$H$の右逆行列であり，同時に左逆行列でもあるため，
+\begin{equation*}
+	\left(\frac{1}{n}\tr{H}\right)H= I_n\iff \tr{H}H= nI_n
+\end{equation*}
+	が成り立つ．ここで$\tr{H}H$の$(j, k)$成分は$H$の第$j$列ベクトル$v_j$，第$k$列ベクトル$v_k$とかくと$\tr{v_j}v_k$に相当する．これが$nI_n$に等しいということは
+\begin{itemize}
+	\item[$j\ne k$のとき]：$\tr{v_j}v_k= 0$
+	\item[$j= k$のとき]：$\tr{v_j}b_k= n$ 
+\end{itemize}
+	従って各列も互いに直交する．
+	\item 各条件\ref{条件：要素が1または-1}, \ref{条件：各列が直交する}を満たす$n\times n$行列が存在すると仮定する．第1行$h_1$と第2行$h_2$の直交条件$\tr{h_1}h_2= 0$に注目する．$H$の第$i$成分を$h_{1, i}, h_{2, i}$とすると，
+\begin{equation*}
+	\sum_{i= 1}^n h_{1, i}h_{2, i}= 0
+\end{equation*}
+	各成分は1または-1なので，積$h_{1, i}h_{2, i}$もまた1または-1．ここで$n$個の項のうち
+\begin{itemize}
+	\item $h_{1, i}h_{2, i}= 1$となる個数を$p$
+	\item $h_{1, i}h_{2, i}= -1$となる個数を$q$
+\end{itemize}
+	とおくと，次の連立方程式が成り立つ．
+\begin{equation*}
+\begin{cases}
+	p+ q= n\\
+	p- q= 0
+\end{cases}
+\end{equation*}
+	解くと$2p= n$となり，$n$は偶数でなければならないが，問題の仮定では$n\ge 3$の奇数であるから矛盾．\\
+	よって$n\ge 3$の奇数のとき，条件を満たす行列$H$は存在しない．
 \end{enumerate}
 \end{souanswer}
