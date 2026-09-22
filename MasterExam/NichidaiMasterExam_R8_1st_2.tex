@@ -14,6 +14,85 @@
 
 \begin{souanswer} %R8_1st_2_ans
 \begin{enumerate}
-	\item 
+	\item $H= \beign{pmatrix}1& 0\\ 0& 1\end{pmatrix}$のとき、$y$の複素共役ベクトルは各成分の共役をとるため、
+\begin{equation*}
+    \bar{y}= \begin{pmatrix}1\\ i\end{pmatrix}
+\end{equation*}
+    定義式に代入すると
+\begin{align*}
+    \langle{1& i}\rangle_H
+    &= \begin{pmatrix}1& i\end{pmatrix}\begin{pmatrix}1& 0// 0& 1\end{pmatrix}\begin{pmatrix}1\\ i\end{pmatrix}\\
+    &= \begin{pmatrix}1& i\end{pmatrix}\begin{pmatrix}1\\ i\end{pmatrix}\\
+    &= 1+ i^2\\
+    &= 0
+\end{align*}
+    \item 任意の$x, y, z\in \C^2$および$a\in \C$に対して転置の線形性より
+\begin{equation*}
+    \tr{(ax+ y)}= a\tr{x}+ \tr{y}
+\end{equation*}
+    が成り立つ。これを行列の積と内積の定義式に代入すると、
+\begin{align*}
+    \langle{ax+ y, z}\rangle_H
+    &= \tr{(ax+ y)}H\bar{z}\\
+    &= (a\tr{x}+ \tr{y})H\bar{z}\\
+    &= a\tr{x}H\bar{z}+ \tr{y}H\bar{z}\\
+    &= a\langle{x, y}\rangle_H+ \langle{y, z}\rangle_H
+\end{align*}
+    よって第一引数に関する線形性が示された。
+    \item 特性方程式$\det{(\lambda I- H)}= 0$を解く。
+\begin{equation*}
+    \det{(\lambda I- H)}= \begin{bmatrix}\lambda- 5& 2i\\ -2i& \lambda- 5\end{bmatrix}= (\lambda- 7)(\lambda- 3)
+\end{equation*}
+    よって固有値は$\lambda= 3, 7$。\\
+    各固有値に対して固有ベクトルを求め、正規化する。
+\begin{itemize}
+    \item $\lambda= 7$のとき：\\
+    $(7I- H)\bm{u}= \bm{0}$を解く。
+\begin{equation*}
+    \begin{pmatrix}1& i\\ 0& 0\end{pmatrix}= \bm{0}\iff \bm{u}= \begin{pmatrix}-i\\ 1\end{pmatrix}
+\end{equation*}
+    正規化すると
+\begin{equation*}
+    \bm{p}_1= \frac{1}{\sqrt{2}}\begin{pmatrix}-i\\ 1\end{pmatrix}
+\end{equation*}
+    \item $\lambda= 3$のとき：\\
+    $(3I- H)\bm{v}= \bm{0}$を解く。
+\begin{equation*}
+    \begin{pmatrix}1& -i\\ 0& 0\end{pmatrix}= \bm{0}\iff \bm{v}= \begin{pmatrix}i\\ 1\end{pmatrix}
+\end{equation*}
+    正規化すると
+\begin{equation*}
+    \bm{p}_2= \frac{1}{\sqrt{2}}\begin{pmatrix}i\\ 1\end{pmatrix}
+\end{equation*}
+    エルミート行列の異なる固有値に属する固有ベクトルは直交するため、$\bm{p}_1, \bm{p}_2$は正規直交基底を成す。
+\begin{equation*}
+    P= \begin{pmatrix}\bm{p}_1 \bm{p}_2\end{pmatrix}= \frax{1}{\sqrt{2}}\begin{pmatrix}-i& i\\ 1& 1\end{pmatrix}
+\end{equation*}
+    このとき$P$はユニタリ行列であり、
+\begin{equation*}
+    D= P^{-1}HP= \begin{pmatrix}7& 0\\ 0& 3\end{pmatrix}
+\end{equation*}
+    となる。
+\end{itemize}
+    \item $\bm{x}= \begin{pmatrix}x_1\\ x_2\end{pmatrix}\ne \begin{pmatrix}0\\ 0\end{pmatrix}$とする。
+\begin{align*}
+    \langle{x, x}\rangle_HP
+    &= \tr{x}H\ber{x}\\
+    &= \begin{pmatrix}x_1& x_2\end{pmatrix}\begin{pmatrix}5& -2i\\ 2i& 5\end{pmatrix}\begin{pmatrix}\bar{x}_1& \bar{x}_2\end{pmatrix}\\
+    &= \begin{pmatrix}x_1& x_2\end{pmatrix}\begin{pmatrix}5\bar{x}_1- 2i\bar{x}_2\\ 2i\bar{x}_1+ 5\bar{x}_2\end{pmatrix}\\
+    &= x_1(5\bar{x}_1- 2\bar{x}_2)+ x_2(2i\bar{x}_1+ 5\bar{x}_2)\\
+    &= 5|x_1|^2- 2ix_1\bar{x}_2+ 2i|\bar{x}_1|x_2+ 5|x_2|^2
+\end{align*}
+    ここで$x_1\bar{x}_2= \alpha+ i\beta\ \ (\alpha, \beta\in \R)$とおくと、$\bar{x}_1x_2= \bar{x_1\bar{x}_2}= \alpha- i\beta$であり、$-2i(\alpha+ i\beta)+ 2i(\alpha- i\beta)= 4\beta= \im(x_1\bar{x}_2)$。\\
+    平方完成すると
+\begin{align*}
+    \langle{x, x}\rangle_H
+    &= 5|x_1|^2+ 5|x_2|- 2i(x_1\bar{x}_2- \bar{x}_1x_2)\\
+    &= 3(|x_1|^2+ |x_2|^2)+ 2|x_1+ ix_2|^2
+\end{align*}
+    $\bm{x}\ne \bm{0}$より$|x_1|^2+ |x_2|^2> 0$であり、$|x_1+ ix_2|^2\ge 0$だから
+\begin{equation*}
+    \langle{x, x}\rangle_H\ge 0
+\end{equation*}
 \end{enumerate}
 \end{souanswer}
