@@ -22,5 +22,8 @@
 
 1. 部門コード(555)を入力してログイン
 1. 左上コピー機を押す
+   ![staple1.png](staple1.png)
 1. 右下「ステープル/パンチ」を押し，任意の設定にする(中央上の「ステープル1点」が最適)
+   ![staple2.png](staple2.png) ![staple3.png](staple3.png)
 1. 資料を上の読み取り部分に順番通り乗せスタートさせる
+   ![staple4.png](staple4.png)
