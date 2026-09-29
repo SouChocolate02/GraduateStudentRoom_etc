@@ -1,0 +1,109 @@
+%2026_Assingment_Analysis_IB
+\documentclass[dvipdfmx, leqno]{jsreport}
+\usepackage{soupreamble}
+
+\title{解析学特論IB レポート課題}
+\author{M6012 川村聡一郎}
+\date{}
+
+\begin{document}
+\maketitle
+%\section{Sample}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{Sample}$
+    以下を示せ．
+\begin{enumerate}
+    \item 
+\end{enumerate}
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{1}$
+    $\alpha, \beta\in \N^N_0, x, y\in \R^N$に対して以下が成り立つことを示せ。
+\begin{enumerate}
+    \item $|x^\alpha|\le |x|^{|\alpha|}\le (1+ |x|^2)^{1/2}$
+    \item $x^{\alpha+ \beta}= x^\alpha x^\beta,\ \ \partial^{\alpha+ \beta}= \partial^\alpha \partial^\beta$
+    \item $(x+ y)^\alpha= \sum_{\beta\le \alpha}\binom{\alpha}{\beta} x^\beta y^{\alpha- \beta}$
+    \item $|\alpha|$階微分可能な関数$f= f(x), g= g(x)$に対し、$\partial^\alpha(fg)= \sum_{\beta\le \alpha}\binom{\alpha}{\beta} \partial^\beta f \partial^{\alpha- \beta}g$
+\end{enumerate}
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{2}$
+    $f, g\in C^\infty(\R^N), l, m\in \N_0$に対し、以下を示せ．
+\begin{enumerate}
+    \item $l'\in \N_0, \alpha\in \N_0^N, l'\le l, |\alpha|\le m$ならば$\sup_{x\in \R^N} (1+|x|^2)^{{l'}/2}|\partial^\alpha f(x)|\le |f|_{m, l}$
+    \item $|f+ g|_{m, l}\le |f|_{m, l}+ |g|_{m, l}, |cf|_{m, l}= |c||f|_{m, l}$\ \ ($c$は任意の複素定数)
+    \item $|f_{0, 0}|= ||f||_\infty$%= \norm_{L^\infty}$
+\end{enumerate}
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{3}$
+    1変数$t$の関数$f, g$と、$N$変数$x= (x_1, \ldots, x_N)$の関数$\rho$を次のように定める。
+\begin{align*}
+    f(t)= 
+\begin{cases}
+    e^{-\frac{1}{2t}} &(t> 0)\\
+    0 &(t\le 0)
+\end{cases},\ \ \ 
+    g(t)= f(1+ t)f(1 -t)= 
+\begin{cases}
+    e^{-\frac{1}{1- t^2}} &(|t|< 1)\\
+    0 &(|t|\ge 1)
+\end{cases},\ \ \ 
+    \rho(x)= \frac{1}{c}g(|x|^2)    
+\end{align*}
+    ただし$c= \int_{\R^N} g(|x|^2)dx$とする。
+\begin{enumerate}
+    \item $(n- 1)$次多項式$P_n$が存在することを示せ。
+    \item $g\in C^\infty_0(\R)$を示せ。
+    \item $\rho\in C^\infty_0(\R^N),\ \supp{\rho}= \bar{B_1(0)},\ \rho(x)\ge 0,\ \int_{\R^N} \rho(x)dx= 1$を示せ。
+\end{enumerate}
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{4}$
+    以下を示せ．
+\begin{enumerate}
+    \item $f(x)= e^{-|x|^2}\ \ (x\in \R^N),\ \alpha\in \N^N_0$に対し、$\partial^\alpha f(x)= P_\alpha(x)e^{-|x|^2}$を満たす$|\alpha|$次多項式$P_\alpha(x)$が存在する。
+    \item $|\alpha|$次多項式$P_\alpha(x)$に対し、($x$に依らない)正定数$C_\alpha$が存在して$|P_\alpha(x)|\le C_\alpha(1+ |x|^2)^{|\alpha|/2}\ (\forall x\in \R^N)$が成り立つ。
+    \item $\alpha> N$をみたす実数$\alpha$に対し、広義積分$\int_{\R^N} \frac{1}{(1+ |x|^2)^{\alpha/2}}dx$が存在する。
+\end{enumerate}
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{5}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{5}$
+    多項式$P(x),\ e^{ix\cdot \xi}$($\xi$は$\R^N$の定ベクトル)が緩増加関数であること、$e^{|x|^2}$が緩増加関数でないことを示せ。
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{6}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{6}$
+    $f\in L^1(\R^N)$に対し、以下が成りたつことを示せ。
+\begin{enumerate}
+    \item $F[\tau_h f](\xi)= e^{ih\cdot \xi} \F[f](\xi)$
+    \item $\F[f^\flat](\xi)= \F^{-1}[f](\xi)$
+    \item $\F[D_t f](\xi)= \frac{1}{t^N}(D_{1/t}\F[f])(\xi)$
+\end{enumerate}
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{7}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{7}$
+    以下を示せ．
+\begin{enumerate}
+    \item $\forall f\in \mathcal{S}$に対し、$f\ast g= f$を満たす$g\in \mathcal{S}$は存在しない。
+    \item $\forall f\in L^1$に対し、$f\ast g= f$を満たす$g\in L^1$は存在しない。
+
+\end{enumerate}
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
