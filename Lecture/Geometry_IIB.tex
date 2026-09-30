@@ -1,0 +1,58 @@
+%2026_Geometry_IIB
+\documentclass[dvipdfmx, leqno]{jsreport}
+\usepackage{soupreamble}
+
+\title{幾何学特論IIB}
+\author{講義：善本潔}
+\date{2026年度 後期}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{講義}
+\section{定義}
+\begin{soudef}{グラフ：Graph}
+    2つの集合$V(G)$と$E(G)$とその関係$\phi$によって定義される。
+\begin{equation*}
+    \phi\colon E(G)\to \begin{pmatrix}V(G)\\ 2\end{pmatrix}\cup \begin{pmatrix}V(G)\\ 1\end{pmatrix}
+\end{equation*}
+\end{soudef}
+
+\chapter{演習問題}
+\begin{soupractice}{Example1.1.37}
+    Structure of the Petersen graph Using[5]= $\{1, 2, 3, 4, 5\}$ as our 5-element set, we write the pair $\{a, b\}$ as $ab$ or $ba$. Since 12 and 34 are disjoint, they are adjacent vertices when we form the graph, but 12 and 23 are not. For each 2-set $ab$, ther are three ways to pick a 2-set form the remaining three elements of [5], so every vertex has degree 3.\\
+
+%長いのでいったん略(大一段落終了)
+\end{soupractice}
+
+\begin{soupractice}{Thm1.2.1}
+    Let$P(n)$ be astatment with an interger parameter $n$. If the follwing two conditions hold, then $P(n)$ is true for each positive integer $n$
+\begin{enumerate_roman}
+    \item $P(1)$ is true.
+    \item For all $n> 1$, "$P(k)$ is true for $1\le k< n$" implies "$P(n)$ is true.
+\end{enumerate_roman}
+\end{soupractice}
+
+\begin{soupractice}{Lem1.2.5}
+    Every $u, v$- walk contains a $u, v$- path.
+\end{soupractice}
+
+
+\begin{soupractice}{Prop1.2.11}
+    Every graph with $n$ vertices and $k$ edges has at least $n- k$ components.
+\end{soupractice}
+
+\begin{soupractice}{Thm 1.2.14}
+    An edge is a cut-edge if and only if it belongs to no cycle.
+\end{soupractice}
+
+\begin{soupractice}{Lem1.2.15}
+    Every closed odd walk contains an odd cycle.
+\end{soupractice}
+
+\begin{soupractice}{Thm1.2.18(K\"onig)}
+    A graph is bipartite if and only if it has no odd cycle.
+\end{soupractice}
+
+\end{document}
