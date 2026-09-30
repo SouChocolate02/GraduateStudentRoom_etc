@@ -1,0 +1,194 @@
+%2026_Algebra_IA
+\documentclass[dvipdfmx, leqno]{jsreport}
+\usepackage{soupreamble}
+
+\title{代数学特論IA}
+\author{教員：月岡透}
+\date{2026年度 後期}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\chapter{環論の基礎事項の復習}
+\section{環論}
+
+\begin{soudef}{環:Ring}
+    $R$を空でない集合とする．二項演算$+\colon (R, R)\to R,\ \times\colon (R, R)\to R$が定められていて次をみたすとき，$R$は環であるという．
+% 和についての性質
+\begin{tcolorbox}[title= 和についての性質]
+\begin{enumerate_roman}
+    \item $\forall a, b, x\in R$に対して$(a+ b)+ c= a+ (b+ c)$が成り立つ．
+    \item\label{非可換環} ある元$0\in R$が存在し，$\forall a\in R$に対し，$0+ a= a+ 0= a$が成り立つ．
+    \item $\forall a\in R$に対し，$a$に対応した$x\in R$が存在し，$a+ x= x+ a= 0$が成り立つ．この$x$を$-a$とかく．
+    \item $\forall a, b\in R$に対し，$a+ b= b+ a$が成り立つ．
+\end{enumerate_roman}
+\end{tcolorbox}
+% 積についての性質
+\begin{tcolorbox}[title= 積についての性質]
+\begin{enumerate_roman}
+    \item $\forall a, b, c\in R$に対し，$a\cdot (b\cdot c)= (a\cdot b)\cdot c$が成り立つ．
+    \item ある元$1\in R$が存在し，任意の$a\in R$に対し，$1\cdot a= a\cdot 1= a$が成り立つ．
+    \item $\forall a, b, c\in R$に対し，$a\cdot b= b\cdot a$が成り立つ．
+\end{enumerate_roman}
+\end{tcolorbox}
+\end{soudef}
+
+\begin{souremark}
+    \ref{非可換環}をみたさない場合は非可換環という．
+\end{souremark}
+\begin{souexample}
+    正方行列全体の集合(一般に行列$A, B$は$AB\ne BA$)
+\end{souexample}
+
+\begin{soudef}{多項式環:Polynomial Ring}
+\begin{equation*}
+    f(x)= a_0+ a_1x+ \cdots+ a_nx^n\ \ (a_i\in \C)
+\end{equation*}
+    で表される形式を複素係数多項式という．
+\end{soudef}
+
+\begin{souexample}
+\begin{align*}
+    f(x)&:= a_0+ a_1x+ \cdots+ a_nx^n= \sum_{i= 0}^n a_ix^i\ \ (a_i\in \C)\\
+    g(x)&:= b_0+ b_1x+ \cdots+ b_mx^m= \sum_{j= 0}^m a_jx^j\ \ (b_j\in \C)
+\end{align*}
+    と定める．和$f(x)+ g(x)$は
+\begin{equation*}
+    f(x)+ g(x)= (a_0+ b_0)+ (a_1+ b_1)x+ \cdots+ (a_n+ b_n)x^n+ \cdots+ (a_m+ b_m)x^m
+\end{equation*}
+    積$f(x)g(x)$は
+\begin{equation*}
+    f(x)g(x)= \sum_{k= 0}^{n+ m} c_k x^k
+\end{equation*}
+    ただし$c_k= \sum_{i+ j= k} a_ib_j$
+\end{souexample}
+    このように加法と乗法を定めると複素係数多項式全体の集合は可換環になる．これを複素係数多項式環といい，$\C[x]$とかく．
+\begin{soudef}{イデアル:Ideal}
+    $R$を可換環とし，$I$を$R$の空でない部分集合とする．
+    次を満たすものとき$I$を$R$のイデアルであるという．
+\begin{enumerate_roman}
+    \item $x, y\in I\Rightarrow x+ y\in I$
+    \item $a\in R$かつ$x\in I\Rightarrow ax\in I$
+\end{enumerate_roman}
+\end{soudef}
+\begin{sounotation}
+    $R$を可換環，$x_1, x_2, \ldots, x_n\in R$とする．
+\begin{equation*}
+    (x_1, x_2, \ldots, x_n):= \{a_1x_1+ a_2x_2+ \cdots+ a_nx_n; a_i\in R\}
+\end{equation*}
+    これは$R$のイデアルである．とくに$(x)= \{ax; a\in R\}$はイデアルであり，単項イデアルという．
+\end{sounotation}
+
+\begin{soudef}{同値関係}
+    $R$を環，$I$を$R$のイデアルとする．$R$において
+\begin{equation*}
+    x\sim y\iff x- y\in I
+\end{equation*}
+    という二項関係を考えると，これは同値関係になる．
+\end{soudef}
+    商集合$R\slash \sim$を$R\slash I$で表す．$x\in R$を含む同値類を$x+ I$で表す．
+\begin{align*}
+    (x+ I)+ (y+ I)&:= (x+ y)+ I\\
+    (x+ I)(y+ I)&:= xy+ I
+\end{align*}
+    と定めると$R\slash I$は可換環になる．
+
+\begin{soudef}{準同型写像}
+    $R, R'$を可換環とする．写像$f\colon R\to R'$は次をみたすとき環準同型写像という．
+\begin{enumerate_roman}
+    \item $\forall x, y\in \R$に対して$f(x+ y)= f(x)+ f(y)$
+    \item $\forall x, y\in \R$に対して$f(xy)= f(x)f(y)$
+    \item $f(1)= 1'$\ \ (ただし$1, 1'$はそれぞれ$R, R'$の単位元)
+\end{enumerate_roman}
+\end{soudef}
+
+\begin{southm}{準同型定理}
+    $R, R'$を可換環とする．$f\colon R\to R'$を準同型写像という．
+\end{southm}
+\begin{sounotation}
+\begin{align*}
+    \Ker{f}&= \{x\in R; f(x)= 0\}\\
+    \img{f}&= \{y\in R'; \exists x\in R\st y= f(x)\} 
+\end{align*}
+\end{sounotation}
+\begin{souremark}
+    $\Ker{f}$は$R$のイデアル，$\img{f}$は$R'$の部分環になる．
+\begin{align*}
+    R\slash \Ker{f}&\cong \img{f}\\
+    x+ \Ker{f}&\leftrightarrow f(x)
+\end{align*}
+\end{souremark}
+
+\begin{souexample}
+\begin{center}
+\begin{tikzcd}
+    \phi\colon& \R[x]& \to& \C\\
+    & f(x)& \mapsto& f(i)
+\end{tikzcd}
+\end{center}
+    $\phi\colon \R[x]\to \C$  
+    $\img{\phi}= \C$である．実際任意の$\alpha= a+ bi\ (a, b\in \R)$に対して$f(x)= a+ bx$とおけば$\phi(f(x))= \alpha$, $\Ker{\phi}= (x^2+ 1)$である．実際$f(x)\in (x^2+ 1), \phi(f(x))= 0$すなわち$f(i)= 0$ならば$f(-i)= 0$．
+    因数定理より多項式$f(x)$は$(x- i)(x- (-i))= x^2+ 1$で割り切れる．したがって準同型定理より
+\begin{equation*}
+    \R[x]\slash (x^2+ 1)\cong \C
+\end{equation*}
+\begin{souquiz}
+    $\C\slash (x^2+ 1)$は何と同型か？
+\end{souquiz}
+\end{souexample}
+
+\begin{souexample}
+\begin{equation*}
+    M(2, \C)= \begin{Bmatrix}\begin{pmatrix}a& b\\ c& d\end{pmatrix}; a, b, c, d\in \R\end{Bmatrix},\ I= \begin{pmatrix}1& 0\\ 0& 1\end{pmatrix},\ J= \begin{pmatrix}0& 1\\ 0& 0\end{pmatrix}
+\end{equation*}
+
+\begin{center}
+\begin{tikzcd}
+    \phi\colon& \C[x]& \to& M(2, \C)\\
+    & f(x)& \mapsto& f(J)
+\end{tikzcd}
+\end{center}
+
+    $\phi\colon \C[x]\to M(2, \C)$と定める．
+    すなわち
+\begin{equation*}
+    f(x)= a_0+ a_1x+ \cdots+ a_nx^n
+\end{equation*}
+    について
+\begin{align*}
+    \phi(f(x))
+    &= f(J)
+    = a_0I+ a_1I+ \cdots+ a_nJ^n
+    = a_0I+ a_1J,\\
+    \img{\phi}
+    &= \begin{Bmatrix}\begin{pmatrix}\alpha& \beta\\ 0& \alpha\end{pmatrix}; \alpha, \beta\in \C\end{Bmatrix},\\
+    \Ker{\phi}&= (x^2)
+\end{align*}
+    よって$\C[x]/(x^2)\cong \begin{Bmatrix}\begin{pmatrix}\alpha& \beta\\ 0& \alpha\end{pmatrix}; \alpha, \beta\in \C\end{Bmatrix}$
+\end{souexample}
+\begin{align*}
+    \phi(f(x))= \begin{pmatrix}0& 0\\ 0& 0\end{pmatrix}
+    &\iff \begin{pmatrix}a_0& a_1\\ 0& a_0\end{pmatrix}= \begin{pmatrix}0& 0\\ 0& 0\end{pmatrix}\\
+    &\iff a_0= a_1= 0\\
+    &\iff f(x)= a_0+ a_1x+ a_2x^2
+\end{align*}
+
+\section{余剰環とイデアル}
+\section{多項式環}
+\section{Noether環}
+
+\chapter{Hilbertの基底定理とNoetherの正規化定理}
+\section{Hilbertの基底定理}
+\section{Noetherの正規化定理}
+\section{Hilbertの零点定理}
+
+\chapter{代数多様体}
+\section{代数多様体}
+\section{代数多様体の具体例(1)}
+\section{代数多様体の具体例(2)}
+
+\chapter{双有理変換と分類定理}
+\section{双有理変換と分類理論(1)}
+\section{双有理変換と分類理論(2)}
+\section{いままでのまとめと発展的な話題}
+\end{document}
