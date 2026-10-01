@@ -2,9 +2,9 @@
 \documentclass[dvipdfmx, leqno]{jsbook}
 \usepackage{soupreamble}
 
-\title{確率及び統計学特論AB}
-\author{}
-\date{}
+\title{確率及び統計学特論A・B}
+\author{講義：西川貴雄}
+\date{2026年度 前後期}
 
 \begin{document}
 \maketitle
@@ -12,8 +12,31 @@
 
 \part{前期：確率及び統計学特論A}
 \chapter{測度論的確率論の復習}
-%\input{ProbabilityStatistics_A_#1}
-%作成済み GitHub上に置いてある
+\section{確率空間}
+\subsection{可測空間}
+\begin{soudef}{$\sigma$加法族}
+    $S$を空でない集合とする。$\mathcal{S}\subset 2^S$が$\sigma$加法族であるとは、
+\begin{enumerate}
+    \item $S\in \mathcal{S}$
+    \item $A\in \mathcal{S}\Rightarrow A^c\in \mathcal{S}$
+    \item $A_n\in \mathcal{S}\ \ (n\ge 1) \Rightarrow \bigcup_{n= 1}^\infty A_n\in \mathcal{S}$
+\end{enumerate}
+\end{soudef}
+
+\begin{souexample}
+    $2^S$は明らかに$\sigma$加法族
+\end{souexample}
+
+\begin{souprop}
+    $S$を空でない集合、$\mathcal{S}$をその上の$\sigma$加法族とする。このとき
+\begin{equation}
+    A_n\in \mathcal{S}\ \ (n\ge 1)\Rightarrow \bigcap_{n= 1}^\infty A_n\in \mathcal{S}
+\end{equation}
+    が成立。
+\end{souprop}
+\begin{souremark}
+    
+\end{souremark}
 
 %\input{ProbabilityStatistics_A_#2}
 %\input{ProbabilityStatistics_A_#3}
@@ -22,36 +45,704 @@
 %\input{ProbabilityStatistics_A_#6}
 %\input{ProbabilityStatistics_A_#7}
 %\input{ProbabilityStatistics_A_#8}
-\input{ProbabilityStatistics_A_#9}
-%% 作成途中 0619のノート
+\begin{souprop}
+    確率変数$X$の稠密関数は$f$とする。$F\colon \R\to \R$が連続、コンパクトな台を持つとき、
+\begin{equation} \label{eq:F:R-> R・連続・コンパクトな台を持つ}
+\mathbb{E}[F(X)]= \int_{-\infty}^\infty F(X) f(x)dx
+\end{equation}
+\end{souprop}
 
-%\input{ProbabilityStatistics_A_#10}
-%\input{ProbabilityStatistics_A_#11}
-%% 作成済み いつのノートか不明だが1.10
+\begin{souprop}
+    確率変数$X$の稠密な関数を$f$とする。$F\colon \R\to \R$が連続かつ有界ならば、\eqref{eq:F:R-> R・連続・コンパクトな台を持つ}が成立。 
+\end{souprop}
+\begin{proof}
+    $M=:\sup_{x\in \R} |F(x)|$とかく。$\phi_R\colon \R\to \R$を連続で以下を満たす関数とする。
+\begin{equation}
+    \phi_R(x) 
+    = 
+\begin{cases}
+    0,\ \ |x|\ge R+ 1\\
+    R+ 1- |x|,\ \ R< |x|< R+ 1\\
+    1,\ \ |x|\le R
+\end{cases}
+\end{equation}
+\begin{tikzpicture}
+% TikZで図を入れる
+\end{tikzpicture}
+    このとき$F_R(x)= F(x)\phi_R(x)$はコンパクトな台を持つから、
+\begin{equation}
+    \mathbb{E}[F_R(X)]= \int_{-\infty}^\infty F(x)\phi_R(x)f(x)dx
+\end{equation}
+    $F_R(x)\to F(x),\ x\in \R(R\to \infty),\ |F(X)|\ge M$だからLebesgureの優収束定理より
+\begin{equation}
+    \lim_{n\to \infty}\mathbb{E}[F_n(X)]= \mathbb{E}[F(X)]
+\end{equation}
+    一方で
+\begin{align}
+    \left|\int_{-\infty}^\infty F(x)f(x)dx- \int_{-\infty}^\infty F(x)\phi_r(x)f(x)dx\right|
+    &= \int_{-\infty}^{-R}|F(x)|(1- \phi_R(x))f(x)dx+ \int_R^\infty |F(x)|(1- \phi_R(x))f(x)dx\\
+    &\le M\int_{-\infty}^{-R} f(x)dx+ M\int_R^\infty f(x)dx\\
+    &\to 0\ \ (R\to \infty)\ \ \left(\because \int_{-\infty}^\infty f(x)dx= 1\right)
+\end{align}
+\begin{equation}
+    \therefore \lim_{R\to \infty}\int_{-\infty}^\infty F(x)\phi_R(x)f(x)dx= \int_{-\infty}^\infty F(x)f(X)dx
+\end{equation}
+\end{proof}
 
-%\input{ProbabilityStatistics_A_#12}
-%% 途中 GitHubに経過が置いてある
+\begin{souprop}
+    \ref{prop:Prop1.49}と同じ仮定で$F$は非負連続とする。このとき\eqref{eq:F:R-> R・連続・コンパクトな台を持つ}が成立(有界性は仮定しない)。
+\end{souprop}
+\begin{proof}
+    $F\colon \R\to \R$は$F(x)\ge 0, x\in \R$を満たす連続関数とする。$n\ge 1$に対し、
+\begin{equation}
+    F_n(x)
+    = 
+\begin{cases}
+    F(x),\ \ (F(x)\le n)\\
+    n,\ \ (F(x)> n)
+\end{cases}
+\end{equation}
+\begin{tikzpicture}
+% TikZで図を入れる
+\end{tikzpicture}
+    により定める。
+    \ref{prop:Prop1.49}から
+\begin{equation}
+    \mathbb{E}[F_n(X)]= \int_{-\infty}^\infty F_n(x)f(X)dx
+\end{equation}
+    $F_n(X)$は$n$について単調増加、非負なので
+\begin{equation}
+    \lim_{n\to \infty} \mathbb{E}[F_n(X)]= \mathbb{E}[F(X)]
+\end{equation}
+    ここで
+\begin{equation}
+    \int_{-\infty}^\infty F(x)f(xd)dx< \infty
+\end{equation}
+    であるとする。$\forall \epsilon> 0$に対して、
+\begin{equation}
+    \int_{-\infty}^{-R} F(x)f(x)dx+ \int_R^\infty F(x)f(x)dx< \epsilon
+\end{equation}
+    となる$R> 0$が取れる。また$M_r= \sup_{|x|\le R} |F(x)|$とおき、$n\ge M_R$ならば$F_n(x)= F(x), |x|\le R$
+\begin{equation}
+    \therefore \int_{-R}^R F(x)d(x)dx= \int_{-R}^R F_n(x)f(x)dx
+\end{equation}
+    さらに$F_n(x)\le F(x)$なので、
+\begin{align}
+    \int_{-\infty}^\infty F_n(x)f(x)dx
+    &= \int_{-\infty}^{-R} F_n(x)f(x)dx+ \int_{-R}^R F(x)f(x)dx+ \int_R^\infty F_n(x)f(x)dx\\
+    &= \int_{-\infty}^\infty F(x)f(x)dx+ \int_{-\infty}^R F_n(x)f(x)fx+ \int_R^\infty F_n(x)f(x)dx- \int_{-\infty}^R F(x)f(x)dx- \int_R^\infty F(x)f(x)dx
+\end{align}
+\begin{equation}
+    \therefore \left|\int_{-\infty}^\infty F_n(x)f(x)fx- \int_{-\infty}^\infty F(x)f(x)dx\right|\le 2\epsilon
+\end{equation}
+\begin{equation}
+    \lim_{n\to \infty} \int_{-\infty}^\infty F_n(x)f(x)dx= \int_{-\infty}^\infty F(n)f(x)dx
+\end{equation}
+\begin{souremark}
+    Lebesuge積分だと単調収束定理で一発だが，広義積分だと面倒
+\end{souremark}
+    また
+\begin{equation}
+    \int_{-infty}^\infty F(x)f(x)dx= \infty
+\end{equation}
+    も同様に
+\begin{equation}
+    \lim_{n\to \infty}\int_{-\infty}^\infty F_n(x)f(x)dx= \infty
+\end{equation}
+    が示せる。
+\end{proof}
+\begin{soucor}
+    $F\colon \R\to \R$が連続で$\mathbb{E}[|F(X)|]< \infty$のとき
+\begin{equation}
+    \mathbb{E}[F(X)]= \int_{-\infty}^\infty F(x)f(x)dx
+\end{equation}
+    とくに$X$が可積分ならば
+\begin{equation}
+    \mathbb{E}[X]= \int_{-\infty}^\infty xf(x)dx
+\end{equation}
+\end{soucor}
+%途中
 
-%\input{ProbabilityStatistics_A_#13}
-%% 作成済み GitHub上に置いてある
+
+\section{法則収束と特性関数(Fourier変換)}
+\subsection{確率測度の空間}
+分布と特性関数
+法則収束と分布関数
+
+%\begin{soudef}
+[法則収束]
+    確率変数の列$\{X_n\}$と確率変数$X$に対して
+\begin{equation}
+    \lim_{n\to \infty} \mathbb{E}[F(X_n)]= \mathbb{E}[F(X)],\ \ \forall F\in C_b(\R),\ \ \mathrm{有界連続}
+\end{equation}
+    をみたすとき，$X_n$は$X$に法則収束(in lawで収束する)といい，
+\begin{equation}
+    \lim_{n\to \infty} X_n= X\ \ \mathrm{in law}
+\end{equation}
+    で表す．
+%\end{soudef}
+%\begin{souremark}
+    もし$X_n$が$X$に概収束するならば，法則収束する．\\
+    確率収束しているときも，法則収束がいえる．
+%\end{souremark}
+    これは次のことから従う．
+%\begin{souprop}
+    $\{a_n\}_{n= 1}^\infty \subset \R$は次を満たすとする．\\
+    ある$\alpha\in \R$に対して任意の部分列$\{\alpha_{n(k)}\}_{k= 1}^\infty$に対してさらに部分列$\{a_{n'(k)}\}_{k= 1}^\infty$をとれば収束し，収束先は$\alpha$である．\\
+    このとき$\lim_{n\to \infty} a_n= \alpha$
+%\end{souprop}
+
+%\begin{souprop}
+    $(\Omega, \F, \mathcal{P})$上の確率変数の列$\{X_n\}$と確率変数$X$について以下は同値
+\begin{enumerate}
+    \item 
+    $X_n$は$X$に法則収束
+    \item\label{step:x= aで分布関数が収束} 
+    $\forall a\in \R$に対し，もし
+\begin{equation}
+    \P(X= a)= 0
+\end{equation}
+    ならば
+\begin{equation}
+    \lim_{n\to \infty} \mathcal{P}(X_n\le a)= \mathcal{P}(X\le a)
+\end{equation}
+\end{enumerate}
+%\end{souprop}
+
+%\begin{soucor}
+    $X$の分布が連続型ならば，\eqref{step:x= aで分布関数が収束}の代わりに\eqref{step:「x= aで分布関数が収束」の代用}でよい．
+\begin{enumerate}
+    \item [$(2)'$]\label{step:「x= aで分布関数が収束」の代用}
+    $\forall a\in \R$に対し，
+\begin{equation}
+    \lim_{n\to \infty} \mathcal{P}(X_n\le a)= \mathcal{P}(X\le a)
+\end{equation}
+\end{enumerate}
+%\end{soucor}
+
+\subsection{特性関数}
+%\begin{soudef}
+[特性関数]
+    $\mu$を$(\R^n, \mathcal{B(\R^n)})$上の確率測度とする．このとき
+\begin{equation}
+    \phi_\mu(t)= \int_{\R^n} \exp(i(t, x))\mu(dx)
+\end{equation}
+    を$\mu$の特性関数という．
+%\begin{souremark}
+    実数値確率変数$X$に対して，その分布を$\mu$とすると
+\begin{equation}
+    \phi_\mu(t)= \mathbb{E}[\exp(i(t, x))]
+\end{equation}
+    となる．これを$X$の特性関数という．
+%\end{souremark}
+%\begin{souremark}
+    複素数値の積分は実部・虚部を分けて考える．\\
+    $|\exp(i(t, x))|= 1,\ \ x, y\in \R$
+%\end{souremark}
+%\end{soudef}
+
+%\begin{souprop}
+    実数値確率変数$X$は
+\begin{equation}
+    \mathbb{E}[|X|^n]< \infty
+\end{equation}
+    を満たすとする．このとき$\phi_\mu$は$n$回連続微分で 
+\begin{equation}
+    \phi^{(n)}_\mu(t)= \mathbb{E}[(iX)^n\exp(itX)],\ \ t\in \R
+\end{equation}
+    特に
+\begin{equation}
+    \phi^{(n)}_\mu(0)= i^n\mathbb{E}[X^n]
+\end{equation}
+    特性関数は分布$\mu$の情報を多分に含む．
+%\end{souprop}
+%\begin{souprop}
+    $X$がパラメータ$\lambda$のPoisson分布に従う．つまり
+\begin{equation}
+    \mathcal{P}(X= k)= e^{-\lambda}\frac{\lambda^k}{k!},\ \ k\ge 0
+\end{equation}
+    とする．このとき$X$の特性関数$\phi_X$は
+\begin{equation}
+    \phi_X(t)= \exp(\lambda(e^{it}- 1))
+\end{equation}
+%\end{souprop}
+\begin{proof}
+\begin{align}
+    \phi_X(t)
+    &= \mathbb{E}[\exp(itX)]\\
+    &= \sum_{k= 0}^\infty e^{itk}e^{-\lambda}\frac{\lambda^k}{k!}\\
+    &= e^{-\lambda}\sum_{k= 0}^\infty \frac{1}{k!}(\lambda e^{it})^k\\
+    &= e^{-\lambda}\cdot e^{\lambda e^{it}}\\
+    &= (右辺)
+\end{align}
+\end{proof}
+
+%\begin{souprop}
+    確率変数$X, Y$は独立でそれぞれの特性関数を$\phi_X, \phi_Y$とする．このとき$X+ Y$の特性関数$\phi_{X+ Y}$は
+\begin{equation}
+    \phi_{X+ Y}= \phi_X(t)\cdot \phi_Y(t)
+\end{equation}
+%\end{souprop}
+%\begin{souprop} \label{thm:aX+bの特性関数}
+    確率変数$X$の特性関数を$\phi_X$とする．$a, b\in \R$に対して，$aX+ b$の特性関数$\phi_{aX+ b}$は
+\begin{equation}
+    \phi_{aX+ b}(t)= e^{itb} \phi_X(at)
+\end{equation}
+%\end{souprop}
+
+%\begin{souprop}
+    $m\in \R, v> 0$とする．$X\sim \mathcal{N}(m, v)$のとき
+\begin{equation}
+    \phi_X(t)= \exp{\left(imt- \frac{1}{2}vt^2\right)}
+\end{equation}
+%\end{souprop}
+\begin{proof}
+    まず$m= 0, v= 1$のときを示す．このとき
+\begin{equation}
+    \phi_X(t)= \mathbb{E}[e^{itX}]= \mathbb{E}[\cos{tX}]+ i\mathbb{E}[\sin{tX}]
+\end{equation}
+    ここで
+\begin{equation}
+    \mathbb{E}[\sin{tX}]= \int_{-\infty}^\infty \sin{tX}\cdot \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}dx= 0
+\end{equation}
+    また，
+\begin{equation}
+    \phi'_X(t)= \mathbb{E}[(iX)e^{itX}]= -\mathbb{E}[X\sin{tX}]
+\end{equation}
+    であって
+\begin{align}
+    \mathbb{E}[X\sin{tX}]
+    &= \int_{-\infty}^\infty x\sin{tx}\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}dx\\
+    &= -\int_{-\infty}^\infty \sin{tx}\left(\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}\right)'dx\\
+    &= \int_{-\infty}^\infty t\cos{tx}\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}dx\\
+    &= t\phi_X(t)\\
+    \therefore \phi'_X(t)&= -t\phi_X(t)
+\end{align}
+    $\phi_X(0)\ne 0$のとき
+\begin{equation}
+    \frac{\phi'(t)}{\phi_X(t)}= -t
+    \iff \log|\phi_X(t)|= -\frac{1}{2}t^2+ C
+    \iff \phi_X(t)= \exp{\left(-\frac{1}{2}t^2+ C\right)}
+\end{equation}
+    ここで$\phi_X(0)= 1$より$C= 0$\\
+    $\therefore \phi_X(t)= \exp{\left(-\frac{1}{2}t^2\right)}$
+    あとは$X\sim \mathcal{N}(m, v)$のとき
+\begin{equation}
+    z=: \frac{X- m}{\sqrt{v}}
+\end{equation}
+    とおくと$z\sim \mathcal{N}(0, 1)$で
+\begin{equation}
+    X\sim \sqrt{v}z+ m
+\end{equation}
+    となる．定理\ref{thm:aX+bの特性関数}から結論を得る．
+\end{proof}
+
+%\begin{souprop}
+%[Holderの不等式]
+    確率変数$X, Y$および$\frac{1}{p}+ \frac{1}{q}= 1$をみたす$p, q$に対して、
+\begin{equation}
+    \mathbb{E}[|XY|]\le \mathbb{E}[|X|^p]^{1/p}\cdot \mathbb{E}[|Y|^q]^{1/q}
+\end{equation}
+%\end{souprop}
+
+\begin{proof}
+    Youngの不等式を用いる。$x, y> 0$に対して
+\begin{equation}
+    xy\le \frac{x^p}{p}+ \frac{x^q}{q}
+\end{equation}
+
+%\begin{souremark}
+    $p= q= 2$のとき
+\begin{equation}
+    xy\le \frac{x^2+ y^2}{2}
+\end{equation}
+%\end{souremark}
+
+\begin{enumerate_roman}
+    \item $\mathbb{E}[|X|]= 0$または$\mathbb{E}[|Y|]= 0$のとき:\\
+    両辺$= 0$となり成立。
+    \item $\mathbb{E}[|X|]\ne 0\land \mathbb{E}[|Y|]\ne 0$のとき：\\
+
+\end{enumerate_roman}
+\end{proof}
+
+\begin{enumerate}
+    \item exponential tightness：
+    $\forall \ell> 0, \exists K_\ell\subset S, \mathrm{cpt. sp.}, \st\forall F\subset S, \mathrm{cls.} F\cap K_\ell= \emptyset$
+\begin{equation}
+    \limsup_{n\to \infty}\frac{1}{\alpha(n)}\log\mu_n(F)\le -\ell
+\end{equation}
+    \item local upper bound
+\begin{equation}
+    \limsup_{r\to +0}\left(\limsup_{n\to \infty} \frac{1}{\alpha(n)}\log\mu_n(B(x, r))\right)\le -I(x),\ \ x\in S
+\end{equation}
+    \item local lower bound
+\begin{equation}
+    \liminf_{r\to +0}\left(\liminf_{n\to \infty} \frac{1}{\alpha(n)}\log\mu_n(B(x, r))\right)\ge -I(x), x\in S
+\end{equation}
+\end{enumerate}
+
+%\begin{southm}
+[Varadhamの定理]
+    列$\{\mu_n\}\subset \P(S)$がレート関数$I$に体するスピード$\alpha$の大偏差原理が成立すると仮定する．このとき$\forall F\colon S\to \R$，有界連続に対し，
+\begin{equation}
+    \lim_{n\to \infty}\frac{1}{\alpha(n)}\log\int \exp{(\alpha(n)F(n))}\mu_n(dx)= \sup_{x\in S}(F(x)- I(x))
+\end{equation}
+%\end{southm}
+
+\section{独立同分布確率変数列に対する大偏差原理}
+\subsection{Cram\`erの定理}
+    以下$(\Omega, \F, \mathcal{P})$上の確率変数列$\{X_n\}$は独立同分布．
+\begin{equation}
+    M(\theta)= \mathbb{E}[\exp{(\theta X_1)}]< \infty,\ \ \forall \theta\in \R
+\end{equation}
+    を\underline{モーメント母関数}という．さらに簡単のため，
+\begin{equation}
+    \mu(B(x, r))> 0,\ \ x\in \R, r> 0
+\end{equation}
+    を仮定する\footnote{$\mu$は$X_1$の分布}．また確率変数の列$\{Y_n\}$を
+\begin{equation}
+    Y_n:= \frac{1}{n}\sum_{k= 1}^n X_k
+\end{equation}
+    で定める．
+
+%\begin{southm}
+    $Y_n$(の分布)は
+\begin{equation}
+    I(x)= \sup_{\theta\in \R}(\theta x- \psi(\theta))
+\end{equation}
+    ($\psi(\theta)= \log{M(\theta)}$ 相対変換)をレート関数とするスピード$n$の大偏差原理を満たす．
+%\end{southm}
+
+%\begin{souexample}
+    $X\sim \mathcal{N}(0, 1)$のとき
+\begin{align}
+    M(\theta)
+    &= \int_\R e^{\theta x} \frac{1}{\sqrt{2\pi}}\exp{\left(-\frac{1}{2}x^2\right)}dx\\
+    &= \int_\R\frac{1}{\sqrt{2\pi}}\exp{\left(-\frac{1}{2}(x- \theta)^2+ \frac{1}{2}\theta^2\right)}dx\\
+    &= \exp{\left(\frac{1}{2}\theta^2\right)}\\
+    \therefore I(\theta)&= \frac{1}{2}\theta^2
+\end{align}
+%\end{souexample}
+%\begin{souexample}
+$X\sim \mathrm{Bin}(1, p)$のとき
+\begin{align}
+    M(\theta)
+    &= e^\theta\cdot p(X_1= 1)+ 1\cdot p(X_1= 0)\\
+    &= pe^\theta+ (1- p)\\
+    \psi(\theta)&= \log{(pe^\theta+ (1- p))}
+\end{align}
+    ここで$x$を固定して
+\begin{equation}
+    f(\theta)= x\theta- \psi(\theta)
+\end{equation}
+    とおくと，$0< x< 1$のとき
+\begin{equation}
+    \theta_0= \log{\left(\frac{(1- p)x}{p(1- x)}\right)}
+\end{equation}
+    で最大値
+\begin{equation}
+    f(\theta_0)= x\log{\left(\frac{x}{p}\right)}+ (1- x)\log{\left(\frac{1- x}{1- p}\right)}
+\end{equation}
+    をとる\footnote{$f(\theta_0)= H(\mu|\mu),\ \mu= \mathrm{Bin}(1, x),\ \nu= \mathrm{bin}(1, p)$の相対エントロピー}．
+%\end{souexample}
+
+    つまり
+\begin{equation}
+    I(x)= x\log{\left(\frac{x}{p}\right)}+ (1- p)\log{\left(\frac{1- x}{1- p}\right)}
+\end{equation}
+    もし$x> 1$のとき，$f(\theta)$は非有界．\\
+    $\therefore I(x)= \infty$
+
+\subsection{Legendre変換の性質}
+    $f\colon \R\to \R$に対して
+\begin{equation}
+    f^*(x)= \sup_{\theta\in \R} (\theta x- f(\theta))\in \R\cup \{+\infty\}
+\end{equation}
+    を$f$の\underline{Legendre変換}という．
+\begin{enumerate}
+    \item $f\colon \R\to \R$が凸
+\begin{equation} \label{eq:Legendre変換の性質}
+    \lim_{|\theta|\to \infty} \frac{|f(\theta)|}{|\theta|}= \infty
+\end{equation}
+    ならば$f^*$は$\R\to \R$の関数．
+    \item $f\colon \R\to \R$が凸ならば，$f^*$も凸．
+%\begin{souremark}
+    対数モーメント関数
+\begin{equation}
+    \psi(\theta)= \log{M(\theta)}
+\end{equation}
+    は凸．今の仮定の元では\eqref{eq:Legendre変換の性質}も成立．
+\begin{equation}
+    \psi'(\theta)= \frac{M'(\theta)}{M(\theta)},\ \ \psi''(\theta)= \frac{M''(\theta)M(\theta)- M'(\theta)^2}{M(\theta)^2}
+\end{equation}
+    で$X_1$の分布$\mu_1$に対し  
+\begin{equation}
+    \mu(dx)= \frac{1}{M(\theta)}e^{\theta x}\mu(dX)
+\end{equation}
+    とおくと，
+\begin{equation}
+    \psi''(\theta)= V[Z],\ \ Z\sim \nu
+\end{equation}
+%\end{souremark}
+    \item $f$が凸ならば$(f^*)^*= f$
+\end{enumerate}
+    対数モーメント母関数の性質
+\begin{itemize}
+    \item $\psi(\theta)$は凸関数．
+    \item $m= \mathbb{E}[X_1]$とおくと$\psi^*$は$x= m$で最小値0をとる($\psi^*$は微分可能)．
+    \item $\psi'$は狭義単調増加で滑らかな逆関数$\phi$をもつ．
+\begin{align}
+    \psi'(\theta)&= -\infty\ \ (\theta\to -\infty)\\
+    \psi'(\theta)&= \infty\ \ (\theta\to \infty)
+\end{align}
+\end{itemize}
+
+\begin{proof}
+    $S_n= \sum_{k= 1}^n X_k$とおく．このとき
+\begin{equation}
+    \mathbb{E}[\exp(\theta S_n)]= \prod_{k= 1}^n \mathbb{E}[\exp(\theta X_k)]= M(\theta)^n
+\end{equation}
+    与えられた$x$に対して$\theta= \phi(x),\ x= \psi'(\theta)$とする．
+\begin{align}
+    \mathcal{P}(Y_n)\ge x
+    &= \mathcal{P}(S_n\ge nx)\\
+    &= \left(\inf_{u\ge nx} e^{u\theta}\right)^{-1}\cdot M(\theta)
+\end{align}
+    $\therefore \frac{1}{n}\log{\mathcal{P}(Y_n\ge x)}\le -\frac{1}{n}\log{\left(\inf_{u\ge nx} e^{\theta u}\right)}+ \psi(\theta)$
+    ここで$\phi(m)= 0$で$x> m$とすれば
+\begin{equation}
+    0< \phi(m)< \phi(x)= \theta
+\end{equation}
+    となり，
+\begin{equation}
+    \frac{1}{n}\log{\mathcal{P}(Y_n\ge x)}\le -\theta x+ \psi(\theta)= -\psi^*(x)
+\end{equation}
+    $\therefore \limsup_{n\to \infty} \log{\mathcal{P}(Y_n\ge x)}\le -\psi^*(x)$
+    $x< m$のときも同様(時間の都合で略)
+%参考文献：Dembo- Zeitouni, 田村- 千代延(サマースクールlec note)
+\end{proof}
+%\begin{souremark}
+    $X_k= 1, \ldots, N$に値をとるとする．
+\begin{equation}
+    Z_n(dx)= \frac{1}{n}\sum_{k= 1}^n \delta_{X_k}(dx)
+\end{equation}
+    とおくと，相対エントロピーをレート関数とする大偏差原理が成立する(Cram\`erの定理)\\
+    実は「$1, \ldots, N$に値をとる」という仮定は不要(Sonovの定理)
+%\end{souremark}
+
+    $\R^N$に値をとる確率変数$X_n'$を
+\begin{equation}
+    X_n'= e_k\in \R^N\ \ (X_n= k)
+\end{equation}
+    で定める．$X_n'$は$e_1, \ldots, e_N$に値をとる確率変数列．
+\begin{equation}
+    z_n'= \frac{1}{n}\sum_{k= 1}^n X_k'
+\end{equation}
+    とおくと
+\begin{equation}
+    z_n'= \frac{1}{n}\sum_{k= 1}^n X_k'
+\end{equation}
+    となり，これらは等価．
+\begin{align}
+    M(\theta)&= \mathbb{E}[\exp((\theta, X_n')_\R^N)],\ \ \theta\in \R^N\\
+    \psi(\theta)&= \log{M(\theta)}\\
+    \psi^*(\theta)&= \sup_{\theta\in \R^N} \left(\theta x- \psi(\theta)\right),\ \ x\in \R^N
+\end{align}
+    $\mathcal{P}(X_1= k)= \mathcal{P}_k(1\le k\le N)$とすると,
+\begin{equation}
+    \psi^*(x)= \sum_{k= 1}^N x_k\log{\left(\frac{x_k}{p_k}\right)},\ \ x= (x_1, \ldots, x_k)
+\end{equation}
 
 \part{後期：確率及び統計学特論B}
-\chapter{???}
-%\input{ProbabilityStatistics_B_#1}
-%\input{ProbabilityStatistics_B_#2}
-%\input{ProbabilityStatistics_B_#3}
-%\input{ProbabilityStatistics_B_#4}
-%\input{ProbabilityStatistics_B_#5}
-%\input{ProbabilityStatistics_B_#6}
-%\input{ProbabilityStatistics_B_#7}
-%\input{ProbabilityStatistics_B_#8}
-%\input{ProbabilityStatistics_B_#9}
-%\input{ProbabilityStatistics_B_#10}
-%\input{ProbabilityStatistics_B_#11}
-%\input{ProbabilityStatistics_B_#12}
-%\input{ProbabilityStatistics_B_#13}
+\chapter{独立同分布確率変数列に対する極限定理}
 
-\appendix
-\chapter{レポートとその解答}
+\chapter{Markov連鎖}
+
+\chapter{確率微分方程式}
+
+
+\part{レポートとその解答}
+\chapter{前期レポート}
+\section{第1回レポート}
+\begin{tcolorbox}
+	確率変数$X, Y$に対して
+\begin{equation*}
+	\mathcal{P}(X\le a)= \mathcal{P}(Y\le a),\ a\in \R
+\end{equation*}
+	ならば，
+\begin{equation*}
+	\mathcal{P}(X\in A)= \mathcal{P}(Y\in A),\ A\in \mathcal{B}(\R)
+\end{equation*}
+	であることを示せ．
+\end{tcolorbox}
+
+
+\begin{souanswer}
+	実数$a\in \R$に対して，区間$I_a= (-\infty, a]$を考える．このような区間全体からなる集合族を$\mathcal{P}$とおく．
+\begin{equation}
+	\mathcal{P}= \{(-\infty, a]\; a\in \R\}
+\end{equation}
+	$a, b\in\R$に対して$(-\infty, a]\cap (-\infty, b]= (-\infty, \min{(a, b)}]\in \mathcal{P}$であるためには$\mathcal{P}$は共通部分について閉じている．
+	すなわち$\mathcal{P}$は$\pi$系であり，Borel集合族の定義より
+\begin{equation}
+	\sigma(\mathcal{P})= \mathcal{B}(\R)
+\end{equation}
+	確率が一致するようなBorel集合の集合を$\mathcal{L}$とする．
+\begin{equation}
+	\mathcal{L}= \{A\in \mathcal{B}(\R); \mathcal{P}(X\in A)= \mathcal{P}(Y\in A)\}
+\end{equation}
+	この$\mathcal{L}$が$\lambda$系の条件を満たすことを示す．
+\begin{enumerate_alpha}
+	\item $\R\in \mathcal{L}$：
+	$\mathcal{P}(X\in A)= 1$かつ$\mathcal{P}(Y\in A)= 1$であるから，
+\begin{equation}
+	\mathcal{P}(X\in A)= \mathcal{P}(Y\in A)
+\end{equation}
+	となり，$\R\in \mathcal{L}$が成り立つ．
+
+	\item $A, B\in \mathcal{L}, A\subset B\Rightarrow B\setminus A\in \mathcal{L}$：
+	$A, B\in \mathcal{L}, A\subset B$とする．確率の加法性より
+\begin{align}
+	\mathcal{P}(X\in B\setminus A)&= \mathcal{P}(X\in B)- \mathcal{P}(X\in A)\\
+	\mathcal{P}(Y\in B\setminus A)&= \mathcal{P}(Y\in B)- \mathcal{P}(Y\in A)
+\end{align}
+	$A, B\in \mathcal{L}$の定義より，$\mathcal{P}(X\in A)= \mathcal{P}(Y\in A)$かつ$\mathcal{P}(Y\in B)= \mathcal{P}(Y\in B)$であるから
+\begin{equation}
+	\mathcal{P}(X\in B\setminus A)= \mathcal{P}(Y\in B\setminus A)
+\end{equation}
+	であり，$B\setminus A\in \mathcal{L}$
+	\item $\{A_n\}\in \mathcal{L}$が単調増加ならば$\bigcup_{n= 1}^\infty A_n\in \mathcal{L}$：
+	互いに素な可算個のBorel集合列$\{A_n\}\subset \mathcal{L}$をとる．確率の可算加法性より
+\begin{align}
+	\mathcal{P}\left(X\in \bigcup_{n= 1}^\infty A_n\right)&= \sum_{n= 1}^\infty \mathcal{P}(X\in A_n)\\
+	\mathcal{P}\left(Y\in \bigcup_{n= 1}^\infty A_n\right)&= \sum_{n= 1}^\infty \mathcal{P}(Y\in A_n)
+\end{align}
+	各$n$について$A_n\in \mathcal{L}$であり，$\mathcal{P}(X\in A_n)= \mathcal{P}(Y\in A_n)$であるから各項がすべて等しく，無限級数の和も等しくなる．
+\begin{equation}
+	\mathcal{P}\left(X\in \bigcup_{n= 1}^\infty A_n\right)= \mathcal{P}\left(Y\in \bigcup_{n= 1}^\infty A_n\right)
+\end{equation}
+	となり，$\bigcup_{n= 1}^\infty A_n\in \mathcal{L}$
+	よって$\mathcal{L}$は$\lambda$系
+\end{enumerate_alpha}
+	任意の$a\in \R$に対して$\mathcal{P}(X\le a)= \mathcal{P}(Y\le a)$が成り立つ．これは$\mathcal{P}\subset \mathcal{L}$を意味する．ここで$\mathcal{P}$は$\pi$系，$\mathcal{L}$は$\lambda$系である．$\pi\mathrm{-}\lambda$定理より
+\begin{equation}
+	\sigma(\mathcal{P})\subset \mathcal{L}
+\end{equation}
+	が成り立ち，$\sigma(\P)= \mathcal{B}(\R)$であるから
+\begin{equation}
+	\mathcal{B}(\R)\subset \mathcal{L}
+\end{equation}
+	が得られ，$\mathcal{L}$の定義より任意の$A\in \mathcal{B}(\R)$に対して$\mathcal{P}(X\le a)= \mathcal{P}(Y\le a)$が成立．
+\end{souanswer}
+
+\section{第2回レポート}
+\begin{tcolorbox}
+	Youngの不等式を示せ．\\
+	$p, q> 1, \frac{1}{p}+ \frac{1}{q}= 1$とする．このとき$a, b\ge 0$に対して，
+\begin{equation*}
+	ab\le \frac{1}{p}a^p+ \frac{1}{q}b^q
+\end{equation*}
+\end{tcolorbox}
+
+\begin{souanswer}
+	$f(x)= -\log{x}$とする．$f''(x)= \frac{1}{x^2}> 0$なので$(0, \infty)$で凸．凸関数の定義より，
+\begin{align*}
+	-\log{\left(\frac{1}{p}a^p+ \frac{1}{q}b^q\right)}
+	&\le -\frac{1}{p}\log{a^p}- \frac{1}{q}\log{b^q}\\
+	&= -\log{ab}
+\end{align*}
+	すなわち$\log{\left(\frac{1}{p}a^p+ \frac{1}{q}b^q\right)}\le \log{ab}$．\\
+	底は正だから大小関係は変わらず，Youngの不等式を得る．
+\end{souanswer}
+
+\section{第3回レポート}
+\begin{tcolorbox}
+\begin{enumerate}
+    \item $a, b\in \R$に対して，$aX+ b$の特性関数は$\phi_{aX+ b}$とかけることを示せ．
+    \item 確率変数$X, Y$は独立で，それぞれの特性関数を$\phi_X, \phi_Y$とする．このとき$X+ Y$の特性関数$\phi_{X+ Y}$は$\phi_X\phi_Y$とかけることを示せ．
+    \item $X\sim \mathrm{Bin}(n, p)$のとき$X$の特性関数を求めよ\footnote{$\mathcal{P}(X= k)= \binom{n}{k}\cdot p^k\cdot (1- p)^{n- k},\ \ 0\le k\le n$}．
+\end{enumerate}
+\end{tcolorbox}
+    
+\begin{souanswer}
+\begin{enumerate}
+    \item dis:$aX+ b$とする．
+\begin{align*}
+    \phi_{aX+ b}(t)
+    &= \mathbb{E}[\exp(it(aX+ b))]\\
+    &= \mathbb{E}[\exp(itaX)\exp(itb)]\\
+    &= \exp{(ibt)}\mathbb{E}[\exp(itaX)]\\
+    &= \exp{(ibt)}\phi_X(at)\\
+    &= \exp{(itb)}\phi_X(at)
+\end{align*}
+    
+    \item dis:$X+ Y$とする．
+\begin{align*}
+    \phi_{X+ Y}(t)
+    &= \mathbb{E}[\exp{(it(X+ Y))}]\\
+    &= \mathbb{E}[\exp{(itX)}\cdot \exp{(itY)}]\\
+    &= \mathbb{E}[\exp{(itX)}]\cdot\mathbb{E}[\exp{(itY)}]\\
+    &= \phi_{X}\cdot \phi_{Y}
+\end{align*}
+    \item dis:$X\sim \mathrm{Bin}(n, p)$とする．
+\begin{align*}
+    \phi_{X\sim\mathrm{Bin}(n,p)}(t)
+    &= \mathbb{E}\left[(e^{it})^k\cdot \binom{n}{k}\cdot p^k\cdot (1- p)^{n- k}\right]\\
+    &= \mathbb{E}\left[(pe^{it})^k\binom{n}{k}\cdot (1- p)^{n- k}\right]\\
+    &= \sum_{k=0}^{n} \binom{n}{k}\cdot (pe^{it})^k\cdot (1- p)^{n- k}\\
+    &= (1- p+ pe^{it})^n
+\end{align*}
+\end{enumerate}
+\end{souanswer}
+
+\section{第4回レポート}
+\begin{tcolorbox}
+	$\mu$の分布関数を$F$とし，$F$の不連続点を$A_\mu$とする．このとき$A_\mu$は高々加算であることを示せ．
+%Hint: 分布関数をFとして，$A_{\mu, n}= \{x\in \R; F(x)- F(x-)> 1/n\}$とおくと
+% #(A_{\mu, n}の元)\le n(背理法)
+\end{tcolorbox}
+
+\begin{souanswer}
+	分布関数$F$は単調非減少であり，$0\le F(x)\le 1$である．よって任意の点$x$で左極限が存在し，$F(x)- F(x- 0)\ge 0$である．\\
+	各$n\in \N$に対して，$A_{\mu, n}= \{x\in \R; F(x)- F(x^-)> 1/n\}$とおく．\\
+	$F(\infty)- F(-\infty)\ge 1$であることから幅$1/n$を超える点は高々$n$個しか存在せず，$\#(A_{\mu, n})\le n$をみたす．\\
+	元の不連続点全体の集合$A_\mu$は$A_\mu= \bigcup_{n= 1}^\infty A_{\mu, n}$と表せ，有限集合の可算無限個の和集合は高々可算集合であるから，$A_\mu$も高々可算．
+\end{souanswer}
+
+\section{第5回課題}
+\begin{tcolorbox}
+	以下が同値であることを示せ．
+\begin{enumerate_Alpha}
+	\item $I\colon S\to [0, \infty]$が下半連続である．
+	\item\label{item:後半の条件} $\forall x_n\in S,\ \forall x\in S,\ x_n\to x$に対して
+\begin{equation*}
+	\liminf_{n\to \infty} I(x_n)\ge I(x)
+\end{equation*}
+\end{enumerate_Alpha}
+\end{tcolorbox}
+
+\begin{souanswer} %答案はここに書く
+\begin{itemize}
+	\item[$\Rightarrow$]
+	$x\in S$と$x$に収束する点列 $\{x_n\}$ をとる．$I(x)=0$ のとき，$\liminf_{n\to\infty} I(x_n) \ge 0 = I
+(x)$ が自明に成り立つ．
+	$I(x)> 0$のとき，$0< \alpha< I(x)$を満たす任意の実数$\alpha$をとる．
+	下半連続の定義より，集合$U_\alpha= \{y\in S; I(y)> \alpha\}$は開集合である．$I(x)> \alpha$より$x\in U_\alpha$であり，$U_\alpha$は$x$の開近傍である．$x_n \to x$であるから，ある自然数$N$が存在して，任意の$n\ge N$に対して$x_n\in U_\alpha$すなわち $I(x_n) > \alpha$）が成り立つ．\\
+	この下極限をとると，$\liminf_{n\to \infty} I(x_n)\ge \alpha$となる．この不等式は$0< \alpha< I(x)$を満たす任意の$\alpha$で成り立つため，$\alpha\to I(x)$とすることで，$\liminf_{n\to \infty} I(x_n)\ge I(x)$ が得られる．
+	\\
+	\item[$\Leftarrow$]
+	任意の実数 $\alpha$ に対して，$U_\alpha = \{y \in S ; I(y) > \alpha\}$ が開集合であることを示すために，その補集合である $F_\alpha = \{y \in S ; I(y) \le \alpha\}$ が閉集合であることを示す．\\
+	$F_\alpha$内の点列 $\{x_n\}$が$x\in S$に収束すると仮定する．各 $x_n$は$F_\alpha$の元なので，常に$I(x_n)\le \alpha$ である．\\
+	下極限も$\alpha$以下となるため，$\liminf_{n\to \infty} I(x_n)\le \alpha$である．ここで条件\ref{item:後半の条件}の仮定を用いると，$\liminf_{n\to \infty} I(x_n)\ge I(x)$であるから，これらを合わせて
+\begin{equation}
+	\alpha\ge \liminf_{n\to \infty} I(x_n) \ge I(x)
+\end{equation}
+	を得る．したがって$I(x)\le \alpha$となり，$x\in F_\alpha$が示せた．よって$F_\alpha$は閉集合であり，その補集合$U_\alpha$は開集合となる．すなわち$I$は下半連続である．
+\end{itemize}
+\end{souanswer}
+
+\chapter{後期レポート}
+
 
 \end{document}
