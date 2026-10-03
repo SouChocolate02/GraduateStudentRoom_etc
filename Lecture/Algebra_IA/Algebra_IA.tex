@@ -14,28 +14,30 @@
 
 \begin{soudef}{環:Ring}
     $R$を空でない集合とする．二項演算$+\colon (R, R)\to R,\ \times\colon (R, R)\to R$が定められていて次をみたすとき，$R$は環であるという．
+\end{soudef}
 % 和についての性質
 \begin{tcolorbox}[title= 和についての性質]
-\begin{enumerate_roman}
+\begin{enumerate}[(R{1}.1)]
     \item $\forall a, b, x\in R$に対して$(a+ b)+ c= a+ (b+ c)$が成り立つ．
     \item\label{非可換環} ある元$0\in R$が存在し，$\forall a\in R$に対し，$0+ a= a+ 0= a$が成り立つ．
     \item $\forall a\in R$に対し，$a$に対応した$x\in R$が存在し，$a+ x= x+ a= 0$が成り立つ．この$x$を$-a$とかく．
     \item $\forall a, b\in R$に対し，$a+ b= b+ a$が成り立つ．
-\end{enumerate_roman}
+\end{enumerate}
 \end{tcolorbox}
+
 % 積についての性質
 \begin{tcolorbox}[title= 積についての性質]
-\begin{enumerate_roman}
+\begin{enumerate}[(R{2}.1)]
     \item $\forall a, b, c\in R$に対し，$a\cdot (b\cdot c)= (a\cdot b)\cdot c$が成り立つ．
     \item ある元$1\in R$が存在し，任意の$a\in R$に対し，$1\cdot a= a\cdot 1= a$が成り立つ．
     \item $\forall a, b, c\in R$に対し，$a\cdot b= b\cdot a$が成り立つ．
-\end{enumerate_roman}
+\end{enumerate}
 \end{tcolorbox}
-\end{soudef}
 
 \begin{souremark}
     \ref{非可換環}をみたさない場合は非可換環という．
 \end{souremark}
+
 \begin{souexample}
     正方行列全体の集合(一般に行列$A, B$は$AB\ne BA$)
 \end{souexample}
@@ -74,9 +76,9 @@
 \begin{sounotation}
     $R$を可換環，$x_1, x_2, \ldots, x_n\in R$とする．
 \begin{equation*}
-    (x_1, x_2, \ldots, x_n):= \{a_1x_1+ a_2x_2+ \cdots+ a_nx_n; a_i\in R\}
+    (x_1, x_2, \ldots, x_n):= \{a_1x_1+ a_2x_2+ \cdots+ a_nx_n;\ a_i\in R\}
 \end{equation*}
-    これは$R$のイデアルである．とくに$(x)= \{ax; a\in R\}$はイデアルであり，単項イデアルという．
+    これは$R$のイデアルである．とくに$(x)= \{ax;\ a\in R\}$はイデアルであり，単項イデアルという．
 \end{sounotation}
 
 \begin{soudef}{同値関係}
@@ -86,7 +88,7 @@
 \end{equation*}
     という二項関係を考えると，これは同値関係になる．
 \end{soudef}
-    商集合$R\slash \sim$を$R\slash I$で表す．$x\in R$を含む同値類を$x+ I$で表す．
+    商集合$R\slash\! \sim$を$R\slash I$で表す．$x\in R$を含む同値類を$x+ I$で表す．
 \begin{align*}
     (x+ I)+ (y+ I)&:= (x+ y)+ I\\
     (x+ I)(y+ I)&:= xy+ I
@@ -107,17 +109,19 @@
 \end{southm}
 \begin{sounotation}
 \begin{align*}
-    \Ker{f}&= \{x\in R; f(x)= 0\}\\
+    \ker{f}&= \{x\in R; f(x)= 0\}\\
     \img{f}&= \{y\in R'; \exists x\in R\st y= f(x)\} 
 \end{align*}
 \end{sounotation}
+%\end{document}
 \begin{souremark}
-    $\Ker{f}$は$R$のイデアル，$\img{f}$は$R'$の部分環になる．
+    $\ker{f}$は$R$のイデアル，$\img{f}$は$R'$の部分環になる．
 \begin{align*}
-    R\slash \Ker{f}&\cong \img{f}\\
-    x+ \Ker{f}&\leftrightarrow f(x)
+    R\slash \ker{f}&\cong \img{f}\\
+    x+ \ker{f}&\leftrightarrow f(x)
 \end{align*}
 \end{souremark}
+
 
 \begin{souexample}
 \begin{center}
@@ -127,15 +131,15 @@
 \end{tikzcd}
 \end{center}
     $\phi\colon \R[x]\to \C$  
-    $\img{\phi}= \C$である．実際任意の$\alpha= a+ bi\ (a, b\in \R)$に対して$f(x)= a+ bx$とおけば$\phi(f(x))= \alpha$, $\Ker{\phi}= (x^2+ 1)$である．実際$f(x)\in (x^2+ 1), \phi(f(x))= 0$すなわち$f(i)= 0$ならば$f(-i)= 0$．
+    $\img{\phi}= \C$である．実際任意の$\alpha= a+ bi\ (a, b\in \R)$に対して$f(x)= a+ bx$とおけば$\phi(f(x))= \alpha$, $\ker{\phi}= (x^2+ 1)$である．実際$f(x)\in (x^2+ 1), \phi(f(x))= 0$すなわち$f(i)= 0$ならば$f(-i)= 0$．
     因数定理より多項式$f(x)$は$(x- i)(x- (-i))= x^2+ 1$で割り切れる．したがって準同型定理より
 \begin{equation*}
     \R[x]\slash (x^2+ 1)\cong \C
 \end{equation*}
+\end{souexample}
 \begin{souquiz}
     $\C\slash (x^2+ 1)$は何と同型か？
 \end{souquiz}
-\end{souexample}
 
 \begin{souexample}
 \begin{equation*}
@@ -162,7 +166,7 @@
     = a_0I+ a_1J,\\
     \img{\phi}
     &= \begin{Bmatrix}\begin{pmatrix}\alpha& \beta\\ 0& \alpha\end{pmatrix}; \alpha, \beta\in \C\end{Bmatrix},\\
-    \Ker{\phi}&= (x^2)
+    \ker{\phi}&= (x^2)
 \end{align*}
     よって$\C[x]/(x^2)\cong \begin{Bmatrix}\begin{pmatrix}\alpha& \beta\\ 0& \alpha\end{pmatrix}; \alpha, \beta\in \C\end{Bmatrix}$
 \end{souexample}
