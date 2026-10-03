@@ -12,6 +12,7 @@
 
 \part{前期：確率及び統計学特論A}
 \chapter{測度論的確率論の復習}
+\if0
 \section{確率空間}
 \subsection{可測空間}
 \begin{soudef}{$\sigma$加法族}
@@ -553,9 +554,75 @@ $X\sim \mathrm{Bin}(1, p)$のとき
 \begin{equation}
     \psi^*(x)= \sum_{k= 1}^N x_k\log{\left(\frac{x_k}{p_k}\right)},\ \ x= (x_1, \ldots, x_k)
 \end{equation}
+\fi
+
 
 \part{後期：確率及び統計学特論B}
-\chapter{独立同分布確率変数列に対する極限定理}
+\chapter{Brown運動}
+\section{Brown運動}
+\begin{soudef}{一次元Brown運動}
+    $(\Omega, \F, \mathcal{P})$上で定義された確率変数の族$B= \{B_t; b\ge 0\}$が$x\in \R$に対し、
+\begin{enumerate_roman}
+    \item $B_0(\omega)= x, \omega\in \Omega$
+    \item $\forall \omega\in \Omega$に対して$t\mapsto B_t(\omega)$は連続。
+    \item $0= s_0< \forall s_1< \cdots< \forall s_n$に対し、
+\begin{equation*}
+    B_{s_1}- B_{s_0}, \ldots, B_{s_n}- B_{s_n- 1}
+\end{equation*}
+    は独立(独立増分性)
+    \item $0\le \forall s< \forall t$に対し、$B_t- B_s\sim \mathcal{N}(0, t- s)$
+\end{enumerate_roman}
+    をみたすとき、$B$は$x$出発の\textbf{一次元Brown運動}という。
+\end{soudef}
+
+    数学的側面
+\begin{enumerate}
+    \item 一次元ランダムウォークの時空スケール変換(Donskerの不変原理)
+    \item 推移確率が熱方程式の基本解(Fokker-Plank方程式 Markov過程)
+    \item Martingaleである。\label{martingale}
+\end{enumerate}
+\begin{souremark}
+    \ref{martingale}は今後のキーポイントとなる。
+\end{souremark}
+
+    Brown運動における線積分
+\begin{equation}\label{eq:確率積分・伊藤積分}
+    \int_0^t f(t) dB_t\ \ (確率積分・伊藤積分)
+\end{equation}
+    はMartingaleとして定義できる。
+
+\section{連続関数値の確率変数}
+    以下Brown運動を構成する。\\
+    $C([0, \infty]; \R)= \{f\colon [0, \infty]\to \R, 連続\}, d([0, \infty]; \R)\times C([0, \infty]; \R)\to [0, \infty)$を
+\begin{equation*}
+    d(f, g)= \sum_{k= 1}^\infty 2^{-k}\left(1\land \sup_{0\le t\le k} \left| f(t)- g(t)\right|\right)
+\end{equation*}
+    と定めると距離になる。この元で$\mathcal{W}'= \mathcal{B}(W)$が定まる。
+    また$T> 0$に対して
+\begin{equation*}
+    W'_t= C([0, \infty]; \R)= \{f\colon [0, T]\to \R; 連続\}
+\end{equation*}
+\begin{equation*}
+    d_T(f, g)= \sup_{0\le t\le T} |f(t)- g(t)|
+\end{equation*}
+    を置くと$W'_T$は$d_T$の下でノルム空間となる$\mathcal{W}'_T= \mathcal{B}(W'_T)$が定まる。\\
+    $(W', d), (W'_T, d_T)$はともに完備可分距離空間。
+
+\begin{soudef}{柱状集合}%\index{柱状集合@ちゅうじょうしゅうごう}
+    $n\ge 1,\ 0\le t_1< t_2< \cdots< t_n,\ A_1, \ldots, A_n\in \mathcal{B}(R)$に対し、
+\begin{equation*}
+    C(t_1, \ldots, t_n;\ A_1, \ldots, A_n)= \{f\in W^1;\ f(t_1)\in A_1, \ldots, f(t_n)\in A_n\}
+\end{equation*}%時刻t_nでA_1, 時刻t_nでA_nを通るパス
+    これを柱状集合(cylinder set)といい、柱状集合全体を$\mathcal{C}$とかく。$\mathcal{C}_T$も同様に定義する。
+\end{soudef}
+
+%\begin{souprop}
+\begin{equation*}
+    \mathcal{W}^1= \sigma(\mathcal{C}^1),\ \mathcal{W}^1_T= \sigma(\mathcal{C}^1_T)
+\end{equation*}
+    また$\mathcal{C}^1, \mathcal{C}^1_T$は$\pi$系である。
+%\end{souprop}
+
 
 \chapter{Markov連鎖}
 
