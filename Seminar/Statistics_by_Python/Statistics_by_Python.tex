@@ -9,13 +9,85 @@
 \begin{document}
 \maketitle
 \tableofcontents
+\abstract{
+    本書ではPythonを用いて実験データの分析を行う手法を記載する。本来はその数学背景も知るべきであるが、\footnote{どうせ忘れるので}
+}
+    \chapter{Pythonで計算・結果を表示させる}
+\section{HelloWorld!を表示させる}
+    本資料は\S\ref{実行環境(VSCode)をインストール}で設定するVSCodeを使ったデータ分析・解析を行う。\\
+    最初の目標として画面に"\type{HellowWorld!}"と表示させることを目標とする。
+
+\begin{enumerate}
+    \item VSCodeを開き、\tcmd{ctrl N}で新規ファイルを開く。
+%最初である必要はないがお作法として最初にやっておくと忘れずに済む
+    \item $\tcmd{ctrl K}+ \tcmd{ctrl M}$を押し、拡張子を設定する(中央上の言語モードを選択が選択されるので\texttt{\underline{Python}}と入力)。
+    \item エディターエリア\footnote{中央の広い場所　特に間違えていなければ左に行数が出ている}にサンプルコード\ref{code:HellowWorld!}を張り付ける。
+    \item (この操作は初回のみ)作成したプログラムを保存するため、\tcmd{ctrl S}で保存する。その際に
+    \item \tcmd{Fn F5}を同時押しすると画面下に\underline{ターミナル}が起動し、打ち込んだ文章(今回なら\type{HellowWorld!})が出力される。    
+\end{enumerate}
+
+%\shorthandoff{"}
+\begin{lstlisting}[language=Python, caption={HellowWorld!},label={code:HellowWorld!}]
+    print('HellowWorld')
+\end{lstlisting}
 
 
-\part{Python キソのキソ}
-四則演算(対数関数)
 
 
-表示(print関数)
+    この技能(?)は今後かなりの頻度で\footnote{例えば長いプログラムを作成・実行してエラーが出たときに一部一部で計算結果を出力させて不自然な点を探すときなど}使うので覚えておくとよい。
+
+
+\section{計算}
+\subsection{四則演算}
+
+\subsection{方程式}
+    中学で習ったような一次または二次方程式を考える\footnote{化学でそれ以上高次の方程式を解く機会はない？ような気がする}。
+
+\subsection{初等関数の含まれた方程式}
+    ここでは$x^n$の形以外で表される初等関数が含まれた方程式として指数関数・対数関数が含まれた方程式を扱う。なお三角関数も初等関数であるが、化学には直接的な関連はあまりないためここでは扱わない。
+
+\subsubsection{指数関数の含まれた方程式}
+    化学では指数関数の底を$10$とすることが多い(例外的にArrheniusの式では$e$)が、物理・数学では$e$を底とすることが多い。
+
+\subsubsection{対数関数の含まれた方程式}
+    指数関数と同様に
+    文脈から明らかなときは単に$\log$と書くが、誤解の恐れがあるときは底が10の対数を$\log$、底が$e$の対数を$\ln$と書き分ける。
+
+
+
+\subsection{連立方程式}
+    ここでは行列を使って連立方程式(未定係数法による化学反応式)を解く。
+    % 具体的な例として\ce{4NH3+ 5O2-> 4NO+ 6H2O}のような反応式の係数を解かせることを考える。
+
+\section{微分方程式}
+    ここでは\type{Numpy}の機能を使って微分方程式を解くことを考える。微分方程式とは通常の方程式とは異なり、解として方程式が得られる。
+\begin{table}[h]
+\caption{方程式と微分方程式の違い}
+\begin{center}
+\begin{tabular}{lcl}\hline\hline
+    種類& 方程式の形状&得られるモノ\\ \hline
+    方程式& & 数値($x= 1.0,\ y= 6.5$など)\\
+    微分方程式& $\frac{dx}{dt}= C,\ \frac{dy^2}{dx^2}= -y$& 方程式($x= Ce^t$や$y= C_1\sin{x}+ C_2\cos{x}$など)\\ \hline\hline
+\end{tabular}
+\end{center}
+\end{table}
+    基本的に微分方程式は解くことができない\footnote{化学で扱う程度であれば解ける　か解けることにする}が、本節では解ける微分方程式のみを扱う。
+
+
+
+
+\section{グラフの類}
+\subsection{箱ひげ図}
+
+\subsection{ヒストグラム}
+
+\subsection{散布図を描く}
+
+\section{Arrhenius式から指数関数のグラフを描く}
+
+
+
+
 
 
 
@@ -39,11 +111,41 @@
 
 
 
+\appendix
+\chapter{解析前のPC設定}
+%    原則本文にソースコードは1度しか掲載しない(再利用する際は\texttt{SampleCode.NN}参照のように書く)
 
-    実行環境(VSCode)を構築する
-    拡張子を表示する
+\section{効率化のためのショートカットキー}
+    以下にショートカットキーとその効果を示す。
 
+\begin{table}[h]
+\begin{tabular}{cl|cl}
+    ショートカット& 効果& ショートカット& 効果\\ \hline\hline
+    $\tcmd{ctrl L}$& 列を選択&&\\
+    $\tcmd{ctrl (<-/->)}$& 単語単位でカーソル移動&&
 
+\end{tabular}
+\end{table}
+
+\section{実行環境(VSCode)をインストール}\label{実行環境(VSCode)をインストール}
+\begin{enumerate}
+    \item MicroSoftStoreの検索窓に「VSCode」と入力し、ダウンロード\footnote{追加後タスクバーにピン止めすると便利}
+    \item VSCodeを開き、拡張機能：\type{\underline{Japanese Language Pack for Visual Studio Code}}をインストール
+    \item 一度VSCodeを終了させ、再起動(このときすべての項目が英語から日本語に変更されていることを確認する。されていなければもう一度再起動)
+    \item 拡張機能：\tcmd{\underline{Python}}、\tcmd{\underline{CodeRunner}}をインストール
+\end{enumerate}
+
+\section{Pyhton環境と保存}
+    \S\ref{実行環境(VSCode)をインストール}でVSCodeおよびPythonの
+
+\section{拡張子を表示する}
+    拡張子\footnote{ファイルの最後に書いてある\type{.pdf}や\type{.jpg}, \type{.mp3}など}はPCがどのようなファイル形式かを見分けるために必要な目次のようなものである。デフォルトのWindowsでは拡張子は非表示になっているが，今後表示されている方が都合がよいため拡張子表示設定に変更する。
+\begin{enumerate}
+    \item タスクバーの\underline{エクスプローラー}(または$\fbox{Win E}$)を開く。
+    \item 上部メニューの\underline{表示}をクリックする。
+    \item \underline{表示}にカーソルを合わせ、\underline{ファイル名拡張子}にチェックを入れる。
+\end{enumerate}
+    今後扱うPythonファイルは拡張子が\type{.py}なので、実行ができない際は拡張子が違うもの\footnote{\type{.txt}や\type{.md}など}になっていないか確認する。
 
 
 \end{document}
