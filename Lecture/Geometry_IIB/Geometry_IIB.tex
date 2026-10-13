@@ -29,19 +29,49 @@
 \begin{soupractice}{Thm1.2.1}
     Let$P(n)$ be astatment with an interger parameter $n$. If the follwing two conditions hold, then $P(n)$ is true for each positive integer $n$
 \begin{enumerate_roman}
-    \item $P(1)$ is true.
-    \item For all $n> 1$, "$P(k)$ is true for $1\le k< n$" implies "$P(n)$ is true.
+    \item $P(1)$ is true.\label{Thm1.2.1_stat_1}
+    \item For all $n> 1$, "$P(k)$ is true for $1\le k< n$" implies "$P(n)$ is true.\label{Thm1.2.1_stat_2}
 \end{enumerate_roman}
 \end{soupractice}
 
-\begin{soupractice}{Lem1.2.5}
+\begin{souanswer}
+    $P(n)$を整数$n$をパラメータとする命題とする。次の2つの条件をみたすならば、$P(n)$は任意の自然数について成り立つ。
+\begin{enumerate_roman}
+    \item $P(1)$が成り立つ。
+    \item $\forall n> 1$について$P(k)$が$1\le k< n$に対して成り立つならば$P(n)$も成り立つ。
+\end{enumerate_roman}
+    正の整数に対して整列性を仮定する。\\
+%    [仮定] ある$n$に対して$P(n)$が成り立たない(背理法)\\
+    整列性より$P(n)$が成り立たないような$n$が存在し、これを$n'$とする。
+    \ref{Thm1.2.1_stat_1}より$n'\ne 1$。\ref{Thm1.2.1_stat_2}より$P(n')$が成り立たないとすると、ある$1\le k< n'$が存在して$P(n')$が成り立たないと言える。$k< n'$であるから$n'$の最小性に矛盾し、定理が成り立つ。
+\end{souanswer}
+
+\begin{soupractice}{Lem1.2.5}\label{lem:1.2.5}
     Every $u, v$- walk contains a $u, v$- path.
 \end{soupractice}
-
+\begin{souanswer}
+    $u, v$ウォーク$W$の長さを$\ell$とする。以下長さ$\ell$についての強い帰納法で示す。\\
+    $\ell= 0$のとき：辺が存在しないので$W$は唯一の頂点$u= v$のみで構成される。よって$u(= v)$は長さ0の$u, v$パス。
+    $\ell$未満について\cref{lem:1.2.5}が成り立つと仮定する。\\
+    $\ell$のとき：以下$W$について場合分けする。列$W$に重複する頂点$w$が存在しないとき、その列はそのまま$u, v$パスとなる。$W$に重複する頂点$w$が存在したとする。列$W$において最初に現れる$w$から最後の頂点$w$までの頂点と辺すべてを除いた列を$W'$とする($w$は1つだけ残す)。$W'$は$W$に含まれる長さ$\ell$未満の$u, v$ウォークである。強い帰納法の仮定より$W'$はある$u, v$パスを含む。よって長さ$\ell$の$u, v$ウォークはある$u, v$パスを含む。したがって$u, v$ウオークはある$u, v$パスを含む。
+\end{souanswer}
 
 \begin{soupractice}{Prop1.2.11}
     Every graph with $n$ vertices and $k$ edges has at least $n- k$ components.
 \end{soupractice}
+\begin{souanswer}
+    $n$頂点かつ$k$辺の任意のグラフにおいて少なくとも$n- k$個の連結成分を持つ。\\
+    数学的帰納法で示す。\\
+    $k= 0$のとき：連結成分は$n$個。$k= m$のとき連結成分の個数は$C_m\ge n- m,\ k= m+ 1$。辺を1つ加えるとき連結成分の個数は減るか変化しない。
+\begin{align*}
+    c_{m+ 1}
+    &\ge C_m- 1\\
+    &\ge (n- m)- 1\\
+    &= n- (m+ 1)\\
+    k&= m+ 1
+\end{align*}
+    少なくとも$n- k$個の連結成分をもつ。
+\end{souanswer}
 
 \begin{soupractice}{Thm 1.2.14}
     An edge is a cut-edge if and only if it belongs to no cycle.
@@ -55,4 +85,39 @@
     A graph is bipartite if and only if it has no odd cycle.
 \end{soupractice}
 
+\begin{soupractice}{Thm1.2.23}
+    The complete graph $K_n$ can be expressed as the union of $k$ bipartite graphs if and only if $n\le 2^k$.
+\end{soupractice}
+
+\begin{soupractice}{Lem1.2.25}
+    If every vertex of a graph $G$ has at least 2, then $G$ contains a cycle.
+\end{soupractice}
+
+\begin{soupractice}{Thm1.2.26}
+    A graph $G$ is  Eulerian if and only if it has at most one nontrivial component and its vertices all have even degree.
+\end{soupractice}
+
+\begin{soupractice}{Prop1.2.27}
+    Every even graph decomposes into cycles.
+\end{soupractice}
+
+\begin{soupractice}{Prop1.2.28}
+    If $G$ is a simple graph in which every vertex has degree at least $k$, $G$ contains a path of length at least $k$. If $k\ge 2$, then $G$ also contains a cycle of length at least $k+ 1$.
+\end{soupractice}
+
+\begin{soupractice}{Prop1.2.29}
+    Every graph with a nonloop edge has at least two vertices that are not cut-vertices.
+\end{soupractice}
+
+\begin{soupractice}{Lem1.2.31}
+    In an even graph, every maximal trail is closed.
+\end{soupractice}
+
+\begin{soupractice}{Thm1.2.32}
+    We prove TONCAS. In a graph $G$ satisfying the conditions, let $T$ be a trail of maximum length; $T$ must also be a maximal trail. By Lemma 1.2.31, $T$ is closed.
+\end{soupractice}
+
+\begin{soupractice}{Thm1.2.33}
+    For a connected nontrivial graph with exactly $2k$ odd vertices. the minimum number of trails that decompose it is $\max\{k, 1\}$.
+\end{soupractice}
 \end{document}
