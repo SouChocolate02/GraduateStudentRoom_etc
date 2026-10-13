@@ -5,12 +5,22 @@
 \usepackage{bm} %小文字ベクトルのためのパッケージ
 \usepackage{amssymb} %集合の太文字パッケージ
 \usepackage{mathrsfs} %花文字を書くパッケージ
+\usepackage{upgreek} %立体のギリシャ文字
 \usepackage{amsfonts}
 \usepackage{fancybox} %箱のとりあえずのデザイン(あんまり使わない)
+\usepackage{comment} %コメント用のパッケージ
 \usepackage{amsthm} %定理環境をカスタマイズ
 \usepackage{tikz-cd} %可換図式のパッケージ
+\usepackage{wasysym} %惑星記号など
+\usepackage{ulem} %取り消し線などの色々
+
 
 \mathtoolsset{showonlyrefs= true} % 参照式にのみ番号を振る
+
+%注釈関連のパッケージ
+\usepackage{tablefootnote} %表内で脚注を使用する
+\usepackage{endnotes} %文章末や章末に脚注を挿入する
+
 
 % 数学略記コマンド系
 % 集合(mathbb/mathfrak)系
@@ -109,6 +119,8 @@
 \renewcommand{\lcm}[2]{\mathrm{lcm}\left(#1, #2\right)} %2変数の最小公倍数
 \newcommand{\innerproduct}[2]{\left\langle{#1}, {#2}\right\rangle}
 \newcommand{\tr}[1]{{#1}^\intercal}
+\newcommand{\tcmd}[1]{\fbox{\texttt{#1}}} %プログラム説明用　キー操作についての説明
+\newcommand{\type}[1]{\texttt{#1}} %プログラム説明用　出力
 
 % コマンドの省略
 \newcommand{\pp}{\partial} %偏微分記号の略記
@@ -134,6 +146,7 @@
 \mathtoolsset{showonlyrefs= true} %参照する式のみ番号付け
 \numberwithin{equation}{section} %番号を(No.sec).(No.eq)に
 %\usepackage{makeindex} %索引を付ける
+%\makeindex
 
 %ハイパーリンク関係
 \usepackage[dvipdfmx]{hyperref} %ハイパーリンク用のパッケージ
@@ -147,11 +160,6 @@ hidelinks %ハイパーリンクの枠を消す
 \usepackage{multirow} %tabular環境で横にセル結合させるパッケージ
 \usepackage{balance} %参考文献を2カラムにする
 
-
-
-
-%\renewcommand{\labelenumi}{(\arabic{enumi})} %enumerate環境でカッコつきの数字を振る %20261001コメントアウト
-%enumerate環境の変更
 
 \usepackage[shortlabels]{enumitem} %enumerate環境を自由に変更する/shortlabelsオプションを有効化
 % デフォルトの enumerate 1階層目のラベル指定
@@ -192,11 +200,6 @@ hidelinks %ハイパーリンクの枠を消す
 \usepackage{graphicx} % 写真を入れるためのパッケージ
 \usepackage{pdfpages} % pdfを挿入するパッケージ
 
-% グラフ(理論ではない)を描くための補足的なパッケージ
-\usepackage{pgf-pie} % 円グラフ作成パッケージ
-\usepackage{xcolor} % 色を沢山使うためのパッケージ
-%\usepackage{patterns} % ハッチング用パターン
-
 % TikZ関連
 \usepackage{tikz} %TikZで図を入れる用パッケージ
 \usetikzlibrary{arrows, arrows.meta} %TikZで出力する矢印の色々
@@ -211,14 +214,17 @@ hidelinks %ハイパーリンクの枠を消す
 \usepackage{venndiagram} %Venn図
 \usepackage{longdivision}[style= tikz, repeating decimal style= dots, decimal separator= {.}] %筆算
 \usepackage{tkz-tab} %増減表
+\usepackage{tikz-cd} %可換図式を描く
 \usepackage{statistics} %グラデーション表/統計グラフ
 \usepackage{polynom} %多項式計算
 \usepackage{tikz-3dplot} %3次元グラフ
-\usepackage{longdivision} %数の割り算の筆算
 
 %%情報(応用数学)系
 \usepackage{tkz-graph} %グラフ理論
+%\usepackage{numerica} %数値計算 %なぜか不調？
 \usepackage{algorithm} %プログラムコードを書く
+\usepackage{listings} %ソースコード表示用
+\usepackage{pythontex} %TeX内でPythonを実行する(emacsのorgモード？)
 
 %%物理系
 \usepackage{siunitx} %si単位系のパッケージ
@@ -226,17 +232,46 @@ hidelinks %ハイパーリンクの枠を消す
 \usepackage{tikz-feynhand} %Feynmanダイアグラムを描くパッケージ
 \usepackage{bohr} %bohr模型
 \usepackage{pst-magneticfield} %磁場を描く
+\usepackage{askmaps} %carnot図を描く
+\usepackage{tensor} %テンソル関連
 
 %%化学系
 \usepackage{mhchem}[version=4] %化学式・構造式用のパッケージ
 \usepackage{chemfig} %chemfig用のパッケージ
 \usepackage{tikzorbital} %分子軌道法ダイアグラム
 
+%%その他
+%\usepackage{babel} %多言語用パッケージ
+\usepackage{twemojis} %絵文字用パッケージ
+% グラフ(理論ではない)を描くための補足的なパッケージ
+\usepackage{pgf-pie} % 円グラフ作成パッケージ
+\usepackage{xcolor} % 色を沢山使うためのパッケージ
+%\usepackage{patterns} % ハッチング用パターン
+\usepackage{randomwalk} %ランダムウォーク用パッケージ
 
 \usepackage[many, most]{tcolorbox} %tcolorboxのパッケージ
 \tcbuselibrary{breakable, skins, theorems}
 \newtcolorbox{hosoibox}[1]{colframe= black, colback= white, coltitle= black, colbacktitle= white, boxrule= 0.5pt, arc= 0mm, enhanced, attach boxed title to top left= {xshift= 10mm, yshift= -3mm}, boxed title style= {frame hidden}, title= #1}
 
+%プログラムコード用設定
+\lstset{
+  basicstyle={\ttfamily},
+  identifierstyle={\small},
+  commentstyle={\smallitshape},
+  keywordstyle={\small\bfseries},
+  ndkeywordstyle={\small},
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},
+  numbers=left,
+  xrightmargin=0zw,
+  xleftmargin=3zw,
+  numberstyle={\scriptsize},
+  stepnumber=1,
+  numbersep=1zw,
+  lineskip=-0.5ex
+}
 
 \usepackage{tikzsymbols} %環境アイコン用
 \tikzsymbolsdefinesymbol{notationicon}{S}{%notaionアイコン
@@ -297,19 +332,33 @@ hidelinks %ハイパーリンクの枠を消す
 % Quiz環境
 % ->普通のtcolorboxとほぼ同じ
 
+\usepackage{cleveref}
+\newcounter{num}[section] % section ごとにリセットされるカウンタを定義
+\renewcommand{\thenum}{\thesection.\arabic{num}} % 番号の表示形式 (例: 1.1, 1.2)
 
 %tcb内でカウンターを使う際は\thetccounterを使う
+\crefformat{soudef}{Def.#2#1#3}
+\crefformat{southm}{Thm.#2#1#3}
+\crefformat{soucor}{Cor.#2#1#3}
+\crefformat{souprop}{Prop.#2#1#3}
+\crefformat{soulem}{Lemma.#2#1#3}
+
+
 
 % def環境
 \newtcolorbox{soudef}[1]{
+  code={%
+    \refstepcounter{num}%
+    \crefalias{num}{soudef}% ★ この環境のラベル名を cleveref に登録
+  },
   blanker,
   left= 3mm,
   before skip= 10pt,
   after skip= 10pt,
-  borderline west= {3pt}{0pt}{black},
-  colback= black,
-  title= \textbf{Def.(#1)},
-  coltitle= black,
+  borderline west= {3pt}{0pt}{orange},
+  colback= orange!5!white,
+  title= {Def.\thenum\ (\textbf{#1})}, % 通し番号を表示
+  coltitle= orange!80!black,
   attach title to upper={\par\vspace{2mm}}
 }
 % 番号なしdef環境
@@ -327,13 +376,17 @@ hidelinks %ハイパーリンクの枠を消す
 
 %thm環境
 \newtcolorbox{southm}[1]{
+  code={%
+    \refstepcounter{num}%
+    \crefalias{num}{southm}% ★ この環境のラベル名を cleveref に登録
+  },
   blanker,
   left= 3mm,
   before skip= 10pt,
   after skip= 10pt,
   borderline west= {3pt}{0pt}{black},
   colback= black,
-  title= \textbf{Thm.(#1)},
+  title= \textbf{Thm.\thenum(#1)},
   coltitle= black,
   attach title to upper={\par\vspace{2mm}}
 }
@@ -352,15 +405,17 @@ hidelinks %ハイパーリンクの枠を消す
 
 %cor環境
 \newtcolorbox{soucor}{
-  auto counter,
-  number within= section,
+  code={%
+  \refstepcounter{num}%
+  \crefalias{num}{soucor}% ★ この環境のラベル名を cleveref に登録
+},
   blanker,
   left= 3mm,
   before skip= 10pt,
   after skip= 10pt,
   borderline west= {3pt}{0pt}{black},
   colback= black,
-  title= Cor.\thenum,
+  title= \textbf{Cor.\thenum},
   coltitle= black,
   attach title to upper={\par\vspace{2mm}}
 }
@@ -379,13 +434,17 @@ hidelinks %ハイパーリンクの枠を消す
 
 %prop環境
 \newtcolorbox{souprop}[1]{
+  code={%
+  \refstepcounter{num}%
+  \crefalias{num}{souprop}% ★ この環境のラベル名を cleveref に登録
+},
   blanker,
   left= 3mm,
   before skip= 10pt,
   after skip= 10pt,
   borderline west= {3pt}{0pt}{black},
   colback= black,
-  title= \textbf{Prop.(#1)},
+  title= \textbf{Prop.\thenum(#1)},
   coltitle= black,
   attach title to upper={\par\vspace{2mm}}
 }
@@ -404,6 +463,10 @@ hidelinks %ハイパーリンクの枠を消す
 
 %lemma環境
 \newtcolorbox{soulem}{
+  code={%
+  \refstepcounter{num}%
+  \crefalias{num}{soulem}% ★ この環境のラベル名を cleveref に登録
+},
   auto counter,
   number within= section,
   blanker,
@@ -438,7 +501,7 @@ hidelinks %ハイパーリンクの枠を消す
   after skip= 10pt,
   borderline west= {3pt}{0pt}{black},
   colback= black,
-  title= \textbf{Example：},
+  title= \textbf{\underline{Example}},
   coltitle= black,
   attach title to upper={\par\vspace{2mm}}
 }
@@ -452,7 +515,7 @@ hidelinks %ハイパーリンクの枠を消す
   after skip= 10pt,
   borderline west= {3pt}{0pt}{black},
   colback= black,
-  title= Notation.,
+  title= Excricrse.,
   coltitle= black,
   attach title to upper={\par\vspace{2mm}}
 }
@@ -494,7 +557,7 @@ hidelinks %ハイパーリンクの枠を消す
   after skip= 10pt,
   borderline west= {3pt}{0pt}{black},
   colback= black,
-  title= Notation.,
+  title= {\notationicon Notation}.,
   coltitle= black,
   attach title to upper={\par\vspace{2mm}}
 }
@@ -517,4 +580,27 @@ hidelinks %ハイパーリンクの枠を消す
 %%数字なし
 \newtcolorbox{souanswer}{blanker, breakable= true, left= 5mm, borderline west= {1.1mm}{0pt}{black}}
 
+
+\newtcolorbox{souidea}{
+  blanker,
+  left= 3mm,
+  before skip= 10pt,
+  after skip= 10pt,
+  borderline west= {3pt}{0pt}{black},
+  colback= black,
+  title= {\ideaicon},
+  coltitle= black,
+  attach title to upper={\par\vspace{2mm}}
+}
+\newtcolorbox{souguide}{
+  blanker,
+  left= 3mm,
+  before skip= 10pt,
+  after skip= 10pt,
+  borderline west= {3pt}{0pt}{black},
+  colback= black,
+  title= {\guideicon},
+  coltitle= black,
+  attach title to upper={\par\vspace{2mm}}
+}
 %%%%%----------%%%%%
