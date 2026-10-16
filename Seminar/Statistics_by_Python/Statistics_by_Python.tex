@@ -8,58 +8,225 @@
 
 \begin{document}
 \maketitle
+\setcounter{tocdepth}{3}
 \tableofcontents
 \abstract{
-    本書ではPythonを用いて実験データの分析を行う手法を記載する。本来はその数学背景も知るべきであるが、\footnote{どうせ忘れるので}
+    本書ではPythonを用いて実験データの分析を行う手法を基礎・計算編/データ分析編/機械学習編の3章構成で学ぶ。本来はその数学背景も知るべきであるが、本文中には記載せず、別冊の補足資料に記載した\footnote{どうせ忘れるし、こうすればできる！あとは腕力(計算力)の問題にできれば計算機やAIを使ってもいいと思っている人間なので}。
 }
-    \chapter{Pythonで計算・結果を表示させる}
+    \chapter{基礎・計算編}\label{chap:基礎・計算編}
+    \cref{chap:基礎・計算編}ではPythonを使う上で基礎的となる計算や設定について学ぶ。
+
 \section{HelloWorld!を表示させる}
-    本資料は\S\ref{実行環境(VSCode)をインストール}で設定するVSCodeを使ったデータ分析・解析を行う。\\
-    最初の目標として画面に"\type{HellowWorld!}"と表示させることを目標とする。
+    最初の目標として画面に"\type{HelloWorld!}"と表示させることを目標とする。
 
 \begin{enumerate}
     \item VSCodeを開き、\tcmd{ctrl N}で新規ファイルを開く。
 %最初である必要はないがお作法として最初にやっておくと忘れずに済む
     \item $\tcmd{ctrl K}+ \tcmd{ctrl M}$を押し、拡張子を設定する(中央上の言語モードを選択が選択されるので\texttt{\underline{Python}}と入力)。
-    \item エディターエリア\footnote{中央の広い場所　特に間違えていなければ左に行数が出ている}にサンプルコード\ref{code:HellowWorld!}を張り付ける。
-    \item (この操作は初回のみ)作成したプログラムを保存するため、\tcmd{ctrl S}で保存する。その際に
+    \item エディターエリア\footnote{中央の広い場所　特に間違えていなければ左に行数が出ている}にサンプルコード\cref{code:HellowWorld!}を張り付ける。
+    \item (この操作は初回のみ)作成したプログラムを保存するため、\tcmd{ctrl S}で保存する。保存ファイル名は適当でよい\footnote{プログラムの作成日や対象サンプルの名前など}。この際に拡張子\footnote{拡張子の詳細は\S\ref{sec:拡張子を表示する}参照}が\type{.py}になっていることに注意する。また保存場所はデスクトップに\type{PythonProject}などのファイルを作成し、すべてそのファイルに保存・管理することを勧める。
     \item \tcmd{Fn F5}を同時押しすると画面下に\underline{ターミナル}が起動し、打ち込んだ文章(今回なら\type{HellowWorld!})が出力される。    
 \end{enumerate}
 
 %\shorthandoff{"}
-\begin{lstlisting}[language=Python, caption={HellowWorld!},label={code:HellowWorld!}]
-    print('HellowWorld')
+\begin{lstlisting}[language=Python, caption={HelloWorld!},label={code:HelloWorld!}]
+    print('HelloWorld')
+\end{lstlisting}
+
+    この技能(?)は今後かなりの頻度で\footnote{例えば長いプログラムを作成・実行してエラーが出たときに一部一部で計算結果を出力させて不自然な点を探すときなど}使うので覚えておくとよい。
+    詳しい話は後述するので今はあまり気にしなくてもよいが、文字列を出力する際には出力内容を\type{""}で囲み、計算結果を出力する際には出力内容を\type{""}で\underline{囲まない}。
+
+\section{ライブラリ}\label{sec:ライブラリ}%index{ライブラリ@らいぶらり}
+% \subsection{import文}
+    特にPythonは大量のライブラリが充実しているため主なライブラリとその機能
+
+    % 一般書では基本計算よりも後にライブラリ・パッケージについて書かれていることが多いが，本書では次節以降の計算の部分でライブラリを既に使ってしまっているため、読みやすさのために先に記述する。
+\begin{table}[h]
+\caption{Pythonのライブラリ}
+\begin{center}
+\begin{tabular}{ll}\hline\hline
+    ライブラリ名& 主な用途\\ \hline
+    \type{NumPy}& 線型代数\\%\index{NumPy@なんぱい}\index{NumPy@NumPy}
+    \type{SciPy}& 機械学習\\ %\index{SciPy@さいぱい}\index{SciPy@SciPy}
+    \hline\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\section{行列・ベクトル・リスト・タプル}
+    ここではプログラミングをするにおいて必要となる\textbf{行列・ベクトル・リスト・タプル}について扱う。
+\subsection{行列}%\index{行列@ぎょうれつ}
+    行列を扱うためには\type{NumPy}のインストールが必須であるので注意すること。
+    Python上で行列を定義するには、行列全体を\type{np.array([])}で括り、行成分\footnote{各成分同士は"\type{,}"で区切る。}を\type{[]}で、列成分を上下に入力する。列成分が変わるときは"\type{,}"を入れて区別することに注意する\footnote{列成分を入力する際は"\type{,}"で区切りさえすれば上下に分ける必要はないのだが可読性のため上下に分ける。}。
+\begin{lstlisting}[language=Python, caption={行列の定義},label={code:行列の定義}]
+    import numpy as np
+    A = np.array([
+        [0, 1], 
+        [3, 4]
+        ])
+    B = np.array([
+        [3, 2],
+        [4, 5]
+    ])
+    product= A@B
+    print(product)
+\end{lstlisting}
+
+\subsection{ベクトル}%\index{ベクトル@べくとる}
+
+
+\subsection{リスト}%\index{リスト@りすと}
+    Pythonでは数える起点を0とする\footnote{これを\textbf{0オリジン}などという。言語によって起点を0とするか1とするかは異なるので注意が必要。}。すなわちリストの列\type{L=[a,b,c]}があり、\type{print(L[1])}と入力するとPythonは\underline{「\type{L}というリストの2番目を出力せよ」}と解釈し、\type{b}を出力してしまう。\\
+    
+
+\subsection{タプル}%\index{タプル@たぷる}
+
+\section{計算}
+\subsection{四則演算}\label{sec:四則演算}
+    ここでは基本の計算となる四則演算(和差積商・商の整数部分・余り)の計算について説明する。使用頻度が高いため、累乗の計算。詳細は後述するが行列同士の積についても説明する。
+
+\begin{lstlisting}[language=Python, caption= {四則演算の計算}, label= {code:四則演算}]
+    1+ 2 和の計算
+    100- 73 %差の計算
+    25* 4 %積の計算
+    21/ 5 %通常の割り算
+    21//5 %商の整数部分
+    21%5 %余り
+
+    2**2 %累乗
 \end{lstlisting}
 
 
-
-
-    この技能(?)は今後かなりの頻度で\footnote{例えば長いプログラムを作成・実行してエラーが出たときに一部一部で計算結果を出力させて不自然な点を探すときなど}使うので覚えておくとよい。
-
-
-\section{計算}
-\subsection{四則演算}
-
-\subsection{方程式}
+\section{方程式}%\index{方程式@ほうていしき}
+\subsection{(一次/二次)方程式}%\index{一次方程式@一次方程式}%\index{二次方程式@にじほうていしき}
     中学で習ったような一次または二次方程式を考える\footnote{化学でそれ以上高次の方程式を解く機会はない？ような気がする}。
+    \S\ref{sec:四則演算}で学んだように例えば一次方程式\eqref{eq:一次方程式}、二次方程式\eqref{eq:二次方程式}
+\begin{equation}\label{eq:一次方程式}
+    ax+ b= 0\ \ (a\ne 0)
+\end{equation}
+\begin{equation}\label{eq:二次方程式}
+    ax^2+ bx+ c= 0\ \ (a\ne 0)
+\end{equation}
+    を(頑張って腕力で)式変形して一次方程式の解の公式\eqref{eq:一次方程式の解の公式}、二次方程式の解の公式\eqref{eq:二次方程式の解の公式}
+\begin{equation}\label{eq:一次方程式の解の公式}
+    x= -\frac{b}{a}
+\end{equation}
+\begin{equation}\label{eq:二次方程式の解の公式}
+    x= \frac{-b\pm \sqrt{b^2- 4ac}}{2a}
+\end{equation}
+    としてもよいが、毎回この形に変形する手間をかけるのは現実的ではない\footnote{係数が煩雑になったときに面倒だし、そもそもこれを入力するのが面倒}。
+
+\begin{tcolorbox}
+    価数1の弱酸遊離反応\ce{HA <=> H+ + A-}(初期濃度C[mol/L]、電離定数$\mathrm{K_a}$)の平衡状態について考える。ただし水の電離は無視する。
+
+
+
+
+    % 以下の二次方程式\eqref{eq:例題・二次方程式}を$x$について解け。
+    初期濃度C= \SI{1.0}{\mole/L}
+    \begin{equation}\label{eq:例題・二次方程式}
+    2x^2- 1= 0
+\end{equation}
+\end{tcolorbox}
+
+\begin{lstlisting}[caption= {Pythonで二次方程式を解く}, label={code:Pythonで二次方程式を解く}]
+    import sympy as sp
+    x= sp.symbol('x')
+    sp.solve(2*x- 1, x)
+\end{lstlisting}
+    なおこの\cref{code:Pythonで二次方程式を解く}は以下の\cref{code:Pythonで二次方程式を解く・改良型}のように書き換えることもできる。
+\begin{lstlisting}[caption= {Pythonで二次方程式を解く・改良型}, label= {code:Pythonで二次方程式を解く・改良型}]
+    import sympy as sp
+    x= sp.symbol('x')
+    f= 2*x**2- 1
+    sp.solve(f, x)
+\end{lstlisting}
+    \cref{code:Pythonで二次方程式を解く・改良型}では解く対象となる方程式を$f:=2x^2- 1$と定義しているため拡張性が高い。
+    つまり解くべき方程式が変化しても\cref{code:Pythonで二次方程式を解く}であれば\type{3}行目(実際に方程式を解いているところ)の式を丸々書き換えなければいけなかったが、\cref{code:Pythonで二次方程式を解く・改良型}であれば\type{3}行目(解くべき式を定義しているところ)を書き換えるだけでよい。
+    一次方程式も同様に解くべき式を定義する部分を書き換えるだけで同様に解くことができるのでここでは例を挙げた省略する。
+    他方程式についても同様に解くことができるが、Pythonでの記法の練習も兼ねて具体的に方程式を例示し、解くコードを与える。
 
 \subsection{初等関数の含まれた方程式}
     ここでは$x^n$の形以外で表される初等関数が含まれた方程式として指数関数・対数関数が含まれた方程式を扱う。なお三角関数も初等関数であるが、化学には直接的な関連はあまりないためここでは扱わない。
+    % 化学で三角関数を扱うとしたら化学工学・Braggの条件：2d\sin(x)= m\lambdaなど？
 
 \subsubsection{指数関数の含まれた方程式}
-    化学では指数関数の底を$10$とすることが多い(例外的にArrheniusの式では$e$)が、物理・数学では$e$を底とすることが多い。
+    化学では指数関数%\index{指数関数@しすうかんすう}
+    の底を$10$とすることが多い\footnote{例外的にArrheniusの式では$e$}が、物理・数学では$e$を底とすることが多い。
+
+    例えば以下の指数方程式\eqref{eq:指数方程式}を考える。
+\begin{tcolorbox}
+\begin{equation}\label{eq:指数方程式}
+    e^x= 3\
+\end{equation}
+\end{tcolorbox}
+
+\begin{lstlisting}[caption= {Pythonで指数方程式を解く}, label= {Pythonで指数方程式を解く}]
+    import from sympy *
+    x= symbol(x)
+    f= 
+    solve[f, x]
+\end{lstlisting}
+
 
 \subsubsection{対数関数の含まれた方程式}
-    指数関数と同様に
-    文脈から明らかなときは単に$\log$と書くが、誤解の恐れがあるときは底が10の対数を$\log$、底が$e$の対数を$\ln$と書き分ける。
+    指数関数と同様に対数%\index{対数@たいすう}
+    にも独自の記法があり、文脈から明らかなときは単に$\log$と書くが、誤解の恐れがあるときは底が10の対数を$\log$、底が$e$の対数を$\ln$と書き分ける。
+
+    ここで以下のような対数方程式\eqref{eq:対数方程式}を考える。
+\begin{tcolorbox}
+\begin{equation}\label{eq:対数方程式}
+    \log{Ax}= 10
+\end{equation}
+\end{tcolorbox}
+
+\begin{lstlisting}[caption= {Pythonで対数方程式を解く}, label= {Pythonで対数方程式を解く}]
+    import from sympy *
+    x= symbol(x)
+    f= 
+    solve[f, x]
+\end{lstlisting}
 
 
+\subsection{連立方程式}%\index{連立方程式@れんりつほうていしき}
+\subsubsection{行列を用いない連立方程式}
+    ここでは行列を用いない連立方程式\footnote{内部的にはSymPyの機能を使って連立方程式を解く。}を考える\footnote{すなわち中学で習ったような2変数程度の比較的小規模な連立方程式}。
 
-\subsection{連立方程式}
-    ここでは行列を使って連立方程式(未定係数法による化学反応式)を解く。
-    % 具体的な例として\ce{4NH3+ 5O2-> 4NO+ 6H2O}のような反応式の係数を解かせることを考える。
+    例題として未定係数法で化学反応式を解く。
+\begin{tcolorbox}
+    化学反応式
+\begin{equation}\label{eq:行列を用いない連立方程式}
+    \ce{$x$H2O + $y$O2 -> $z$H2O}
+\end{equation}
+    の係数$x, y, z$を求める。(代入していけば明らかであるが$x= 2,\ y= 1,\ z= 2$。)
+\end{tcolorbox}
+    % 未定係数法の解法については既知であるはずなので記述は抜粋する。
+\begin{lstlisting}[caption= {Pythonで行列を用いない連立方程式を解く}, label= {Pythonで行列を用いない連立方程式を解く}]
+    import from sympy *
+    x= symbol(x)
+    f= 
+    solve[f, x]
+\end{lstlisting}
 
-\section{微分方程式}
+
+\subsubsection{行列を用いた連立方程式}
+    前節では2-3変数程度の程度の小規模な連立方程式を考えた。一般的に連立方程式といえば、多変数で行列を用いて記述されているものを指す。\footnote{一般理系が教養の線型代数で目指す1つのゴールとして行列を使って連立方程式を解くことが挙げられる。}
+    ここでは行列を使って連立方程式を解くことを考える\footnote{内部的にはNumPyの機能を使って連立方程式を解く。}。
+    では前節で学んだ手法(前手法)と本手法では具体的などのような部分で違うのだろうか？前手法では毎回変数を宣言する必要があるが、本手法では
+\begin{tcolorbox}
+    以下の連立方程式を解け。
+\begin{equation}\label{eq:行列を用いる連立方程式}
+    A\bm{x}= \bm{b}
+\end{equation}
+\end{tcolorbox}
+
+\begin{lstlisting}[caption= {Pythonで行列を用いた連立方程式を解く}, label= {Pythonで行列を用いた連立方程式を解く}]
+    import from numpy *
+    
+\end{lstlisting}
+
+\subsection{微分方程式}%\index{微分方程式@びぶんほうていしき}
     ここでは\type{Numpy}の機能を使って微分方程式を解くことを考える。微分方程式とは通常の方程式とは異なり、解として方程式が得られる。
 \begin{table}[h]
 \caption{方程式と微分方程式の違い}
@@ -72,18 +239,50 @@
 \end{center}
 \end{table}
     基本的に微分方程式は解くことができない\footnote{化学で扱う程度であれば解ける　か解けることにする}が、本節では解ける微分方程式のみを扱う。
+\begin{tcolorbox}
+    反応係数を$k$として反応物\ce{A}が\ce{B}に変化する不可逆な一次反応\ce{A ->[$k$] B}を考える。
+    以下の微分方程式(一次反応の微分方程式)を解け。
+\begin{equation}\label{eq:微分方程式}
+    \frac{d[A]}{dt}= -k[A]
+\end{equation}
+\end{tcolorbox}
+
+\begin{lstlisting}[caption= {Pythonで微分方程式を解く}, label= {Pythonで微分方程式を解く}]
+    import from sympy *
+    x= symbol(x)
+    f= 
+    dsolve[f, x]
+\end{lstlisting}
+    他の方程式を解く際は最後が\type{solve}だったが、微分方程式のときには\type{\underline{d}solve}であることに注意する。
+
+
+\chapter{データ分析編}\label{chap:データ分析編}
+    \cref{chap:データ分析編}ではデータ分析編として実験で得られたデータをPythonを用いて分析・解析する方法を学ぶ。前半では得られたデータをグラフなどで表示する方法、後半では得られたデータを分析する方法を学ぶ。
+
+\section{グラフ表示法}
+    本節では
+
+\subsection{箱ひげ図}%\index{箱ひげ図@はこひげず}
+
+\subsection{ヒストグラム}%\index{ヒストグラム@ひすとぐらむ}
+
+\subsection{散布図}%\index{散布図@さんぷず}
+
+
+% pH[-]と反応率[\%]の関係図の表があったのでサンプルデータとして載せておく
+% pH / -,	3,	5,	9,	11
+% 反応率 / \%, 2,	14,	46,	60
+% \section{Arrhenius式から指数関数のグラフを描く}
+
+% 書いておきたい内容(あとで消す)
+% - R^2値の計算方法
+% - 最小二乗法で直線を描く
 
 
 
 
-\section{グラフの類}
-\subsection{箱ひげ図}
-
-\subsection{ヒストグラム}
-
-\subsection{散布図を描く}
-
-\section{Arrhenius式から指数関数のグラフを描く}
+\chapter{機械学習編}\label{chap:機械学習編}%\index{機械学習@きかいがくしゅう}
+    \cref{chap:機械学習編}では機械学習を用いて実験計画を効率化でき得る方法について学ぶ。\type{scikit-learn}ライブラリを用いるので\type{pip}コマンドで追加しておくことに注意する\footnote{ライブラリとimportについては\S\ref{sec:ライブラリ}を参照}。
 
 
 
@@ -93,21 +292,6 @@
 
 
 
-
-
-
-
-\section{ライブラリとパッケージ}
-\subsection{import文}
-    主なライブラリとその機能
-
-%\begin{tabular}[ll]
-    NumPy
-    Pandas
-%    Matplotlib
-%    SciPy
-%    scikit-learn
-%\end{tabular}
 
 
 
@@ -119,12 +303,16 @@
     以下にショートカットキーとその効果を示す。
 
 \begin{table}[h]
-\begin{tabular}{cl|cl}
+\begin{center}
+\caption{ショートカットキー一覧}
+\begin{tabular}{ll|ll}
     ショートカット& 効果& ショートカット& 効果\\ \hline\hline
     $\tcmd{ctrl L}$& 列を選択&&\\
-    $\tcmd{ctrl (<-/->)}$& 単語単位でカーソル移動&&
-
+    $\tcmd{ctrl (<-/->)}$& 単語単位でカーソル移動&&\\
+    $\tcmd{ctrl /}$& カーソルのある行をコメントアウト&&\\
+    $\tcmd{Fn (<-/->)}$& 文頭/末にカーソル移動&&
 \end{tabular}
+\end{center}
 \end{table}
 
 \section{実行環境(VSCode)をインストール}\label{実行環境(VSCode)をインストール}
@@ -132,13 +320,13 @@
     \item MicroSoftStoreの検索窓に「VSCode」と入力し、ダウンロード\footnote{追加後タスクバーにピン止めすると便利}
     \item VSCodeを開き、拡張機能：\type{\underline{Japanese Language Pack for Visual Studio Code}}をインストール
     \item 一度VSCodeを終了させ、再起動(このときすべての項目が英語から日本語に変更されていることを確認する。されていなければもう一度再起動)
-    \item 拡張機能：\tcmd{\underline{Python}}、\tcmd{\underline{CodeRunner}}をインストール
+    \item 拡張機能：\underline{Python}、\underline{CodeRunner}をインストール
 \end{enumerate}
 
 \section{Pyhton環境と保存}
     \S\ref{実行環境(VSCode)をインストール}でVSCodeおよびPythonの
 
-\section{拡張子を表示する}
+\section{拡張子を表示する}\label{sec:拡張子を表示する}
     拡張子\footnote{ファイルの最後に書いてある\type{.pdf}や\type{.jpg}, \type{.mp3}など}はPCがどのようなファイル形式かを見分けるために必要な目次のようなものである。デフォルトのWindowsでは拡張子は非表示になっているが，今後表示されている方が都合がよいため拡張子表示設定に変更する。
 \begin{enumerate}
     \item タスクバーの\underline{エクスプローラー}(または$\fbox{Win E}$)を開く。
@@ -147,5 +335,12 @@
 \end{enumerate}
     今後扱うPythonファイルは拡張子が\type{.py}なので、実行ができない際は拡張子が違うもの\footnote{\type{.txt}や\type{.md}など}になっていないか確認する。
 
-
+\chapter{Python 用語辞典}
+\begin{tabular}{ll}\hline\hline
+    用語& 解説\\ \hline
+    インデント：&\type{Tab}キーを用いて\\
+    コメントアウト：& \type{\#}以降の記入内容無視すること。主にメモに使われる。\\
+    &また確認のために一時的に\type{print}の内容を消すためにも使われる。
+    \\\hline\hline
+\end{tabular}
 \end{document}
