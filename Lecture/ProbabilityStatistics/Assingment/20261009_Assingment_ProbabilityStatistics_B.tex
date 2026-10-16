@@ -1,0 +1,46 @@
+% 202601009_Assingment_Probability_Statistics_B
+\documentclass[dvipdfmx]{jsreport}
+\usepackage{soupreamble}
+
+\title{確率及び統計学特論B 第1回レポート課題}
+\author{M1 6012 川村聡一郎}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\begin{tcolorbox}
+	$x, y\in \R$は$x- y= 0, \pm 1$を満たすとする。このとき$F\colon \R\to \R$に対し、
+\begin{equation}
+	F(y)- F(x)= \frac{F(x+ 1)- F(x- 1)}{2}(y- x)+ \frac{F(x+ 1)- 2F(x)+ F(x- 1)}{2}(y- x)^2
+\end{equation}
+	を満たすことを示せ。
+\end{tcolorbox}
+
+\begin{souanswer} %答案はここに書く
+	$x- y= 0$のとき：
+\begin{align*}
+	F(y)- F(x)
+	&= \frac{F(x+ 1)- F(x- 1)}{2}\cdot 0+ \frac{F(x+ 1)- 2F(x)+ F(x- 1)}{2}\cdot 0^2\\
+	&= 0
+\end{align*}
+	$x- y= 1$のとき：
+\begin{align*}
+	F(y)- F(x)
+	&= \frac{F(x+ 1)- F(x- 1)}{2}\cdot 1+ \frac{F(x+ 1)- 2F(x)+ F(x- 1)}{2}\cdot 1^2\\
+	&= -2F(x)
+\end{align*}
+	
+	$x- y= -1$のとき：
+\begin{align*}
+	F(y)- F(x)
+	&= \frac{F(x+ 1)- F(x- 1)}{2}\cdot (-1)+ \frac{F(x+ 1)- 2F(x)+ F(x- 1)}{2}\cdot (-1)^2\\
+	&= -F(x)
+\end{align*}
+	
+
+
+
+\end{souanswer}
+\end{document}
