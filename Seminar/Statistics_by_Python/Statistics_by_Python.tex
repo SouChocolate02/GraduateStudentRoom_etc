@@ -11,7 +11,12 @@
 \setcounter{tocdepth}{3}
 \tableofcontents
 \abstract{
-    本書ではPythonを用いて実験データの分析を行う手法を基礎・計算編/データ分析編/機械学習編の3章構成で学ぶ。本来はその数学背景も知るべきであるが、本文中には記載せず、別冊の補足資料に記載した\footnote{どうせ忘れるし、こうすればできる！あとは腕力(計算力)の問題にできれば計算機やAIを使ってもいいと思っている人間なので}。
+    本書ではPythonを用いて実験データの分析を行う手法を基礎・計算編/データ分析編/機械学習編の全3章構成で学ぶ。本来はその数学背景も知るべきであるが、本文中には記載せず、別冊の補足資料に記載した\footnote{どうせ忘れるし、こうすればできる！あとは腕力(計算力)の問題にできれば計算機やAIを使ってもいいと思っている人間なので}。\\
+    なおプログラムを書くにあたり、同時に押す必要のあるキーは\tcmd{ctrl S}\footnote{特に同時押しする必要があるものは\type{ctrl}, \type{shift}, \type{Fn/fn}, \type{Alt/alt}であろう。これらのキーは基本左下に配置されているはずなので確認しておくとよい。}のように記述した。
+    同時押しする必要がないものに関しては$\tcmd{ctrl S}+ \tcmd{ctrl W}$のように$+$記号を用いて記述した。
+    \S\ref{sec:shortcutkey}に特に本資料を読むに当たって有用であると思われるショートカットキーをまとめた。
+    サンプルコード中には\type{hoge}や\type{fuga}などの用語(?)が出てくるが、これは特に意味のない語であり、その時々に応じた(主に)ファイル名に置き換えて読んで欲しい\footnote{コンピュータ科学の名残である。}。\\
+    本資料を作成するにあたり、様々な文献やYoutubeチャンネルを参考にした。(余裕があれば)これらも出典として参考文献にあげる\footnote{が今は本文を書くのに手いっぱいでちゃんとまとめられていない。}。
 }
     \chapter{基礎・計算編}\label{chap:基礎・計算編}
     \cref{chap:基礎・計算編}ではPythonを使う上で基礎的となる計算や設定について学ぶ。
@@ -23,7 +28,7 @@
     \item VSCodeを開き、\tcmd{ctrl N}で新規ファイルを開く。
 %最初である必要はないがお作法として最初にやっておくと忘れずに済む
     \item $\tcmd{ctrl K}+ \tcmd{ctrl M}$を押し、拡張子を設定する(中央上の言語モードを選択が選択されるので\texttt{\underline{Python}}と入力)。
-    \item エディターエリア\footnote{中央の広い場所　特に間違えていなければ左に行数が出ている}にサンプルコード\cref{code:HellowWorld!}を張り付ける。
+    \item エディターエリア\footnote{中央の広い場所}にサンプルコード\cref{code:HelloWorld!}を張り付ける。
     \item (この操作は初回のみ)作成したプログラムを保存するため、\tcmd{ctrl S}で保存する。保存ファイル名は適当でよい\footnote{プログラムの作成日や対象サンプルの名前など}。この際に拡張子\footnote{拡張子の詳細は\S\ref{sec:拡張子を表示する}参照}が\type{.py}になっていることに注意する。また保存場所はデスクトップに\type{PythonProject}などのファイルを作成し、すべてそのファイルに保存・管理することを勧める。
     \item \tcmd{Fn F5}を同時押しすると画面下に\underline{ターミナル}が起動し、打ち込んだ文章(今回なら\type{HellowWorld!})が出力される。    
 \end{enumerate}
@@ -54,7 +59,22 @@
 \end{table}
 
 
-\section{行列・ベクトル・リスト・タプル}
+\section{計算}
+\subsection{四則演算}\label{sec:四則演算}
+    ここでは基本の計算となる四則演算(和差積商・商の整数部分・余り)の計算について説明する。使用頻度が高いため、累乗の計算。詳細は後述するが行列同士の積についても説明する。
+
+\begin{lstlisting}[language=Python, caption= {四則演算の計算}, label= {code:四則演算}]
+    1+ 2 和の計算
+    100- 73 %差の計算
+    25* 4 %積の計算
+    21/ 5 %通常の割り算
+    21//5 %商の整数部分
+    21%5 %余り
+
+    2**2 %累乗
+\end{lstlisting}
+
+% \section{行列・ベクトル・リスト・タプル}
     ここではプログラミングをするにおいて必要となる\textbf{行列・ベクトル・リスト・タプル}について扱う。
 \subsection{行列}%\index{行列@ぎょうれつ}
     行列を扱うためには\type{NumPy}のインストールが必須であるので注意すること。
@@ -81,21 +101,6 @@
     
 
 \subsection{タプル}%\index{タプル@たぷる}
-
-\section{計算}
-\subsection{四則演算}\label{sec:四則演算}
-    ここでは基本の計算となる四則演算(和差積商・商の整数部分・余り)の計算について説明する。使用頻度が高いため、累乗の計算。詳細は後述するが行列同士の積についても説明する。
-
-\begin{lstlisting}[language=Python, caption= {四則演算の計算}, label= {code:四則演算}]
-    1+ 2 和の計算
-    100- 73 %差の計算
-    25* 4 %積の計算
-    21/ 5 %通常の割り算
-    21//5 %商の整数部分
-    21%5 %余り
-
-    2**2 %累乗
-\end{lstlisting}
 
 
 \section{方程式}%\index{方程式@ほうていしき}
@@ -262,12 +267,18 @@
 \section{グラフ表示法}
     本節では
 
+\subsection{棒グラフ}%\index{棒グラフ@ぼうぐらふ}
+
 \subsection{箱ひげ図}%\index{箱ひげ図@はこひげず}
 
 \subsection{ヒストグラム}%\index{ヒストグラム@ひすとぐらむ}
 
 \subsection{散布図}%\index{散布図@さんぷず}
 
+    また一般では見られない
+\subsection{相図・状態図}%\index{相図@そうず}\index{状態図@じょうたいず}
+
+\subsection{生存曲線}%\index{生存曲線@せいぞんきょくせん}
 
 % pH[-]と反応率[\%]の関係図の表があったのでサンプルデータとして載せておく
 % pH / -,	3,	5,	9,	11
@@ -284,9 +295,23 @@
 \chapter{機械学習編}\label{chap:機械学習編}%\index{機械学習@きかいがくしゅう}
     \cref{chap:機械学習編}では機械学習を用いて実験計画を効率化でき得る方法について学ぶ。\type{scikit-learn}ライブラリを用いるので\type{pip}コマンドで追加しておくことに注意する\footnote{ライブラリとimportについては\S\ref{sec:ライブラリ}を参照}。
 
+\section{基本的なプログラミング}
+    ここでは基本的なプログラミングとしてどんな言語の入門用テキストにもあるような\type{if}/\type{for}/\type{while}について学ぶ。
+
+\subsection{if文}
+
+
+\subsubsection{elif}
+
+
+\subsection{for文}
+
+\subsection{while文}
 
 
 
+\section{チャットbotの作成}
+    上記で学んだことを生かしてチャットbotを作成する。
 
 
 
@@ -299,7 +324,7 @@
 \chapter{解析前のPC設定}
 %    原則本文にソースコードは1度しか掲載しない(再利用する際は\texttt{SampleCode.NN}参照のように書く)
 
-\section{効率化のためのショートカットキー}
+\section{効率化のためのショートカットキー}\label{sec:shortcutkey}
     以下にショートカットキーとその効果を示す。
 
 \begin{table}[h]
@@ -315,6 +340,15 @@
 \end{center}
 \end{table}
 
+\section{拡張子を表示する}\label{sec:拡張子を表示する}
+    拡張子\footnote{ファイルの最後に書いてある\type{.pdf}や\type{.jpg}, \type{.mp3}など}はPCがどのようなファイル形式かを見分けるために必要な目次のようなものである。デフォルトのWindowsでは拡張子は非表示になっているが，今後表示されている方が都合がよいため拡張子表示設定に変更する。
+\begin{enumerate}
+    \item タスクバーの\underline{エクスプローラー}(または$\fbox{Win E}$)を開く。
+    \item 上部メニューの\underline{表示}をクリックする。
+    \item \underline{表示}にカーソルを合わせ、\underline{ファイル名拡張子}にチェックを入れる。
+\end{enumerate}
+    今後扱うPythonファイルは拡張子が\type{.py}なので、実行ができない際は拡張子が違うもの\footnote{\type{.txt}や\type{.md}など}になっていないか確認する。
+
 \section{実行環境(VSCode)をインストール}\label{実行環境(VSCode)をインストール}
 \begin{enumerate}
     \item MicroSoftStoreの検索窓に「VSCode」と入力し、ダウンロード\footnote{追加後タスクバーにピン止めすると便利}
@@ -326,14 +360,19 @@
 \section{Pyhton環境と保存}
     \S\ref{実行環境(VSCode)をインストール}でVSCodeおよびPythonの
 
-\section{拡張子を表示する}\label{sec:拡張子を表示する}
-    拡張子\footnote{ファイルの最後に書いてある\type{.pdf}や\type{.jpg}, \type{.mp3}など}はPCがどのようなファイル形式かを見分けるために必要な目次のようなものである。デフォルトのWindowsでは拡張子は非表示になっているが，今後表示されている方が都合がよいため拡張子表示設定に変更する。
+
+\section{JupterNootBookの設定}
+% なんか適当な前書き・JNBについての説明
 \begin{enumerate}
-    \item タスクバーの\underline{エクスプローラー}(または$\fbox{Win E}$)を開く。
-    \item 上部メニューの\underline{表示}をクリックする。
-    \item \underline{表示}にカーソルを合わせ、\underline{ファイル名拡張子}にチェックを入れる。
+    \item VSCodeのエディターエリアで\tcmd{ctrl shift P}で\type{PowerShell}を起動する。
+    \item コマンド：\type{pip install jupyter note book}と入力し、\type{Enter}\footnote{1分程度でJupyter Notebookの設定が出来上がる}。
+    \item コマンド：\type{jupyter notebook}と入力すると自動でWeb上に移動し、該当フォルダを開いた状態でJupyterNotebookが起動する。
+    \item 対象となるPyhtonファイルをクリックすると別ページでファイルが開かれ、コードが実行できる。
 \end{enumerate}
-    今後扱うPythonファイルは拡張子が\type{.py}なので、実行ができない際は拡張子が違うもの\footnote{\type{.txt}や\type{.md}など}になっていないか確認する。
+
+\section{csv/xlsxファイルの作成}
+
+
 
 \chapter{Python 用語辞典}
 \begin{tabular}{ll}\hline\hline
@@ -343,4 +382,73 @@
     &また確認のために一時的に\type{print}の内容を消すためにも使われる。
     \\\hline\hline
 \end{tabular}
+
+
+% Pandasとは？
+% Seriesの作成
+% ExcelからDataFrameを作成
+% JupyterNotebookの使用
+% CSVからDataFrameの作成
+% 特定の列・行の抽出
+% 条件でデータを抽出
+% 統計量の取得
+% 列単位で演算・加工
+
+% GroupByによる集計
+% index/columnsの変更
+% concat1による結合
+% mergeによる結合
+% map+lambda式
+% グラフ描画
+
+% NumPyとは
+% 配列(ndarray)の作成
+% 並列の型と初期化
+% 配列の計算
+% 配列の変形・結合
+% 数学で使われる関数
+
+
+
+
+
+
+% 参考文献図書(下書きのため直書きするが、bibファイルを使って書く)
+
+% \bibliographystyle{jalpha}
+% \bibliography{reference_Statistics_by_Python.bib}
+
+
+
+
+% 化学のためのPythonによるデータ解析・機械学習入門 / 金子弘昌著
+% データ種別	図書
+% 出版情報	東京 : オーム社 , 2023.8
+% 本文言語	日本語
+% 大きさ	258p : 挿図 ; 24cm
+% 版	改訂2版
+
+% Pythonで気軽に化学・化学工学 / 化学工学会編 ; 金子弘昌著
+% データ種別	図書
+% 出版情報	東京 : 丸善 , 2021.4
+% 本文言語	日本語
+% 大きさ	xi, 180p : 挿図 ; 22cm
+
+% Pythonで学ぶ実験計画法入門 : ベイズ最適化によるデータ解析 / 金子弘昌著
+% データ種別	図書
+% 出版情報	東京 : 講談社 , 2021.6
+% 本文言語	日本語
+% 大きさ	ix, 175p ; 24cm
+
+% 化学現象から学ぶ化学の数学 : 基礎から応用まで / 内野智裕 [ほか] 著
+% データ種別	図書
+% 出版情報	東京 : オーム社 , 2018.8
+% 本文言語	日本語
+% 大きさ	ix, 289p ; 21cm
+
+
+% Web記事系
+% 【第1回】Pythonで学ぶデータ分析実践 〜データ分析とは〜
+% https://qiita.com/aiota/items/e461005a8c09d34640be
+
 \end{document}
