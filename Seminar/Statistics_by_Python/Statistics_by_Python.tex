@@ -51,8 +51,11 @@
 \begin{center}
 \begin{tabular}{ll}\hline\hline
     ライブラリ名& 主な用途\\ \hline
-    \type{NumPy}& 線型代数\\%\index{NumPy@なんぱい}\index{NumPy@NumPy}
+    \type{NumPy}& 線型代数\\ %\index{NumPy@なんぱい}\index{NumPy@NumPy}
     \type{SciPy}& 機械学習\\ %\index{SciPy@さいぱい}\index{SciPy@SciPy}
+    \type{matplotlib}& \\ %\index{matplotlib@まっとぷろっとりぶ}\index{matplotlib@matplotlib}
+    \type{Scikit-learn}& \\ %\index{Scikit-learn@さいきっとらーん}\index{Scikit-learn@Scikit-learn}
+    \type{RD-Kit}& \\ %\index{RD-Kit@あーるでぃーきっと}\index{RD-Kit@RD-Kit}
     \hline\hline
 \end{tabular}
 \end{center}
@@ -163,7 +166,7 @@
     例えば以下の指数方程式\eqref{eq:指数方程式}を考える。
 \begin{tcolorbox}
 \begin{equation}\label{eq:指数方程式}
-    e^x= 3\
+    e^x= 3
 \end{equation}
 \end{tcolorbox}
 
@@ -218,6 +221,7 @@
 \subsubsection{行列を用いた連立方程式}
     前節では2-3変数程度の程度の小規模な連立方程式を考えた。一般的に連立方程式といえば、多変数で行列を用いて記述されているものを指す。\footnote{一般理系が教養の線型代数で目指す1つのゴールとして行列を使って連立方程式を解くことが挙げられる。}
     ここでは行列を使って連立方程式を解くことを考える\footnote{内部的にはNumPyの機能を使って連立方程式を解く。}。
+
     では前節で学んだ手法(前手法)と本手法では具体的などのような部分で違うのだろうか？前手法では毎回変数を宣言する必要があるが、本手法では
 \begin{tcolorbox}
     以下の連立方程式を解け。
@@ -417,38 +421,4 @@
 
 % \bibliographystyle{jalpha}
 % \bibliography{reference_Statistics_by_Python.bib}
-
-
-
-
-% 化学のためのPythonによるデータ解析・機械学習入門 / 金子弘昌著
-% データ種別	図書
-% 出版情報	東京 : オーム社 , 2023.8
-% 本文言語	日本語
-% 大きさ	258p : 挿図 ; 24cm
-% 版	改訂2版
-
-% Pythonで気軽に化学・化学工学 / 化学工学会編 ; 金子弘昌著
-% データ種別	図書
-% 出版情報	東京 : 丸善 , 2021.4
-% 本文言語	日本語
-% 大きさ	xi, 180p : 挿図 ; 22cm
-
-% Pythonで学ぶ実験計画法入門 : ベイズ最適化によるデータ解析 / 金子弘昌著
-% データ種別	図書
-% 出版情報	東京 : 講談社 , 2021.6
-% 本文言語	日本語
-% 大きさ	ix, 175p ; 24cm
-
-% 化学現象から学ぶ化学の数学 : 基礎から応用まで / 内野智裕 [ほか] 著
-% データ種別	図書
-% 出版情報	東京 : オーム社 , 2018.8
-% 本文言語	日本語
-% 大きさ	ix, 289p ; 21cm
-
-
-% Web記事系
-% 【第1回】Pythonで学ぶデータ分析実践 〜データ分析とは〜
-% https://qiita.com/aiota/items/e461005a8c09d34640be
-
 \end{document}
