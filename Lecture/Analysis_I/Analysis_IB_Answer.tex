@@ -32,10 +32,10 @@
 %\section{2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{2}$
-    $f, g\in C^\infty(\R^N), l, m\in \N_0$に対し、以下を示せ．
+    $f, g\in C^\infty(\R^N),\ l, m\in \N_0$に対し、以下を示せ．
 \begin{enumerate}
-    \item $l'\in \N_0, \alpha\in \N_0^N, l'\le l, |\alpha|\le m$ならば$\sup_{x\in \R^N} (1+|x|^2)^{{l'}/2}|\partial^\alpha f(x)|\le |f|_{m, l}$
-    \item $|f+ g|_{m, l}\le |f|_{m, l}+ |g|_{m, l}, |cf|_{m, l}= |c||f|_{m, l}$\ \ ($c$は任意の複素定数)
+    \item $l'\in \N_0,\ \alpha\in \N_0^N,\ l'\le l, |\alpha|\le m$ならば$\sup_{x\in \R^N} (1+|x|^2)^{{l'}/2}|\partial^\alpha f(x)|\le |f|_{m, l}$
+    \item $|f+ g|_{m, l}\le |f|_{m, l}+ |g|_{m, l},\ |cf|_{m, l}= |c||f|_{m, l}$\ \ ($c$は任意の複素定数)
     \item $|f_{0, 0}|= ||f||_\infty$%= \norm_{L^\infty}$
 \end{enumerate}
 \end{tcolorbox}
@@ -107,7 +107,6 @@
 %\section{8}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{8}$
-    以下を示せ．
     $S, T\in \mathcal{S}'(\R^N)$と$c\in \C$に対し、和$S+ T$とスカラー倍$cT$を
 \begin{align}
     \langle{S+ T, \phi}\rangle&= \langle{S, \phi}\rangle+ \langle{T, \phi}\rangle,\\
@@ -128,7 +127,7 @@
 %\section{10}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{10}$
-    任意の$p\in [1, \infty]$に対し$L^p(\R^N)\subset \mathcal{S}'(\R^N)$を示せ。
+    任意の$p\in [1, \infty]$に対し、$L^p(\R^N)\subset \mathcal{S}'(\R^N)$を示せ。
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{11}
@@ -162,6 +161,57 @@
 \end{enumerate}
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{14}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{14}$
+    $f\in C(\R^N)$に対し、$f$の超関数としての台$\supp{T_f}$と関数としての台$\supp{f}$が一致することを示せ。
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{15}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{15}$
+    任意の多重指数$\alpha$に対し$\supp{\partial^\alpha}\delta= \{0\}$であることを示せ。
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{16}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{16}$
+    $\F{[\delta]}= \frac{1}{(2\pi)^{N/2}}$が成り立つことを示せ。
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{17}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{17}$
+    $u\in \mathcal{S}'(\R^N),\ \alpha\in \N_0^N$とするとき、以下の各等式を示せ．
+\begin{enumerate}
+    \item $\F[\partial_x^\alpha u]= i^{|\alpha|}\xi^\alpha \F[u]$,\ $\F[x^\alpha u]= i^{|\alpha|}\partial_\xi^{\alpha} \F[u]$
+    \item $\F^{-1}[\partial_x^\alpha u]= (-i)^{|\alpha|}\xi^\alpha \F^{-1}[u]$,\ $\F^{-1}[x^\alpha u]= (-i)^{|\alpha|}\partial_\xi^{\alpha} \F^{-1}[u]$
+    \item $\F[\tau_h u]= e^{-ih\cdot \xi}\F[u]$,\ $\F[e^{ih\cdot x} u]= \tau_h\F[u]$
+    \item $\F[u^\flat]= \F^{-1}[u]$
+\end{enumerate}
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{18}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{18}$
+    $u\in \mathcal{S}',\ \phi, \psi\in \mathcal{S}$に対して、以下を示せ．
+\begin{enumerate}
+    \item $(\partial_k(u\ast \phi))(x)= (u\ast(\partial_k \phi))(x)\iff \frac{\tau_{-he_k}\phi- \phi}{h}\to \partial_k \phi \ \mathrm{in}\ \mathcal{S}$
+    \item $\frac{1}{l^N}\sum_{p\in \Z^N}\psi\left(\frac{p}{l}\right)\tau_{\frac{p}{l}}\phi^\flat\to \phi^\flat\ast \psi\ \mathrm{in}\ \mathcal{S}\ (l\to \infty)$
+\end{enumerate}
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{19}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tcolorbox}$\fbox{19}$
+    $\psi\in C^\infty_0(\R^N), E_\xi(x)= e^{-ix\cdot \xi}, m\in \N_0$と$\R^N$のコンパクト集合$K$に対して$|\psi(E_\xi- E_{\xi_0})|_{m, K}\to 0\ (\xi\to \xi_0)$が成り立つことを示せ。
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Sample}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tcolorbox}$\fbox{Sample}$
@@ -171,5 +221,6 @@
 \end{enumerate}
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \end{document}
