@@ -1,0 +1,66 @@
+%Lectures on Celestial Mechanics
+\documentclass[dvipdfmx, leqno]{jsbook}
+\usepackage{soupreamble}
+
+\title{天体力学講義-Lectures on Celestial Mechanics-}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+
+%p2中盤以降の内容
+    を導入し、、\eqref{eq:eq1}から\eqref{eq:eq2}を引くと公式
+\begin{equation}
+    I'(\alpha)= \int_{t_1}^{t_2} \sum_{k= 1}^n x'_kL_{x_k}f dt
+\end{equation}
+    が得られる。ただし引数には$x_k= x_k(\alpha, t), \dot{x}_k= \dfrac{dx_k}{dt}$を代入しなくてはならない。$x'_k(0, t)$は任意に選べることと$L_{x_k}f$の連続性から、条件$I'(0)= 0$はEuler-Lagrange方程式
+\begin{equation}
+    L_{x_k}f= 0\ \ (k= 1, \ldots, n)
+\end{equation}
+    を与え、$x_k= x_k(0, t)= x_k(t)\ \ (k= 1, \ldots, n)$がその解になる。
+
+    Lagrange微分が座標変換のもとでどのように振舞うか調べる。$x_!, \ldots, x_n$の代わりに新しい座標$\xi_1, \ldots, \xi_n$を置換
+\begin{equation} \label{eq:eq3}
+    x_k= x_k(\xi, t)\ \ (k= 1, \ldots, n)
+\end{equation}
+    によって導入する。ここで$x_k(\xi, t)$は$n+ 1$個の独立変数$\xi_1, \ldots, \xi_n, t$について2階連続微分可能な関数であり、考えている領域でその$n$次のJacobi行列式は
+\begin{equation}
+    \begin{vmatrix}
+    \frac{\partial x_k}{\partial \xi_l}\ne 0
+    \end{vmatrix}
+\end{equation}
+
+    を満たすと仮定する。したがって$\xi$から$x$への変換は一意的に定まる逆変換をもつ。$t$は変換されない変数であり、また関数$x_k(\xi,t)$は上で導入した$x_k= x_k(\alpha, t)$とは無関係である。とくに$x_k= x_k(\alpha, t)$を考えると、$\xi_k= \xi_k(\alpha, t)$もまた$\alpha, t$の関数になり、\eqref{eq:eq3}より、
+\begin{equation} \label{eq:eq4}
+    \dot{x}_k= x_{kt}+ \sum_{l= 1} ^n x_{k\xi_l}\dot{\xi_l}   
+\end{equation}
+    である。ここで、$x_{kt}, x_{k\xi_l}$は$x_k(\xi, t)$の偏導関数である。置換\eqref{eq:eq3},\eqref{eq:eq4}によって$f(x, \dot{x}, t)$も$\xi, \dot{\xi}, t$の関数になり、
+\begin{equation}
+    I'(\alpha)= \int_{t_1}^{t_2} \sum_{k= 1}^n \xi'_kL_{\xi_k}f dt
+\end{equation}
+    である。このことは、連続性の仮定のもとで、式
+\begin{equation}
+    A= \sum_{k= 1}^n x'_kL_{x_k}f
+\end{equation}
+    が座標変換によって不変なことを意味している。
+
+    代数的には、この普遍性は次のように表すことができる。\eqref{eq:eq3},\eqref{eq:eq4}より
+\begin{equation}
+    x_{k\dot{\xi}_l}= 0,\ \dot{x}_{k\dot{\xi}_l}= x_{k\xi_l},\ \ x'_k= \sum_{l= 1}^n x_{k\xi_l}\xi'_l
+\end{equation}
+    であり、したがって
+\begin{align}
+    f_{\dot{\xi}_k}= \sum_{k= 1}^n (f_{x_k\dot{\xi}_l}+ f_{\dot{x_k}}\dot{x}_{k\dot{\xi}_l})= \sum_{k= 1}^n f_{\dot{x}_k}x_{k\xi_l},\\
+    \sum_{l= 1}^n f_{\dot{\xi}_l\xi'_l}= \sum_{k, l= 1}^n f_{\dot{x}_k}x_{k\xi_l}\xi'_l= \sum_{k= 1}^n f_{\dot{x}_kx'_k}= s
+\end{align}
+    である。よって$s$ならびに
+\begin{equation}
+    \frac{ds}{dt}= \sum_{k= 1}^l \left(\frac{df_{\dot{x}_k}}{dt}x'_k+ f_{\dot{x}_k}\dot{x}'_k\right)
+\end{equation}
+    は不変である。同じことは
+\begin{equation}
+    f'= \sum_{k= 1}^n (f_{x_k}x'_k+ f_{\dot{x}_k}\dot{x}'_k)
+\end{equation}
+\end{document}
