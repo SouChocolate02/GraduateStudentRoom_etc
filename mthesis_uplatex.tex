@@ -1,0 +1,67 @@
+\documentclass[12pt,uplatex,dvipdfmx,book,oneside]{jlreq}
+\usepackage{amssymb,amsmath,latexsym}
+\usepackage[haranoaji]{pxchfon} % 原ノ味フォントを使う
+
+\begin{document}
+\pagenumbering{roman}
+
+\begin{center}
+{\Large
+令和9年度 修士論文
+}
+
+\vspace{4cm}
+{\Huge
+和文題名（長さにより文字の大きさを調節して下さい）
+}
+
+\vspace{12pt}
+
+{\huge
+Title in English
+}
+\end{center}
+
+\vfill
+\begin{flushright}
+\large
+日本大学大学院理工学研究科博士前期課程数学専攻
+
+%学生番号
+M6012
+%氏名
+川村聡一郎
+
+指導教員 水野 将司
+\end{flushright}
+
+\thispagestyle{empty}
+
+\newpage
+
+\tableofcontents
+\thispagestyle{empty}
+
+
+\chapter{○○}
+\pagenumbering{arabic}
+
+
+
+
+
+\section{○○○}
+
+\subsection{界面モビリティの計算}
+\begin{align}
+    \phi_\mathrm{eq}
+    &= \frac{1}{2}\left(1- \tanh{\frac{\sqrt{2W}}{2a}}\right)\\
+    \frac{d\phi_\mathrm{eq}}{dx}
+    &= \frac{1}{2}\left(1- \frac{4}{(e^t+ e^{-t})^2}\right)\ \ \ t= \frac{\sqrt{2W}}{2a}x\\
+    \left(\frac{d\phi_\mathrm{eq}}{dx}\right)^2
+    &= \frac{1}{4}\left(1- \frac{8}{(e^t+ e^{-t})^2}+ \frac{16}{(e^t+ e^{-t})^4}\right)
+\end{align}
+
+
+
+\end{document}

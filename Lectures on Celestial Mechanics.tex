@@ -1,0 +1,326 @@
+%2026_ProbabilityStatistics_AB
+\documentclass[dvipdfmx, leqno]{jsbook}
+\usepackage{soupreamble}
+
+\title{天体力学講義-Lectures on Celestial Mechanics-}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{三体問題}
+\section{Lagrange微分の共変性}
+    $n$を自然数とする。$f= f(x, \dot{x}, t)$を$2n+ 1$個の実の独立変数$x_k, \dot{x}_k, t$をもつ実数値関数とする。ここで$k$は整数$1, \ldots, n$をわたり、$x, \dot{x}$は$x_k, \dot{x}_k$を成分とするベクトルである。$t$を閉区間$t_1\le t\le t_2$に制限し、残りの変数$x, \dot{x}$は$2n$次元空間の開集合$G$に制限する。
+    関数$f$はこれらの$x, \dot{x}, t$の値に対して定義され、2階までの連続な偏導関数をもつとする。我々は変分法における次の問題を考える。
+    与えられた境界値$x_k(t_1)= a_k,\ x_k(t_2)= b_k$をもち、区間$t_1\le t\le t_2$上で変数$t$について2階連続微分可能な関数$x_k= x_k(t) (k= 1, \ldots, n)$で、積分
+\begin{equation}
+    I= \int_{t_1}^{t_2} f(x, \dot{x}, t) dt
+\end{equation}
+    がその上で極値をとるものを求める問題である。
+
+    ここで$\dot{x}_k= \frac{dx_k(t)}{dt}$であり、$x, \dot{x}$は$G$にとどまるものとする。
+
+    この極値問題に解が存在すると仮定して、それを許容比較関数族$x_k= x_k(\alpha, t)\ (k= 1, \ldots, n)$の中に$x_k(0, t)= x_k(t)$が与えられた解になるように埋め込む。
+    $x_k(\alpha, t)$およびそれらの$t$に関する微分は、区間$-1< \alpha< 1$に含まれるパラメータ$\alpha$において連続微分可能なものとする。もしこれらの比較関数を積分の中に代入し、
+\begin{equation}
+    I(\alpha)= \int_{t_1}^{t_2} f(x(\alpha, t), \dot{x}(\alpha, t), t) dt\ \ (-1< \alpha< 1)
+\end{equation}
+    とすれば、関数$I(\alpha)$は$\alpha= 0$で極値$I$をとり、したがってその微分$\dfrac{dI(\alpha)}{d\alpha}$はそこで消える。
+
+    この微分をより便利な形で表すために、いくつかの略記法を導入する。$f$を$2n+ 1$個の独立変数$x_l, \dot{x}_l, t$の関数と考え、$f$の$x_k, \dot{x}_k$に関する偏導関数を$f_{x_k}, f_{\dot{x}_k}$とかき、パラメータ$\alpha$に関するプライム$(')$で表す。
+\begin{equation} \label{eq:eq1}
+    I'(\alpha)= \int_{t_1}^{t_2} \sum_{k= 1}^n \Big(f_{x_k}x'_k(\alpha, t)+ f_{\dot{x}_k}\dot{x}'_k(\alpha, t)\Big) dt
+\end{equation}
+    となる。一方$x_k(\alpha, t_1)= a_k,\ x_k(\alpha, t_2)= b_k$であるから式
+\begin{equation}
+    s= s(\alpha, t)= \sum_{k= 1}^n f_{\dot{x}_k}x'_k(\alpha, t)
+\end{equation}
+    は境界点$t= t_1, t_2$で消え、それゆえ
+\begin{equation} \label{eq:eq2}
+    0= \int_{t_1}^{t_2} \frac{ds}{dt}dt= \int_{t_1}^{t_2} \sum_{k= 1}^n \Big(f_{x_k}x'_k(\alpha, t)+ f_{\dot{x}_k}\dot{x}'_k(\alpha, t)\Big) dt
+\end{equation}
+    である。Lagrange微分
+\begin{equation}
+    L_{x_k}f= f_{x_k}- \frac{df_{\dot{x}_k}}{dt}
+\end{equation}
+    を導入し、\eqref{eq:eq1}から\eqref{eq:eq2}を引くと公式
+\begin{equation}
+    I'(\alpha)= \int_{t_1}^{t_2} \sum_{k= 1}^n x'_kL_{x_k}f dt
+\end{equation}
+    が得られる。ただし引数には$x_k= x_k(\alpha, t), \dot{x}_k= \dfrac{dx_k}{dt}$を代入しなくてはならない。$x'_k(0, t)$は任意に選べることと$L_{x_k}f$の連続性から、条件$I'(0)= 0$はEuler-Lagrange方程式
+\begin{equation}
+    L_{x_k}f= 0\ \ (k= 1, \ldots, n)
+\end{equation}
+    を与え、$x_k= x_k(0, t)= x_k(t)\ \ (k= 1, \ldots, n)$がその解になる。
+
+    Lagrange微分が座標変換のもとでどのように振舞うか調べる。$x_!, \ldots, x_n$の代わりに新しい座標$\xi_1, \ldots, \xi_n$を置換
+\begin{equation} \label{eq:eq3}
+    x_k= x_k(\xi, t)\ \ (k= 1, \ldots, n)
+\end{equation}
+    によって導入する。ここで$x_k(\xi, t)$は$n+ 1$個の独立変数$\xi_1, \ldots, \xi_n, t$について2階連続微分可能な関数であり、考えている領域でその$n$次のJacobi行列式は
+\begin{equation}
+    \begin{vmatrix}
+    \frac{\partial x_k}{\partial \xi_l}\ne 0
+    \end{vmatrix}
+\end{equation}
+
+    を満たすと仮定する。したがって$\xi$から$x$への変換は一意的に定まる逆変換をもつ。$t$は変換されない変数であり、また関数$x_k(\xi,t)$は上で導入した$x_k= x_k(\alpha, t)$とは無関係である。とくに$x_k= x_k(\alpha, t)$を考えると、$\xi_k= \xi_k(\alpha, t)$もまた$\alpha, t$の関数になり、\eqref{eq:eq3}より、
+\begin{equation} \label{eq:eq4}
+    \dot{x}_k= x_{kt}+ \sum_{l= 1} ^n x_{k\xi_l}\dot{\xi_l}   
+\end{equation}
+    である。ここで、$x_{kt}, x_{k\xi_l}$は$x_k(\xi, t)$の偏導関数である。置換\eqref{eq:eq3},\eqref{eq:eq4}によって$f(x, \dot{x}, t)$も$\xi, \dot{\xi}, t$の関数になり、
+\begin{equation}
+    I'(\alpha)= \int_{t_1}^{t_2} \sum_{k= 1}^n \xi'_kL_{\xi_k}f dt
+\end{equation}
+    である。このことは、連続性の仮定のもとで、式
+\begin{equation}
+    A= \sum_{k= 1}^n x'_kL_{x_k}f
+\end{equation}
+    が座標変換によって不変なことを意味している。
+
+    代数的には、この普遍性は次のように表すことができる。\eqref{eq:eq3},\eqref{eq:eq4}より
+\begin{equation}
+    x_{k\dot{\xi}_l}= 0,\ \dot{x}_{k\dot{\xi}_l}= x_{k\xi_l},\ \ x'_k= \sum_{l= 1}^n x_{k\xi_l}\xi'_l
+\end{equation}
+    であり、したがって
+\begin{align}
+    f_{\dot{\xi}_k}= \sum_{k= 1}^n (f_{x_k\dot{\xi}_l}+ f_{\dot{x_k}}\dot{x}_{k\dot{\xi}_l})= \sum_{k= 1}^n f_{\dot{x}_k}x_{k\xi_l},\\
+    \sum_{l= 1}^n f_{\dot{\xi}_l\xi'_l}= \sum_{k, l= 1}^n f_{\dot{x}_k}x_{k\xi_l}\xi'_l= \sum_{k= 1}^n f_{\dot{x}_kx'_k}= s
+\end{align}
+    である。よって$s$ならびに
+\begin{equation}
+    \frac{ds}{dt}= \sum_{k= 1}^l \left(\frac{df_{\dot{x}_k}}{dt}x'_k+ f_{\dot{x}_k}\dot{x}'_k\right)
+\end{equation}
+    は不変である。同じことは
+\begin{equation}
+    f'= \sum_{k= 1}^n (f_{x_k}x'_k+ f_{\dot{x}_k}\dot{x}'_k)
+\end{equation}
+    についてもいえるので、最終的に
+\begin{equation}
+    f'- \frac{ds}{dt}= A
+\end{equation}
+    は座標変換によって不変である。これら2つのいずれの証明においても、$x_k= x_k(t)$が極値問題の解であるという仮定は必要ない。
+    $x'_k$の任意性より、
+\begin{equation}
+    \sum_{k= 1}^n x_{k\xi_l}L_{x_k}f= L_{\xi_l}f\ \ (l =1, 2,\ \ldots, n)
+\end{equation}
+    が言えるが、これはとくに$\alpha= 0$のとき、よって$x_k= x_k(t)$に対して
+    成り立つ。これはLagrange微分の座標変換のもとでの振る舞いを決定し、Eular-Lagrange方程式が座標変換のもとで不変なことを示している。
+\begin{equation}
+    x_\xi= (x_{k\xi_l})= M
+\end{equation}
+    が置換\eqref{eq:eq3}のJacobi行列を表し、$L_x= L_xf$が$L_{x_k}f$を成分とする行ベクトルであるとすると、
+\begin{equation}
+    L_xM= L_\xi
+\end{equation}
+    であることがわかる。
+
+    $A$の不変性をパラメータ$\alpha$を用いずに定式化するために次の新しい記号を導入する。すなわち$t$を含むいくつかの独立変数の関数$\phi$に対して、$\delta \phi$を$t$を一定に保った、つまり$dt= 0$とした$\phi$の微分を表すとする。このとき$x_k$を成分とする列ベクトルを$\bm{x}$とすると、\eqref{eq:eq3}の帰結として
+\begin{equation}
+    \delta_x= M\delta \xi
+\end{equation}
+    が得られる。よって座標変換により$L_{x_k}$が受ける変換は$\delta \bm{x}_k$のそれに対して反傾的\footnote{$L_x, L_\xi$を列ベクトルとみなすと、その変換の表現行列は$M$の逆かつ転置となる}であり、それゆえ双線型形式$L_x\delta \bm{x}$は座標変換により不変である。
+    最後に関数$f$が$n$個のLagrange微分$L_{x_k}f$によってどこまで決定されるかを調べたい。明示的に書くとこれらの微分は
+\begin{equation} \label{eq:eq5}
+    L_{x_k}f= f_{x_k}- \sum_{l= 1}^n (f_{\dot{x}_kx_l}\dot{x}_l+ f_{\dot{x}_k\dot{x}_l}\ddot{x}_l)- f_{\dot{x}_kt}
+\end{equation}
+    で与えられる。ただし右辺は$3n+ 1$個の独立変数$x_l, \dot{x}_l, \ddot{x}_l, t$の関数とみなすとする。もし2つの関数$g(x, \dot{x}, t),\ h(x, \dot{x}, t)$に対して、$n$個のLagrange微分の組$L_{x_k}g,\ L_{x_k}h$がこれら$3n+ 1$個の変数の関数として等しいならば、それらの差$f= g- h$は方程式$L_{x_k}f= 0$を満たし、これは$x, \dot{x}, \ddot{x}, t$についての恒等式になる。
+    とくに\eqref{eq:eq5}の中の項$\ddot{x}_l$の係数が消えることから$f_{\dot{x}_k\dot{x}_l}= 0$であり、$f$は
+\begin{equation}
+    f(x, \dot{x}, t)= f_0(x, \dot{x}, t)+ \sum_{k= 1}^n f_k(x, t)\dot{x}_k
+\end{equation}
+    という形になる。これを\eqref{eq:eq5}に代入し係数を比較すると、
+\begin{equation}
+    f_{0x_k}= f_{kt},\ \ f_{lx_k}= f_{kx_l}\ \ (k, l= 1, \ldots, n)
+\end{equation}
+    を得るが、これらはその全微分が
+\begin{equation}
+    dv= f_0dt+ \sum_{k= 1}^n f_kdx_k
+\end{equation}
+    となるような関数$v(x, t)$が存在するための必要十分条件に他ならない。これより
+\begin{align}
+    f= \frac{dv}{dt},\\
+    g(x, \dot{x}, t)= h(x, \dot{x}, t)+ \frac{dv(x, t)}{dt}
+\end{align}
+    が従う。ここで$t$に関する全微分を行う部分では$x_k$は$t$の関数と
+    みなすものとする。
+    よってLagrange微分は、$\dot{x}$に依存しない関数$v(x, t)$の$t$に関する全微分となるような付加関数だけの任意性を許して、$x, \dot{x}, \ddot{x}, t$の関数として$f$を決定する。一方そのような関数を加えると積分$I$の値が変化するが、境界条件を考えるとその変化の値は$x_k(t)$の選び方に依らない。
+
+
+\section{正準変換}
+    参考文献[1.5]によれば、Lagrange微分は一般に関数$x_k(t)$の2階微分を含み、それゆえ対応する$n$個のEuler-Lagrange方程式系も2階である。それを$2n$個の1階微分方程式系に書き直すため、
+\begin{equation} \label{eq:eq1.2.1}
+    y_k= f_{\dot{x}_k}(x, \dot{x}, t)\ \ (k= 1, \ldots, n)
+\end{equation}
+    とおき、これらを$\dot{x}_k$について解き、$x_1, \ldots, x_n, t$および新しい独立変数$y_1, \ldots, y_n$によって表す。これは$n$次方程式について
+\begin{equation}
+    \begin{vmatrix}f_{\dot{x}_k\dot{x}_l}\end{vmatrix}\ne 0
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

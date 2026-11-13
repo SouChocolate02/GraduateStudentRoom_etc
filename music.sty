@@ -1,0 +1,31 @@
+\input musixtex
+\input musixsty               % タイトル・作曲者・A4サイズ余白の設定マクロ
+
+% --- 曲のタイトル・作曲者 ---
+\title{曲のタイトル}
+\author{作曲者名}
+\maketitle                    % タイトル・作曲者名を印字
+
+% --- 楽譜の初期設定 ---
+\instrumentnumber{1}          % 楽器数
+\setstaffs1{1}                % 段数（1段譜）
+\setclef1{0}                  % 音部記号（0=ト音記号, 6=ヘ音記号）
+\generalsignature{0}          % 調号（シャープ・フラットの数）
+\generalmeter{\meterfrac44}   % 拍子記号（4/4拍子）
+
+% --- 楽譜本編の開始 ---
+\startmuflex                  % 3パス用データ出力の開始
+\startpiece                   % 完全な楽譜の開始
+
+  % 1小節目
+  \NOtes \qu c \qu d \qu e \qu f \en \bar
+  
+  % 2小節目
+  \NOtes \qu g \qu a \qu b \qu c \en \bar
+  
+  % （ここに小節を続けて記述。自動で改行・改ページされます）
+
+  % 最終小節
+  \NOTEs \wh c \en
+\Endpiece                     % 太い終止線で楽譜を終了
+\endmuflex                    % 3パス用データ出力の終了

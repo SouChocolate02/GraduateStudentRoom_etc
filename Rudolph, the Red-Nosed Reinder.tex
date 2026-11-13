@@ -1,0 +1,29 @@
+% Rudolph, the Red-Nosed Reinder
+\documentclass{article}
+\usepackage{musixtex}
+
+
+\title{Rudolph, the Red-Nosed Reinder}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{music}
+
+    
+\instrumentnumber{1}% 楽器（パート）の数
+\setclef1{\bass}% bass(ヘ音記号を表示)
+\generalmeter{\meterfrac{4}{4}}% 拍子記号（4/4拍子）
+\generalsignature{2}
+
+% \startextract% 楽譜（抜粋）の開始
+\startpiece
+    \Notes {{\ql a}{\ql b}} \ds {\cl a}{\ql M}{\ql d}\en\bar
+    \Notes {\ql b}{\ql a} \pause\en\bar
+    \Notes {{\ql a}{\ql b}{\ql a}{\ql b}}{\ql a}{\ql d}\en\bar
+    \Notes {\ql c} \pause\en\bar
+    \Notes {{\ql N}{\ql a}} \ds {\ql b} {\ql L} {\ql c}\en\bar
+\Endpiece
+% \zendextract% 複縦線なしで楽譜終了（または\endpiece）
+\end{music}
+\end{document}
