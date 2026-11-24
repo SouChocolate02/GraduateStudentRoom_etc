@@ -1,0 +1,855 @@
+%Lectures on Celestial Mechanics
+\documentclass[dvipdfmx, leqno]{jsbook}
+\usepackage{soupreamble}
+
+\title{天体力学講義-Lectures on Celestial Mechanics-}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+
+%p2中盤以降の内容
+    を導入し、、\eqref{eq:eq1}から\eqref{eq:eq2}を引くと公式
+\begin{equation}
+    I'(\alpha)= \int_{t_1}^{t_2} \sum_{k= 1}^n x'_kL_{x_k}f dt
+\end{equation}
+    が得られる。ただし引数には$x_k= x_k(\alpha, t), \dot{x}_k= \dfrac{dx_k}{dt}$を代入しなくてはならない。$x'_k(0, t)$は任意に選べることと$L_{x_k}f$の連続性から、条件$I'(0)= 0$はEuler-Lagrange方程式
+\begin{equation}
+    L_{x_k}f= 0\ \ (k= 1, \ldots, n)
+\end{equation}
+    を与え、$x_k= x_k(0, t)= x_k(t)\ \ (k= 1, \ldots, n)$がその解になる。
+
+    Lagrange微分が座標変換のもとでどのように振舞うか調べる。$x_!, \ldots, x_n$の代わりに新しい座標$\xi_1, \ldots, \xi_n$を置換
+\begin{equation} \label{eq:eq3}
+    x_k= x_k(\xi, t)\ \ (k= 1, \ldots, n)
+\end{equation}
+    によって導入する。ここで$x_k(\xi, t)$は$n+ 1$個の独立変数$\xi_1, \ldots, \xi_n, t$について2階連続微分可能な関数であり、考えている領域でその$n$次のJacobi行列式は
+\begin{equation}
+    \begin{vmatrix}
+    \frac{\partial x_k}{\partial \xi_l}\ne 0
+    \end{vmatrix}
+\end{equation}
+
+    を満たすと仮定する。したがって$\xi$から$x$への変換は一意的に定まる逆変換をもつ。$t$は変換されない変数であり、また関数$x_k(\xi,t)$は上で導入した$x_k= x_k(\alpha, t)$とは無関係である。とくに$x_k= x_k(\alpha, t)$を考えると、$\xi_k= \xi_k(\alpha, t)$もまた$\alpha, t$の関数になり、\eqref{eq:eq3}より、
+\begin{equation} \label{eq:eq4}
+    \dot{x}_k= x_{kt}+ \sum_{l= 1} ^n x_{k\xi_l}\dot{\xi_l}   
+\end{equation}
+    である。ここで、$x_{kt}, x_{k\xi_l}$は$x_k(\xi, t)$の偏導関数である。置換\eqref{eq:eq3},\eqref{eq:eq4}によって$f(x, \dot{x}, t)$も$\xi, \dot{\xi}, t$の関数になり、
+\begin{equation}
+    I'(\alpha)= \int_{t_1}^{t_2} \sum_{k= 1}^n \xi'_kL_{\xi_k}f dt
+\end{equation}
+    である。このことは、連続性の仮定のもとで、式
+\begin{equation}
+    A= \sum_{k= 1}^n x'_kL_{x_k}f
+\end{equation}
+    が座標変換によって不変なことを意味している。
+
+    代数的には、この普遍性は次のように表すことができる。\eqref{eq:eq3},\eqref{eq:eq4}より
+\begin{equation}
+    x_{k\dot{\xi}_l}= 0,\ \dot{x}_{k\dot{\xi}_l}= x_{k\xi_l},\ \ x'_k= \sum_{l= 1}^n x_{k\xi_l}\xi'_l
+\end{equation}
+    であり、したがって
+\begin{align}
+    f_{\dot{\xi}_k}= \sum_{k= 1}^n (f_{x_k\dot{\xi}_l}+ f_{\dot{x_k}}\dot{x}_{k\dot{\xi}_l})= \sum_{k= 1}^n f_{\dot{x}_k}x_{k\xi_l},\\
+    \sum_{l= 1}^n f_{\dot{\xi}_l\xi'_l}= \sum_{k, l= 1}^n f_{\dot{x}_k}x_{k\xi_l}\xi'_l= \sum_{k= 1}^n f_{\dot{x}_kx'_k}= s
+\end{align}
+    である。よって$s$ならびに
+\begin{equation}
+    \frac{ds}{dt}= \sum_{k= 1}^l \left(\frac{df_{\dot{x}_k}}{dt}x'_k+ f_{\dot{x}_k}\dot{x}'_k\right)
+\end{equation}
+    は不変である。同じことは
+\begin{equation}
+    f'= \sum_{k= 1}^n (f_{x_k}x'_k+ f_{\dot{x}_k}\dot{x}'_k)
+\end{equation}
+
+\newpage
+
+    あああああああ
+
+\newpage
+
+% ### 7ページ
+\section{正準変換}
+    条件\eqref{eq:eq_1.2.2}より, $y_k$を$\dot{x}_l$の関数と見たときのヤコビ行列式$|y_{k\dot{x}_l}|$および対応する逆行列式$|\dot{x}_{ky_l}|$は0とは異なり,それゆえ\eqref{eq:eq1.2.7}(7)よりまた$|E_{y_ky_l}|\neq 0$となる. 
+    逆に, 関数$E(x,y,t)$が与えられ
+\begin{equation} \label{eq:eqq1.a.9}
+    \begin{vmatrix}E_{y_ky_l}\end{vmatrix}\neq 0
+\end{equation}
+    を満たしているとする. \eqref{eq:eq1.a.5}(5)の類似として
+\begin{equation} \label{eq:eq.1.a.10}
+    f= \sum_{k=1}^{n} \dot{x}_ky_k- E(x, y, t)
+\end{equation}
+    と定義し, 再び$3n+ 1$個の変数$x_k, y_k, \dot{x}_k, t$を独立変数として扱うと
+\begin{equation}
+    df = \sum_{k=1}^{n} (\dot{x}_k dy_k + y_k d\dot{x}_k - E_{x_k} dx_k - E_{y_k} dy_k) - E_t dt
+\end{equation}
+    となる. \eqref{eq:eq1.a9}(9)より方程式
+\begin{equation}
+    \dot{x}_k= E_{y_k} \\ (k= 1, \dots, n)
+\end{equation}
+    は$y$について$x, \dot{x}, t$の関数として解けるので,$f$は$x, \dot{x}, t$だけの関数となり
+\begin{equation}
+    df= \sum_{k= 1}^{n} (y_k d\dot{x}_k- E_{x_k} dx_k)- E_t dt
+\end{equation}
+    となる. それゆえ
+\begin{equation}
+    f_{x_k}= -E_{x_k},\ \ f_{\dot{x}_k}= y_k \ \ (k= 1, \dots, n)
+\end{equation}
+    であり, これはまた\eqref{eq:eq1.a.8}を導く。最後に、\eqref{eq:eq1.a.9}より$\dot{x}_k$を$y_l$の関数と見たときのヤコビ行列式$\begin{vmatrix}\dot{x}_{ky_l}\end{vmatrix}$は0と異なり、対応する逆行列式$\begin{vmatrix}y_{k\dot{x}_l}\end{vmatrix}$も0ではない。それゆえ, \eqref{eq:eq1.a.11}(11)よりまた$\begin{vmatrix}f_{\dot{x}_k \dot{x}_l}\end{vmatrix}\neq 0$である。こうして, \eqref{eq:eq1.a.9}(9)とハミルトン方程式から\eqref{eq:eq1.a.1}, \eqref{eq:eq1.a.2}とEular-Lagrange方程式が導き出せる.
+    $2n$個のHamilton方程式のうちの半分、すなわち$\dot{y}_k= -E_{x_k}$はEuler-Lagrange方程式から直接出てくる。 一方、残りの半分は置き換え\eqref{eq:eq1.a.1}, \eqref{eq:eq1.a.5}から決まる。注目すべきことは、$2n$個のHamilton方程式がまとめてEuler-Lagrange方程式として解釈できることである。このために, \ref{sec:第一節の名前}の$x$の代わりに変数$x, y$を用い、\eqref{eq:eq1.a.10}で定義される関数$f$の中で$4n+ 1$個の変数$x_k, y_k, \dot{x}_k, \dot{y}_k, t$を独立変数と見なそう。もちろん$f$は実際は$\dot{y}_k$によらない. このときLagrange微分の定義より
+\begin{equation}
+    L_{x_k}f= f_{x_k}- \frac{df_{\dot{x}_k}}{dt}= -E_{x_k}- \dot{y}_k, \ \ L_{y_k}f= f_{y_k}- \frac{df_{\dot{y}_k}}{dt}= \dot{x}_k- E_{y_k}
+\end{equation}
+
+% ### 8ページ
+    となるので, 右辺を0とおくとHamilton方程式が得られるのである.
+
+    この再定式化によって, Lagrange微分の変換に関する先の結果を応用することができる。いま次の形の置換について調べよう。
+\begin{equation} \label{eq:eq1.a.13}
+    x_k= x_k(\xi, \eta, t), \ \ y_k= y_k(\xi, \eta, t) \ \ (k= 1, \dots, n)
+\end{equation}
+    これにより、$\xi_1, \dots, \xi_n, \eta_1, \dots, \eta_n$ が新しい変数となり、一方$t$は変化しない。$2n$個の変数$x_1, \dots, x_n, y_1, \dots, y_n$を$z_1, \dots, z_{2n}$で表し、それに応じて$\zeta_1, \dots, \zeta_{2n}$も導入すると、\eqref{eq:eq1.a.13}はより簡潔に
+\begin{equation}
+    z_k= z_k(\zeta, t) \ \ (k= 1, \dots, 2n)
+\end{equation}
+    と表すことができる。$n$次のヤコビ行列
+\begin{align}
+\begin{aligned}
+    A&= x_\xi= (x_{k\xi_l}), &
+    B&= x_\eta= (x_{k\eta_l}), \\
+    C&= y_\xi= (y_{k\xi_l}), &
+    D&= y_\eta= (y_{k\eta_l})
+\end{aligned}
+\end{align}
+    と
+\begin{equation}
+    M= z_\zeta= (z_{k\zeta_l})
+\end{equation}
+    は
+\begin{equation}
+    M= \begin{pmatrix}A& B\\ C& D\end{pmatrix}
+\end{equation}
+    という関係にあり, ここで $\begin{vmatrix}M\end{vmatrix}\neq 0$を仮定する。我々は置換\eqref{eq:eq1.a.13}がいかなる条件を満たせば、新しい変数に関するラグランジュ微分が再び$E(x, y, t)$の代わりに何らかの関数 $E(\xi, \eta, t)$を用いた特別な形\eqref{eq:eq1.a.12}になるか、その条件を決定したい。そのためには
+\begin{equation} \label{eq:eq1.a.16}
+    L_{\xi_k}f= -E_{\xi_k}- \dot{\eta}_k, \ \ L_{\eta_k}f= \dot{\xi}_k- E_{\eta_k} \ \ (k= 1, \dots, n)
+\end{equation}
+    が$\zeta, \dot{\zeta}, t$について恒等的に成り立たなければならない。 ここで関数$f$は\eqref{eq:1.a.10}で定められたものである。この条件が成り立つときに、変換\eqref{eq:1.a.13}は正準的であるとよばれる。もし
+\begin{equation}
+    \phi(\zeta, \dot{\zeta}, t)= \sum_{k= 1}^{n} \dot{\xi}_k \eta_k - E(\zeta, t)
+\end{equation}
+    とおけば、$\phi$のラグランジュ微分は\eqref{eq:eq1.a.16}の右辺にほかならないので、\S\ref{sec:1}の結果より$f$を変数$\zeta, \dot{\zeta}, t$によって表すとき、
+\begin{equation}
+    f= \phi+ \frac{dv(\zeta, t)}{dt}
+\end{equation}
+    が$\zeta, \dot{\zeta}, t$について恒等的に成り立たなければならない。\eqref{eq:eq1.a.10}, \eqref{eq:eq1.a.17}より、これは
+\begin{equation} \label{eq:eq1.a.18}
+    \left\{ \begin{aligned} \frac{dv(\zeta, t)}{dt} &= \mathrm{E} - E + \sum_{r=1}^{n} \dot{x}_r y_r - \sum_{l=1}^{n} \dot{\xi}_l \eta_l \\ &= \mathrm{E} - E + \sum_{l=1}^{n} \left( \sum_{r=1}^{n} x_{r\xi_l} y_r - \eta_l \right) \dot{\xi}_l \\ &\quad + \sum_{l=1}^{n} \left( \sum_{r=1}^{n} x_{r\eta_l} y_r \right) \dot{\eta}_l + \sum_{k=1}^{n} x_{kt} y_k \end{aligned} \right.
+\end{equation}
+    となることを意味し、それゆえ
+\begin{equation}
+    v_{\xi_l}= \sum_{r= 1}^{n} x_{r\xi_l} y_r- \eta_l, \ \ v_{\eta_l}= \sum_{r= 1}^{n} x_{r\eta_l} y_r, \ \ v_t= E- E+ \sum_{k= 1}^{n} x_{kt} y_k
+\end{equation}
+    である。これは$v(\zeta, t)$の$2n+ 1$個の1階偏導関数を規定している。この最後の方程式は未知関数$E$を定義するものと考えられ, 残りの方程式は関係式$v_{\zeta_k \zeta_l}= v_{\zeta_l \zeta_k}$を通じて、積分可能であるための必要十分条件、すなわち
+% \begin{equation}
+% \begin{cases}
+% \begin{align}
+%     \sum_{r=1}^{n} (x_{r\xi_l \xi_k} y_r + x_{r\xi_l} y_{r\xi_k}) &= \sum_{r=1}^{n} (x_{r\xi_k \xi_l} y_r + x_{r\xi_k} y_{r\xi_l}) \\ \sum_{r=1}^{n} (x_{r\xi_l \eta_k} y_r + x_{r\xi_l} y_{r\eta_k}) - e_{kl} &= \sum_{r=1}^{n} (x_{r\eta_k \xi_l} y_r + x_{r\eta_k} y_{r\xi_l}) \\ \sum_{r=1}^{n} (x_{r\eta_l \eta_k} y_r + x_{r\eta_l} y_{r\eta_k}) &= \sum_{r=1}^{n} (x_{r\eta_k \eta_l} y_r + x_{r\eta_k} y_{r\eta_l})
+% \end{align}
+% \end{cases}
+
+% % (k,l=1,\dots,n)
+% \end{equation}
+    を導く。ここで$e_{kl}$は$k= l$のとき$1$、その他のときは0である。\eqref{eq:eq1.a.14}で定義された行列を用いれば、これらの条件を
+\begin{equation} \label{eq:eq1.a.19}
+    C^{\top}A= A^{\top}C,\ \ D^{\top}A- E= B^{\top}C,\ \ D^{\top}B= B^{\top}D
+\end{equation}
+    の形に表すことができる。ここで$E$は$n\times n$の単位行列である。
+
+    行列
+\begin{equation}
+    J= \begin{pmatrix}0 & E\\ -E& 0\end{pmatrix}
+\end{equation}
+
+% ### 10ページ
+    を導入して\eqref{eq:eq1.a.15}を用いれば、方程式\eqref{eq:eq1.a.19}は
+\begin{equation} \label{eq:eq1.a.20}
+    M'JM= J
+\end{equation}
+    とまとめられる。この式は変換\eqref{eq:eq1.a.13}がLagrange微分のHamilton形式\eqref{eq:eq1.a.12}を不変に保つための必要十分条件を与え、明らかにこの条件は関数$E(z, t)$には依存しない。$2n$個の偏導関数 $v_{\xi_l}, v_{\eta_l}$だけから$v(\zeta, t)$を求めても、$t$の付加関数は決定されず、そのような任意の付加的な項が$\mathrm{E}$にも$v_t$にも現れる。しかし導関数$\mathrm{E}_{\xi_k}, \mathrm{E}_{\eta_k}$をつくるとその項は再び消え、\eqref{eq:eq1.a.16}の右辺は完全に決定されるのである。
+    方程式\eqref{eq:eq1.a.20}を満たす行列$M$はシンプレクティックとよばれる。行列式を考えると$|M|^2 |J|= |J|= 1$がわかるので$|M|^2= 1$である。実は$|M|= 1$となることが示せるが、ここでは必要ない。いずれにせよ、シンプレクティック行列$M$に対して$|M|\neq 0$であり、それゆえ$M^{-1}$が存在する。\eqref{eq:eq1.a.20}より
+\begin{equation}
+    (M^{-1})^{\top}J M^{-1}= (M^{-1})^{\top} (M^{\top}JM) M^{-1}= J
+\end{equation}
+    となるので、$M^{-1}$もまたシンプレクティックである。同様に$M_1, M_2$がシンプレクティックならば$M_1, M_2$もまたそうである。よって積に関してシンプレクティック行列は群(シンプレクティック群)をなす。
+    以上でヤコビ行列$z_\zeta= M$が$\zeta, t$に関して恒等的にシンプレクティックであるならば、かつその場合に限って、変換$z= z(\zeta, t)$が正準的であることを示したことになる。よって逆変換もまた正準的であり、より一般に変数の動く範囲に関して適当な仮定を設けると、正準変換全体は群をなす。
+
+    とくに正準変換はHamilton方程式系を別のHamilton方程式系にうつす。この性質をもつ可逆な変換をすべて挙げよという, より一般的な問題を提起することができよう。このために微分方程式の代わりに、対応するハミルトンの表現$\dot{x}_k- E_{y_k}, \dot{y}_k+ E_{x_k}$を考える。これは列ベクトル $\dot{z}- JE_z$の形にまとめることができる。ここで$E_z$は$E_{x_k}, E_{y_k}$を成分にもつ列ベクトルである。$z= z(\zeta, t)$をヤコビ行列 $z_\zeta= M$をもつ置換とすると、
+\begin{equation}
+    E_{\zeta_k}= \sum_{l= 1}^{2n} E_{z_l} z_{l\zeta_k}, \ \ E_\zeta= M^{\top} E_z
+\end{equation}
+\begin{equation} \label{eq:eq1.a.21}
+    \dot{z} = \mathfrak{M}\dot{\zeta} + z_t
+\end{equation}
+    であり、したがって
+
+$$\mathfrak{M}^{-1}(\dot{z} - \mathfrak{J} E_z) = \dot{\zeta} + \mathfrak{M}^{-1} z_t - \mathfrak{M}^{-1} \mathfrak{J} \mathfrak{M}'^{-1} E_\zeta$$
+
+となる.
+
+---
+
+% ### 11ページ
+2. 正準変換 11
+
+もしこの最後の方程式の右辺が, 再び適当な関数 $\mathrm{E}(\zeta, t)$ に対してハミルトン形式 $\dot{\zeta} - \mathfrak{J} \mathrm{E}_\zeta$ をとるとすると, この関数は方程式
+
+$$\mathrm{E}_\zeta = \mathfrak{J}^{-1} \mathfrak{M}^{-1} \mathfrak{J} \mathfrak{M}'^{-1} E_\zeta - \mathfrak{J}^{-1} \mathfrak{M}^{-1} z_t$$
+
+を満たさなければならない. ここで
+
+$$\mathfrak{J}^{-1} \mathfrak{M}^{-1} \mathfrak{J} \mathfrak{M}'^{-1} = \mathfrak{P} = (p_{kl}), \quad -\mathfrak{J}^{-1} \mathfrak{M}^{-1} = \mathfrak{Q} = (q_{kl})$$
+
+とおくと, 上の方程式の積分可能条件は
+
+$$\sum_{r=1}^{2n} (p_{kr} E_{\zeta_r} + q_{kr} z_{rt})_{\zeta_l} = \sum_{r=1}^{2n} (p_{lr} E_{\zeta_r} + q_{lr} z_{rt})_{\zeta_k} \quad (k,l=1,\dots,2n)$$
+
+となる. 関数 $E(z,t)$ をどのように選んでもこれらが満たされるためには,
+
+$$\sum_{r=1}^{2n} p_{kr} E_{\zeta_r \zeta_l} = \sum_{r=1}^{2n} p_{lr} E_{\zeta_r \zeta_k}, \quad \sum_{r=1}^{2n} p_{kr \zeta_l} E_{\zeta_r} = \sum_{r=1}^{2n} p_{lr \zeta_k} E_{\zeta_r}$$
+
+でなければならない. したがって,
+
+$$p_{kl} = 0, \quad p_{kk} = p_{ll} \quad (k \neq l), \quad p_{kr \zeta_l} = p_{lr \zeta_k} \quad (k,l,r=1,\dots,2n)$$
+
+である. それゆえ $\mathfrak{P}$ は単位行列に $\zeta$ に依存しないスカラー因子を掛けただけの行列になる.
+
+さらに, 残りの条件
+
+$$(22) \qquad \sum_{r=1}^{2n} (q_{kr} z_{rt})_{\zeta_l} = \sum_{r=1}^{2n} (q_{lr} z_{rt})_{\zeta_k}$$
+
+も満たさなくてはならない. $\mathfrak{J} z_t = u$ と略記し, 関係式
+
+$$\mathfrak{P}^{-1} \mathfrak{Q} = -\mathfrak{M}' \mathfrak{J}^{-1} = (z_{l\zeta_k})\mathfrak{J}$$
+
+を用いると, 方程式 (22) は
+
+$$\sum_{r=1}^{2n} (z_{r\zeta_k \zeta_l} u_r + z_{r\zeta_k} u_{r\zeta_l}) = \sum_{r=1}^{2n} (z_{r\zeta_l \zeta_k} u_r + z_{r\zeta_l} u_{r\zeta_k}),$$
+
+あるいは行列の形で
+
+$$\mathfrak{M}' \mathfrak{J} \mathfrak{M}_t = (\mathfrak{M}' \mathfrak{J} \mathfrak{M}_t)'$$
+
+% ### 12ページ
+と表すことができる. $\mathfrak{J}' = -\mathfrak{J}$ なので, これは
+
+$$\mathfrak{M}'\mathfrak{J}\mathfrak{M}_t + \mathfrak{M}'_t\mathfrak{J}\mathfrak{M} = 0$$
+
+ということであり, したがって, 行列 $\mathfrak{M}'\mathfrak{J}\mathfrak{M}$ は $t$ によらず, それゆえ $\mathfrak{P}$ も $t$ によらない. よって, 変換が求める性質をもつための必要かつ十分な条件として, 関係式
+
+$$(23) \qquad \mathfrak{M}'\mathfrak{J}\mathfrak{M} = \lambda\mathfrak{J}$$
+
+が得られる. ただし $\lambda \neq 0$ は定数である. 任意の因子 $\lambda$ が現れることにより正準置換およびシンプレクティック群の一般化が得られることになる. ところが, 特別な置換 $x = \xi, \, y = \lambda\eta$ は (23) を満たし, 上記の条件を満たす置換はすべて正準的なものとこの自明なものを組み合わせることによって得られる. この理由から今後我々は正準的置換だけに制限して考えることにしよう.
+
+% ### 3. ハミルトン-ヤコビ方程式
+
+これから正準変換をまとめてパラメータ表示する問題を扱う. はじめに
+
+$$(1) \qquad |\mathfrak{B}| = |x_{k\eta_l}| \neq 0$$
+
+となる場合を考える. このとき $n$ 個の方程式 $x_k = x_k(\xi, \eta, t)$ は $\eta_l$ を $x, \xi, t$ の関数として決定し, 対応するヤコビ行列式 $|\eta_{kx_l}|$ も $0$ と異なる. 方程式 $(2;18)$ は置換が正準的であるための必要十分条件を与えるが, 我々はこれを用い, 関数 $v(\zeta, t)$ を $x, \xi, t$ によって表す. よって
+
+$$v = v(\zeta, t) = w(x, \xi, t)$$
+
+とおくと,
+
+$$\frac{dv}{dt} = w_t + \sum_{k=1}^{n} (w_{x_k} \dot{x}_k + w_{\xi_k} \dot{\xi}_k)$$
+
+であり, $(2;18)$ の中の係数比較により, 次の関係式が得られる.
+
+$$(2) \qquad y_k = w_{x_k}, \quad \eta_k = -w_{\xi_k} \quad (k=1,\dots,n), \quad \mathrm{E} = E + w_t.$$
+
+$|\eta_{kx_l}| \neq 0$ なので, このとき
+
+$$(3) \qquad |w_{\xi_k x_l}| \neq 0$$
+
+---
+
+% ### 13ページ
+が従う.
+
+逆に, もし $w$ が (3) を満たす $x, \xi, t$ の関数であるならば, (2) の第 2 式は $x$ について $\xi, \eta, t$ の関数として解くことができ, それを (2) の第 1 式に代入すれば, $y$ も $\xi, \eta, t$ の関数として定まる. さらに (1) も満たされる. また (3) より, (2) の第 1 式を $\xi$ について $x, y, t$ の関数として解き, それを第 2 式に代入することで, $\eta$ も $x, y, t$ の関数として定まる. もし, さらに (2) の第 3 式を用いて $\mathrm{E}$ を定義すれば, $(2;18)$ も満たされる. よって得られた変換は正準的であり条件 $|\mathfrak{B}| \neq 0$ を満たす. この結果, (2) は $|\mathfrak{B}| \neq 0$ となるすべての正準変換を生成し$^{(1)}$, 3 番目の式が $\mathrm{E}$ を決定する.
+
+一例として
+
+$$w = \sum_{k=1}^{n} x_k \xi_k$$
+
+とすると, (3) が満たされ, 結果として得られる正準変換は $x_k = -\eta_k, \, y_k = \xi_k$ $(k=1,\dots,n)$ であり, そのヤコビ行列は $\mathfrak{M} = -\mathfrak{J} = \mathfrak{J}^{-1}$ である. もちろん $|\mathfrak{B}| = 0$ となる正準変換もある. たとえば恒等変換 $z = \zeta$ がそうであり, $\mathfrak{M}$ は単位行列になる.
+
+$$|\mathfrak{A}| = |x_{k\xi_l}| \neq 0$$
+
+となる場合は上で述べた $|\mathfrak{B}| \neq 0$ の場合と同じように取り扱うことができる. しかし, 付加的な置換 $\xi = -\eta^*, \, \eta = \xi^*$ によって上の場合に帰着させればより簡単である. $z$ を $\zeta^*$ の関数と見たときのヤコビ行列は
+
+$$\mathfrak{M}\mathfrak{J}^{-1} = \begin{pmatrix} \mathfrak{B} & -\mathfrak{A} \\ \mathfrak{D} & -\mathfrak{C} \end{pmatrix}$$
+
+となり, $\mathfrak{B}$ の代わりに $-\mathfrak{A}$ が現れて, $\xi, \eta$ の代わりに $\xi^*, \eta^*$ を用いれば (2) の公式がそのまま使えることになる. この場合
+
+$$(4) \qquad y_k = w_{x_k}, \quad \xi_k = w_{\eta_k} \quad (k=1,\dots,n), \quad \mathrm{E} = E + w_t$$
+
+であり, ここで $w = w(x, \eta, t)$ かつ
+
+$$|w_{\eta_k x_l}| \neq 0$$
+
+である. これは $|\mathfrak{A}| \neq 0$ を満たすすべての正準変換を生成する. とくに
+
+$$w = \sum_{k=1}^{n} x_k \eta_k$$
+
+---
+
+% ### 14ページ
+
+は恒等変換 $z = \zeta$ を導く. $|\mathfrak{A}|$ と $|\mathfrak{B}|$ がともに $0$ になる場合は議論しない. しかし, 任意の正準変換は $|\mathfrak{A}| \neq 0$ または $|\mathfrak{B}| \neq 0$ を満たす 2 つの正準変換の合成として表すことができることに注意しよう.
+
+我々の次なる目標は, 与えられたハミルトン系
+
+$$(5) \qquad \dot{x}_k = E_{y_k}, \quad \dot{y}_k = -E_{x_k} \quad (k=1,\dots,n)$$
+
+を適当な正準変換によって, できる限り簡単にすることである. 変換された系
+
+$$\dot{\xi}_k = \mathrm{E}_{\eta_k}, \quad \dot{\eta}_k = -\mathrm{E}_{\xi_k}$$
+
+が最も簡単になるのは $\mathrm{E}(\xi, \eta, t) = 0$ となる場合であろう. もしこれが $|\mathfrak{A}| \neq 0$ となる変換で達成できると仮定すると, (4) が成り立ち, 母関数 $w = w(x, \eta, t)$ はハミルトン-ヤコビ方程式と呼ばれる偏微分方程式
+
+$$(6) \qquad E(x, w_x, t) + w_t = 0$$
+
+を条件 $|w_{x_k \eta_l}| \neq 0$ のもとで満たさなければならない. 逆に, もし $n$ 個のパラメータ $\eta_1, \dots, \eta_n$ に依存し, $0$ と異なる行列式 $|w_{x_k \eta_l}|$ をもつ (6) の解 $w(x, \eta, t)$ を見つけることができれば, (4) はハミルトン系 (5) を
+
+$$(7) \qquad \dot{\xi}_k = 0, \quad \dot{\eta}_k = 0 \quad (k=1,\dots,n)$$
+
+にうつすような正準変換を定める. これらの方程式 (7) はただちに積分できて, $\xi_k, \eta_k$ は積分定数として現れる. こうして, ハミルトンの常微分方程式系を解くことは, ハミルトン-ヤコビの偏微分方程式を解くことに帰着される. (6) の一般解を得ることはまったく必要なく, $n$ 個のパラメータ $\eta_1, \dots, \eta_n$ に依存し $|w_{x_k \eta_l}| \neq 0$ を満たす解を求めるだけでよいことに注意しよう. これは, ハミルトン方程式 (5) の完全解が $2n$ 個の積分定数を必要としたことから考えても, 単純化になっている.
+
+与えられた系 (5) を標準形 (7) にうつす正準変換はつねに存在するのであろうか？ 答はこれから示すように肯定的である.
+
+まず, $m$ 個の未知関数 $z_k = z_k(t)$ についての一般の 1 階微分方程式系
+
+$$\dot{z}_k = g_k(z, t) \quad (k=1,\dots,m)$$
+
+を考えよう. 知られた存在定理により, たとえばリプシッツ条件が満たされ, 変数の範囲が適当に制限されていれば, 与えられた初期値 $t = \tau, \, z = \zeta$ に対し, ただ 1 つの解
+
+---
+
+% ### 15ページ
+
+$z = z(\zeta, t)$ が存在する. 我々は $\tau$ を固定し, $\zeta, t$ を独立変数として考える. $z = z(\zeta, t)$ に対し, 上記の微分方程式は
+
+$$(8) \qquad z_{kt} = g_k(z, t)$$
+
+を意味しており, それゆえまた
+
+$$z_{kt\zeta_l} = \sum_{r=1}^{m} g_{kz_r} z_{r\zeta_l} \quad (k,l=1,\dots,m)$$
+
+である. よって
+
+$$z_\zeta = (z_{k\zeta_l}) = \mathfrak{M}, \quad g_z = (g_{kz_l}) = \mathfrak{G}$$
+
+とおき, ヤコビ行列 $\mathfrak{M}$ を $\zeta$ を固定し $t$ の関数と見ると, 1 階同次線形微分方程式系
+
+$$(9) \qquad \mathfrak{M}_t = \mathfrak{G}\mathfrak{M}$$
+
+が得られる. $z(\zeta, \tau) = \zeta$ は $\zeta$ について恒等的に成り立つので, $t = \tau$ では $\mathfrak{M} = \mathfrak{E}$ である.
+
+ハミルトン系 $\dot{z} = \mathfrak{J} E_z$ に対しては $m = 2n$ であり,
+
+$$\mathfrak{G} = \mathfrak{J} E_{zz} = \mathfrak{J}(E_{z_k z_l})$$
+
+であるから, 行列
+
+$$\mathfrak{J}\mathfrak{G} = -E_{zz}$$
+
+は対称行列になる. このことは (9) と合わせると, 行列
+
+$$\mathfrak{M}'\mathfrak{J}\mathfrak{G}\mathfrak{M} = \mathfrak{M}'\mathfrak{J}\mathfrak{M}_t$$
+
+もまた対称行列であり, それゆえ
+
+$$\mathfrak{M}'\mathfrak{J}\mathfrak{M}_t = (\mathfrak{M}'\mathfrak{J}\mathfrak{M}_t)' = \mathfrak{M}'_t\mathfrak{J}'\mathfrak{M} = -\mathfrak{M}'_t\mathfrak{J}\mathfrak{M}$$
+
+であることを意味する. この結果, $\mathfrak{M}'\mathfrak{J}\mathfrak{M}$ は $t$ によらず, $t = \tau$ のとき $\mathfrak{M} = \mathfrak{E}$ であるので
+
+$$\mathfrak{M}'\mathfrak{J}\mathfrak{M} = \mathfrak{J}$$
+
+が従う. それゆえ変換 $z = z(\zeta, t)$ は正準的であり$^{(2)}$, $(2;21)$ と (8) より, それは与えられた系を $\dot{\zeta} = 0$ にうつす. 行列式 $|\mathfrak{A}| = |x_{k\xi_l}|$ は $t = \tau$ で $1$ に等しいので, $\tau$ に十分近い $t$ に対してこの行列式の値は消えない. よって変換 $z = z(\zeta, t)$ は, 実際にハミルトン-ヤコビ方程式 (6) を解き (4) を用いることによって得ることができる.
+
+---
+
+% ### 16ページ
+
+たとえハミルトン-ヤコビ方程式の積分 $w(x, \eta, t)$ を直接見いだすことができなくても, 問題は次のように単純化されることがある. ハミルトン関数 $E(x, y, t)$ が 2 つの項の和
+
+$$E(x, y, t) = F(x, y, t) + G(x, y, t)$$
+
+に分解され, 初めの項に関してはハミルトン-ヤコビ方程式
+
+$$F(x, w_x, t) + w_t = 0$$
+
+の積分 $w(x, \eta, t)$ で $|w_{x_k \eta_l}| \neq 0$ となるものがわかっているとする. このとき, 対応する正準変換 (4) に対して,
+
+$$\mathrm{E} = E + w_t = F + G + w_t = G$$
+
+となるので, $G$ を $\xi, \eta, t$ の関数と見なすと, もとの系 (5) は
+
+$$\dot{\xi}_k = G_{\eta_k}, \quad \dot{\eta}_k = -G_{\xi_k} \quad (k=1,\dots,n)$$
+
+となる. ある場合には, この系は直接解くこともできるが, そうでなくとも関数 $G$ は再び上記のように分解できて, 同じ簡約化が実行できることがあり得る. このようにして我々は $E(x, y, t)$ を有限または無限個の和に分解できて, その各過程で, 対応するハミルトン-ヤコビ方程式が解けることもあり得るだろう. たとえこの過程が無限にあり収束しないとしても, 適当なところでそれを打ち切って, 有用な近似解を得ることができよう.
+
+ここまでの解析において陰関数定理を繰り返し使ったが, ヤコビ行列式が消えないという条件だけを強調し, 対応する変数の値の範囲を明確に与えることはしなかった. よって, 以上の結果は局所的な性格のものにすぎず, 大域的な挙動については個々の場合ごとに分けて取り扱わなければならない$^{(3)}$.
+
+% ### 4. コーシーの存在定理
+
+1 階微分方程式系
+
+$$(1) \qquad \dot{x}_k = f_k(x) \quad (k=1,\dots,m)$$
+
+を考える. ここで $m$ 個の関数 $f_k = f_k(x)$ は $x_1, \dots, x_m$ に依存するが, $t$ には依存しないものとする. $x = \xi$ の実の近傍で $f_k$ がリプシッツ条件を満たしていれば, 与えられた初期値 $x(\tau) = \xi$ に対し, 系 (1) がただ 1 つの解をもつことが知られてい
+
+---
+
+% ### 17ページ
+
+る. ここでさらに, $f_k$ は $x = \xi$ の複素近傍で変数 $x_1, \dots, x_m$ の正則な解析関数$^\dagger$であると仮定する. 我々の目標は次の定理を証明することである.
+
+関数 $f_1, \dots, f_m$ は領域 $|x_k - \xi_k| < r$ $(k=1,\dots,m)$ で正則かつ有界で, その絶対値が $M$ で抑えられているとする. このとき, 初期条件 $x_k(\tau) = \xi_k$ $(k=1,\dots,m)$ で定まる (1) の解 $x_k(t)$ は, $\tau$ の複素近傍
+
+$$|t - \tau| < \frac{r}{(m+1)M}$$
+
+において, $t$ の正則な解析関数であり, そこで
+
+$$|x_k(t) - \xi_k| < r \quad (k=1,\dots,m)$$
+
+を満たす.
+
+$x_k, f_k, t$ を $\xi_k + rx_k, Mf_k, \tau + M^{-1}rt$ におきかえれば, 系 (1) は変化しないが, 定数 $\xi_k, r, M, \tau$ は $0, 1, 1, 0$ となる. ゆえに, これらの特別な定数に対して定理を証明すれば十分である. 初期条件 $x_k(0) = 0$ のもとで (1) を解くために
+
+$$x_k = x_k(t) = \sum_{n=1}^{\infty} \alpha_{k,n} t^n \quad (k=1,\dots,m)$$
+
+とおき, これを微分方程式に代入することによって未定係数 $\alpha_{k,n}$ を決定しよう. 便宜上, 次の表記を導入する. もし
+
+$$\phi = \sum_{k=0}^{\infty} c_k t^k$$
+
+が形式ベキ級数ならば, 収束性に関係なく
+
+$$\phi_n = \sum_{k=0}^{n} c_k t^k, \quad (\phi)_n = c_n \quad (n=0,1,\dots)$$
+
+とおく. このとき $(\phi)_n = (\phi_n)_n$ であり, $\psi$ を $t$ に関する別の形式ベキ級数とすると, $(\phi\psi)_n = (\phi_n \psi_n)_n, \, (\phi \pm \psi)_n = (\phi_n \pm \psi_n)_n$ でもある. いま
+
+$$f_k = \sum_{l} a_{k, l_1 \dots l_m} x_1^{l_1} \dots x_m^{l_m} \quad (k=1,\dots,m)$$
+
+とおく. ここで, 和は $m$ 個の非負整数 $l_1, \dots, l_m$ のすべての組 $l$ にわたってとるものとする. このとき係数比較により, (1) から
+
+---
+$^\dagger$ regular analytic をこのように訳し, regular を正則と訳した.
+
+---
+
+% ### 18ページ
+$$(2) \qquad \left\{ \begin{aligned} (n+1)\alpha_{k,n+1} &= \sum_{l} a_{k, l_1 \dots l_m} (x_1^{l_1} \dots x_m^{l_m})_n \\ &= \sum_{l} a_{k, l_1 \dots l_m} (x_{1n}^{l_1} \dots x_{mn}^{l_m})_n \quad (n=0,1,\dots) \end{aligned} \right.$$
+
+が得られ, 帰納法によって $\alpha_{k,n}$ は非負有理係数をもつ $a_{r, l_1 \dots l_m}$ $(r=1,\dots,m)$ の多項式になることがわかる.
+
+収束性を示すために優級数の方法を用いる.
+
+$$f = \sum_{l} a_{l_1 \dots l_m} x_1^{l_1} \dots x_m^{l_m}, \quad g = \sum_{l} b_{l_1 \dots l_m} x_1^{l_1} \dots x_m^{l_m}$$
+
+を収束するとは限らない 2 つの形式ベキ級数とするとき, すべての係数について
+
+$$|a_{l_1 \dots l_m}| \leq b_{l_1 \dots l_m}$$
+
+であるならば, $g$ は $f$ の優級数であるといい, これを記号 $f \prec g$ で表す. このとき, とくに $g$ の係数は非負実数である. いま $f_k \prec g_k$ $(k=1,\dots,m)$ と仮定し, (1) とともに優級数系
+
+$$(3) \qquad \dot{y}_k = g_k(y) \quad (k=1,\dots,m)$$
+
+を初期条件 $y_k(0) = 0$ のもとで考えよう. これは再びベキ級数
+
+$$y_k = y_k(t) = \sum_{n=1}^{\infty} \beta_{k,n} t^n$$
+
+を用いて形式的に解けるが, このとき $y_k(t)$ は $x_k(t)$ の優級数, すなわち
+
+$$(4) \qquad |\alpha_{k,\nu}| \leq \beta_{k,\nu} \quad (k=1,\dots,m; \, \nu = 1,2,\dots)$$
+
+であることがいえる. 実際, $g_k$ の係数 $b_{k, l_1 \dots l_m}$ は非負なので, (2) に対応する漸化式
+
+$$(n+1)\beta_{k,n+1} = \sum_{l} b_{k, l_1 \dots l_m} (y_{1n}^{l_1} \dots y_{mn}^{l_m})_n \quad (n=0,1,\dots)$$
+
+から, $\beta_{k,\nu}$ はすべて非負実数になり, さらに (4) の主張が帰納法によって証明できる. この主張が $\nu \leq n$ のとき成立すると仮定しよう（この仮定は $n=0$ のときは空である）. このとき $x_{kn} \prec y_{kn}$ であり, それゆえ
+
+$$\begin{aligned} (n+1)|\alpha_{k,n+1}| &\leq \sum_{l} |a_{k, l_1 \dots l_m}| |(x_{1n}^{l_1} \dots x_{mn}^{l_m})_n| \\ &\leq \sum_{l} b_{k, l_1 \dots l_m} (y_{1n}^{l_1} \dots y_{mn}^{l_m})_n = (n+1)\beta_{k,n+1} \end{aligned}$$
+
+---
+
+% ### 19ページ
+となる. これより (4) が $\nu = n+1$ のときも成り立ち, $x_k \prec y_k$ が示される.
+
+したがって, $f_k$ の優級数 $g_k$ で, 対応する系 (3) が明示的に解けるようなものをみつけて, その解について定理の主張する評価が示せれば十分である. 1 変数の場合と同じように $|f_k| \leq 1$ が $|x_1| < 1, \dots, |x_m| < 1$ に対して成り立つという仮定は, コーシーの公式によって
+
+$$|a_{k, l_1 \dots l_m}| \leq 1$$
+
+を意味する. それゆえ, $k$ によらないベキ級数
+
+$$g(x) = g_k(x) = \sum_{l} x_1^{l_1} \dots x_m^{l_m} = \prod_{r=1}^{m} (1 - x_r)^{-1}$$
+
+はすべての $f_k(x)$ の優級数となる. 方程式
+
+$$\dot{y}_k = g(y), \quad y_k(0) = 0 \quad (k=1,\dots,m)$$
+
+の右辺は $k$ によらないので, 解 $y_k(t)$ はすべて
+
+$$\dot{y} = (1 - y)^{-m}, \quad y(0) = 0$$
+
+を満たす同一のベキ級数 $y = y(t)$ で与えられ, これは直接積分できて,
+
+$$\begin{aligned} 1 - (1 - y)^{m+1} &= (m+1)t \\ y &= 1 - \{1 - (m+1)t\}^{\frac{1}{m+1}} \end{aligned}$$
+
+となる. ところが, この関数は $|t| < (m+1)^{-1}$ において収束するベキ級数で表され, この円板内で,
+
+$$|y| \leq 1 - \{1 - (m+1)|t|\}^{\frac{1}{m+1}} < 1$$
+
+を満たすので, たしかに $|x_k(t)| < 1$ でもある. 系 (1) を形式的に満たす $x_k(t)$ として再帰的に得られた形式ベキ級数は $|t| < (m+1)^{-1}$ に対して収束するので, これらのベキ級数によって定義される関数は与えられた微分方程式系の解となる. これで定理が証明された.
+
+解 $x_k(t)$ を $t - \tau$ のベキで展開すると, その係数に関する漸化式から, もし初期値 $\xi_k$ $(k=1,\dots,m)$ と $f_k(x)$ の係数が実数ならば, $x_k(t)$ の係数も実数であることがわかる. 以後この仮定をおき, $\tau$ も実数にとる. 我々は実数 $t \geq \tau$ に対する (1) の解 $x_k(t)$ に興味があるので, すべての関数 $x_k(t)$ $(k=1,\dots,m)$ は区間 $\tau \leq t < t_1$ において正則であると仮定する. さらにまた, $\tau \leq t < t_1$ に対して曲線 $x = x(t)$ はある有界閉集合 $P$ 上にあり, その上で $m$ 個の関数 $f_k(x)$ は複素変数 $x_1, \dots, x_m$ の関
+
+---
+
+% ### 20ページ
+数として正則であると仮定する$^{(1)}$. このとき, 存在定理の帰結として, その $x_k(t)$ は $t = t_1$ においても正則となることを示そう.
+
+$f_k(x)$ はコンパクト集合 $P$ 上で正則なので, ある正数 $\varrho$ が存在して, $P$ 上のすべての $\zeta$ に対して, 関数 $f_k(x)$ は複素閉領域 $|x_l - \zeta_l| \leq \varrho$ $(l=1,\dots,m)$ でも正則になる. ここで $\varrho$ は $\zeta$ によらない. さらにまた, 再び $\zeta$ によらない正数 $M$ が存在してこの領域で $|f_k(x)| \leq M$ となる. いま, 区間 $\tau \leq t < t_1$ 内に数 $t = t_2$ を
+
+$$t_1 - t_2 < \frac{\varrho}{(m+1)M}$$
+
+を満たすように選び, $\xi_k = x_k(t_2)$ $(k=1,\dots,m)$, $\tau = t_2$, $r = \varrho$ として (1) に存在定理を適用すれば, $x_k(t)$ は円板
+
+$$|t - t_2| < \frac{\varrho}{(m+1)M}$$
+
+において正則であり, したがって, とくに $t = t_1$ で正則となり, 主張が示される$^{(2)}$.
+
+我々の応用のため, ハミルトン系
+
+$$(5) \qquad \dot{x}_k = E_{y_k}(x, y), \quad \dot{y}_k = -E_{x_k}(x, y) \quad (k=1,\dots,n)$$
+
+の場合の結果を, $E$ の偏導関数に要求される評価を $E$ 自身についての評価で表すことによって, 述べ直しておこう. これを行うために, 関数論における古典的な議論を用いる. すなわち, $g(z)$ が円板 $|z - \zeta| < 2\varrho$ における複素変数 $z$ の正則関数でありその円内で $|g(z)| \leq M$ を満たすとすると, $|z - \zeta| < \varrho$ においてコーシーの積分公式を用いて
+
+$$g'(z) = \frac{1}{2\pi i} \int_C \frac{g(u)du}{(u - z)^2}$$
+
+となる. ここで積分路 $C$ は円周 $|u - \zeta| = \varrho$ にとることができる. この円周は円板 $|u - \zeta| < 2\varrho$ に含まれるので, これより
+
+$$|g'(z)| \leq M\varrho^{-1} \quad (|z - \zeta| < \varrho)$$
+
+という評価が得られる. いま, ハミルトン関数 $E(x, y)$ が $|x_k - \xi_k| < 2\varrho, \, |y_k - \eta_k| < 2\varrho$ において $2n$ 個の各変数 $x_1, \dots, y_n$ について解析的で, そこで $|E(x, y)| \leq M$ を満たすと仮定しよう. すると, 上記の議論により, 領域 $|x_k - \xi_k| < \varrho, \, |y_k - \eta_k| < \varrho$ $(k=1,\dots,n)$ において, 求める評価
+
+$$|E_{x_k}| \leq M\varrho^{-1}, \quad |E_{y_k}| \leq M\varrho^{-1} \quad (k=1,\dots,n)$$
+
+が得られ, 存在定理により, 初期値 $x_k(\tau) = \xi_k, \, y_k(\tau) = \eta_k$ をもつハミルトン系 (5) の解 $x_k(t), \, y_k(t)$ は, 円板
+
+---
+
+% ### 21ページ
+5. $n$ 体問題 21
+
+$$|t - \tau| < \frac{\varrho^2}{(2n+1)M}$$
+
+において正則で, そこで
+
+$$|x_k(t) - \xi_k| < \varrho, \quad |y_k(t) - \eta_k| < \varrho$$
+
+を満たすことがいえる.
+
+したがって, ハミルトン系に対しては, 実 $t$ 軸に沿った解の解析接続に関する前述の主張は次の形になる.
+
+もし (5) の解 $x_k(t), \, y_k(t)$ $(k=1,\dots,n)$ が $\tau \leq t < t_1$ において正則であり, $2n$ 次元 $(x, y)$ 空間において, 対応する解曲線弧がハミルトン関数 $E(x, y)$ が正則となるような有界閉集合 $P$ の中にとどまるとすると, $x_k(t), \, y_k(t)$ は $t = t_1$ でも正則である.
+
+この事実は三体問題を扱う際に用いられる.
+
+% ### 5. $n$ 体問題
+
+$n$ 個の質点 $P_k$ $(k=1,\dots,n)$ の 3 次元ユークリッド空間内での運動を考えよう. ただし $n > 1$ である. $x_k, y_k, z_k$ を $P_k$ の固定されたデカルト座標系における座標とし, $m_k > 0$ をその質量, $r_{kl}$ を $P_k, P_l$ 間の距離とすると,
+
+$$(1) \qquad r_{kl}^2 = (x_k - x_l)^2 + (y_k - y_l)^2 + (z_k - z_l)^2 \quad (k,l=1,\dots,n)$$
+
+である. 表記上の便宜のため, 個々の座標軸への射影 $x_k, y_k, z_k$ を表すのに, しばしば $q_k$ を用い, また $3n$ 個の可能な座標 $q_k$ $(k=1,\dots,n)$ の 1 つを表すのに $q$ を用いる. さらに, このとき $m$ はつねに $q$ で表した質点の質量 $m_k$ を表すものとする. 適当な単位系を用いるとニュートンの引力法則に対するポテンシャル関数は
+
+$$(2) \qquad U = \sum_{k<l} \frac{m_k m_l}{r_{kl}}$$
+
+となり, $n$ 体問題の運動方程式は略記した形で
+
+$$(3) \qquad m\ddot{q} = U_q$$
+
+と表せる. ここで $U_q$ は $U$ の $q$ に関する偏微分である. これは
+
+$$(4) \qquad \dot{q} = v, \quad \dot{v} = m^{-1} U_q$$
+
+% ### 22ページ
+
+の形にも書ける. これは $6n$ 個の $t$ の関数 $q, v$ に関する $6n$ 個の 1 階微分方程式系である. 実時刻 $t = \tau$ における初期値を下付き添字 $\tau$ によって表すことにし（したがって, それは偏微分を表さない）, $6n$ 個の実数値 $q = q_\tau, \, v = v_\tau$ を
+
+$$r_{kl\tau} = \varrho_{kl} > 0 \quad (k \neq l; \, k, l = 1, \dots, n)$$
+
+の制限だけを満たすように任意に与える. $n$ 体問題とは任意の初期条件に対して, これらの運動方程式のすべての解の挙動を完全に記述することである. 傑出した数学者たちの 200 年以上にわたる努力にもかかわらず, $n > 2$ に対するこの問題は今日まで未解決のままである.
+
+1858 年, ディリクレ (G.L. Dirichlet) [1] は友人クロネッカー (L. Kronecker) に対して, 力学の問題を取り扱うための一般的な方法を発見したこと, そしてそれは運動の微分方程式を直接積分するのではなく, その問題の解を逐次近似することからなる方法であることを告げている. また彼は, 別の会話の中で, 惑星系の安定性を証明することに成功したと語っている. しかし, ディリクレはこれらの発見の記録を書き残すことなく, このあとまもなく亡くなっており, 彼の方法についてはこれ以上のことは知られていない. ワイエルシュトラス (K. Weierstrass) は, それはベキ級数展開を用いる問題ではないかと推測し, $n$ 体問題での対応する解を見いだそうと努力し, 弟子の S. コワレフスキー (S. Kovalevski) と G. ミッタク＝レフラー (G. Mittag-Leffler) にもその目標に向けて指導した [2]. ミッタク＝レフラーの進言により, スウェーデン・ノルウェー国王は, すべての時間において成り立つ $n$ 体の座標の級数展開を見つけるという問題の解決に対して賞を設けた$^{(1)}$. 1889 年にこの大賞はポアンカレに贈られた. ただし彼もまた与えられた問題を解いたわけではなかった. にもかかわらず, 彼の受賞論文 [3] には独創的なアイディアが豊富に含まれていて, それは力学のその後の発展において非常に重要なものになり, 数学の他の分野にも刺激を与えたのである$^{(2)}$. 最終的にこの問題は, その 20 年後に $n = 3$ の場合についてスンドマン (K.F. Sundman) によって解決された [4]. その主たる困難は, 今日に至るまで誰 1 人として, 初期条件を適当に制限することによって二体衝突を除外することには成功していないということにある. スンドマンは時間 $t$ の代わりに新しい変数 $\omega$ を導入することによってこの困難を回避し, 2 体が衝突するときも $t$ と座標 $q$ が $\omega$ の正則関数であり続けるようにした. このようにして, 彼は運動全体を記述する $t$ と $q$ の $\omega$ のベキによる級数展開を得た. この美しく重要な結果は第 1 章の以下の節で完全に導かれる. 残念ながら $n > 3$ の場合に対応する結果は知られていない.
+
+はじめに, 任意の $n > 1$ に対して $n$ 体問題の 10 個の古典積分を構成しよう. (1),
+
+---
+
+% ### 23ページ
+
+(2) より
+
+$$(5) \qquad U_{q_k} = \sum_{l \neq k} \frac{m_k m_l}{r_{kl}^3} (q_l - q_k) \quad (k=1,\dots,n)$$
+
+となるので
+
+$$(6) \qquad \sum_{k=1}^{n} U_{q_k} = 0$$
+
+であり, 運動方程式 (4) から
+
+$$\sum_{k=1}^{n} m_k \dot{v}_k = 0, \quad v_k = \dot{q}_k$$
+
+となる. これより次の 6 個の重心積分が得られる.
+
+$$(7) \qquad \left\{ \begin{aligned} \sum_{k=1}^{n} m_k \dot{x}_k &= a, & \sum_{k=1}^{n} m_k \dot{y}_k &= b, & \sum_{k=1}^{n} m_k \dot{z}_k &= c, \\ \sum_{k=1}^{n} m_k (x_k - t\dot{x}_k) &= a^*, & \sum_{k=1}^{n} m_k (y_k - t\dot{y}_k) &= b^*, & \sum_{k=1}^{n} m_k (z_k - t\dot{z}_k) &= c^*. \end{aligned} \right.$$
+
+ここで $a, a^*, b, b^*, c, c^*$ は積分定数である. これはまた
+
+$$\sum_{k=1}^{n} m_k x_k = at + a^*, \quad \sum_{k=1}^{n} m_k y_k = bt + b^*, \quad \sum_{k=1}^{n} m_k z_k = ct + c^*$$
+
+とも表せる.
+
+さらに $q_k$ と同様, $p_k$ も $x_k, y_k, z_k$ $(k=1,\dots,n)$ のうちのどれか 1 つの変数を表すとすると, (5) より
+
+$$U_{q_k} p_k - U_{p_k} q_k = \sum_{l \neq k} \frac{m_k m_l}{r_{kl}^3} (q_l p_k - p_l q_k) \quad (k=1,\dots,n)$$
+
+となって
+
+$$\sum_{k=1}^{n} (U_{q_k} p_k - U_{p_k} q_k) = 0$$
+
+であり, 運動方程式 (4) から
+
+$$\sum_{k=1}^{n} m_k (\dot{v}_k p_k - \dot{u}_k q_k) = 0, \quad v_k = \dot{q}_k, \quad u_k = \dot{p}_k$$
+
+---
+
+% ### 24ページ
+
+が得られる. これより 3 個の角運動量積分
+
+$$(8) \qquad \left\{ \begin{aligned} \sum_{k=1}^{n} m_k (y_k \dot{z}_k - z_k \dot{y}_k) &= \alpha, \quad \sum_{k=1}^{n} m_k (z_k \dot{x}_k - x_k \dot{z}_k) = \beta, \\ \sum_{k=1}^{n} m_k (x_k \dot{y}_k - y_k \dot{x}_k) &= \gamma \end{aligned} \right.$$
+
+が導かれる. ただし $\alpha, \beta, \gamma$ は積分定数である. 最後に, (4) より, すべての座標についての和をとると,
+
+$$\sum_{q} (mv\dot{v} - U_q \dot{q}) = 0$$
+
+が得られ, 積分定数を $h$ とすると, これからエネルギー積分
+
+$$(9) \qquad T - U = h$$
+
+が導かれる. ここで
+
+$$(10) \qquad T = \frac{1}{2} \sum_{q} m\dot{q}^2 = \frac{1}{2} \sum_{v} mv^2$$
+
+は質点系の運動エネルギーである. 10 個の積分 (7), (8), (9) を用いて運動方程式 (4) より 10 個の座標 $q, v$ を消去することができて, それによってもとの系は $6n - 10$ 個の 1 階微分方程式系に帰着する.
+
+(7), (8), (9) の左辺について, それらが $6n + 1$ 個の変数 $q, v, t$ の代数関数になっていることは注目すべきであり, そのような積分が他にもあるかと問われるかもしれない. この問いをより明確にするために, 積分の概念をより厳密に定義しておこう.
+
+$$(11) \qquad \dot{x}_k = f_k(x, t) \quad (k=1,\dots,m)$$
+
+を再び $m$ 個の 1 階微分方程式系とし, ただし, 右辺は $x_1, \dots, x_m$ に加え, $t$ にも依存し得るとしておく. $m + 1$ 個の独立変数 $x_1, \dots, x_m, t$ について連続微分可能な関数 $g(x, t)$ は, (11) の各々の解 $x = x(t)$ に沿ってその値が一定となるとき, 系 (11) の積分であるという$^\dagger$. これは容易にわかるように, 同次 1 階線形偏微分方程式
+
+$$g_t + \sum_{k=1}^{m} f_k(x, t) g_{x_k} = 0$$
+
+が変数 $x, t$ について恒等的に成り立つことと同値である. (11) の $l$ 個の積分 $g = g_1, \dots, g_l$ が与えられたとき, それらの $x_k, t$ に関する $m + 1$ 個の偏導関数からなる
+
+---
+$^\dagger$ 第 1 積分 (first integral) ともいう.
+
+---
+
+% ### 25ページ
+\section{$n$体問題}
+
+ヤコビ行列の階数が $l$ ならば, それらは独立であるという$^{(3)}$. 最後に, 積分はもしそれが $x_k, t$ の代数関数であるならば, 代数的であるという. よって我々は, 各 $n > 1$ に対して, $n$ 体問題の微分方程式系 (4) の 10 個の代数的積分を構成したことになり, それらが独立であることは容易にわかる. ブルンス (H. Bruns) [5] は, これら 10 個の積分と独立な (4) の新たな代数的積分は存在しないという興味深い定理を証明している. これより, (4) の任意の代数的積分は, これら 10 個の既知の積分の代数関数になることが従う. 一方, 存在定理により, 系 (4) は全部で $6n$ 個の独立な積分をもつが, $6n > 10$ なのでそれらの積分はすべてが代数的ではありえない. 残念ながら, ブルンスの定理の証明は長く, ここでは述べることはできない$^{(4)}$.
+
+さて, 前節で示したコーシーの存在定理を系 (4) に適用しよう. ここで $\tau$ と初期値 $q = q_\tau$ と $v = v_\tau$ は実数であるが, 存在定理に現れる正の定数 $r, M$ を定める際は, 変数の値は複素数を許して考える. 仮定より初期値は $r_{kl\tau} = \varrho_{kl} > 0$ $(k \neq l)$ を満たす. $A$ を $t = \tau$ における $U$ の上界, すなわち
+
+$$U_\tau \leq A$$
+
+とし,
+
+$$(12) \qquad \min_{k \neq l} \varrho_{kl} = \varrho, \quad \min_{k} m_k = \mu$$
+
+とする. (2) より
+
+$$\frac{\mu^2}{\varrho} \leq U_\tau \leq A$$
+
+であり, よって
+
+$$(13) \qquad \varrho \geq \mu^2 A^{-1}$$
+
+である. 導関数 $U_q$ の絶対値に対する上界を得るために, まず $q_\tau$ の近くの複素数 $q$ に対し $|r_{kl}|$ $(k \neq l)$ の値を下から評価する. $q = x, y, z$ に対して, $(q_k - q_{k\tau}) - (q_l - q_{l\tau})$ の 3 つの式を $\phi, \psi, \chi$ で表し, シュワルツの不等式を用いると, (1) より次の評価を得る.
+
+$$(14) \qquad |r_{kl}|^2 \geq \varrho_{kl}^2 - 2\varrho_{kl} (|\phi|^2 + |\psi|^2 + |\chi|^2)^{\frac{1}{2}} - (|\phi|^2 + |\psi|^2 + |\chi|^2).$$
+
+よって, もしすべての $q$ に対して
+
+$$(15) \qquad |q - q_\tau| < \frac{\varrho}{14}$$
+
+---
+
+% ### 26ページ
+
+であるならば, $\phi, \psi, \chi$ の絶対値はすべて $\varrho / 7$ より小さくなり, それゆえ
+
+$$|\phi|^2 + |\psi|^2 + |\chi|^2 < 3 \frac{\varrho^2}{49} < \frac{\varrho^2}{16}$$
+
+であるが, これに (12), (14) を合わせると
+
+$$(16) \qquad |r_{kl}|^2 \geq \varrho_{kl}^2 - \frac{1}{2} \varrho_{kl} \varrho - \frac{1}{16} \varrho^2 > \frac{1}{4} \varrho_{kl}^2, \quad |r_{kl}| > \frac{1}{2} \varrho_{kl}$$
+
+となる. (13) より
+
+$$(17) \qquad |q - q_\tau| < \frac{\mu^2}{14A}$$
+
+とすれば, たしかに (15) が満たされ, このときさらに
+
+$$|q_l - q_k| \leq |q_l - q_{l\tau}| + |q_k - q_{k\tau}| + |q_{l\tau} - q_{k\tau}| < \frac{\varrho}{7} + \varrho_{kl} \leq \frac{8}{7} \varrho_{kl}$$
+
+となる. それゆえ, (13), (16) より
+
+$$\left| \frac{q_l - q_k}{r_{kl}^3} \right| \leq \left(\frac{2}{\varrho_{kl}}\right)^3 \frac{8}{7} \varrho_{kl} = \frac{64}{7} \varrho_{kl}^{-2} \leq \frac{64}{7} A^2 \mu^{-4} \quad (k \neq l),$$
+
+$$|m_k^{-1} U_{q_k}| = \left| \sum_{l \neq k} \frac{m_l}{r_{kl}^3} (q_l - q_k) \right| < c_1 A^2 \quad (k=1,\dots,n)$$
+
+となる. ただし, $c_1$ は与えられた質量だけに依存する適当な正の定数である. さらに $\dot{q} = v$ とおくと, エネルギー積分により
+
+$$\frac{m}{2} v_\tau^2 \leq T_\tau = U_\tau + h \leq A + h,$$
+
+$$|v_\tau| \leq c_2 \sqrt{A + h}$$
+
+となり, $c_2$ も質量だけに依存する.
+
+$$(18) \qquad \frac{\mu^2}{14A} = r$$
+
+とおいて, (17) に加えて
+
+$$|v - v_\tau| < r$$
+
+と仮定すると
+
+$$|v| \leq |v - v_\tau| + |v_\tau| < r + c_2 \sqrt{A + h}$$
+
+---
+
+% ### 27ページ
+
+が得られる. したがって, 存在定理における定数 $r$ と $M$ が (18) と
+
+$$M = c_1 A^2 + \frac{\mu^2}{14A} + c_2 \sqrt{A + h}$$
+
+で定義されるとすると, (4) の解 $q(t), \, v(t) = \dot{q}(t)$ は円板
+
+$$|t - \tau| < \frac{r}{(6n+1)M} = \delta$$
+
+において正則であり, とくに区間 $\tau \leq t < \tau + \delta$ 内で正則である. さらに半径 $\delta$ は $A$ と $h$ と質量だけに依存する.
+
+さて, $6n$ 個の変数 $q, \, v = \dot{q}$ の座標空間において, $t \geq \tau$ に対する解曲線を考察しよう. $t - \tau < \delta$ である限り, 関数 $q(t)$ は $t$ の正則関数であり, とくに衝突は起こり得ない. 実際, そうでないとすると, $U$ は無限大になり, エネルギーの関係式より $T$ も無限大となり, 少なくとも 1 つの速度成分 $\dot{q}(t)$ もそうなる. しかし, これはすでに示された $q(t)$ の正則性に反することになる. 解曲線を $t > \tau$ で実 $t$ 軸に沿って解析接続したとすると, $6n$ 個の座標はすべての有限な実時間 $t \geq \tau$ に対して正則であるか, あるいは, ある最初の時刻 $t_1 > \tau$ が存在し, すべての $q(t)$ は $\tau \leq t < t_1$ で正則であるが, 少なくとも 1 つの $q(t)$ に対して $t_1$ は特異点となる. ここで $t \to t_1$ $(t < t_1)$ のとき, 正値関数 $U$ は無限大になることがいえる. 実際, もしそうでなかったとすると, 正の定数 $A$ と下から $t_1$ に収束する時間 $\tau_1 > \tau$ の列が存在して,
+
+$$U_{\tau_1} \leq A$$
+
+となる. ゆえに, $\delta$ を上の段落で定めた定数であるとして, $\tau_1 > t_1 - \delta$ を選び, 存在定理を $\tau$ の代わりに $\tau_1$ として適用すると, すべての $q(t)$ は $t = t_1$ で正則となってしまい, $t_1$ の定義に反することになる. これは $t \to t_1$ のとき $U \to \infty$ となることを示しており, (2) より $\frac{n(n-1)}{2}$ 個の距離 $r_{kl}$ $(k < l)$ の最小値は $t \to t_1$ のとき $0$ に収束しなければならないことがわかる$^{(5)}$.
+
+\section{衝 突}
+
+6 個の重心積分 $(5;7)$ から, $n$ 体の重心 $P_0$ は等速直線運動をすることがわかる. 平行移動によって $P_0$ を原点とする動座標系を導入しても, 運動方程式 $(5;3)$ は不変に保たれる. そこで以下では $P_0$ は原点 $O$ に静止していると仮定しよう.
+
+次の重要な定理はスンドマンによって初めて証明された. 明らかにそれはすでにワイエルシュトラスによって知られていたが, 彼はその証明を与えなかった$^{(1)}$. 定理は次のことを述べている.
+
+---
+
+% ### 28ページ
+
+時刻 $t = t_1$ において $n$ 体すべてが 1 点で衝突するならば, 3 つの角運動量定数 $\alpha, \beta, \gamma$ はすべて $0$ でなければならない.
+
+重心は原点に止まっているので, $n$ 体の全衝突$^\dagger$が起こり得る点は原点 $O$ のみである. 式$^\ddagger$
+
+$$I = \sum_{q} mq^2 = \sum_{k=1}^{n} m_k (x_k^2 + y_k^2 + z_k^2)$$
+
+を導入すると, $\tau \leq t < t_1$ に対して
+
+$$(1) \qquad \begin{aligned} \frac{1}{2} \dot{I} &= \sum_{q} mq\dot{q}, \\ \frac{1}{2} \ddot{I} &= \sum_{q} m(\dot{q}^2 + q\ddot{q}) = 2T + \sum_{q} qU_q \end{aligned}$$
+
+である. $U$ は座標 $q$ に関して $-1$ 次の同次関数なので, よく知られたオイラーの定理により
+
+$$\sum_{q} qU_q = -U$$
+
+が従う. これにより, ラグランジュの公式と呼ばれる公式
+
+$$\frac{1}{2} \ddot{I} = 2T - U$$
+
+が得られるが, これはエネルギー積分 $T - U = h$ を用いれば
+
+$$(2) \qquad \frac{1}{2} \ddot{I} = T + h = U + 2h$$
+
+と表される. まず, すべての質点が時刻 $t_1$ で衝突するとは仮定しないで, 前節のように $t_1$ は少なくとも 1 つの座標 $q(t)$ に対する特異点であるとだけ仮定しよう. すでに見たように, このとき $U$ は $t \to t_1$ で $\infty$ になり, それゆえ, もし $t_2 < t_1$ が十分 $t_1$ に近ければ, (2) の右辺は区間 $t_2 \leq t < t_1$ 全体で正になる. よって
+
+$$\ddot{I} > 0 \quad (t_2 \leq t < t_1)$$
+
+であり, 関数 $\dot{I}$ は単調増加である. また, この区間で $\dot{I}$ はつねに正であるか, つねに負であると仮定してよい. というのは, $\dot{I}$ がこの区間内の, たとえば $t_3$ で符号を変え
+
+---
+$^\dagger$ すぐ上の定理で述べられているように, ある時刻で $n$ 体すべてが 1 点で衝突するとき, このようにいうことにする. 以下では簡単に $n$ 体衝突ともいう.
+$^\ddagger$ この関数は慣性モーメントと呼ばれる.
+
+---
+
+% ### 29ページ
+
+るとすると, $t_2$ を $t_3$ と $t_1$ の間の数でおきかえるだけでよいからである. よって正値関数 $I$ は区間 $t_2 \leq t < t_1$ で単調になり, それゆえ $t \to t_1$ で極限値をもつ. $I$ の定義より, この極限値は $n$ 体すべてが時刻 $t_1$ で原点で衝突するとき, かつそのときに限り $0$ になる.
+
+代数的な恒等式
+
+$$\sum_{k=1}^{g} \xi_k^2 \sum_{k=1}^{g} \eta_k^2 = \left( \sum_{k=1}^{g} \xi_k \eta_k \right)^2 + \sum_{k<l} (\xi_k \eta_l - \xi_l \eta_k)^2$$
+
+を $g = 3n, \, \xi_k = q\sqrt{m}, \, \eta_k = \dot{q}\sqrt{m}$ として用いると, (1) より公式
+
+$$(3) \qquad 2IT = \frac{1}{4} \dot{I}^2 + \sum_{k<l} (\xi_k \eta_l - \xi_l \eta_k)^2$$
+
+が得られ, 最後の和の中で $\xi_k, \eta_l$ として同じ質点に関するものだけをとってくると, 以下の評価が導かれる.
+
+$$2IT \geq \frac{1}{4} \dot{I}^2 + \sum_{k=1}^{n} m_k^2 \{ (y_k \dot{z}_k - z_k \dot{y}_k)^2 + (z_k \dot{x}_k - x_k \dot{z}_k)^2 + (x_k \dot{y}_k - y_k \dot{x}_k)^2 \}.$$
+
+一方, $(5;8)$ はシュワルツの不等式と合わせると
+
+$$\alpha^2 = \left\{ \sum_{k=1}^{n} m_k (y_k \dot{z}_k - z_k \dot{y}_k) \right\}^2 \leq n \sum_{k=1}^{n} m_k^2 (y_k \dot{z}_k - z_k \dot{y}_k)^2$$
+
+を意味し, $\beta, \gamma$ についても類似の不等式が成り立つので, 上の評価から
+
+$$(4) \qquad 2IT \geq \frac{1}{4} \dot{I}^2 + \eta, \quad \eta = \frac{\alpha^2 + \beta^2 + \gamma^2}{n}$$
+
+となる.
+
+定理の証明のためには, (4) の代わりにより弱い不等式
+
+$$2IT \geq \eta$$
+
+を考えれば十分であり, これは (2) より
+
+$$(5) \qquad \ddot{I} \geq \eta I^{-1} + 2h$$
+
+と同値である. もし $I$ が区間 $t_2 \leq t < t_1$ で単調減少ならば, (5) に正値の $-2\dot{I}$ を掛けて $t_2$ から $t$ まで積分することで
+
+$$\dot{I}_2^2 - \dot{I}^2 \geq 2\eta \log \frac{I_2}{I} + 4h(I_2 - I)$$
+
+
+
+\end{document}
