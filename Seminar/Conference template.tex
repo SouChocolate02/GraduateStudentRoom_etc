@@ -1,0 +1,64 @@
+\documentclass[12pt, uplatex, dvipdfmx, article]{jlreq}
+\usepackage{amssymb,amsmath,latexsym}
+\usepackage[skins]{tcolorbox}
+% \usepackage[haranoaji]{pxchfon} % 原ノ味フォントを使う
+
+
+% 5つの引数を受け取る \present コマンドの定義
+\newcommand{\speak}[5]{ %内部的にtcolorboxを使っている
+\begin{tcolorbox}[
+    colback= white,      % 背景色を白
+    colframe= white,     % 枠線を白色に
+    colbacktitle= white,
+    before skip= 1pt,    % ボックス外側の「上」余白
+    after skip= 1pt,     % ボックス外側の「下」余白
+    top= 0.7mm,            % ボックス内側の「上」余白
+    bottom= 0.7mm,         % ボックス内側の「下」余白
+    sidebyside,               % ボックスを左右に分割
+    sidebyside align= top,     % 上端を揃える
+    lefthand width= 28mm,      % 左側（時間）の幅
+    sidebyside gap= 3mm,       % 時間と講演者の間の隙間
+    lower separated= false     % 中央の区切り線を消す
+    ]
+    {#1}\hspace{1.5mm}～\hspace{1.5mm}{#2} %#1：開始時間、#2：終了時間
+    \tcblower                 % ここから右側（講演者・タイトル）
+    {#3}(#4)\\ %#3：講演者名、#4：所属・学年
+    {#5} %5：講演タイトル
+\end{tcolorbox}
+}
+
+
+\begin{document}
+\pagestyle{empty} %ページ番号を消す
+
+\begin{center}
+{\huge %研究集会名
+    ConferenceName
+}
+\vspace{12pt}
+
+%他詳細
+\begin{tabular}{l}
+    {日程：yyyy年mm月dd日 hh:mm～hh:mm}\\
+    {会場：where}\\
+    {形式：style}\\
+    {Zoomリンク：}
+\end{tabular}
+
+\vspace{10pt}
+    プログラム
+\end{center}
+
+% \speak{開始時間}{終了時間}{講演者}{所属}{学年}{講演タイトル}
+
+%Sampleデータなので実際に出力する際には消す
+\speak{12:00}{13:00}{山田太郎}{A大学・M1}{微分方程式について}
+\speak{13:00}{14:00}{佐藤花子}{B大学・B4}{整数論とゼータ関数の関係}
+
+
+%これより上に講演内容を書く
+
+\begin{flushleft} %世話人の名前(所属・学年)
+    世話人：XXX(YYY・M1)
+\end{flushleft}
+\end{document}
