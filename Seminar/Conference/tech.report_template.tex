@@ -1,0 +1,58 @@
+% このプリアンブルは削除しないでください.
+% ファイル名はローマ字で「myouji_namae.pdf」のようにしてください. 全て小文字で入力してください.
+% 例：wakete_taro.pdf
+% A4用紙2〜10ページで作成をお願いします.
+
+%---------------- BEGIN -----------------
+\documentclass[11pt, a4paper]{jsarticle}
+\usepackage[dvipdfm, truedimen, left= 25truemm, right= 25truemm, top= 30truemm, bottom= 30truemm]{geometry}
+\pagestyle{empty}
+%----------------- END ------------------
+
+% もし jarticle をご使用の場合は, 上記の BEGIN から END までをコメントアウトしてください.
+% その上で, 下記の BEGIN から END までと, \maketitle の直後のコメントアウトを解除してください.
+
+%---------------- BEGIN -----------------
+%\documentclass[11pt,a4paper]{jarticle}
+%\usepackage[dvipdfm,left=25mm,right=25mm,top=30mm,bottom=30mm]{geometry}
+%\pagestyle{empty}
+%----------------- END ------------------
+
+%%%%%%%% 以下のプリアンブルはご自由に編集してください. %%%%%%%%
+
+\title{講演のタイトル}    % ご自身の講演タイトル (申込み時に申請したもの) を記入してください.
+\author{XX大学大学院理学院 数学専攻 \\
+    若手太郎 (Taro WAKATE) 
+    \footnote{E-mail:wakate@g.nihon-u.ac.jp}}
+% ご自身のお名前 (漢字とローマ字両方), 正式な所属を記載してください.
+% 苗字のローマ字は全て大文字で記載してください.
+\date{}    % ここは空欄のままでお願いします.
+
+\begin{document}
+
+\maketitle
+%\thispagestyle{empty}    % jarticle をご使用の場合はここも解除してください.
+
+\begin{abstract}    % ご自身のアブストラクトを記述してください.
+    アブストラクトを記述してください.
+\end{abstract}
+
+%%%%%%%% 以下の本文はご自由にお書きください. %%%%%%%%
+
+\section{導入}
+    ここに本文を記述してください.
+    当集会は幅広い分野の交流を目的としております.
+    他分野の方にも分かりやすいように, 入門的な事項を含んだものをお願いいたします.
+
+\section{主定理}
+    主結果や主定理, 「〇〇を明らかにした」などの言葉を使うことで新規性を明示的に記述してください.
+
+
+\begin{thebibliography}{9}
+\bibitem{bib1} Campbell, S.L., Gear, C.W.: 
+The index of general nonlinear DAES. Numer. Math. \textbf{72}(2), 173--196 (1995)
+
+\bibitem{bib2} Geddes, K.O., Czapor, S.R., Labahn, G.: 
+Algorithms for Computer Algebra. Kluwer, Boston (1992)
+\end{thebibliography}
+\end{document}
