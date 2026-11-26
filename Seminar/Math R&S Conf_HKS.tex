@@ -1,0 +1,73 @@
+\documentclass[12pt, uplatex, dvipdfmx, article]{jlreq}
+\usepackage{amssymb,amsmath,latexsym}
+\usepackage[skins]{tcolorbox}
+% \usepackage[haranoaji]{pxchfon} % 原ノ味フォントを使う
+
+
+% 5つの引数を受け取る \present コマンドの定義
+\newcommand{\speak}[5]{ %内部的にtcolorboxを使っている
+\begin{tcolorbox}[
+    colback= white,      % 背景色を白
+    colframe= white,     % 枠線を白色に
+    colbacktitle= white,
+    before skip= 1pt,    % ボックス外側の「上」余白
+    after skip= 1pt,     % ボックス外側の「下」余白
+    top= 0.7mm,            % ボックス内側の「上」余白
+    bottom= 0.7mm,         % ボックス内側の「下」余白
+    sidebyside,               % ボックスを左右に分割
+    sidebyside align= top,     % 上端を揃える
+    lefthand width= 28mm,      % 左側（時間）の幅
+    sidebyside gap= 3mm,       % 時間と講演者の間の隙間
+    lower separated= false     % 中央の区切り線を消す
+    ]
+    {#1}\hspace{1.5mm}～\hspace{1.5mm}{#2} %#1：開始時間、#2：終了時間
+    \tcblower                 % ここから右側（講演者・タイトル）
+    {#3}(#4)\\ %#3：講演者名、#4：所属・学年
+    {#5} %5：講演タイトル
+\end{tcolorbox}
+}
+
+
+\begin{document}
+\pagestyle{empty} %ページ番号を消す
+
+\begin{center}
+{\huge %研究集会名
+    Mathematical Research\&Study Conference\\
+    in Hakkaisan 2027
+}
+\vspace{12pt}
+
+%他詳細
+\begin{tabular}{l}
+    {日程：2027年1月3日 12:00～18:00}\\
+    {会場：日本大学　八海山セミナーハウス}\\
+    {形式：対面/オンラインハイブリッド開催(オンラインは聴講のみ)}\\
+    {Zoomリンク：}
+\end{tabular}
+
+\vspace{10pt}
+    プログラム
+\end{center}
+
+% \speak{開始時間}{終了時間}{講演者}{所属}{学年}{講演タイトル}
+
+
+% \speak{12:00}{13:00}{山田太郎}{A大学}{M1}{微分方程式について}
+% \speak{13:00}{14:00}{佐藤花子}{B大学}{B4}{代数方程式}
+
+\speak{12:00}{12:20}{川村 聡一郎}{日大理工院・M1}{Allen-Cahn方程式の導出とパラメータの関係付け}
+
+\speak{12:30}{12:50}{田中 涼太}{日大院理工学研究科・M1}{いろんなイデアルの対応関係}
+
+\speak{13:00}{13:20}{川村 聡一郎}{日大院理工学研究科・M1}{最近の数学界隈を騒がせる定理証明支援系-Lean-とは？}
+
+\speak{13:30}{13:50}{宮崎 裕貴}{日大院理工学研究科・M2}{TBA}
+
+
+%これより上に講演内容を書く
+
+\begin{flushleft} %世話人の名前
+    世話人：川村聡一郎(日大院・M1)
+\end{flushleft}
+\end{document}
