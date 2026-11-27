@@ -1,5 +1,5 @@
 \documentclass[12pt, uplatex, dvipdfmx, article]{jlreq}
-\usepackage{amssymb,amsmath,latexsym}
+\usepackage{amssymb, amsmath, latexsym}
 \usepackage[skins]{tcolorbox}
 % \usepackage[haranoaji]{pxchfon} % 原ノ味フォントを使う
 
@@ -7,22 +7,22 @@
 % 5つの引数を受け取る \present コマンドの定義
 \newcommand{\speak}[5]{ %内部的にtcolorboxを使っている
 \begin{tcolorbox}[
-    colback= white,      % 背景色を白
-    colframe= white,     % 枠線を白色に
+    colback= white,        %背景色を白
+    colframe= white,       %枠線を白色に
     colbacktitle= white,
-    before skip= 1pt,    % ボックス外側の「上」余白
-    after skip= 1pt,     % ボックス外側の「下」余白
-    top= 0.7mm,            % ボックス内側の「上」余白
-    bottom= 0.7mm,         % ボックス内側の「下」余白
-    sidebyside,               % ボックスを左右に分割
-    sidebyside align= top,     % 上端を揃える
-    lefthand width= 28mm,      % 左側（時間）の幅
-    sidebyside gap= 3mm,       % 時間と講演者の間の隙間
-    lower separated= false     % 中央の区切り線を消す
+    before skip= 1pt,      %ボックス外側の「上」余白
+    after skip= 1pt,       %ボックス外側の「下」余白
+    top= 0.7mm,            %ボックス内側の「上」余白
+    bottom= 0.7mm,         %ボックス内側の「下」余白
+    sidebyside,            %ボックスを左右に分割
+    sidebyside align= top, %上端を揃える
+    lefthand width= 28mm,  %左側（時間）の幅
+    sidebyside gap= 3mm,   %時間と講演者の間の隙間
+    lower separated= false %中央の区切り線を消す
     ]
     {#1}\hspace{1.5mm}～\hspace{1.5mm}{#2} %#1：開始時間、#2：終了時間
     \tcblower                 % ここから右側（講演者・タイトル）
-    {#3}(#4)\\ %#3：講演者名、#4：所属・学年
+    {#3}(#4)\\ %#3：講演者名、#4：所属・指導教員名学年・分野
     {#5} %5：講演タイトル
 \end{tcolorbox}
 }
@@ -33,8 +33,7 @@
 
 \begin{center}
 {\huge %研究集会名
-    Mathematical Research\&Study Conference\\
-    in Hakkaisan 2027
+    Workshop on Mathematical Research\&Study Conference in Hakkaisan 2027
 }
 \vspace{12pt}
 
@@ -56,18 +55,46 @@
 % \speak{12:00}{13:00}{山田太郎}{A大学}{M1}{微分方程式について}
 % \speak{13:00}{14:00}{佐藤花子}{B大学}{B4}{代数方程式}
 
-\speak{12:00}{12:20}{川村 聡一郎}{日大理工院・M1}{Allen-Cahn方程式の導出とパラメータの関係付け}
+\speak{12:00}{12:20}{川村 聡一郎}{日大理工院・水野研M1・応用}{Allen-Cahn方程式の導出とパラメータの関係付け}
 
-\speak{12:30}{12:50}{田中 涼太}{日大院理工学研究科・M1}{いろんなイデアルの対応関係}
+\speak{12:30}{12:50}{田中 涼太}{日大理工院・月岡研M1・代数}{いろんなイデアルの対応関係}
 
-\speak{13:00}{13:20}{川村 聡一郎}{日大院理工学研究科・M1}{最近の数学界隈を騒がせる定理証明支援系-Lean-とは？}
+\speak{13:00}{13:20}{川村 聡一郎}{日大理工院・水野研M1・応用}{最近の数学界隈を騒がせる定理証明支援系-Lean-とは？}
 
-\speak{13:30}{13:50}{宮崎 裕貴}{日大院理工学研究科・M2}{TBA}
+\speak{13:30}{13:50}{宮崎 裕貴}{日大理工院・伊藤研M2・応用}{TBA}
+
+
+%講演未定者 院生
+\speak{hh:mm}{hh:mm}{鈴木 輝星}{日大理工院・平石研M1・応用}{TBA}
+\speak{hh:mm}{hh:mm}{岡田 晟}{日大理工院・水野研M1・応用}{TBA}
+\speak{hh:mm}{hh:mm}{鈴木 聖也}{中大XX理工院・XXM1・解析}{TBA}
+
+\speak{hh:mm}{hh:mm}{HU BOQING}{日大理工院・青柳研M1・応用}{TBA}
+\speak{hh:mm}{hh:mm}{江原 響}{日大理工院・小紫研M1・応用}{TBA}
+\speak{hh:mm}{hh:mm}{廣瀬 友大}{日大理工院・小紫研M1・応用}{TBA}
+\speak{hh:mm}{hh:mm}{小久保 勇亮}{日大理工院・伊藤研M1・応用}{TBA}
+\speak{hh:mm}{hh:mm}{相馬 悠人}{日大理工院・石原研M1・応用}{TBA}
+\speak{hh:mm}{hh:mm}{松山 由佳}{日大理工院・青柳研M1・応用}{TBA}
+\speak{hh:mm}{hh:mm}{三瓶 那々花}{日大理工院・石原研M1・応用}{TBA}
+\speak{hh:mm}{hh:mm}{斑目 穂高}{日大理工院・小紫研M1・応用}{TBA}
+\speak{hh:mm}{hh:mm}{小野 雅弘}{日大理工院・善本研M1・応用}{TBA}
+\speak{hh:mm}{hh:mm}{中村 京志郎}{日大理工院・平石研M1・応用}{TBA}
+\speak{hh:mm}{hh:mm}{丸山 晃汰}{日大理工院・平田研M1・応用}{TBA}
+\speak{hh:mm}{hh:mm}{菊池 健太}{日大理工院・橋口研M1・応用}{TBA}
+
+
+%講演未定者 学部生
+\speak{hh:mm}{hh:mm}{栗田}{日大理工・平石研B4・応用}{TBA}
+\speak{hh:mm}{hh:mm}{末次}{日大理工・青柳研B4・応用}{TBA}
+\speak{hh:mm}{hh:mm}{岩橋 優里伽}{日大理工・水野研B4・解析}{TBA}
+\speak{hh:mm}{hh:mm}{心春}{日大理工・小紫研B4・応用}{TBA}
+
+
 
 
 %これより上に講演内容を書く
 
 \begin{flushleft} %世話人の名前
-    世話人：川村聡一郎(日大院・M1)
+    世話人：川村聡一郎(日大理工院・M1)
 \end{flushleft}
 \end{document}
